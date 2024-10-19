@@ -1,0 +1,465 @@
+html.is-clipped--navbar {
+  overflow-y: hidden;
+}
+
+body {
+  padding-top: var(--navbar-height);
+}
+
+/*******************
+******* Logo *******
+********************/
+
+.bonita-logo {
+  background: url(../img/bonitasoft-logo.svg) no-repeat 50% 45%;
+  background-size: contain;
+  display: block;
+  height: 3.5rem;
+  padding: 0;
+  width: 9.5rem;
+}
+
+/*******************
+****** Navbar ******
+********************/
+
+.navbar {
+  background: var(--navbar-background);
+  color: var(--navbar-font-color);
+  font-size: calc(16 / var(--rem-base) * 1rem);
+  height: var(--navbar-height);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  word-wrap: break-word;
+  z-index: var(--z-index-navbar);
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    background: var(--navbar-button-background);
+    border: 1px solid var(--navbar-button-border-color);
+    border-radius: 0.15rem;
+    height: 1.75rem;
+    color: var(--navbar-button-font-color);
+    padding: 0 0.75em;
+    white-space: nowrap;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.navbar-nonProduction {
+  background: var(--color-red-bonita);
+
+  .navbar-item-nonProduction {
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    line-height: var(--doc-line-height);
+    padding: 0 0.5rem;
+    position: relative;
+    color: var(--color-unfocused);
+    flex-grow: 1;
+  }
+}
+
+.navbar-brand {
+  align-items: stretch;
+  display: flex;
+  flex-shrink: 0;
+  height: var(--navbar-height);
+
+  .navbar-item:first-child,
+  .navbar-item:first-child a {
+    color: var(--navbar-font-color);
+    font-size: calc(22 / var(--rem-base) * 1rem);
+  }
+}
+
+/************************
+****** Navbar menu ******
+*************************/
+
+.search-icon {
+  background: url(../img/search.svg) no-repeat;
+  background-size: contain;
+  display: block;
+  height: 1rem;
+  padding: 0;
+  width: 1rem;
+  opacity: inherit;
+  filter: var(--filter-icon-search); // On large screen the search is on the toolbar, which is always dark
+}
+
+.navbar-item {
+  display: block;
+  line-height: var(--doc-line-height);
+  padding: 0.5rem;
+  position: relative;
+  flex: none;
+  color: var(--color-white);
+}
+
+/*******************
+****** Burger ******
+********************/
+
+.navbar-burger {
+  color: var(--navbar-font-color);
+  background: none;
+  border: none;
+  outline: none;
+  line-height: 1;
+  height: var(--navbar-height);
+  position: relative;
+  width: 2rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    background: var(--navbar-font-color);
+    display: block;
+    height: 1px;
+    left: 50%;
+    margin-left: -7px;
+    position: absolute;
+    top: 50%;
+    width: 15px;
+  }
+
+  span:nth-child(1) {
+    margin-top: -6px;
+  }
+
+  span:nth-child(2) {
+    margin-top: -1px;
+  }
+
+  span:nth-child(3) {
+    margin-top: 4px;
+  }
+
+  .is-active span:nth-child(1) {
+    margin-left: -5px;
+    transform: rotate(45deg);
+    transform-origin: left top;
+  }
+
+  .is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .is-active span:nth-child(3) {
+    margin-left: -5px;
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
+  }
+}
+
+/******************   */
+/***** Search ******/
+/******************   */
+
+.search-bar {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background-color: transparent;
+  color: var(--color-focused);
+  border: none;
+  border-bottom: 1px solid var(--color-unfocused);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  line-height: 1.8;
+  width: 15rem;
+  opacity: 1;
+
+  &::placeholder {
+    color: var(--navbar-unfocused-font-color);
+    font-style: italic;
+  }
+}
+
+/**************************
+********* TOGGLE **********
+***************************/
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+.toggle-content {
+  background-color: transparent;
+  color: var(--navbar-menu-font-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.checkbox {
+  display: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: var(--color-blue-nmcr);
+  border: 2px solid var(--color-focused);
+  opacity: 0.85;
+  border-radius: 5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.3rem;
+  height: 1.8rem;
+  width: 3.8rem;
+  font-size: 0.9rem;
+  transition: background 0.5s ease;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    opacity: 1;
+
+    .ball {
+      box-shadow: 0 0 5px 3px var(--color-blue-bright);
+    }
+  }
+}
+
+.label .ball {
+  position: absolute;
+  background-color: var(--color-focused);
+  border-radius: 50%;
+  left: 0.25rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  transform: translateX(0);
+
+  &:hover {
+    box-shadow: 0 0 5px 3px var(--color-blue-bright);
+  }
+}
+
+.checkbox:checked + .toggle-content .label .ball {
+  transform: translateX(1.7rem);
+}
+
+.checkbox:checked + .toggle-content {
+  --dark-opacity: 1;
+  --light-opacity: 0;
+}
+
+/**************************
+****** Media Queries ******
+***************************/
+
+/* Colors for large screens */
+@media screen and (min-width: 1024px) {
+  .navbar-menu {
+    > .navbar-item {
+      color: var(--navbar-unfocused-font-color);
+
+      &:hover {
+        border-top: 4px solid var(--color-red-bonita);
+      }
+
+      a:hover {
+        color: var(--navbar-focused-font-color);
+      }
+    }
+
+    .navbar-link {
+      color: var(--navbar-unfocused-font-color);
+
+      &::after {
+        border-color: var(--navbar-unfocused-font-color);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+/* Colors for small screens */
+@media screen and (max-width: 1023px) {
+  .navbar-menu-mobile {
+    background: var(--color-smoke-50);
+
+    .navbar-item {
+      background-color: var(--color-white);
+      border: 2px solid var(--color-white);
+      border-radius: 5px;
+      margin: 10px;
+      box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    }
+
+    .navbar-link {
+      font-weight: bold;
+    }
+
+    .navbar-link,
+    .navbar-item a {
+      color: var(--color-nav-item);
+    }
+
+    > a.navbar-item:hover,
+    .navbar-link:hover,
+    .navbar-item:hover,
+    .navbar-menu-mobile .navbar-item:hover a {
+      background-color: var(--color-nav-item);
+
+      .navbar-link {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  .navbar-menu-mobile.is-active {
+    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+  }
+}
+
+/* Layout for large screens */
+@media screen and (min-width: 1024px) {
+  .navbar,
+  .navbar-menu,
+  .navbar-end {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .navbar-menu {
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+  }
+
+  .navbar-menu-mobile {
+    display: none;
+  }
+
+  .navbar-burger {
+    display: none;
+  }
+
+  .navbar-item {
+    align-items: center;
+    display: flex;
+  }
+
+  a.navbar-item:hover {
+    background-color: var(--navbar-unfocused-font-color);
+    color: var(--color-blue-nmcr);
+  }
+
+  .input-container {
+    // input container will probably need to be removed
+    display: none;
+  }
+}
+
+/* Layout for small screens */
+@media screen and (max-width: 1023px) {
+  .navbar {
+    display: flex;
+  }
+
+  .navbar-end {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .navbar-brand .navbar-item {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .navbar-brand {
+    flex-grow: 1;
+  }
+
+  .bonita-logo {
+    background: url(../img/bonitasoft-logo.svg) no-repeat 50% 45%;
+    opacity: 1;
+    background-size: contain;
+  }
+
+  .search-item {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-menu-mobile {
+    display: none;
+  }
+
+  .navbar-menu-mobile,
+  .navbar-end {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-menu-mobile.is-active {
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: var(--z-index-mobile-menu);
+  }
+
+  summary {
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  summary:focus {
+    outline-style: none;
+  }
+
+  summary .navbar-link {
+    padding: 0;
+    display: inline;
+  }
+
+  .search-bar {
+    line-height: 1.8;
+    width: 100%;
+    opacity: 1;
+    border: none;
+
+    &::placeholder {
+      color: var(--color-gray-70);
+      font-style: italic;
+    }
+  }
+
+  .label span {
+    height: 1rem;
+  }
+
+  .navbar-nonProduction .hidden-xs {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-brand .navbar-item + .navbar-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

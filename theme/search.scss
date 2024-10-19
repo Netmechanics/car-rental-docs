@@ -1,0 +1,17 @@
+.DocSearch-Button:active, .DocSearch-Button:focus, .DocSearch-Button:hover {
+    box-shadow: none;
+}
+
+.DocSearch-Hits mark {
+  color: var(--color-search-mark-highlight);
+}
+
+.DocSearch-Hit-source {
+  color: var(--color-search-hit-source-highlight);
+}
+
+.DocSearch-Hit {
+  a:hover {
+    text-decoration: none;
+  }
+}

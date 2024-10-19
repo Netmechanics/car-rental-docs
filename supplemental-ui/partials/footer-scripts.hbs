@@ -1,0 +1,11 @@
+<script id="site-script" src="{{{uiRootPath}}}/js/site.js" data-ui-root-path="{{{uiRootPath}}}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>
+	hljs.highlightAll();
+</script>
+
+{{#if env.SITE_SEARCH_PROVIDER}}
+	{{> search-scripts}}
+{{/if}}
+

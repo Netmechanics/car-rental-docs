@@ -1,0 +1,105 @@
+.toolbar {
+  color: var(--toolbar-font-color);
+  align-items: center;
+  background-color: var(--toolbar-background);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  display: flex;
+  font-size: calc(15 / var(--rem-base) * 1rem);
+  height: unset!important;
+  justify-content: flex-start;
+  position: sticky;
+  top: var(--navbar-height);
+  width: 100%;
+  z-index: var(--z-index-toolbar);
+
+  a {
+    color: inherit;
+  }
+
+}
+
+.toolbar.toolbar-wrap {
+  flex-wrap: wrap;
+}
+
+.nav-toggle {
+  background: url(../img/menu.svg) no-repeat 50% 47.5%;
+  background-size: 49%;
+  border: none;
+  outline: none;
+  line-height: inherit;
+  height: 2.5rem;
+  padding: 0;
+  width: 2.5rem;
+  margin-right: -0.25rem;
+  filter: var(--filter-icon);
+}
+
+.nav-toggle.is-active {
+  background-image: url(../img/back.svg);
+  background-size: 41.5%;
+  filter: var(--filter-icon);
+}
+
+.home-link {
+  background: url(../img/home-o.svg) no-repeat 50% 45%;
+  background-size: 50%;
+  display: block;
+  padding: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  filter: var(--filter-icon);
+}
+
+.home-link.is-current {
+  background-image: url(../img/home.svg);
+  filter: var(--filter-icon);
+}
+
+.page-icons {
+  display: none;
+  padding-right: 0.5rem;
+  -webkit-filter: var(--filter-icon);
+  filter: var(--filter-icon);
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.page-icon {
+  padding-left: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.page-icons {
+  display: block;
+  margin-left: auto;
+}
+
+
+.message-block {
+  text-align: center;
+  width:100%;
+
+  a {
+    text-decoration-line: underline;
+  }
+}
+
+.out-of-support-block {
+  background-color: var(--color-admonition-important-bg);
+  border-color: var(--color-admonition-important);
+  color: var(--color-admonition-important-text);
+}
+
+.next-release-block,.custom-message-block {
+  background-color: var(--color-admonition-note-bg);
+  border-color: var(--color-admonition-note);
+  color: var(--color-admonition-note-text);
+}

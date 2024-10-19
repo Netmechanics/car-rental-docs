@@ -1,0 +1,46 @@
+site:
+  title: CarRental Documentation
+  start_page: nmcr::index.adoc
+  robots: allow
+  keys:
+    nmv_use_logo: false
+
+git:
+  ensure_git_suffix: false
+
+urls:
+  html_extension_style: indexify
+  latest_version_segment: latest
+  latest_version_segment_strategy: redirect:to
+
+content:
+  edit_url: false
+  sources:
+    - url: .
+      branches:
+        - master
+      start_path: docs
+
+ui:
+  bundle:
+    snapshot: true
+#    url: http://192.168.3.15/antora/ui-bundle.zip
+#    url: ../../../workspace_nmv/nmv-docs-ui/build/ui-bundle.zip
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+  supplemental_files: ./supplemental-ui
+
+asciidoc:
+  sourcemap: false
+  attributes:
+    hide-uri-scheme: ~
+#    icons: font
+  extensions:
+    - 'asciidoctor-kroki'
+    - '@asciidoctor/tabs'
+
+antora:
+  extensions:
+    - require: '@antora/atlas-extension'
+    - require: '@antora/lunr-extension'
+      languages: [en, el]
+      index_latest_only: true
