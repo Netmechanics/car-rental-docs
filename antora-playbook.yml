@@ -2,8 +2,6 @@ site:
   title: CarRental Documentation
   start_page: nmcr::index.adoc
   robots: allow
-  keys:
-    nmv_use_logo: false
 
 git:
   ensure_git_suffix: false
@@ -24,8 +22,6 @@ content:
 ui:
   bundle:
     snapshot: true
-#    url: http://192.168.3.15/antora/ui-bundle.zip
-#    url: ../../../workspace_nmv/nmv-docs-ui/build/ui-bundle.zip
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
   supplemental_files: ./supplemental-ui
 
