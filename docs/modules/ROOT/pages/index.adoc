@@ -9,3 +9,9 @@ include::partial$caution.adoc[]
 == aaaa
 
 NOTE: ssss
+
+TIP: ssss
+
+IMPORTANT: ssss
+
+WARNING: ssss

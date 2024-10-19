@@ -17,8 +17,9 @@
   --color-jet-70: #222;
   --color-jet-80: #191919;
   --color-black: #000;
-  --color-blue-nmcr: #1E4D7A;
-  --color-red-bonita: #dd042b;
+  --color-blue-nmcr: #205282;
+  --color-red-nmcr: #dd042b;
+  --color-green-nmcr: #22a88a;
   --color-unfocused: #ffffffc2;
   --color-focused: #fff;
   --color-link: #104d92;
@@ -162,7 +163,6 @@
   --toc-height-with-message-block: calc(var(--toc-height) - var(--header-message-height));
   --toc-width: calc(162 / var(--rem-base) * 1rem);
   --toc-width--widescreen: calc(216 / var(--rem-base) * 1rem);
-  --doc-max-width: calc(720 / var(--rem-base) * 1rem);
   --doc-max-width: 100%;
   --doc-max-width--desktop: 100%;
   --z-index-toolbar: 1;
@@ -172,7 +172,7 @@
   --z-index-mobile-menu: 5;
   --border-radius: 0.3rem;
   --filter-icon: invert(0%) sepia(98%) saturate(9%) hue-rotate(152deg) brightness(100%) contrast(102%);
-  --filter-logo-footer: invert(0);
+  --filter-logo-header: drop-shadow(.05rem .05rem .05rem white);
   --filter-fire-icon: invert(9%) sepia(91%) saturate(5800%) hue-rotate(2deg) brightness(101%) contrast(115%); }
 
 html[data-theme='dark'] {
@@ -194,7 +194,7 @@ html[data-theme='dark'] {
   --color-jet-80: #eee;
   --color-black: #fff;
   --color-blue-nmcr: #2a2f43;
-  --color-red-bonita: #ca4a53;
+  --color-red-nmcr: #ca4a53;
   --color-unfocused: #dcdcdcc2;
   --color-focused: #fff;
   --color-link: #00d9ff;
@@ -228,7 +228,6 @@ html[data-theme='dark'] {
   --color-troubleshooting-border: #f5c80071;
   --filter-icon: invert(100%) sepia(0%) saturate(7500%) hue-rotate(39deg) brightness(112%) contrast(112%);
   --filter-icon-search: invert(100%) sepia(0%) saturate(7500%) hue-rotate(39deg) brightness(112%) contrast(112%);
-  --filter-logo-footer: brightness(0) invert(1);
   --filter-fire-icon: invert(72%) sepia(92%) saturate(1187%) hue-rotate(3deg) brightness(100%) contrast(100%);
   --color-search-mark-highlight: var(--color-higlight);
   --color-search-hit-source-highlight: var(--color-higlight);
@@ -1384,7 +1383,7 @@ a + .breadcrumbs {
     .doc .admonitionblock.note table.tableblock > :not(thead) th {
       border-top-color: var(--color-admonition-note);
       border-bottom-color: var(--color-admonition-note); }
-  .doc .admonitionblock.note.bonitacloud .icon i.fa.icon-note::before {
+  .doc .admonitionblock.note.nmcrcloud .icon i.fa.icon-note::before {
     background: url("../img/cloud.svg") no-repeat;
     background-color: var(--color-admonition-note);
     border-radius: 50%; }
@@ -1607,7 +1606,7 @@ a + .breadcrumbs {
 .pagenotfound {
   text-align: center;
   margin-bottom: 100px;
-  color: var(--color-red-bonita);
+  color: var(--color-red-nmcr);
   font-size: 24px; }
 
 .pagenotfound > img {
@@ -1632,7 +1631,7 @@ nav.pagination {
       font-size: 0.75em;
       padding-bottom: 0.1em; }
     nav.pagination .pagination-nav:hover {
-      border-color: var(--color-red-bonita);
+      border-color: var(--color-red-nmcr);
       text-decoration: none; }
     nav.pagination .pagination-nav.next {
       grid-column: 2/3;
@@ -1660,13 +1659,14 @@ body {
 /*******************
 ******* Logo *******
 ********************/
-.bonita-logo {
-  background: url(../img/bonitasoft-logo.svg) no-repeat 50% 45%;
+.nmcr-logo {
+  background: url(../img/logo.svg) no-repeat 50% 45%;
   background-size: contain;
   display: block;
   height: 3.5rem;
   padding: 0;
-  width: 9.5rem; }
+  width: 18rem;
+  filter: var(--filter-logo-header); }
 
 /*******************
 ****** Navbar ******
@@ -1695,7 +1695,7 @@ body {
     text-decoration: none; }
 
 .navbar-nonProduction {
-  background: var(--color-red-bonita); }
+  background: var(--color-red-nmcr); }
   .navbar-nonProduction .navbar-item-nonProduction {
     align-items: center;
     font-size: 1.3rem;
@@ -1868,7 +1868,7 @@ body {
   .navbar-menu > .navbar-item {
     color: var(--navbar-unfocused-font-color); }
     .navbar-menu > .navbar-item:hover {
-      border-top: 4px solid var(--color-red-bonita); }
+      border-top: 4px solid var(--color-red-nmcr); }
     .navbar-menu > .navbar-item a:hover {
       color: var(--navbar-focused-font-color); }
   .navbar-menu .navbar-link {
@@ -1944,8 +1944,8 @@ body {
     flex-grow: 1; }
   .navbar-brand {
     flex-grow: 1; }
-  .bonita-logo {
-    background: url(../img/bonitasoft-logo.svg) no-repeat 50% 45%;
+  .nmcr-logo {
+    background: url(../img/logo.svg) no-repeat 50% 45%;
     opacity: 1;
     background-size: contain; }
   .search-item {
@@ -1993,8 +1993,7 @@ footer {
   display: block;
   background-color: var(--color-footer);
   color: var(--body-font-color);
-  padding: 2rem;
-  padding-bottom: 1rem; }
+  padding-top: 2rem; }
   footer .footer-body {
     display: block; }
     footer .footer-body .footer-content {
@@ -2008,13 +2007,16 @@ footer {
         line-height: 1.2rem; }
     footer .footer-body .social-links,
     footer .footer-body .footer-footer {
+      background-color: #2F277C;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center; }
       footer .footer-body .social-links ul,
       footer .footer-body .footer-footer ul {
-        list-style-type: none; }
+        list-style-type: none;
+        padding: 0; }
         footer .footer-body .social-links ul li,
         footer .footer-body .footer-footer ul li {
           display: inline;
@@ -2026,9 +2028,18 @@ footer {
             text-decoration: none; }
             footer .footer-body .social-links ul li a svg,
             footer .footer-body .footer-footer ul li a svg {
-              height: 1.2rem;
-              width: 1.2rem;
-              fill: var(--color-red-bonita); }
+              height: 2rem;
+              width: 2rem;
+              stroke-width: 0;
+              stroke: #2f277c;
+              fill: #fff;
+              padding: 6px;
+              border: 1px solid #fff;
+              border-radius: 50%; }
+              footer .footer-body .social-links ul li a svg:hover,
+              footer .footer-body .footer-footer ul li a svg:hover {
+                background-color: #ff6170;
+                border-color: #ff6170; }
       footer .footer-body .social-links .border-right li,
       footer .footer-body .footer-footer .border-right li {
         border-right: 0.1rem solid var(--body-font-color);
@@ -2037,19 +2048,19 @@ footer {
         footer .footer-body .footer-footer .border-right li:last-child {
           border-right: none; }
     footer .footer-body .footer-footer {
-      display: block;
-      font-size: 0.7rem; }
+      padding: 5px 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8rem; }
       footer .footer-body .footer-footer a {
         text-decoration: none;
         color: var(--body-font-color); }
-      footer .footer-body .footer-footer .footer-bonita-logo {
-        background: url(../img/bonita-logo-color.svg) no-repeat;
+      footer .footer-body .footer-footer .footer-nmcr-logo {
+        background: url(../img/nm_logo.svg) no-repeat;
         background-size: contain;
-        height: 2rem;
-        width: 7rem;
-        margin: 1rem auto;
-        display: block;
-        filter: var(--filter-logo-footer); }
+        height: 3rem;
+        width: 17rem;
+        display: block; }
 
 .logos {
   padding-left: 0.5rem; }
@@ -2203,7 +2214,7 @@ footer {
     box-shadow: none;
     top: 0; }
   .card-index a:hover {
-    border: 2px solid var(--color-red-bonita);
+    border: 2px solid var(--color-red-nmcr);
     transform: translateY(-3px);
     top: -3px;
     box-shadow: 0 10px 20px 0 var(--color-card-shadow);

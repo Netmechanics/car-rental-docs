@@ -10,13 +10,14 @@ body {
 ******* Logo *******
 ********************/
 
-.bonita-logo {
-  background: url(../img/bonitasoft-logo.svg) no-repeat 50% 45%;
+.nmcr-logo {
+  background: url(../img/logo.svg) no-repeat 50% 45%;
   background-size: contain;
   display: block;
   height: 3.5rem;
   padding: 0;
-  width: 9.5rem;
+  width: 18rem;
+	filter: var(--filter-logo-header);
 }
 
 /*******************
@@ -52,7 +53,7 @@ body {
 }
 
 .navbar-nonProduction {
-  background: var(--color-red-bonita);
+  background: var(--color-red-nmcr);
 
   .navbar-item-nonProduction {
     align-items: center;
@@ -271,7 +272,7 @@ body {
       color: var(--navbar-unfocused-font-color);
 
       &:hover {
-        border-top: 4px solid var(--color-red-bonita);
+        border-top: 4px solid var(--color-red-nmcr);
       }
 
       a:hover {
@@ -391,8 +392,8 @@ body {
     flex-grow: 1;
   }
 
-  .bonita-logo {
-    background: url(../img/bonitasoft-logo.svg) no-repeat 50% 45%;
+  .nmcr-logo {
+    background: url(../img/logo.svg) no-repeat 50% 45%;
     opacity: 1;
     background-size: contain;
   }
