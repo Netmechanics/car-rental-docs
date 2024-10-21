@@ -5,22 +5,20 @@
 				<a class="nmcr-logo" href="{{{or site.url (or siteRootUrl siteRootPath)}}}"></a>
 			</div>
 		</div>
-
-		<div id="topbar-nav" class="navbar-menu">
-		</div>
-
+		<div id="topbar-nav" class="navbar-menu"></div>
 		<div class="navbar-end" id="search-container">
 			{{#if env.SITE_SEARCH_PROVIDER}}
 				<div class="navbar-item">
 					<input id="search-input" type="text" placeholder="Search docs"{{#if page.home}} autofocus{{/if}}>
 				</div>
 			{{/if}}
-
-			<button class="navbar-burger" data-target="topbar-nav-mobile">
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
+			{{!--
+						<button class="navbar-burger" data-target="topbar-nav-mobile">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+			--}}
 		</div>
 	</nav>
 </header>

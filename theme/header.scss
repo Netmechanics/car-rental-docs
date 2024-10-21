@@ -17,6 +17,7 @@ body {
   height: 3.5rem;
   padding: 0;
   width: 18rem;
+	-webkit-filter: var(--filter-logo-header);
 	filter: var(--filter-logo-header);
 }
 
@@ -393,9 +394,9 @@ body {
   }
 
   .nmcr-logo {
-    background: url(../img/logo.svg) no-repeat 50% 45%;
-    opacity: 1;
+    background: url(../img/logo_sm.svg) no-repeat 50% 45%;
     background-size: contain;
+		width: 9.5rem;
   }
 
   .search-item {

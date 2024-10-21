@@ -14,7 +14,6 @@ footer {
       font-size: 0.8rem;
       text-align: center;
       padding: 0 5rem;
-
       p {
         line-height: 1.2rem;
       }
@@ -104,13 +103,13 @@ footer {
 
 @media screen and (max-width: 767px) {
   footer {
-    padding: 1rem 2rem;
+    padding-top: 0;
 
     .footer-body {
       margin-top: 1rem;
 
       .footer-content {
-        padding: 0;
+				padding: 0;
       }
 
       .social-links {

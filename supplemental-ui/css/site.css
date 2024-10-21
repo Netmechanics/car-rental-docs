@@ -1666,6 +1666,7 @@ body {
   height: 3.5rem;
   padding: 0;
   width: 18rem;
+  -webkit-filter: var(--filter-logo-header);
   filter: var(--filter-logo-header); }
 
 /*******************
@@ -1945,9 +1946,9 @@ body {
   .navbar-brand {
     flex-grow: 1; }
   .nmcr-logo {
-    background: url(../img/logo.svg) no-repeat 50% 45%;
-    opacity: 1;
-    background-size: contain; }
+    background: url(../img/logo_sm.svg) no-repeat 50% 45%;
+    background-size: contain;
+    width: 9.5rem; }
   .search-item {
     display: flex;
     justify-content: flex-end; }
@@ -2071,7 +2072,7 @@ footer {
 
 @media screen and (max-width: 767px) {
   footer {
-    padding: 1rem 2rem; }
+    padding-top: 0; }
     footer .footer-body {
       margin-top: 1rem; }
       footer .footer-body .footer-content {
