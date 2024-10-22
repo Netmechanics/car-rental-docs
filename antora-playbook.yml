@@ -1,6 +1,6 @@
 site:
   title: CarRental Documentation
-  start_page: nmcr::index.adoc
+  start_page: cr::index.adoc
   robots: allow
 
 git:
