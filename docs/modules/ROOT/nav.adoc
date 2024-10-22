@@ -1,1 +1,2 @@
-* xref:index.adoc[Αρχική]
+* xref:index.adoc[]
+* xref:system-settings.adoc[]
