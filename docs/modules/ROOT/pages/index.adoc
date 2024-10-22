@@ -1,5 +1,5 @@
 = Καλώς Ήρθατε
-:navtitle:Αρχική
+:navtitle: Αρχική
 
 include::partial$caution.adoc[]
 
