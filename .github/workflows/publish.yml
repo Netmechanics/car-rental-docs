@@ -32,7 +32,7 @@ jobs:
       - name: Generate Site
         run: npx antora antora-playbook.yml
       - name: Create CNAME file
-        run: echo car-rental.nmlabs.gr > build/site/CNAME
+        run: echo carrental.nmlabs.gr > build/site/CNAME
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
