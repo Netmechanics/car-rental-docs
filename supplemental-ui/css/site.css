@@ -49,7 +49,7 @@
   --color-footer: #e6e6e6;
   --color-card-border: #ebf2f2;
   --color-code-background: #f9f2f4;
-  --color-code-font: #c7254e;
+  --color-code-font: #187c76;
   --color-troubleshooting-border: var(--color-admonition-important-bg);
   --color-pagination-border: #dadde1;
   --docsearch-primary-color: var(--color-blue-nmcr);
@@ -174,64 +174,6 @@
   --filter-icon: invert(0%) sepia(98%) saturate(9%) hue-rotate(152deg) brightness(100%) contrast(102%);
   --filter-logo-header: drop-shadow(.05rem .05rem .05rem white);
   --filter-fire-icon: invert(9%) sepia(91%) saturate(5800%) hue-rotate(2deg) brightness(101%) contrast(115%); }
-
-html[data-theme='dark'] {
-  --color-white: #151a25;
-  --color-text-light: #556;
-  --color-smoke-10: #141a28;
-  --color-smoke-30: #161c29;
-  --color-smoke-50: #212a3f;
-  --color-smoke-70: #27314a;
-  --color-smoke-90: #2b3652;
-  --color-gray-10: #5d5d5d;
-  --color-gray-30: #808080;
-  --color-gray-50: #8e8e8e;
-  --color-gray-70: #c1c1c1;
-  --color-jet-20: #aaa;
-  --color-jet-30: #b0b0b0;
-  --color-jet-50: #ccc;
-  --color-jet-70: #ddd;
-  --color-jet-80: #eee;
-  --color-black: #fff;
-  --color-blue-nmcr: #2a2f43;
-  --color-red-nmcr: #ca4a53;
-  --color-unfocused: #dcdcdcc2;
-  --color-focused: #fff;
-  --color-link: #00d9ff;
-  --color-admonition-link: var(--color-link);
-  --color-link-hover: #00d9ffb5;
-  --color-nav-item: var(--color-black);
-  --color-admonition-note: #11386a;
-  --color-admonition-note-bg: #11386a4f;
-  --color-admonition-note-text: #8abbfb;
-  --color-admonition-tip: #265b37;
-  --color-admonition-tip-bg: #265b374f;
-  --color-admonition-tip-text: #7be1b2;
-  --color-admonition-important: #642d2d;
-  --color-admonition-important-bg: #642d2d4f;
-  --color-admonition-important-text: #fb8a8a;
-  --color-admonition-warning: #8b6e25;
-  --color-admonition-warning-bg: #8b6e254f;
-  --color-admonition-warning-text: #d4ca73;
-  --color-admonition-caution: #652e7c;
-  --color-admonition-caution-bg: #652e7c4f;
-  --color-admonition-caution-text: #fb8af6;
-  --color-blue-bright: #0fe;
-  --color-card-shadow: #2e2e2e;
-  --color-higlight: #9ed4ff;
-  --color-higlight-link: var(--color-higlight);
-  --color-footer: var(--color-blue-nmcr);
-  --color-card-border: #9ba9c6;
-  --color-code-background: #30334b;
-  --color-code-font: #f7962e;
-  --color-nav-item-hover-background: #262a2d;
-  --color-troubleshooting-border: #f5c80071;
-  --filter-icon: invert(100%) sepia(0%) saturate(7500%) hue-rotate(39deg) brightness(112%) contrast(112%);
-  --filter-icon-search: invert(100%) sepia(0%) saturate(7500%) hue-rotate(39deg) brightness(112%) contrast(112%);
-  --filter-fire-icon: invert(72%) sepia(92%) saturate(1187%) hue-rotate(3deg) brightness(100%) contrast(100%);
-  --color-search-mark-highlight: var(--color-higlight);
-  --color-search-hit-source-highlight: var(--color-higlight);
-  --docsearch-searchbox-background: var(--body-background); }
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -1015,7 +957,8 @@ a + .breadcrumbs {
       background: var(--code-background);
       border-radius: 0.25em;
       font-size: 0.95em;
-      padding: 0.125em 0.25em; }
+      padding: 0.125em 0.25em;
+      white-space: nowrap; }
   .doc td code {
     color: var(--code-font-color);
     background: var(--code-background);
@@ -1241,6 +1184,33 @@ a + .breadcrumbs {
       padding: 0; }
   .doc table.stretch {
     width: 100%; }
+  .doc table.grid-all > * > tr > * {
+    border-width: 1px; }
+  .doc table.grid-cols > * > tr > * {
+    border-width: 0 1px; }
+  .doc table.grid-rows > * > tr > * {
+    border-width: 1px 0; }
+  .doc table.grid-all > thead th,
+  .doc table.grid-rows > thead th {
+    border-bottom-width: 2.5px; }
+  .doc table.frame-all {
+    border-width: 1px; }
+  .doc table.frame-ends {
+    border-width: 1px 0; }
+  .doc table.frame-sides {
+    border-width: 0 1px; }
+  .doc table.frame-none > colgroup + * > :first-child > *,
+  .doc table.frame-sides > colgroup + * > :first-child > * {
+    border-top-width: 0; }
+  .doc table.frame-none > :last-child > :last-child > *,
+  .doc table.frame-sides > :last-child > :last-child > * {
+    border-bottom-width: 0; }
+  .doc table.frame-none > * > tr > :first-child,
+  .doc table.frame-ends > * > tr > :first-child {
+    border-left-width: 0; }
+  .doc table.frame-none > * > tr > :last-child,
+  .doc table.frame-ends > * > tr > :last-child {
+    border-right-width: 0; }
   .doc .halign-left {
     text-align: left; }
   .doc .halign-right {

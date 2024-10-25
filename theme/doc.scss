@@ -339,6 +339,7 @@
       border-radius: 0.25em;
       font-size: 0.95em;
       padding: 0.125em 0.25em;
+			white-space: nowrap;
     }
   }
 
@@ -720,7 +721,56 @@
     width: 100%;
   }
 
-  .halign-left {
+	table.grid-all > * > tr > * {
+		border-width: 1px;
+	}
+
+	table.grid-cols > * > tr > * {
+		border-width: 0 1px;
+	}
+
+	table.grid-rows > * > tr > * {
+		border-width: 1px 0;
+	}
+
+	table.grid-all > thead th,
+	table.grid-rows > thead th {
+		border-bottom-width: 2.5px;
+	}
+
+	table.frame-all {
+		border-width: 1px;
+	}
+
+	table.frame-ends {
+		border-width: 1px 0;
+	}
+
+	table.frame-sides {
+		border-width: 0 1px;
+	}
+
+	table.frame-none > colgroup + * > :first-child > *,
+	table.frame-sides > colgroup + * > :first-child > * {
+		border-top-width: 0;
+	}
+
+	table.frame-none > :last-child > :last-child > *,
+	table.frame-sides > :last-child > :last-child > * {
+		border-bottom-width: 0;
+	}
+
+	table.frame-none > * > tr > :first-child,
+	table.frame-ends > * > tr > :first-child {
+		border-left-width: 0;
+	}
+
+	table.frame-none > * > tr > :last-child,
+	table.frame-ends > * > tr > :last-child {
+		border-right-width: 0;
+	}
+
+	.halign-left {
     text-align: left;
   }
 

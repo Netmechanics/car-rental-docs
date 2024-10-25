@@ -1,2 +1,3 @@
 * xref:index.adoc[]
+* xref:rental-process.adoc[]
 * xref:system-settings.adoc[]
