@@ -34,6 +34,10 @@ include::partial$sonarqube_badge.adoc[]
 :sqb-metric-caption: Vulnerabilities
 include::partial$sonarqube_badge.adoc[]
 
+:sqb-metric: duplicated_lines_density
+:sqb-metric-caption: Duplicated Lines (%)
+include::partial$sonarqube_badge.adoc[]
+
 // :sqb-metric: coverage
 // :sqb-metric-caption: Coverage
 // include::partial$sonarqube_badge.adoc[]
