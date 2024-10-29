@@ -11,10 +11,3 @@ asciidoc:
     table-stripes: hover
     kroki-fetch-diagram: true
     app-name: CarRental
-    thumbnail: width='150'
-    page-toctitle: Περιεχόμενα
-    note-caption: 'ΣΗΜΕΙΩΣΗ'
-    tip-caption: 'ΣΥΜΒΟΥΛΗ'
-    important-caption: 'ΣΗΜΑΝΤΙΚΟ'
-    caution-caption: 'ΠΡΟΣΟΧΗ'
-    warning-caption: 'ΠΡΟΕΙΔΟΠΟΙΗΣΗ'

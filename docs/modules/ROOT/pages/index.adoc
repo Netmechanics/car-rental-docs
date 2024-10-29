@@ -3,4 +3,4 @@
 
 include::partial$caution.adoc[]
 
-Καλώς ήρθατε στο Dev Central του {app-name}. Εδώ, θα βρείτε το υλικό, για να μάθετε για την πλατφόρμα μας.
+include::partial$sonarqube.adoc[]

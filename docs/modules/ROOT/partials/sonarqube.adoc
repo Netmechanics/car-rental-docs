@@ -1,0 +1,39 @@
+:sqb-metric: bugs
+:sqb-metric-caption: Bugs
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: ncloc
+:sqb-metric-caption: Lines of Code
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: sqale_rating
+:sqb-metric-caption: Maintainability Rating
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: alert_status
+:sqb-metric-caption: Quality Gate Status
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: reliability_rating
+:sqb-metric-caption: Reliability Rating
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: security_hotspots
+:sqb-metric-caption: Security Hotspots
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: security_rating
+:sqb-metric-caption: Security Rating
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: sqale_index
+:sqb-metric-caption: Technical Debt
+include::partial$sonarqube_badge.adoc[]
+
+:sqb-metric: vulnerabilities
+:sqb-metric-caption: Vulnerabilities
+include::partial$sonarqube_badge.adoc[]
+
+// :sqb-metric: coverage
+// :sqb-metric-caption: Coverage
+// include::partial$sonarqube_badge.adoc[]

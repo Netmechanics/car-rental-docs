@@ -1,0 +1,2 @@
+[pass,subs="+attributes,+macros"]
+https://sonarqube.nmlabs.gr/dashboard?id={sonarqube-appId}[image:https://sonarqube.nmlabs.gr/api/project_badges/measure?project={sonarqube-appId}&metric={sqb-metric}&token={sonarqube-token}[{sqb-metric-caption}]]

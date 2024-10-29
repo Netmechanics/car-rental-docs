@@ -29,7 +29,16 @@ asciidoc:
   sourcemap: false
   attributes:
     hide-uri-scheme: ~
-#    icons: font
+    icons: font
+    page-toctitle: Περιεχόμενα
+    note-caption: 'ΣΗΜΕΙΩΣΗ'
+    tip-caption: 'ΣΥΜΒΟΥΛΗ'
+    important-caption: 'ΣΗΜΑΝΤΙΚΟ'
+    caution-caption: 'ΠΡΟΣΟΧΗ'
+    warning-caption: 'ΠΡΟΕΙΔΟΠΟΙΗΣΗ'
+    sonarqube-appId: 'CarRental_car-rental_be95db4a-452c-44cf-8ca7-85884c65329f'
+    sonarqube-token: 'sqb_2ba5f82952764af9f3f2c90100a72eb812907fa2'
+
   extensions:
     - 'asciidoctor-kroki'
     - '@asciidoctor/tabs'
