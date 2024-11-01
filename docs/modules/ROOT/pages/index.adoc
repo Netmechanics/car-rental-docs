@@ -4,3 +4,8 @@
 include::partial$caution.adoc[]
 
 include::partial$sonarqube.adoc[]
+
+== TODO
+
+. Describe system settings
+. Describe scheduled jobs
