@@ -1,3 +1,6 @@
 * xref:index.adoc[]
 * xref:rental-process.adoc[]
-* xref:system-settings.adoc[]
+
+* Ρυθμίσεις
+** xref:settings-system.adoc[]
+** xref:settings-mail.adoc[]
