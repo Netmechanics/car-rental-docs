@@ -3,8 +3,8 @@
 
 * Ρυθμίσεις
 ** xref:settings-system.adoc[]
-** xref:settings-emails.adoc[]
+** xref:settings-email.adoc[]
 
 * xref:thechnical/index.adoc[]
-** xref:thechnical/emails.adoc[]
-** Scheduled Jobs
+** xref:thechnical/email.adoc[]
+** xref:thechnical/scheduled-jobs.adoc[]

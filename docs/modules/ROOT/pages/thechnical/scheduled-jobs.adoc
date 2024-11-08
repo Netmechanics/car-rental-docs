@@ -1,0 +1,40 @@
+= Προγραμματισμένες εργασίες
+
+Το σύστημα εκτελεί αυτόματα συγκεκριμένες εργασίες σε προκαθορισμένα χρονικά διαστήματα.
+
+== Αποδέσμευση οχημάτων
+
+Η εργασία αυτή αναλαμβάνει να αποδεσμεύσει τα οχήματα (σε επίπεδο πινακίδας), που έχουν δεσμευτεί κατά τη διαδικασία ενοικίασης, εφόσον έχει παρέλθει ο σχετικός χρόνος `Περίοδος δέσμευσης οχήματος (λεπτά)`.
+
+Έχει ρυθμιστεί να εκτελείται αυτόματα κάθε δύο λεπτά.
+
+[,properties]
+----
+nmcr.release-reserved-vehicles-cron=0 1/2 * ? * *
+----
+
+== Αποστολή Email
+
+Η εργασία αυτή προέρχεται από το πρόσθετο https://www.jmix.io/marketplace/email-sending/["Email Sending",window=_blank] του Jmix. Αναλαμβάνει την αποστολή των email που βρίσκονται στην ουρά.
+
+Έχει ρυθμιστεί να εκτελείται αυτόματα κάθε δύο λεπτά.
+
+[,properties]
+----
+jmix.email.email-sending-cron=* 0/2 * * * ?
+----
+
+NOTE: Για περισσότερες πληροφορίες δείτε την τεκμηρίωση της εργασίας https://docs.jmix.io/jmix/email/configuration.html#email-sending-scheduler["Email Sending Scheduler",window=_blank].
+
+== Καθαρισμός Email
+
+Η εργασία αυτή προέρχεται από το πρόσθετο https://www.jmix.io/marketplace/email-sending/["Email Sending",window=_blank] του Jmix. Αναλαμβάνει τον καθαρισμό των αποθηκευμένων email.
+
+Έχει ρυθμιστεί να εκτελείται κάθε δύο ημέρες.
+
+[,properties]
+----
+jmix.email.email-cleaning-cron=0 0 0 1/2 * ?
+----
+
+NOTE: Για περισσότερες πληροφορίες δείτε την τεκμηρίωση της εργασίας https://docs.jmix.io/jmix/email/configuration.html#email-cleaning-scheduler["Email Cleaning Scheduler",window=_blank].
