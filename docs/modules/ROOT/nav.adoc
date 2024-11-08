@@ -4,3 +4,7 @@
 * Ρυθμίσεις
 ** xref:settings-system.adoc[]
 ** xref:settings-mail.adoc[]
+
+* xref:thechnical/index.adoc[]
+** xref:thechnical/mails-templates.adoc[]
+** Scheduled Jobs
