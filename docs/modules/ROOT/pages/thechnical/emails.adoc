@@ -1,4 +1,5 @@
-= Πρότυπα Mail
+= Αναφορές και Πρότυπα E-Mails
+:navtitle: E-Mails
 
 Το σύστημα στέλνει τριών ειδών mails:
 
@@ -13,6 +14,8 @@
 Κάθε πρότυπο έχει κωδικό με επίθεμα τον κωδικό της γλώσσας, για παράδειγμα _mail_en_. Για κάθε νέα γλώσσα θα πρέπει να δημιουργείται το πρότυπο για τη γλώσσα και στον κωδικό θα χρησιμοποιούμε το επίθεμα της γλώσσας, για παράδειγμα _mail_es_ αν η νέα γλώσσα είναι τα Ισπανικά.
 
 NOTE: Οι υποστηριζόμενες γλώσσες ορίζονται στη σχετική xref:settings-system.adoc#locales[ρύθμιση συστήματος].
+
+NOTE: Για τις ρυθμίσεις του κάθε e-mail θα βρείτε πληροφορίες στη σχετική ενότητα xref:settings-emails.adoc[].
 
 == Mail επικοινωνίας
 
@@ -44,26 +47,37 @@ include::example$QuoteFormDto.java[]
 
 Τα πρότυπα δέχονται μια παράμετρο με όνομα `form` και είναι τύπου `Rental`.
 
+[tabs]
+======
+Rental::
++
 .Rental.java
 [,java]
 ----
 include::example$Rental.java[]
 ----
 
+Customer::
++
 .Customer.java
 [,java]
 ----
 include::example$Customer.java[]
 ----
 
+PickDropDetail::
++
 .PickDropDetail.java
 [,java]
 ----
 include::example$PickDropDetail.java[]
 ----
 
+RentalExtra::
++
 .RentalExtra.java
 [,java]
 ----
 include::example$RentalExtra.java[]
 ----
+======
