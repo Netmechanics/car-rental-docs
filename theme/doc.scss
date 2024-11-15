@@ -103,7 +103,6 @@
     }
   }
 
-
   h1 {
     color: var(--color-higlight);
     font-weight: var(--heading-font-weight);
@@ -688,6 +687,7 @@
       th {
         border-bottom: 2.5px solid var(--table-border-color);
         padding: 0.5rem;
+				font-weight: var(--body-font-weight-bold);
       }
     }
 
@@ -696,6 +696,10 @@
       border-bottom: 1px solid var(--table-border-color);
       padding: 0.5rem;
     }
+
+		> * > tr > * {
+			border: 0 solid var(--table-border-color);
+		}
 
     > {
       :not(thead) {

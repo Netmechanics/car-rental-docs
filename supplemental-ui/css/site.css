@@ -68,7 +68,7 @@
   --body-line-height: 1.15;
   --body-font-color: var(--color-jet-70);
   --body-font-family: "Open Sans", sans-serif;
-  --body-font-weight-bold: 550;
+  --body-font-weight-bold: 700;
   --monospace-font-family: "Roboto Mono", monospace;
   --monospace-font-weight-bold: 700;
   --body-background: var(--color-white);
@@ -1168,11 +1168,14 @@ a + .breadcrumbs {
     margin: 2rem 0; }
     .doc table.tableblock thead th {
       border-bottom: 2.5px solid var(--table-border-color);
-      padding: 0.5rem; }
+      padding: 0.5rem;
+      font-weight: var(--body-font-weight-bold); }
     .doc table.tableblock td {
       border-top: 1px solid var(--table-border-color);
       border-bottom: 1px solid var(--table-border-color);
       padding: 0.5rem; }
+    .doc table.tableblock > * > tr > * {
+      border: 0 solid var(--table-border-color); }
     .doc table.tableblock > :not(thead) th {
       border-top: 1px solid var(--table-border-color);
       border-bottom: 1px solid var(--table-border-color);
