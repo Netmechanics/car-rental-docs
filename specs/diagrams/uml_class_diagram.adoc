@@ -1,0 +1,237 @@
+[plantuml]
+....
+@startuml
+skinparam linetype ortho
+
+package Enums {
+    enum Transmission {
+        Automatic (A)
+        Manual (M)
+        Automated Manual (AM)
+        Continuously Variable (CV)
+    }
+
+    enum FuelType {
+        Gasoline
+        Diesel
+        Hybrid
+        Electric
+        Gas
+    }
+
+    enum VehicleStatus {
+        Available
+        Rented
+        InService
+    }
+
+    enum CostType {
+        PerDay
+        PerRental
+    }
+
+    enum DiscountType {
+        EarlyBooking
+        PerRental
+        DateRange
+    }
+}
+
+package Classes {
+    class VehicleType {
+        title: MLString
+    }
+    note top of VehicleType: e.g. Hatchback, Sedan, SUV
+
+    class VehicleFeature {
+        title: MLString
+    }
+    note top of VehicleFeature: e.g. Air Condition
+
+    class VehicleBrand {
+        name: String
+    }
+
+    class VehicleModel {
+        title: String
+        name: VehicleBrand
+    }
+
+    class Vehicle {
+        group: VehicleGroup
+        model: VehicleModel
+        type: VehicleType
+        transmission: Transmission
+        fuelType: FuelType
+        seats: Integer
+        doors: Integer
+        luggage: Integer
+        features: VehicleFeature[]
+        images: String[]
+        tags: String[]
+        inventory: VehicleInventory[]
+        active: Boolean
+    }
+
+    class VehicleInventory {
+        vehicle: Vehicle
+        plateNumber: String
+        licenseNumber: String
+        status: VehicleStatus
+    }
+
+    class Season {
+        name: String
+        dateFrom: DayMonth
+        dateTo: DayMonth
+    }
+
+    class VehicleGroup {
+        title: MLString
+        pricePerDay: Decimal
+        active: Boolean
+    }
+
+    class Pricing {
+        season: Season
+        group: VehicleGroup
+        d01: Decimal
+        d02: Decimal
+        ...
+        d29: Decimal
+        d30: Decimal
+    }
+
+    class Location {
+        title: MLString
+        pickupCost: Decimal
+        dropOffCost: Decimal
+        soonestTime: Integer
+        hotel Boolean
+        airport Boolean
+        groupName: String
+        active: Boolean
+        latitude: Decimal
+        longitude: Decimal
+    }
+
+    class Extra {
+        title: MLString
+        image: String
+        cost: Decimal
+        cosType: CostType
+        ordinal: Integer
+        active: Boolean
+    }
+
+    class ExtraGroupCost {
+        cost: Decimal
+        extra: Extra
+        group: VehicleGroup
+    }
+
+    class MinimumDuration {
+        days: Integer
+        season: Season
+        locations: Location[]
+    }
+
+    class UnavailableDates {
+        startDate: DateTime
+        endDate: DateTime
+        group: VehicleGroup
+        locations: Location[]
+    }
+
+    class Insurance {
+        title: MLString
+        cost: Decimal
+        cosType: CostType
+        ordinal: Integer
+        active: Boolean
+    }
+
+    class InsuranceGroupCost {
+        cost: Decimal
+        insurance: Insurance
+        group: VehicleGroup
+    }
+
+    class Discount {
+        name: String
+        type: DiscountType
+        startDate: DateTime
+        endDate: DateTime
+        amount: Decimal
+        minimumDuration: Integer
+        maximumDuration: Integer
+        earlyBookingMonths: Integer
+        active: Boolean
+        groups: VehicleGroup[]
+    }
+
+    class Coupon {
+        code: String
+        startDate: DateTime
+        endDate: DateTime
+        rentalStartDate: DateTime
+        rentalEndDate: DateTime
+        amount: Decimal
+        active: Boolean
+        groups: VehicleGroup[]
+    }
+
+    class Rental {
+        rentalNumber: String
+        trxNumber: String
+        pickupDate: DateTime
+        dropOffDate: DateTime
+        pickupLocation: Location
+        dropOffLocation: Location
+        extras: Extra[]
+        cost: Decimal
+        paid: Decimal
+        toBePaid: Decimal
+        vehicle: Vehicle
+        insurance: Insurance
+        discount: Discount
+        coupon: Coupon
+    }
+
+    VehicleBrand "1" -up-* "*" VehicleModel
+
+    Vehicle "*" o-down- "1" VehicleModel
+    Vehicle "*" o-up- "1" VehicleType
+    Vehicle "*" o-up- "*" VehicleFeature
+    Vehicle "*" o-right- "1" VehicleGroup
+    Vehicle "1" -left-* "*" VehicleInventory
+
+    Pricing "*" o-right- "1" Season
+    Pricing "*" o-down- "1" VehicleGroup
+
+    ExtraGroupCost "*" o-up- "1" Extra
+    ExtraGroupCost "*" o-up- "1" VehicleGroup
+
+    MinimumDuration "*" *-left- "1" Season
+    MinimumDuration "*" o-up- "*" Location
+
+    UnavailableDates "*" *-down- "1" VehicleGroup
+    UnavailableDates "*" o-up- "*" Location
+
+    InsuranceGroupCost "*" o-up- "1" Insurance
+    InsuranceGroupCost "*" o-up- "1" VehicleGroup
+
+    Discount "*" o-up- "*" VehicleGroup
+    Coupon "*" o-up- "*" VehicleGroup
+
+    Rental "*" o-down- "*" Extra
+    Rental "1" o-right- "*" Vehicle
+    Rental "1" o-down- "*" Insurance
+    Rental "*" o-up- "1" Location
+    Rental "*" o-up- "1" Location
+    Rental "*" o-right- "1" Discount
+    Rental "*" o-right- "1" Coupon
+}
+
+@enduml
+....

@@ -1,0 +1,40 @@
+= Payments
+
+== Cardlink
+
+Καλύπτουμε τις τράπεζες *Alpha Bank* και *Eurobank*.
+
+[%header,%autowidth]
+|===
+|Key|Value
+m|EndPoint|https://ecommerce-test.cardlink.gr/vpos/shophandlermpi
+m|MerchantId|9000004274
+m|SecretKey|Cardlink1
+m|Test Cards|https://developer.cardlink.gr/documentation_categories/test-cards/#Test-Cards-3DS2
+|===
+
+== Piraeus Bank (epay)
+
+Δεν μπορούμε να έχουμε test account, καθώς απαιτεί να δηλώσουμε κάποια στοιχεία προς την τράπεζα για να το ανοίξουν.
+
+== NBG
+
+[%header,%autowidth]
+|===
+|Key|Value
+m|PublicKey|sbpb_YzRhZmY2YzQtZWYxNS00ZTVlLTkwNjMtNDg2NDkxZGJmYzhl
+m|SecretKey|sxXu+jgFX7Nw94ab/413BDbUfVqcncyNGl6oWZeyEQV5YFFQL0ODSXAOkNtXTToq
+|===
+
+NOTE: Είναι παλιό test account, δεν ξέρω αν ισχύει ακόμα.
+
+== PayPal
+
+[%header,%autowidth]
+|===
+|Key|Value
+m|Client ID|AUll0BCnmmETssar77njkhOBjaBWpl5uWH32of04cwm_-qnyHMtBQwrv9kJ-
+m|Secret key|EBllthACXhx9vZ8huCWr98MoO3hHT2Umo4pHy98ARkJXl3b-LmgNYrdcZhIO
+m|Email|melas1984+test@gmail.com
+m|Password|=m3_LpP7
+|===

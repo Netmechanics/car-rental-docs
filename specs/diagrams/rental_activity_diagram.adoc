@@ -1,0 +1,26 @@
+[plantuml]
+....
+@startuml
+start
+split
+    :Search for vehicle;
+    :Search results;
+split again
+    :Fleet list;
+end split
+repeat :Select Vehicle;
+:Check Availability;
+backward :Choose another vehicle or start over;
+repeat while (Available?) is (No) not (Yes)
+:System reserves vehicle\n\n(update vehicle status);
+:Select insurance;
+:Select extras;
+:Fill customer details;
+:Confirm rental details;
+:Proceed to payment;
+:System rents vehicle\n\n(update vehicle status, sent emails etc.);
+end
+@enduml
+
+
+....
