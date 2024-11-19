@@ -1,7 +1,0 @@
-= Τεχνικές σημειώσεις
-
-* Jmix
-* Jmix addons
-* Jmix application properties setup
-** smtp
-** cron jobs schedulers
