@@ -1,12 +1,31 @@
 * xref:index.adoc[]
-* xref:rental-process.adoc[]
-* xref:payments.adoc[]
 
-* Ρυθμίσεις
-** xref:settings-system.adoc[]
-** xref:settings-email.adoc[]
+* Διαχείριση στόλου
+** Ομάδες οχημάτων
+** Οχήματα
+
+* Διαχείριση κρατήσεων
+** Τοποθεσίες
+** Σεζόν
+** Κουπόνια
+** Ασφάλειες
+** Εκπτώσεις
+** Πρόσθετα
+** Ενοικιάσεις
+
+* Διαχείριση Συστήματος
+** xref:admin/vehicle_models.adoc[]
+** xref:admin/vehicle_types.adoc[]
+** xref:admin/vehicle_features.adoc[]
+** xref:admin/tags.adoc[]
+** xref:admin/payments.adoc[]
+** xref:admin/settings-system.adoc[]
+** xref:admin/settings-email.adoc[]
+
 
 * Τεχνικές σημειώσεις
+** xref:thechnical/rental-process.adoc[]
 ** xref:thechnical/email.adoc[]
 ** xref:thechnical/scheduled-jobs.adoc[]
 ** xref:thechnical/config_installation.adoc[]
+// * xref:thechnical/pricing_analysis.adoc[]

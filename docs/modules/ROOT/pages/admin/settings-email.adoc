@@ -1,5 +1,4 @@
 = Ρυθμίσεις Email
-:navtitle: Email
 
 Έχουμε τις κατηγορίες email
 

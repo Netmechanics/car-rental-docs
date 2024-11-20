@@ -716,9 +716,9 @@
       padding: 0;
     }
 
-    .admonitionblock {
-      padding: 0;
-    }
+		.admonitionblock .paragraph {
+			margin: 1rem 0 0;
+		}
   }
 
   table.stretch {
@@ -826,7 +826,6 @@
 
     > table {
       border-collapse: collapse;
-      table-layout: fixed;
       position: relative;
       width: 100%;
     }
