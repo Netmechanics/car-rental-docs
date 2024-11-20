@@ -1,2 +1,22 @@
 = Παραμετροποίηση εγκατάστασης
 
+main.datasource.url=?? +
+main.datasource.username=?? +
+main.datasource.password=?? +
+ui.login.defaultUsername=?? +
+ui.login.defaultPassword=?? +
+spring.security.oauth2.authorizationserver.client.myclient.registration.client-id=?? +
+spring.security.oauth2.authorizationserver.client.myclient.registration.client-secret=?? +
+jmix.azurefs.containerName=?? +
+nmcr.cdn-base-url=https://cdn.nmstore.gr/??/ +
+
+
+spring.mail.host=?? +
+spring.mail.port=?? +
+spring.mail.username=?? +
+spring.mail.password=?? +
+spring.mail.properties.mail.smtp.auth=?? +
+spring.mail.properties.mail.smtp.starttls.enable=?? +
+spring.mail.properties.mail.smtp.ssl.enable=??
+
+jmix.email.from-address=??

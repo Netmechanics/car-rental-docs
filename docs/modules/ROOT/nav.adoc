@@ -1,5 +1,6 @@
 * xref:index.adoc[]
 * xref:rental-process.adoc[]
+* xref:payments.adoc[]
 
 * Ρυθμίσεις
 ** xref:settings-system.adoc[]
@@ -8,3 +9,4 @@
 * Τεχνικές σημειώσεις
 ** xref:thechnical/email.adoc[]
 ** xref:thechnical/scheduled-jobs.adoc[]
+** xref:thechnical/config_installation.adoc[]
