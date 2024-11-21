@@ -1,0 +1,3 @@
+= Διαχείριση στόλου
+
+include::partial$nav_fleet.adoc[]

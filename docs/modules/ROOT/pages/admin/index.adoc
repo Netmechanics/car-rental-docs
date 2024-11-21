@@ -1,0 +1,3 @@
+= Διαχείριση Συστήματος
+
+include::partial$nav_admin.adoc[]

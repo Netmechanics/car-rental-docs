@@ -1,0 +1,11 @@
+* xref:fleet/index.adoc[]
+include::partial$nav_fleet.adoc[]
+
+* xref:booking/index.adoc[]
+include::partial$nav_booking.adoc[]
+
+* xref:admin/index.adoc[]
+include::partial$nav_admin.adoc[]
+
+* xref:technical/index.adoc[]
+include::partial$nav_technical.adoc[]

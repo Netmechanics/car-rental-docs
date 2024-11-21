@@ -1,5 +1,5 @@
 name: cr
-title: CarRental
+title: Car Rental
 version: ~
 display_version: '1.0'
 start_page: ROOT:index.adoc
@@ -10,4 +10,4 @@ asciidoc:
     table-caption: false
     table-stripes: hover
     kroki-fetch-diagram: true
-    app-name: CarRental
+    app-name: Car Rental

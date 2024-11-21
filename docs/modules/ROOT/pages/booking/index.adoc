@@ -1,0 +1,3 @@
+= Διαχείριση κρατήσεων
+
+include::partial$nav_booking.adoc[]

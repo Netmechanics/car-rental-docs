@@ -1,0 +1,5 @@
+** xref:technical/rental-process.adoc[]
+** xref:technical/reports_email.adoc[]
+** xref:technical/scheduled-jobs.adoc[]
+** xref:technical/config_installation.adoc[]
+// * xref:thechnical/pricing_analysis.adoc[]

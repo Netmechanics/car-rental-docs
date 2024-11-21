@@ -1632,12 +1632,12 @@ body {
 ******* Logo *******
 ********************/
 .nmcr-logo {
-  background: url(../img/logo.svg) no-repeat 50% 45%;
+  background: url(../img/logo.png) no-repeat 5% 0;
   background-size: contain;
   display: block;
-  height: 3.5rem;
+  height: 3.1rem;
   padding: 0;
-  width: 18rem;
+  width: 17rem;
   -webkit-filter: var(--filter-logo-header);
   filter: var(--filter-logo-header); }
 
@@ -1918,7 +1918,6 @@ body {
   .navbar-brand {
     flex-grow: 1; }
   .nmcr-logo {
-    background: url(../img/logo_sm.svg) no-repeat 50% 45%;
     background-size: contain;
     width: 9.5rem; }
   .search-item {

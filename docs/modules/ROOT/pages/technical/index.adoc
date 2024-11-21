@@ -1,0 +1,5 @@
+= Τεχνικές σημειώσεις
+
+include::partial$sonarqube.adoc[]
+
+include::partial$nav_technical.adoc[]
