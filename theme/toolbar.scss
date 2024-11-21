@@ -12,6 +12,7 @@
   top: var(--navbar-height);
   width: 100%;
   z-index: var(--z-index-toolbar);
+	border-bottom: 1px solid var(--toolbar-border-color);
 
   a {
     color: inherit;

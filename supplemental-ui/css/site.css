@@ -264,7 +264,7 @@ button {
   top: var(--navbar-height);
   left: 0;
   width: 100%;
-  font-size: calc(17 / var(--rem-base) * 1rem);
+  font-size: calc(16 / var(--rem-base) * 1rem);
   z-index: var(--z-index-nav);
   visibility: hidden; }
 
@@ -333,7 +333,7 @@ html.is-clipped--nav {
     .nav-panel-explore .components::-webkit-scrollbar-thumb {
       background-color: var(--scrollbar-thumb-color); }
   .nav-panel-explore .context {
-    font-size: calc(15 / var(--rem-base) * 1rem);
+    font-size: calc(14 / var(--rem-base) * 1rem);
     flex-shrink: 0;
     color: var(--nav-muted-color);
     box-shadow: 0 -1px 0 var(--nav-panel-divider-color);
@@ -392,7 +392,7 @@ html.is-clipped--nav {
   position: relative; }
   .nav-menu h3.title {
     color: var(--nav-heading-font-color);
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: var(--body-font-weight-bold);
     margin: 0;
     padding: 0.25em 0 0.125em; }
@@ -459,7 +459,7 @@ html.is-clipped--nav {
 
 @media screen and (min-width: 1024px) {
   .nav-container {
-    font-size: calc(15.5 / var(--rem-base) * 1rem);
+    font-size: calc(14.5 / var(--rem-base) * 1rem);
     flex: none;
     position: static;
     top: 0;
@@ -507,7 +507,8 @@ html.is-clipped--nav {
   position: sticky;
   top: var(--navbar-height);
   width: 100%;
-  z-index: var(--z-index-toolbar); }
+  z-index: var(--z-index-toolbar);
+  border-bottom: 1px solid var(--toolbar-border-color); }
   .toolbar a {
     color: inherit; }
 
