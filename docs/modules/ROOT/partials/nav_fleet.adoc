@@ -1,2 +1,2 @@
-** Ομάδες οχημάτων
+** xref:fleet/vehicle_groups.adoc[]
 ** Οχήματα
