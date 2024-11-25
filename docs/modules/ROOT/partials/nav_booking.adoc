@@ -1,7 +1,7 @@
 ** xref:booking/locations.adoc[]
 ** xref:booking/seasons.adoc[]
 ** xref:booking/coupons.adoc[]
-** Ασφάλειες
-** Εκπτώσεις
+** xref:booking/insurances.adoc[]
+** xref:booking/discounts.adoc[]
 ** xref:booking/extras.adoc[]
 ** Ενοικιάσεις
