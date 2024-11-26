@@ -51,7 +51,7 @@
 
 * Άγνωστη (Unknown)
 * Διαθέσιμο (Available)
-* Κρατημένο (Reserved)
+* Δεσμευμένο (Reserved)
 * Μισθωμένο (Rented)
 * Στο μηχανικό (In Service)
 

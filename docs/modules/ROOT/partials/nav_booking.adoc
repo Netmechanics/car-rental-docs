@@ -4,4 +4,4 @@
 ** xref:booking/insurances.adoc[]
 ** xref:booking/discounts.adoc[]
 ** xref:booking/extras.adoc[]
-** Ενοικιάσεις
+** xref:booking/rentals.adoc[]
