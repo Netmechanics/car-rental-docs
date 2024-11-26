@@ -1,8 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="build_theme" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="npx node-sass ./theme/site.scss ./theme/site.css cp ./theme/site.css ./supplemental-ui/css/site.css mv ./theme/site.css ./build/site/_/css/site.css" />
+    <option name="SCRIPT_TEXT" value="npx node-sass ./theme/site.scss ./theme/site.css &amp;&amp; cp ./theme/site.css ./supplemental-ui/css/site.css &amp;&amp; mv ./theme/site.css ./build/site/_/css/site.css" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-    <option name="SCRIPT_PATH" value="$PROJECT_DIR$/build_theme.sh" />
     <option name="SCRIPT_OPTIONS" value="" />
     <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
     <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -10,7 +9,7 @@
     <option name="INTERPRETER_PATH" value="/bin/bash" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="EXECUTE_IN_TERMINAL" value="true" />
-    <option name="EXECUTE_SCRIPT_FILE" value="true" />
+    <option name="EXECUTE_SCRIPT_FILE" value="false" />
     <envs />
     <method v="2" />
   </configuration>
