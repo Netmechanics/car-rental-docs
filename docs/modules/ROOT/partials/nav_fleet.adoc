@@ -1,2 +1,2 @@
 ** xref:fleet/vehicle_groups.adoc[]
-** Οχήματα
+** xref:fleet/vehicles.adoc[]
