@@ -15,7 +15,7 @@
 3+s|Πρόσθετα πεδία αναγνώρισης
 |LOG_APP_CTX|localhost|Το context για το οποία τρέχει η εφαρμογή π.χ. _mycarrental.gr_.
 |LOG_APP_ENV|dev|Το περιβάλλον κάτω από το οποίο τρέχει η εφαρμογή π.χ. _production_.
-|LOG_APP_SVC|CarRental-Backoffice|Το αναγνωριστικό όνομα της εφαρμογής.
+|LOG_APP_SVC|CarRental-BackOffice|Το αναγνωριστικό όνομα της εφαρμογής.
 |===
 
 NOTE: Οι ρυθμίσεις δίνονται σαν environment variables.
