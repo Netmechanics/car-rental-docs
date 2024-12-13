@@ -2,5 +2,6 @@
 ** xref:technical/reports_email.adoc[]
 ** xref:technical/scheduled-jobs.adoc[]
 ** xref:technical/config_installation.adoc[]
+** xref:technical/dashboard.adoc[]
 ** xref:technical/logging.adoc[]
 // * xref:thechnical/pricing_analysis.adoc[]
