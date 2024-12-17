@@ -2,31 +2,6 @@
 
 Το σύστημα εκτελεί αυτόματα συγκεκριμένες εργασίες σε προκαθορισμένα χρονικά διαστήματα.
 
-[[release-reserved-vehicles-job]]
-== Αποδέσμευση οχημάτων
-
-Η εργασία αυτή αναλαμβάνει να αποδεσμεύσει τα οχήματα (σε επίπεδο πινακίδας), που έχουν δεσμευτεί κατά τη διαδικασία ενοικίασης, εφόσον έχει παρέλθει ο σχετικός χρόνος xref:admin/settings-system.adoc#vehicle-reserved-period[Περίοδος δέσμευσης οχήματος (λεπτά)].
-
-Έχει ρυθμιστεί να εκτελείται αυτόματα κάθε δύο λεπτά.
-
-[,properties]
-----
-nmcr.release-reserved-vehicles-cron=0 1/2 * ? * *
-----
-
-Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
-
-.application.properties
-[,properties]
-----
-nmcr.use-default-release-reserved-vehicles-quartz-configuration=false
-----
-
-.Java class for the job
-----
-gr.netmechanics.carrental.job.ReleaseReservedVehiclesJob
-----
-
 [[abandoned-rentals-job]]
 == Εγκαταλελειμμένες ενοικιάσεις
 
