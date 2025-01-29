@@ -17,6 +17,7 @@ npx antora --fetch antora-playbook.yml
 ## Install
 
 ```shell
+npm i -g sass
 npm i -g http-server
 ```
 
