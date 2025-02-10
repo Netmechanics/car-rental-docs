@@ -3,6 +3,9 @@
 main.datasource.url=?? +
 main.datasource.username=?? +
 main.datasource.password=?? +
+
+main.liquibase.contexts=!mock
+
 ui.login.defaultUsername=?? +
 ui.login.defaultPassword=?? +
 spring.security.oauth2.authorizationserver.client.myclient.registration.client-id=?? +
