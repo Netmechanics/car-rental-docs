@@ -1,5 +1,5 @@
 site:
-  title: Car Rental Documentation
+  title: WheelRent Documentation
   start_page: cr::index.adoc
   robots: allow
 

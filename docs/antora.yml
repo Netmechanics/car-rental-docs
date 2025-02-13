@@ -1,5 +1,5 @@
 name: cr
-title: Car Rental
+title: WheelRent
 version: ~
 display_version: '1.0'
 start_page: ROOT:index.adoc
@@ -10,4 +10,4 @@ asciidoc:
     table-caption: false
     table-stripes: hover
     kroki-fetch-diagram: true
-    app-name: Car Rental
+    app-name: WheelRent
