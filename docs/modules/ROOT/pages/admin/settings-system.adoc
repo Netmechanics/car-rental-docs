@@ -51,13 +51,9 @@ image::superset_embeddedId.png[]
 
 Το API-Key από το https://console.cloud.google.com/apis/dashboard[Google Cloud Console,window=_blank]. Πρέπει να έχει ενεργοποιημένο το `Places API (New)`, κατ' ελάχιστο.
 
-=== ID τοποθεσίας της Google
+=== Τοποθεσία Google
 
-To Google Place ID, το οποίο θα χρησιμοποιηθεί για να δείξει ratings και reviews για το συγκεκριμένο πελάτη.
-
-Για να βρούμε το Place ID μπορούμε να χρησιμοποιήσουμε την υπηρεσία https://developers.google.com/maps/documentation/places/web-service/place-id[Google Place IDs,window=_blank]
-
-image::google_place_ids.png[]
+Η τοποθεσία Google που θα χρησιμοποιηθεί για να δείξουμε στο site ratings και user reviews για το συγκεκριμένο πελάτη.
 
 == Έξτρα Ώρες
 Έξτρα ώρες υπάρχουν σε μια ενοικίαση όταν η ώρα παράδοσης του οχήματος είναι μεταγενέστερη της ώρας παραλαβής.

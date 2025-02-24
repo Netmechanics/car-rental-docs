@@ -1,1 +1,0 @@
-// TODO Add documentation about google place integration (settings, clean job)

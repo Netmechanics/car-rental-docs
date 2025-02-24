@@ -52,17 +52,15 @@ nmcr.use-default-finish-rentals-quartz-configuration=false
 gr.netmechanics.carrental.job.FinishRentalsJob
 ----
 
-== Καθαρισμός cache Google Place
+== Καθαρισμός Cache Google Place
 
-Το σύστημα χρησιμοποιεί την υπηρεσία https://developers.google.com/maps/documentation/places/web-service/overview[Google Place,window=_blank] για να αντλήσει πληροφορίες που αφορούν rating και reviews για τον πελάτη, καθώς πληροφορίες για τις τοποθεσίες. Οι πληροφορίες αυτές αποθηκεύονται στη cache του συστήματος για να αποφεύγεται η άσκοπη χρήση της υπηρεσίας.
-
-Η εργασία αυτή καθαρίζει τη cache από δεδομένα που υπάρχουν από τη χρήση της υπηρεσίας Google Place.
+Η εργασία αυτή προέρχεται από το πρόσθετο Google Place του Jmix. Αναλαμβάνει τον καθαρισμό της cache από δεδομένα που υπάρχουν από τη χρήση της υπηρεσίας Google Place.
 
 Έχει ρυθμιστεί να εκτελείται αυτόματα μια φορά το μήνα.
 
 [,properties]
 ----
-nmcr.cleaning-google-place-cache-cron=0 0 1 1 1/1 ? *
+jmix.gplace.cleaning-cache-cron=0 0 1 1 1/1 ? *
 ----
 
 Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
@@ -70,12 +68,7 @@ nmcr.cleaning-google-place-cache-cron=0 0 1 1 1/1 ? *
 .application.properties
 [,properties]
 ----
-nmcr.use-default-cleaning-google-place-cache-quartz-configuration=false
-----
-
-.Java class for the job
-----
-gr.netmechanics.carrental.job.CleaningGooglePlaceCacheJob
+jmix.gplace.use-default-cleaning-cache-quartz-configuration=false
 ----
 
 == Αποστολή Email
