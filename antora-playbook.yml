@@ -1,6 +1,6 @@
 site:
   title: WheelRent Documentation
-  start_page: cr::index.adoc
+  start_page: wr::index.adoc
   robots: allow
 
 git:
