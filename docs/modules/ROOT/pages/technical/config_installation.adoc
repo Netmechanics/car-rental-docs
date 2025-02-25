@@ -23,3 +23,5 @@ spring.mail.properties.mail.smtp.starttls.enable=?? +
 spring.mail.properties.mail.smtp.ssl.enable=??
 
 jmix.email.from-address=??
+
+springdoc.swagger-ui.enabled=false
