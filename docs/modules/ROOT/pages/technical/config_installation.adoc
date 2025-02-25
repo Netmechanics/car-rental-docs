@@ -10,6 +10,7 @@ ui.login.defaultUsername=?? +
 ui.login.defaultPassword=?? +
 spring.security.oauth2.authorizationserver.client.myclient.registration.client-id=?? +
 spring.security.oauth2.authorizationserver.client.myclient.registration.client-secret=?? +
+jmix.authserver.client.myclient.client-id=?? +
 jmix.azurefs.containerName=?? +
 nmcr.cdn-base-url=https://cdn.nmstore.gr/??/ +
 
