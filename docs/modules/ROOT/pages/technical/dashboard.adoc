@@ -10,7 +10,7 @@ image::superset.png[width="50%"]
 
 Αν θέλουμε να απενεργοποιήσουμε τελείως τη δυνατότητα σύνδεσης της εφαρμογής με το Superset τότε ορίζουμε το application property `nmcr.dashboard.active` σε `false`.
 
-[,properties]
+[source,properties]
 ----
 nmcr.dashboard.active = false
 ----

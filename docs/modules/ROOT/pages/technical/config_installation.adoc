@@ -1,28 +1,112 @@
 = Παραμετροποίηση εγκατάστασης
+:back: BackOffice
+:front: Site
 
-main.datasource.url=?? +
-main.datasource.username=?? +
-main.datasource.password=?? +
+image:mark_g.svg[] {back}
 
-main.liquibase.contexts=!mock
+image:mark_b.svg[] {front}
 
-ui.login.defaultUsername=?? +
-ui.login.defaultPassword=?? +
-spring.security.oauth2.authorizationserver.client.myclient.registration.client-id=?? +
-spring.security.oauth2.authorizationserver.client.myclient.registration.client-secret=?? +
-jmix.authserver.client.myclient.client-id=?? +
-jmix.azurefs.containerName=?? +
-nmcr.cdn-base-url=https://cdn.nmstore.gr/??/ +
+== Ρυθμίσεις Εγκατάστασης
 
+Βασικές ρυθμίσεις που πρέπει να καθοριστούν κατά τη διαδικασία εγκατάστασης των συστημάτων {back} και {front}.
 
-spring.mail.host=?? +
-spring.mail.port=?? +
-spring.mail.username=?? +
-spring.mail.password=?? +
-spring.mail.properties.mail.smtp.auth=?? +
-spring.mail.properties.mail.smtp.starttls.enable=?? +
-spring.mail.properties.mail.smtp.ssl.enable=??
+=== Data Store
 
-jmix.email.from-address=??
+Απαραίτητα διαπιστευτήρια και ρυθμίσεις για τη διασύνδεση με τη βάση δεδομένων.
 
-springdoc.swagger-ui.enabled=false
+.image:mark_g.svg[] Παράδειγμα ρυθμίσεων Data Store
+[source,properties]
+----
+main.datasource.url = jdbc:postgresql://localhost:5432/carrental
+main.datasource.username = username
+main.datasource.password = password
+----
+
+Με την εγκατάσταση του {back} φορτώνονται στη βάση και κάποια δεδομένα προσομοίωσης (mock data). Σε ένα παραγωγικό περιβάλουν δε χρειάζονται τα data αυτά, οπότε για να τα αποκλείσουμε χρησιμοποιούμε τη ρύθμιση
+
+.image:mark_g.svg[] Αποκλεισμός φόρτωσης δεδομένων προσομοίωσης
+[source,properties]
+----
+main.liquibase.contexts = !mock
+----
+
+=== REST API
+
+Βασικές ρυθμίσεις που πρέπει να γίνουν και στα δύο συστήματα για τη μεταξύ του επικοινωνία.
+
+.image:mark_g.svg[] Παράδειγμα ρυθμίσεων REST API
+[source,properties]
+----
+spring.security.oauth2.authorizationserver.client.myclient.registration.client-id = carrental_client
+spring.security.oauth2.authorizationserver.client.myclient.registration.client-secret = {noop}carrental_secret <1>
+
+springdoc.swagger-ui.enabled = false <2>
+----
+<1> Το πρόθεμα *\{noop}* είναι υποχρεωτικό.
+<2> Προαιρετική ρύθμιση. Αν την ορίσουμε σε false, τότε η πρόσβαση στο Swagger UI θα είναι δυνατή μόνο μέσα από το σύστημα του {back}.
+
+.image:mark_b.svg[] Παράδειγμα ρυθμίσεων REST API
+[source,properties]
+----
+NEXT_PUBLIC_API_URL = https://www.company.com
+API_OAUTH_CLIENT_ID = carrental_client <1>
+API_OAUTH_CLIENT_SECRET = carrental_secret <1>
+----
+<1> Και οι δύο ιδιότητες του {front} πρέπει να είναι ίδιες με αυτές του {back}.
+
+=== Emails
+
+Βασικές ρυθμίσεις που απαιτούνται για την αποστολή emails. Χρησιμοποιούνται οι https://docs.spring.io/spring-boot/appendix/application-properties/index.html#appendix.application-properties.mail[ιδιότητες email,window=_blank] του Spring Boot.
+
+.image:mark_g.svg[] Παράδειγμα βασικών ρυθμίσεων Email
+[source,properties]
+----
+spring.mail.host = mail.company.com
+spring.mail.port = 587
+spring.mail.username = username
+spring.mail.password = password
+
+jmix.email.from-address = info@company.com <1>
+----
+<1> Η ρύθμιση αυτή είναι υποχρεωτική και είναι το failsafe email που θα χρησιμοποιηθεί για την αποστολή των emails.
+
+Υπάρχει η δυνατότητα να οριστούν επιπλέον JavaMail ιδιότητες με τη μορφή `spring.mail.properties.*`, ανάλογα με τις προδιαγραφές της υπηρεσίας email που θα χρησιμοποιηθεί.
+
+.image:mark_g.svg[] Παράδειγμα επιπλέον ρυθμίσεων Email
+[source,properties]
+----
+spring.mail.properties.mail.smtp.auth = true
+spring.mail.properties.mail.smtp.starttls.enable = true
+spring.mail.properties.mail.smtp.ssl.enable = false
+----
+
+=== Καταγραφή Συμβάντων
+
+Οι βασικές ρυθμίσεις για την xref::technical/logging.adoc[καταγραφή των συμβάντων] του {back}.
+
+.image:mark_g.svg[] Παράδειγμα ρυθμίσεων Logs
+[source,properties]
+----
+log.hostname = 127.0.0.1
+log.port = 3100
+log.appName = carrental
+----
+
+=== Άλλες Ρυθμίσεις
+
+.image:mark_g.svg[] Παράδειγμα
+[source,properties]
+----
+jmix.azurefs.containerName = carrental <1>
+----
+<1> Το όνομα του Azure Storage Container, που θα χρησιμοποιηθεί για τις φωτογραφίες. Πρέπει να είναι μοναδικό για κάθε project.
+
+== Payment Methods Credentials
+
+== Google API Key
+
+== Business Logic System Settings
+
+== Business Logic Mail Settings
+
+== Languages

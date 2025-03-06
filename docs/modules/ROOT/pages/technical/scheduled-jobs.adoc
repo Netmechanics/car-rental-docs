@@ -9,17 +9,17 @@
 
 Έχει ρυθμιστεί να εκτελείται αυτόματα κάθε τρία λεπτά.
 
-[,properties]
+[source,properties]
 ----
-nmcr.abandoned-rentals-cron=0 1/3 * ? * *
+nmcr.abandoned-rentals-cron = 0 1/3 * ? * *
 ----
 
 Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
 
 .application.properties
-[,properties]
+[source,properties]
 ----
-nmcr.use-default-abandoned-rentals-quartz-configuration=false
+nmcr.use-default-abandoned-rentals-quartz-configuration = false
 ----
 
 .Java class for the job
@@ -34,17 +34,17 @@ gr.netmechanics.carrental.job.AbandonedRentalsJob
 
 Έχει ρυθμιστεί να εκτελείται αυτόματα κάθε δέκα λεπτά.
 
-[,properties]
+[source,properties]
 ----
-nmcr.finish-rentals-cron=0 1/10 * ? * *
+nmcr.finish-rentals-cron = 0 1/10 * ? * *
 ----
 
 Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
 
 .application.properties
-[,properties]
+[source,properties]
 ----
-nmcr.use-default-finish-rentals-quartz-configuration=false
+nmcr.use-default-finish-rentals-quartz-configuration = false
 ----
 
 .Java class for the job
@@ -54,21 +54,21 @@ gr.netmechanics.carrental.job.FinishRentalsJob
 
 == Καθαρισμός Cache Google Place
 
-Η εργασία αυτή προέρχεται από το πρόσθετο Google Place του Jmix. Αναλαμβάνει τον καθαρισμό της cache από δεδομένα που υπάρχουν από τη χρήση της υπηρεσίας Google Place.
+Η εργασία αυτή προέρχεται από το πρόσθετο https://www.jmix.io/marketplace/google-place/[Google Place,window=_blank] του Jmix. Αναλαμβάνει τον καθαρισμό της cache από δεδομένα που υπάρχουν από τη χρήση της υπηρεσίας Google Place.
 
 Έχει ρυθμιστεί να εκτελείται αυτόματα μια φορά το μήνα.
 
-[,properties]
+[source,properties]
 ----
-jmix.gplace.cleaning-cache-cron=0 0 1 1 1/1 ? *
+jmix.gplace.cleaning-cache-cron = 0 0 1 1 1/1 ? *
 ----
 
 Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
 
 .application.properties
-[,properties]
+[source,properties]
 ----
-jmix.gplace.use-default-cleaning-cache-quartz-configuration=false
+jmix.gplace.use-default-cleaning-cache-quartz-configuration = false
 ----
 
 == Αποστολή Email
@@ -77,9 +77,9 @@ jmix.gplace.use-default-cleaning-cache-quartz-configuration=false
 
 Έχει ρυθμιστεί να εκτελείται αυτόματα κάθε δύο λεπτά.
 
-[,properties]
+[source,properties]
 ----
-jmix.email.email-sending-cron=* 0/2 * * * ?
+jmix.email.email-sending-cron = * 0/2 * * * ?
 ----
 
 NOTE: Για περισσότερες πληροφορίες δείτε την τεκμηρίωση της εργασίας https://docs.jmix.io/jmix/email/configuration.html#email-sending-scheduler["Email Sending Scheduler",window=_blank].
@@ -90,9 +90,9 @@ NOTE: Για περισσότερες πληροφορίες δείτε την �
 
 Έχει ρυθμιστεί να εκτελείται κάθε δύο ημέρες.
 
-[,properties]
+[source,properties]
 ----
-jmix.email.email-cleaning-cron=0 0 0 1/2 * ?
+jmix.email.email-cleaning-cron = 0 0 0 1/2 * ?
 ----
 
 NOTE: Για περισσότερες πληροφορίες δείτε την τεκμηρίωση της εργασίας https://docs.jmix.io/jmix/email/configuration.html#email-cleaning-scheduler["Email Cleaning Scheduler",window=_blank].
