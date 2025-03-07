@@ -1,7 +1,9 @@
 .imageblock img[src$='mark_g.svg'],
+.imageblock img[src$='mark_o.svg'],
 .imageblock img[src$='mark_b.svg'],
 .image img[src$='mark_g.svg'],
-.image img[src$='mark_b.svg'] { width: 18px; vertical-align:middle; }
+.image img[src$='mark_o.svg'],
+.image img[src$='mark_b.svg'] { width: 24px; vertical-align:middle; }
 
 #search-input {
 	border: 1px solid var(--color-white);

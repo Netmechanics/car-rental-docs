@@ -11,3 +11,5 @@ asciidoc:
     table-stripes: hover
     kroki-fetch-diagram: true
     app-name: WheelRent
+    app-back: BackOffice
+    app-front: Site

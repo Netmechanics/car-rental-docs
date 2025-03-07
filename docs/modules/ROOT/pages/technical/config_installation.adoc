@@ -1,14 +1,12 @@
 = Παραμετροποίηση εγκατάστασης
-:back: BackOffice
-:front: Site
 
-image:mark_g.svg[] {back}
+image:mark_g.svg[] {app-back}
 
-image:mark_b.svg[] {front}
+image:mark_o.svg[] {app-front}
 
 == Ρυθμίσεις Εγκατάστασης
 
-Βασικές ρυθμίσεις που πρέπει να καθοριστούν κατά τη διαδικασία εγκατάστασης των συστημάτων {back} και {front}.
+Βασικές ρυθμίσεις που πρέπει να καθοριστούν κατά τη διαδικασία εγκατάστασης των συστημάτων {app-back} και {app-front}.
 
 === Data Store
 
@@ -22,7 +20,7 @@ main.datasource.username = username
 main.datasource.password = password
 ----
 
-Με την εγκατάσταση του {back} φορτώνονται στη βάση και κάποια δεδομένα προσομοίωσης (mock data). Σε ένα παραγωγικό περιβάλουν δε χρειάζονται τα data αυτά, οπότε για να τα αποκλείσουμε χρησιμοποιούμε τη ρύθμιση
+Με την εγκατάσταση του {app-back} φορτώνονται στη βάση και κάποια δεδομένα προσομοίωσης (mock data). Σε ένα παραγωγικό περιβάλουν δε χρειάζονται τα data αυτά, οπότε για να τα αποκλείσουμε χρησιμοποιούμε τη ρύθμιση
 
 .image:mark_g.svg[] Αποκλεισμός φόρτωσης δεδομένων προσομοίωσης
 [source,properties]
@@ -43,16 +41,16 @@ spring.security.oauth2.authorizationserver.client.myclient.registration.client-s
 springdoc.swagger-ui.enabled = false <2>
 ----
 <1> Το πρόθεμα *\{noop}* είναι υποχρεωτικό.
-<2> Προαιρετική ρύθμιση. Αν την ορίσουμε σε false, τότε η πρόσβαση στο Swagger UI θα είναι δυνατή μόνο μέσα από το σύστημα του {back}.
+<2> Προαιρετική ρύθμιση. Αν την ορίσουμε σε false, τότε η πρόσβαση στο Swagger UI θα είναι δυνατή μόνο μέσα από το σύστημα του {app-back}.
 
-.image:mark_b.svg[] Παράδειγμα ρυθμίσεων REST API
+.image:mark_o.svg[] Παράδειγμα ρυθμίσεων REST API
 [source,properties]
 ----
 NEXT_PUBLIC_API_URL = https://www.company.com
 API_OAUTH_CLIENT_ID = carrental_client <1>
 API_OAUTH_CLIENT_SECRET = carrental_secret <1>
 ----
-<1> Και οι δύο ιδιότητες του {front} πρέπει να είναι ίδιες με αυτές του {back}.
+<1> Και οι δύο ιδιότητες του {app-front} πρέπει να είναι ίδιες με αυτές του {app-back}.
 
 === Emails
 
@@ -82,7 +80,7 @@ spring.mail.properties.mail.smtp.ssl.enable = false
 
 === Καταγραφή Συμβάντων
 
-Οι βασικές ρυθμίσεις για την xref::technical/logging.adoc[καταγραφή των συμβάντων] του {back}.
+Οι βασικές ρυθμίσεις για την xref::technical/logging.adoc[καταγραφή των συμβάντων] του {app-back}.
 
 .image:mark_g.svg[] Παράδειγμα ρυθμίσεων Logs
 [source,properties]
