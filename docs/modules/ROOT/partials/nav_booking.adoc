@@ -1,4 +1,5 @@
 ** xref:booking/locations.adoc[]
+** xref:booking/routes.adoc[]
 ** xref:booking/seasons.adoc[]
 ** xref:booking/coupons.adoc[]
 ** xref:booking/insurances.adoc[]
