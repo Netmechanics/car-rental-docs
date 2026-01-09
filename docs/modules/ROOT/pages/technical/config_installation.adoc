@@ -20,17 +20,17 @@ main.datasource.username = username
 main.datasource.password = password
 ----
 
-Με την εγκατάσταση του {app-back} φορτώνονται στη βάση και κάποια δεδομένα προσομοίωσης (mock data). Σε ένα παραγωγικό περιβάλουν δε χρειάζονται τα data αυτά, οπότε για να τα αποκλείσουμε χρησιμοποιούμε τη ρύθμιση
+Με την εγκατάσταση του {app-back} έχουμε τη δυνατότητα να φορτώσουμε στη βάση και κάποια δεδομένα προσομοίωσης (mock data), χρησιμοποιώντας τη ρύθμιση
 
-.image:mark_g.svg[] Αποκλεισμός φόρτωσης δεδομένων προσομοίωσης
+.image:mark_g.svg[] Φόρτωση δεδομένων προσομοίωσης
 [source,properties]
 ----
-main.liquibase.contexts = !mock
+main.liquibase.contexts = mock
 ----
 
 === REST API
 
-Βασικές ρυθμίσεις που πρέπει να γίνουν και στα δύο συστήματα για τη μεταξύ του επικοινωνία.
+Βασικές ρυθμίσεις που πρέπει να γίνουν και στα δύο συστήματα για τη μεταξύ τους επικοινωνία.
 
 .image:mark_g.svg[] Παράδειγμα ρυθμίσεων REST API
 [source,properties]
@@ -108,3 +108,11 @@ jmix.azurefs.containerName = carrental <1>
 == Business Logic Mail Settings
 
 == Languages
+
+== Add missing content in all languages
+
+== add vehicle items
+
+== storage access level to container
+
+== reports
