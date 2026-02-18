@@ -2,6 +2,7 @@
 ** xref:admin/vehicle_types.adoc[]
 ** xref:admin/vehicle_features.adoc[]
 ** xref:admin/tags.adoc[]
+** xref:admin/roles.adoc[]
 ** xref:admin/payments.adoc[]
 ** xref:admin/settings-system.adoc[]
 ** xref:admin/settings-email.adoc[]

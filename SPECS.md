@@ -11,7 +11,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
 - Component descriptor: `docs/antora.yml` (component `wr`, ROOT module, nav at `modules/ROOT/nav.adoc`)
 - Content pages: `docs/modules/ROOT/pages/**`
 - Partials: `docs/modules/ROOT/partials/**`
-- Images: `docs/modules/ROOT/images/**`
+- Images: `docs/modules/ROOT/images/**` (includes placeholder screenshots for roles UI steps)
 - Examples: `docs/modules/ROOT/examples/**`
 - UI overrides: `supplemental-ui/**`
 - Theme source: `theme/site.scss` compiled to `theme/site.css`
@@ -40,6 +40,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
   - `admin/vehicle_types.adoc`
   - `admin/vehicle_features.adoc`
   - `admin/tags.adoc`
+  - `admin/roles.adoc`
   - `admin/payments.adoc`
   - `admin/settings-system.adoc`
   - `admin/settings-email.adoc`
@@ -78,6 +79,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
 - Vehicle Types: category taxonomy.
 - Vehicle Features: equipment/feature taxonomy.
 - Tags: labels used to surface groups/vehicles; regex validation.
+- Roles: system roles (`system-full-access`, `basic-access-role`) and CRUD scope for business users.
 - Payments: offline/online methods, provider mapping, fees, and deposit rules.
 - System Settings: locales, rental code regex, dashboard embedding, Google API, extra hours, night hours, scheduled job settings, pricing rules, and limits.
 - Email Settings: per-category sender/recipient/subject/copy rules (rental/contact/quote).
