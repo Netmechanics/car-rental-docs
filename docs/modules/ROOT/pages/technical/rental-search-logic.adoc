@@ -1,0 +1,366 @@
+= Λογική αναζήτησης ενοικίασης
+
+Το έγγραφο περιγράφει τη λογική του `/api/v1/booking/search` και πώς η διάρκεια ενοικίασης επηρεάζει τα αποτελέσματα. Αποτελεί σημείο αναφοράς για μελλοντικές αλλαγές.
+
+== Εμβέλεια
+- Endpoint: `GET /api/v1/booking/search`
+- Κύρια ροή: `SearchService.search()`
+- Διαθεσιμότητα οχημάτων: `VehiclesSearchService.findVehicles()`
+- Τιμολόγηση: `VehiclesCostCalculatorService.calculateCosts()` και `GroupSeasonPricing.getDayPrice()`
+
+== Υψηλού επιπέδου ροή
+. Φόρτωση ρυθμίσεων συστήματος (`SystemSettings` μέσω `AppSettings`).
+. Ρύθμιση ημερομηνιών και υπολογισμός διάρκειας (`rentalDays`, `chargeableDays`, `extraHours`).
+. Επίλυση τοποθεσιών παραλαβής/παράδοσης και κόστους διαδρομής.
+. Δημιουργία `RentalSeason` από όλες τις `Season` οντότητες.
+. Έλεγχος ελάχιστης διάρκειας ανά σεζόν.
+. Εύρεση διαθέσιμων οχημάτων (κατάσταση + περίοδοι μη διαθεσιμότητας).
+. Υπολογισμός κόστους ανά όχημα.
+. Φιλτράρισμα οχημάτων με συνολικό κόστος `<= 0`.
+
+[plantuml]
+----
+@startuml
+title Booking Search Workflow (/api/v1/booking/search)
+
+start
+:Load SystemSettings;
+:Setup dates -> rentalDays, chargeableDays, extraHours;
+:Resolve pickup/drop-off locations;
+:Resolve route cost (optional);
+:Build rental seasons (Season -> RentalSeason);
+
+if (Minimum duration valid\nfor each season?) then (yes)
+  :Find available vehicles;
+  :Calculate pricing per vehicle;
+  if (Total price > 0?) then (yes)
+    :Include in fleet list;
+  else (no)
+    :Filter out vehicle;
+  endif
+  :Return SearchResultDto;
+  stop
+else (no)
+  :Throw error (no fleet list);
+  stop
+endif
+@enduml
+----
+
+== Αναλυτική λογική
+
+=== 1) Ημερομηνίες και διάρκεια
+- Το `rentalDays` υπολογίζεται ως πλήρεις ημέρες μεταξύ παραλαβής και παράδοσης.
+- Αν η διαφορά είναι `0` ημέρες, εξαναγκάζεται σε `1` ημέρα.
+- Το `chargeableDays` αρχικοποιείται ως `rentalDays` και μπορεί να προσαρμοστεί από τους κανόνες έξτρα ωρών.
+- Οι έξτρα ώρες υπολογίζονται όταν η ώρα παράδοσης είναι μετά την ώρα παραλαβής.
+- Αν `ExtraHoursType = WHOLE_DAY` και οι έξτρα ώρες ξεπερνούν το όριο, τότε αυξάνεται το `chargeableDays`.
+- Αν `ExtraHoursType = PERCENTAGE`, οι έξτρα ώρες παραμένουν ως ώρες για τον υπολογισμό κόστους.
+
+=== 2) Έλεγχος ελάχιστης διάρκειας
+- Το σύστημα επιβάλλει **ελάχιστη διάρκεια** ανά σεζόν και προαιρετικά ανά τοποθεσία.
+- Η ενεργή ελάχιστη διάρκεια είναι το μέγιστο από:
+  - τις ελάχιστες διάρκειες για τις τοποθεσίες παραλαβής/παράδοσης, ή
+  - τη γενική (blank) ελάχιστη διάρκεια.
+- Αν `rentalDays < minDuration`, η αναζήτηση αποτυγχάνει με σφάλμα (δεν επιστρέφεται στόλος).
+
+=== 3) Διαθεσιμότητα οχημάτων
+Τα οχήματα φιλτράρονται με βάση:
+- Ενεργή κατάσταση οχήματος.
+- Προαιρετικά φίλτρα τύπου οχήματος.
+- Περιόδους μη διαθεσιμότητας ομάδων που επικαλύπτουν το ζητούμενο διάστημα και ταιριάζουν στις τοποθεσίες.
+
+=== 4) Τιμολόγηση
+Η τιμολόγηση βασίζεται στις εποχικές τιμές ανά ημέρα για την ομάδα οχημάτων.
+
+- Για κάθε όχημα, το σύστημα βρίσκει το αντίστοιχο `GroupSeasonPricing` ανά σεζόν.
+- Η ημερήσια τιμή υπολογίζεται με `getDayPrice(days)` όπου `days` είναι τα **chargeable days**.
+- Η `getDayPrice()` υποστηρίζει μόνο τα bands `1` έως `30` (D01..D30).
+- Αν λείπει band (επιστρέφει `null`), το κόστος για τη σεζόν γίνεται `0` και το συνολικό κόστος γίνεται `0`.
+- Οχήματα με `totalPrice <= 0` αφαιρούνται από τα αποτελέσματα.
+
+=== 5) Φιλτράρισμα αποτελεσμάτων
+Μόνο οχήματα με θετικό συνολικό κόστος επιστρέφονται στη λίστα `fleet.items`.
+
+== Χρήσεις διάρκειας
+
+=== A) `rentalDays < 30`
+Αναμενόμενη συμπεριφορά:
+- Η τιμολόγηση χρησιμοποιεί το αντίστοιχο band (π.χ. D05 για 5 ημέρες).
+- Τα οχήματα επιστρέφονται κανονικά (αν είναι διαθέσιμα και περνάει το ελάχιστο όριο).
+
+Σημείωση:
+- Αν `rentalDays` είναι κάτω από την ελάχιστη διάρκεια σεζόν/τοποθεσίας, η αναζήτηση αποτυγχάνει πριν την τιμολόγηση.
+
+=== B) `rentalDays = 30`
+Αναμενόμενη συμπεριφορά:
+- Χρησιμοποιείται το band D30.
+- Τα οχήματα επιστρέφονται κανονικά (αν είναι διαθέσιμα και περνάει το ελάχιστο όριο).
+
+=== C) `rentalDays > 30`
+Αναμενόμενη συμπεριφορά με την τρέχουσα λογική:
+- Η `getDayPrice(days)` κάνει fallback στο **D30** για `days > 30`.
+- Η ημερήσια τιμή υπολογίζεται από το D30, το συνολικό κόστος υπολογίζεται κανονικά και τα οχήματα επιστρέφονται αν είναι διαθέσιμα.
+
+[plantuml]
+----
+@startuml
+title Pricing Band Decision (Based on Chargeable Days)
+
+start
+:Compute rentalDays & chargeableDays;
+
+if (chargeableDays < 30?) then (yes)
+  :Use D01..D29 pricing band;
+  :Total price computed;
+  :Vehicle returned (if available);
+  stop
+else (no)
+  if (chargeableDays == 30?) then (yes)
+    :Use D30 pricing band;
+    :Total price computed;
+    :Vehicle returned (if available);
+    stop
+  else (no)
+    :Use D30 pricing band (fallback);
+    :Total price computed;
+    :Vehicle returned (if available);
+    stop
+  endif
+endif
+@enduml
+----
+
+[plantuml]
+----
+@startuml
+title Minimum Duration Gate (Season + Location)
+
+start
+:Load SystemSettings.rentalMinimumDuration;
+:Collect SeasonMinDuration entries;
+
+if (Location-specific min durations exist?) then (yes)
+  :minDuration = max(location-specific);
+else (no)
+  if (Blank min durations exist?) then (yes)
+    :minDuration = max(blank);
+  else (no)
+    :minDuration = settings default;
+  endif
+endif
+
+if (rentalDays >= minDuration?) then (yes)
+  :Pass duration gate;
+  stop
+else (no)
+  :Fail search (error);
+  stop
+endif
+@enduml
+----
+
+[plantuml]
+----
+@startuml
+title Vehicle Availability Filtering
+
+start
+:Load active vehicles (optional type filter);
+:Initialize unavailable groups = empty;
+
+while (for each vehicle)
+  :Get vehicle group;
+  if (Group has unavailability windows?) then (yes)
+    while (for each unavailability window)
+      if (Date ranges overlap\nAND location matches?) then (yes)
+        :Mark group unavailable;
+        break
+      endif
+    endwhile
+  endif
+endwhile
+
+:Filter out vehicles whose group is unavailable;
+:Return available vehicles;
+stop
+@enduml
+----
+
+[plantuml]
+----
+@startuml
+title Pricing Accumulation (Per Vehicle)
+
+start
+:Load SystemSettings;
+:Select last RentalSeason (for extra hours);
+:dailyPrice = getDayPrice(chargeableDays);
+:extraHoursCost = calcExtraHoursCost(lastSeason, dailyPrice);
+
+if (extraHoursCost > 0?) then (yes)
+  :Add EXTRA_HOURS cost to list;
+endif
+
+:basicPrice = 0;
+:discountAmount = 0;
+
+while (for each RentalSeason)
+  :dailyPrice = getDayPrice(chargeableDays);
+  :basicPrice += dailyPrice * season.days;
+  :discountAmount += dateRangeDiscount;
+endwhile
+
+:discountAmount += durationDiscount;
+:basicPrice += extraHoursCost;
+:totalPrice = basicPrice - discountAmount;
+
+if (totalPrice > 0?) then (yes)
+  :Vehicle kept in results;
+else (no)
+  :Vehicle filtered out;
+endif
+stop
+@enduml
+----
+
+[plantuml]
+----
+@startuml
+title Discount Calculation
+
+start
+:discountAmount = 0;
+
+while (for each RentalSeason)
+  :dailyPrice = getDayPrice(chargeableDays);
+  :discountAmount += dateRangeDiscount(vehicle, season, dailyPrice);
+endwhile
+
+:discountAmount += durationDiscount(vehicle, basicPrice, costList);
+stop
+@enduml
+----
+
+[plantuml]
+----
+@startuml
+title Extra Hours Handling
+
+start
+:hours = dropOffTime - pickupTime (if dropOff after pickup);
+
+if (ExtraHoursType == WHOLE_DAY?) then (yes)
+  if (hours > extraHoursValue?) then (yes)
+    :chargeableDays += 1;
+  endif
+else (no)
+  :rentalInfo.extraHours = hours;
+endif
+
+if (ExtraHoursType == PERCENTAGE?) then (yes)
+  :extraHoursCost = dailyPrice * extraHours * percent;
+  if (extraHoursCost >= dailyPrice?) then (yes)
+    :chargeableDays = rentalDays + 1;
+    :extraHours = 0;
+    :lastSeason.days += 1;
+  endif
+endif
+stop
+@enduml
+----
+
+== Παραδείγματα (με βάση τους πραγματικούς κανόνες)
+Τα παραδείγματα χρησιμοποιούν συγκεκριμένους αριθμούς και ακολουθούν την πραγματική ροή του συστήματος.
+
+=== 1) Απλή τιμολόγηση (μία σεζόν, fallback D30)
+Κανόνες:
+- `dailyPrice = getDayPrice(chargeableDays)` για κάθε σεζόν.
+- Αν `chargeableDays > 30`, η `getDayPrice()` κάνει fallback στο D30.
+- `basicPrice = sum(dailyPrice * season.days)`.
+
+Υποθέσεις:
+- Μία σεζόν καλύπτει όλη την ενοικίαση.
+- D05 = 80, D30 = 60.
+- Χωρίς εκπτώσεις.
+
+Παραδείγματα:
+- **Ενοικίαση 5 ημερών** → `chargeableDays = 5` → `dailyPrice = D05 = 80` → `basicPrice = 5 * 80 = 400`
+- **Ενοικίαση 30 ημερών** → `chargeableDays = 30` → `dailyPrice = D30 = 60` → `basicPrice = 30 * 60 = 1800`
+- **Ενοικίαση 45 ημερών** → `chargeableDays = 45` → `dailyPrice = D30 (fallback) = 60` → `basicPrice = 45 * 60 = 2700`
+
+=== 2) Έξτρα ώρες (WHOLE_DAY vs PERCENTAGE)
+Κανόνες:
+- Αν η ώρα παράδοσης είναι **μετά** την ώρα παραλαβής:
+  - `WHOLE_DAY`: αν `hours > extraHoursValue`, τότε `chargeableDays = rentalDays + 1`.
+  - `PERCENTAGE`: `extraHours = hours`, το κόστος προστίθεται αργότερα.
+- Στον υπολογισμό κόστους (PERCENTAGE):
+  - `extraHoursCost = dailyPrice * extraHours * percent`.
+  - Αν `extraHoursCost >= dailyPrice`, τότε:
+    - `chargeableDays = rentalDays + 1`, `extraHours = 0`, `lastSeason.days += 1`, `extraHoursCost = 0`.
+
+Παράδειγμα Α (WHOLE_DAY):
+- Παραλαβή: **2026-03-01 10:00**, παράδοση: **2026-03-06 13:30**.
+- `rentalDays = 5`, έξτρα ώρες = 3.5.
+- `ExtraHoursType = WHOLE_DAY`, `extraHoursValue = 2`.
+- Εφόσον `3.5 > 2`, `chargeableDays = 6`.
+- Η `dailyPrice` χρησιμοποιεί **D06** και το βασικό κόστος υπολογίζεται για 6 ημέρες.
+
+Παράδειγμα Β (PERCENTAGE):
+- Παραλαβή: **2026-03-01 10:00**, παράδοση: **2026-03-06 16:00**.
+- `rentalDays = 5`, έξτρα ώρες = 6.
+- `ExtraHoursType = PERCENTAGE`, `percent = 20%`, `dailyPrice = 60`.
+- `extraHoursCost = 60 * 6 * 0.20 = 72`.
+- Εφόσον `72 >= 60`, μετατρέπεται σε πλήρη ημέρα:
+  - `chargeableDays = 6`, `extraHours = 0`, `lastSeason.days += 1`, `extraHoursCost = 0`.
+
+=== 3) Έλεγχος ελάχιστης διάρκειας (σεζόν + τοποθεσία)
+Κανόνες:
+- Η ενεργή ελάχιστη διάρκεια είναι το **μέγιστο** από:
+  - τις ελάχιστες διάρκειες τοποθεσιών (παραλαβή ή παράδοση), ή
+  - τη γενική (blank) ελάχιστη διάρκεια, ή
+  - το προεπιλεγμένο σύστημα (`SystemSettings.rentalMinimumDuration`).
+- Η συνολική διάρκεια (`rentalDays`) πρέπει να καλύπτει το όριο.
+
+Υποθέσεις:
+- Ελάχιστο παραλαβής = 3 ημέρες, ελάχιστο παράδοσης = 4 ημέρες.
+- Γενικό ελάχιστο = 2 ημέρες.
+
+Παραδείγματα:
+- **RentalDays = 3** → ενεργό ελάχιστο = max(3, 4) = 4 → αποτυχία → επιστρέφεται σφάλμα (χωρίς στόλο).
+- **RentalDays = 5** → επιτυχία → συνεχίζει η αναζήτηση.
+
+=== 4) Εκπτώσεις (Date Range + Duration)
+Κανόνες:
+- **Έκπτωση ημερομηνιών (ανά ημέρα)**:
+  - Για κάθε ημέρα στο `chargeableDays`, αν η ημέρα επικαλύπτεται με έκπτωση ημερομηνιών, εφαρμόζεται το **μεγαλύτερο** ποσοστό για τη συγκεκριμένη ημέρα.
+  - `dayDiscount = dailyPrice * percent`.
+- **Έκπτωση διάρκειας (εφάπαξ)**:
+  - Επιλέγει το **μεγαλύτερο** ποσοστό:
+    - πρώτα για την ομάδα οχήματος, αλλιώς γενικό.
+  - Τύποι: `EARLY_BOOKING` (μήνες πριν) ή `PER_RENTAL` (ελάχιστη/μέγιστη διάρκεια + όρια).
+  - `durationDiscount = basicPrice * percent`.
+
+Υποθέσεις:
+- Σήμερα: **2026-02-18**.
+- Ενοικίαση: **2026-03-01 10:00 → 2026-03-11 10:00** (10 ημέρες).
+- Μία σεζόν καλύπτει όλες τις 10 ημέρες, `chargeableDays = 10`.
+- D10 = 70.
+- Έκπτωση ημερομηνιών:
+  - Ενεργή για **2026-03-03 → 2026-03-07**, 10% (το μεγαλύτερο ποσοστό για τις ημέρες αυτές).
+- Έκπτωση διάρκειας (PER_RENTAL):
+  - Ενεργή, `minDuration = 7`, `maxDuration = 14`, ποσοστό = 5%.
+
+Υπολογισμός:
+- `dailyPrice = 70`, `basicPrice = 10 * 70 = 700`.
+- Έκπτωση ημερομηνιών για **5 ημέρες** (3–7 Μαρτίου):
+  - `discountDR = 5 * (70 * 0.10) = 35`.
+- Έκπτωση διάρκειας:
+  - `discountPR = 700 * 0.05 = 35`.
+- Συνολική έκπτωση = 35 + 35 = 70.
+- **Συνολικό κόστος = 700 - 70 = 630**.
+
+== Σχετικές αναφορές κώδικα
+- Διάρκεια και ροή αναζήτησης: `src/main/java/gr/netmechanics/carrental/api/services/SearchService.java`
+- Τιμολόγηση και φίλτρα: `src/main/java/gr/netmechanics/carrental/api/services/VehiclesCostCalculatorService.java`
+- Τιμολόγηση ανά band: `src/main/java/gr/netmechanics/carrental/entity/booking/GroupSeasonPricing.java`

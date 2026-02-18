@@ -27,6 +27,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
   - `booking/index.adoc`
   - `booking/locations.adoc`
   - `booking/routes.adoc`
+  - `booking/rental-search-logic.adoc`
   - `booking/seasons.adoc`
   - `booking/coupons.adoc`
   - `booking/insurances.adoc`
@@ -45,6 +46,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
 - Technical
   - `technical/index.adoc`
   - `technical/rental-process.adoc`
+  - `technical/rental-search-logic.adoc`
   - `technical/reports_email.adoc`
   - `technical/scheduled-jobs.adoc`
   - `technical/config_installation.adoc`
@@ -63,6 +65,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
 ### Booking
 - Locations: pickup/dropoff locations, costs, grouping, Google place link, defaults, and activation.
 - Routes: location pairs with route pricing and charge policy integration.
+- Rental Search Logic (Business): business-focused summary of search, duration, extra-hours rules, pricing bands, and outcomes.
 - Seasons: calendar coverage requirement and minimum duration rules.
 - Coupons: discount codes, validity windows, and regex validation.
 - Insurances: per-day or per-period cost models with calculation examples.
@@ -81,6 +84,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
 
 ### Technical
 - Rental Process: flow diagram with steps and decision points.
+- Rental Search Logic: `/api/v1/booking/search` logic, duration rules, pricing bands, filters, and PlantUML workflows.
 - Email Reports: Jmix Reports + FreeMarker templates; DTO examples.
 - Scheduled Jobs: abandoned rentals, finish rentals, email send/cleanup, Google Place cache cleanup.
 - Installation Config: DB, REST API, email, logging, and placeholder sections for TODOs.
