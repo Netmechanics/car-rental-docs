@@ -19,6 +19,8 @@
 - Embed diagrams and technical assets via Kroki/PlantUML or static images, choosing the format that best suits maintenance and readability.
 - Surface quality metrics by reusing `partial$sonarqube.adoc` and Sonar badge partials; avoid hard-coding duplicate markup.
 - Collaborate with developers to capture workflows, API contracts, UI flows, and data models, translating raw notes into publishable AsciiDoc.
+- Consult `SPECS.md` before starting work to refresh the project purpose, structure, and content overview.
+- Update `SPECS.md` whenever you add, update, move, rename, or delete documentation content, navigation, partials, examples, images, or other structure-affecting assets.
 
 ## Expertise & Tools
 - Antora 3.1.x site generation (`npx antora --fetch antora-playbook.yml`), understanding of component versions, nav assembly, and UI bundling.
