@@ -26,11 +26,12 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - name: Install Antora with extensions
-        run: npm i antora @antora/lunr-extension @antora/atlas-extension
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
       - name: Generate Site
-        run: npx antora antora-playbook.yml
+        run: npm run build:site
       - name: Create CNAME file
         run: echo carrental-docs.nmlabs.gr > build/site/CNAME
       - name: Upload Artifacts
