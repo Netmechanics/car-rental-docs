@@ -1,5 +1,6 @@
 site:
   title: WheelRent Documentation
+  url: http://carrental-docs.nmlabs.gr
   start_page: wr::index.adoc
   robots: allow
 
@@ -8,21 +9,18 @@ git:
 
 urls:
   html_extension_style: indexify
-  latest_version_segment: latest
-  latest_version_segment_strategy: redirect:to
 
 content:
   edit_url: false
   sources:
     - url: .
       branches:
-        - master
+        - HEAD
       start_path: docs
 
 ui:
   bundle:
-    snapshot: true
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: ./vendor/antora-ui-default.zip
   supplemental_files: ./supplemental-ui
 
 asciidoc:
@@ -37,7 +35,6 @@ asciidoc:
     caution-caption: 'ΠΡΟΣΟΧΗ'
     warning-caption: 'ΠΡΟΕΙΔΟΠΟΙΗΣΗ'
     sonarqube-appId: 'CarRental_car-rental_be95db4a-452c-44cf-8ca7-85884c65329f'
-    sonarqube-token: 'sqb_2ba5f82952764af9f3f2c90100a72eb812907fa2'
     kroki-server-url: https://kroki.nmlabs.gr
   extensions:
     - 'asciidoctor-kroki'
@@ -45,7 +42,6 @@ asciidoc:
 
 antora:
   extensions:
-    - require: '@antora/atlas-extension'
     - require: '@antora/lunr-extension'
       languages: [en, el]
       index_latest_only: true

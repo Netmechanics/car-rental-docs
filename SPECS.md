@@ -14,7 +14,8 @@ This repository contains the Antora documentation site for WheelRent (car rental
 - Images: `docs/modules/ROOT/images/**` (includes placeholder screenshots for roles UI steps)
 - Examples: `docs/modules/ROOT/examples/**`
 - UI overrides: `supplemental-ui/**`
-- Theme source: `theme/site.scss` compiled to `theme/site.css`
+- Vendored UI bundle: `vendor/antora-ui-default.zip`
+- Theme source: `theme/site.scss` compiled to `supplemental-ui/css/site.css`
 
 ## Navigation Tree (ROOT)
 - Home
@@ -96,8 +97,14 @@ This repository contains the Antora documentation site for WheelRent (car rental
 
 ## Reusable Partials
 - Caution notice in `docs/modules/ROOT/partials/caution.adoc`.
-- SonarQube badges in `docs/modules/ROOT/partials/sonarqube.adoc` and `sonarqube_badge.adoc`.
+- SonarQube badges in `docs/modules/ROOT/partials/sonarqube.adoc` and `sonarqube_badge.adoc` without embedded access tokens.
 - Navigation partials under `docs/modules/ROOT/partials/nav_*.adoc`.
 
 ## Documentation Examples
 - Java DTOs and model snippets in `docs/modules/ROOT/examples/*.java` used in technical email/report docs.
+
+## Build Notes
+- The Antora UI bundle is stored locally in `vendor/antora-ui-default.zip` to avoid depending on a remote `HEAD` artifact during normal builds.
+- The content source now builds from the checked-out `HEAD`, so local documentation edits are reflected without switching to `master`.
+- The documented build flow uses npm scripts: `npm run build:theme`, `npm run build:site`, `npm run build:site:fetch`, and `npm run preview`.
+- The playbook is configured with the deployment URL `http://carrental-docs.nmlabs.gr`.

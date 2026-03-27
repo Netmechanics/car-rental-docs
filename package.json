@@ -1,17 +1,22 @@
 {
-	"devDependencies": {
-		"@antora/site-generator": "3.1.9",
-		"antora": "3.1.9"
-	},
-	"dependencies": {
-		"@antora/atlas-extension": "^1.0.0-alpha.2",
-		"@antora/lunr-extension": "^1.0.0-alpha.8",
-		"@asciidoctor/tabs": "^1.0.0-beta.6",
-		"asciidoctor-kroki": "^0.18.1",
-		"http-server": "^14.1.1",
-		"lunr-languages": "1.14.0"
-	},
-	"scripts": {
-		"npx": "npx"
-	}
+  "private": true,
+  "devDependencies": {
+    "@antora/lunr-extension": "^1.0.0-alpha.13",
+    "@antora/site-generator": "3.1.14",
+    "@asciidoctor/tabs": "^1.0.0-beta.6",
+    "antora": "3.1.14",
+    "asciidoctor-kroki": "^0.18.1",
+    "lunr-languages": "1.14.0",
+    "sass": "^1.93.2"
+  },
+  "overrides": {
+    "brace-expansion": "^1.1.12",
+    "minimatch": "^3.1.5"
+  },
+  "scripts": {
+    "build:theme": "sass --no-source-map theme/site.scss supplemental-ui/css/site.css",
+    "build:site": "npm run build:theme && antora antora-playbook.yml",
+    "build:site:fetch": "npm run build:theme && antora --fetch antora-playbook.yml",
+    "preview": "python3 -m http.server 8081 --directory build/site"
+  }
 }

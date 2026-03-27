@@ -340,16 +340,6 @@ html.is-clipped--nav {
   background-color: var(--scrollbar-thumb-color);
 }
 
-.nav-panel-explore {
-  background: var(--nav-background);
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  max-height: calc(50% + var(--drawer-height));
-}
 .nav-panel-explore .components {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb-color) transparent;
@@ -368,6 +358,16 @@ html.is-clipped--nav {
 }
 .nav-panel-explore .components::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-color);
+}
+.nav-panel-explore {
+  background: var(--nav-background);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: calc(50% + var(--drawer-height));
 }
 .nav-panel-explore .context {
   font-size: calc(14 / var(--rem-base) * 1rem);
@@ -1776,15 +1776,15 @@ a + .breadcrumbs {
 .doc .listingblock.wrap pre {
   white-space: pre-wrap;
 }
-.doc pre.highlight {
-  position: relative;
-}
 .doc pre.highlight code {
   background: var(--pre-background);
   box-shadow: inset 0 0 1.75px var(--pre-border-color);
   display: block;
   overflow-x: auto;
   padding: 0.75rem;
+}
+.doc pre.highlight {
+  position: relative;
 }
 .doc .colist {
   font-size: calc(16 / var(--rem-base) * 1rem);
@@ -1861,14 +1861,14 @@ a + .breadcrumbs {
 .doc .keyseq kbd:last-child {
   margin-right: 0;
 }
-.doc .menuseq {
-  hyphens: none;
-}
 .doc .menuseq i.caret::before {
   content: "›";
   font-size: 1.1em;
   font-weight: var(--body-font-weight-bold);
   line-height: 0.9090909091;
+}
+.doc .menuseq {
+  hyphens: none;
 }
 .doc a.bare {
   hyphens: none;
@@ -2892,5 +2892,3 @@ span.icon > .fa {
 a span.icon > .fa {
   cursor: inherit;
 }
-
-/*# sourceMappingURL=site.css.map */

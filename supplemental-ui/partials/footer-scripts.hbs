@@ -1,14 +1,6 @@
 <script id="site-script" src="{{{uiRootPath}}}/js/site.js" data-ui-root-path="{{{uiRootPath}}}"></script>
 <script async src="{{{uiRootPath}}}/js/tabs.js" data-sync-storage-key="preferred-tab"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"
-        integrity="sha512-tL84mD+FR70jI7X8vYj5AfRqe0EifOaFUapjt1KvDaPLHgTlUZ2gQL/Tzvvn8HXuQm9oHYShJpNFdyJmH2yHrw==" crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-<script>
-	hljs.highlightAll();
-</script>
-
 {{#if env.SITE_SEARCH_PROVIDER}}
 	{{> search-scripts}}
 {{/if}}
-

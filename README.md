@@ -6,14 +6,13 @@
 - Network access to npm registry and the configured Kroki server
 
 Optional tools:
-- `http-server` (for local preview)
-- `sass`/`node-sass` (installed on-demand via `npx` in the commands below)
+- Python 3 (for local preview)
 
 > Run all commands from the repository root (`/home/maravelias/repos/car-rental-docs`).
 
 ## 1. Install project dependencies
 
-Install the Antora site generator, extensions, and supporting packages:
+Install the Antora toolchain and supporting packages:
 
 ```shell
 npm install
@@ -21,45 +20,35 @@ npm install
 
 If you encounter network issues or partial installs, delete `node_modules` and retry the command.
 
-## 2. Build the custom UI theme
+## 2. Generate the site
 
-Compile the Sass theme and stage it for Antora and the supplemental UI bundle:
+For a standard local build:
 
 ```shell
-npx node-sass ./theme/site.scss ./theme/site.css
-cp ./theme/site.css ./supplemental-ui/css/site.css
+npm run build:site
 ```
 
-Leave `./theme/site.css` in place for the next step; Antora will copy it into the build.
-
-## 3. Generate the Antora site
+To rebuild after intentionally refreshing external Antora assets, use:
 
 ```shell
-npx antora --fetch antora-playbook.yml
+npm run build:site:fetch
 ```
 
-The site output is written to `./build/site`. Re-running the command updates the existing build.
+The build script compiles the custom Sass theme into `supplemental-ui/css/site.css` and then runs Antora.
+The generated site is written to `./build/site`.
+The playbook reads content from the currently checked out `HEAD`, so local documentation edits are included without committing to `master` first.
+The deployment URL is configured in the playbook as `http://carrental-docs.nmlabs.gr`.
 
-If you want to drop the freshly built CSS directly into the generated site without rebuilding Antora, copy it after the build completes:
-
-```shell
-cp ./theme/site.css ./build/site/_/css/site.css
-```
-
-## 4. Preview locally
-
-Install a simple static server (one-time):
+## 3. Preview locally
 
 ```shell
-npm install -g http-server
-```
-
-Or use `npx http-server` if you prefer not to install globally.
-
-Serve the generated site:
-
-```shell
-http-server build/site -c-1 -p 8081
+npm run preview
 ```
 
 Then visit `http://localhost:8081` in your browser.
+
+## 4. Notes
+
+- The repository vendors the Antora UI bundle in `vendor/antora-ui-default.zip` so builds do not depend on downloading the default UI from GitLab on every run.
+- Kroki diagrams are fetched during the build because `kroki-fetch-diagram` is enabled. Local or CI builds therefore still need network access to `https://kroki.nmlabs.gr`.
+- The generated site now uses `http://carrental-docs.nmlabs.gr` as its published site URL for deployment metadata.
