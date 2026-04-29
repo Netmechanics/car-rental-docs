@@ -43,6 +43,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
   - `admin/tags.adoc`
   - `admin/roles.adoc`
   - `admin/payments.adoc`
+  - `admin/price-rounding.adoc`
   - `admin/settings-system.adoc`
   - `admin/settings-email.adoc`
 - Technical
@@ -82,6 +83,7 @@ This repository contains the Antora documentation site for WheelRent (car rental
 - Tags: labels used to surface groups/vehicles; regex validation.
 - Roles: system roles (`system-full-access`, `basic-access-role`) and CRUD scope for business users.
 - Payments: offline/online methods, provider mapping, fees, and deposit rules.
+- Price Rounding: configurable rounding scale (0.1/0.5/1.0) and decimal places; explains which cost components are affected, examples, and step-by-step setup.
 - System Settings: locales, rental code regex, dashboard embedding, Google API, extra hours, night hours, scheduled job settings, pricing rules, and limits.
 - Email Settings: per-category sender/recipient/subject/copy rules (rental/contact/quote).
 
