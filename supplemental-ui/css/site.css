@@ -576,18 +576,20 @@ html.is-clipped--nav {
   .nav-container {
     font-size: calc(14.5 / var(--rem-base) * 1rem);
     flex: none;
-    position: static;
-    top: 0;
+    align-self: flex-start;
+    position: sticky;
+    top: var(--navbar-height);
     visibility: visible;
+    height: calc(100vh - var(--navbar-height));
   }
   .nav {
-    top: var(--navbar-height);
+    top: 0;
     box-shadow: none;
-    position: sticky;
-    height: var(--nav-height--desktop);
+    position: static;
+    height: 100%;
   }
   .nav-panel-menu {
-    height: var(--nav-panel-height--desktop);
+    height: 100%;
   }
 }
 @media screen and (max-width: 1023px) {
