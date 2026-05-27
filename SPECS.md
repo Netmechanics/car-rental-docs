@@ -20,6 +20,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 ## Branding Notes
 - The project branding is `nmecar`; the Antora component id remains `wr` for internal stability.
 - Project logo assets live in `supplemental-ui/img/nmecar.svg`, `nmecar_white.svg`, and `nmecar_ALLwhite.svg`.
+- Favicon assets live in `supplemental-ui/` (`favicon.svg`, `favicon.ico`, PNG sizes, `apple-touch-icon.png`, `android-chrome-*.png`, `site.webmanifest`) and are wired from `supplemental-ui/partials/head-icons.hbs`.
 - The footer keeps the company logo `supplemental-ui/img/nm_logo.svg` for NETMECHANICS branding and it is not part of the project rebrand.
 - The theme uses NMECAR color tokens and typography (`Space Grotesk`, `Inter`, `JetBrains Mono`) loaded via `supplemental-ui/partials/head-styles.hbs`.
 

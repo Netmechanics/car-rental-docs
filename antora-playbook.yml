@@ -1,7 +1,7 @@
 site:
   title: nmecar Documentation
   url: http://carrental-docs.nmlabs.gr
-  start_page: wr::index.adoc
+  start_page: nmecar::index.adoc
   robots: allow
 
 git:
