@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMECAR · Brand & Theming Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NMECAR DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Brand — Primary gradient stops */
+  --nm-cyan: #01FBFD;
+  --nm-purple: #BD41FF;
+  --nm-gradient: linear-gradient(90deg, #01FBFD 0%, #BD41FF 100%);
+  --nm-gradient-diagonal: linear-gradient(135deg, #01FBFD 0%, #BD41FF 100%);
+
+  /* Brand — Darkened versions for text/borders on light backgrounds */
+  --nm-cyan-700: #008A8C;
+  --nm-cyan-800: #006566;
+  --nm-purple-700: #8A1FC4;
+  --nm-purple-800: #6B1799;
+
+  /* Brand — Tinted versions for backgrounds */
+  --nm-cyan-50: #E6FEFE;
+  --nm-cyan-100: #C2FCFD;
+  --nm-purple-50: #F7ECFF;
+  --nm-purple-100: #EBD3FF;
+
+  /* Neutral — Logo black + greyscale ramp */
+  --nm-ink: #231F20;              /* Logo black */
+  --nm-grey-900: #1A1A1F;
+  --nm-grey-800: #2D2D33;
+  --nm-grey-700: #4A4A52;
+  --nm-grey-600: #6B6B73;
+  --nm-grey-500: #8E8E96;
+  --nm-grey-400: #B5B5BC;
+  --nm-grey-300: #D4D4DA;
+  --nm-grey-200: #E5E5E9;
+  --nm-grey-100: #F1F1F4;
+  --nm-grey-50:  #F8F8FA;
+  --nm-white: #FFFFFF;
+
+  /* Semantic */
+  --nm-success: #10B981;
+  --nm-warning: #F59E0B;
+  --nm-danger:  #EF4444;
+  --nm-info:    #3B82F6;
+
+  /* Surfaces (LIGHT mode default) */
+  --bg-page:    #F8F8FA;
+  --bg-surface: #FFFFFF;
+  --bg-muted:   #F1F1F4;
+  --border:     #E5E5E9;
+  --text:       #231F20;
+  --text-muted: #6B6B73;
+
+  /* Typography */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Spacing scale (4px base) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+  /* Radii */
+  --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(35, 31, 32, 0.06);
+  --shadow-md: 0 4px 12px rgba(35, 31, 32, 0.08);
+  --shadow-lg: 0 12px 32px rgba(35, 31, 32, 0.12);
+  --shadow-glow: 0 0 24px rgba(189, 65, 255, 0.25);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--nm-ink);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; margin-bottom: var(--s-4); }
+h3 { font-size: 1.25rem; margin-bottom: var(--s-3); }
+h4 { font-size: 1rem; margin-bottom: var(--s-2); }
+
+p { margin-bottom: var(--s-3); color: var(--text-muted); }
+p.lead { font-size: 1.05rem; color: var(--nm-grey-700); }
+
+code, pre { font-family: var(--font-mono); font-size: 0.875rem; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+aside {
+  background: var(--nm-ink);
+  padding: var(--s-6) var(--s-5);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--nm-grey-800);
+}
+
+aside .logo-box { margin-bottom: var(--s-6); }
+aside .logo-box svg { width: 100%; height: auto; }
+aside .tag { color: var(--nm-grey-500); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; margin-top: var(--s-2); }
+
+nav ul { list-style: none; }
+nav li { margin-bottom: var(--s-1); }
+nav a {
+  display: block;
+  padding: var(--s-2) var(--s-3);
+  color: var(--nm-grey-400);
+  text-decoration: none;
+  border-radius: var(--r-md);
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+}
+nav a:hover { color: var(--nm-white); background: var(--nm-grey-800); }
+nav .nav-section {
+  color: var(--nm-grey-600);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: var(--s-5) var(--s-3) var(--s-2);
+  font-weight: 600;
+}
+
+main {
+  padding: var(--s-7) var(--s-7);
+  max-width: 1080px;
+}
+
+section { margin-bottom: var(--s-8); scroll-margin-top: var(--s-4); }
+section > .section-header { margin-bottom: var(--s-5); }
+section .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--nm-purple-700);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--s-2);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: var(--nm-ink);
+  color: var(--nm-white);
+  padding: var(--s-8) var(--s-6);
+  border-radius: var(--r-xl);
+  margin-bottom: var(--s-8);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(189, 65, 255, 0.2), transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(1, 251, 253, 0.15), transparent 50%);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero .logo-wrap { max-width: 360px; margin-bottom: var(--s-5); }
+.hero .logo-wrap svg { width: 100%; height: auto; }
+.hero h1 { color: var(--nm-white); font-size: 2.25rem; margin-bottom: var(--s-3); }
+.hero p { color: var(--nm-grey-400); max-width: 560px; font-size: 1.05rem; }
+
+/* ============================================================
+   CARDS / TILES
+   ============================================================ */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+}
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-3); }
+@media (max-width: 900px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+  .app { grid-template-columns: 1fr; }
+  aside { position: static; height: auto; }
+  main { padding: var(--s-5); }
+}
+
+/* ============================================================
+   LOGO SHOWCASE
+   ============================================================ */
+.logo-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.logo-card .stage {
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--s-7) var(--s-5);
+  min-height: 160px;
+}
+.logo-card .stage svg { max-width: 220px; height: auto; }
+.logo-card .stage--light { background: var(--nm-white); }
+.logo-card .stage--dark { background: var(--nm-ink); }
+.logo-card .stage--gradient { background: var(--nm-gradient-diagonal); }
+.logo-card .stage--grey { background: var(--nm-grey-100); }
+.logo-card .label {
+  padding: var(--s-3) var(--s-4);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo-card .label strong { font-family: var(--font-display); }
+.logo-card .label .file { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.75rem; }
+
+/* Logo misuse examples */
+.misuse-card .stage { min-height: 140px; position: relative; }
+.misuse-card .x-mark {
+  position: absolute; top: var(--s-3); right: var(--s-3);
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--nm-danger); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1rem;
+}
+.misuse-card .stage--bad-bg { background: #FFC107; }
+.misuse-card .stage--stretched svg { width: 280px; height: 50px; }
+.misuse-card .stage--rotated svg { transform: rotate(-12deg); }
+.misuse-card .stage--lowcontrast { background: #E9D5FF; }
+.misuse-card .stage--lowcontrast svg path { fill: #C7A8E0 !important; }
+
+/* ============================================================
+   COLOR SWATCHES
+   ============================================================ */
+.swatch {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.swatch .chip { height: 110px; display: flex; align-items: flex-end; padding: var(--s-3); }
+.swatch .chip span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: rgba(255,255,255,0.85);
+  border-radius: var(--r-sm);
+  color: var(--nm-ink);
+}
+.swatch .chip.dark span { background: rgba(0,0,0,0.6); color: white; }
+.swatch .meta { padding: var(--s-3) var(--s-4); background: var(--bg-surface); }
+.swatch .meta .name { font-weight: 600; font-size: 0.85rem; margin-bottom: 2px; }
+.swatch .meta .hex { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
+
+.gradient-bar {
+  height: 80px;
+  background: var(--nm-gradient);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-3);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-family: var(--font-mono); font-size: 0.85rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
+   TYPOGRAPHY SHOWCASE
+   ============================================================ */
+.type-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 120px;
+  gap: var(--s-4);
+  align-items: baseline;
+  padding: var(--s-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+.type-row:last-child { border-bottom: none; }
+.type-row .meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
+.type-row .sample { font-family: var(--font-display); }
+.type-row .specs { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-align: right; }
+
+.type-row.body .sample { font-family: var(--font-body); }
+.type-row.mono .sample { font-family: var(--font-mono); }
+
+/* ============================================================
+   COMPONENT PREVIEWS
+   ============================================================ */
+.preview {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+  margin-bottom: var(--s-3);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 10px 20px;
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--nm-ink);
+  color: var(--nm-white);
+}
+.btn-primary:hover { background: var(--nm-grey-800); }
+
+.btn-accent {
+  background: var(--nm-gradient);
+  color: var(--nm-white);
+  border: none;
+  font-weight: 600;
+  position: relative;
+}
+.btn-accent:hover { box-shadow: var(--shadow-glow); transform: translateY(-1px); }
+
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--nm-ink);
+  border-color: var(--border);
+}
+.btn-secondary:hover { background: var(--nm-grey-100); border-color: var(--nm-grey-400); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--nm-purple-700);
+  border: none;
+}
+.btn-ghost:hover { background: var(--nm-purple-50); }
+
+.btn-danger {
+  background: var(--nm-danger);
+  color: white;
+}
+
+/* Forms */
+.field { margin-bottom: var(--s-4); }
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: var(--s-2);
+  color: var(--nm-grey-700);
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  background: var(--bg-surface);
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--nm-purple);
+  box-shadow: 0 0 0 3px rgba(189, 65, 255, 0.12);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.badge-success { background: #D1FAE5; color: #065F46; }
+.badge-warning { background: #FEF3C7; color: #92400E; }
+.badge-danger  { background: #FEE2E2; color: #991B1B; }
+.badge-info    { background: #DBEAFE; color: #1E40AF; }
+.badge-accent  {
+  background: var(--nm-gradient);
+  color: white;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+th, td {
+  padding: var(--s-3) var(--s-3);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  background: var(--nm-grey-50);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--nm-grey-700);
+}
+tr:hover td { background: var(--nm-grey-50); }
+
+/* Alerts */
+.alert {
+  display: flex;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  border-left: 3px solid;
+  margin-bottom: var(--s-3);
+  font-size: 0.875rem;
+}
+.alert-info    { background: #EFF6FF; border-color: var(--nm-info);    color: #1E3A8A; }
+.alert-success { background: #ECFDF5; border-color: var(--nm-success); color: #065F46; }
+.alert-warning { background: #FFFBEB; border-color: var(--nm-warning); color: #78350F; }
+.alert-danger  { background: #FEF2F2; border-color: var(--nm-danger);  color: #7F1D1D; }
+
+/* KPI tiles */
+.kpi {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-4) var(--s-5);
+  position: relative;
+  overflow: hidden;
+}
+.kpi::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--nm-gradient);
+}
+.kpi .kpi-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--s-2); }
+.kpi .kpi-value { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; color: var(--nm-ink); }
+.kpi .kpi-delta { font-size: 0.75rem; color: var(--nm-success); margin-left: var(--s-2); font-weight: 600; }
+
+/* Code blocks */
+pre.code {
+  background: var(--nm-ink);
+  color: #E2E2E8;
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin-bottom: var(--s-3);
+}
+pre.code .c-key { color: #01FBFD; }
+pre.code .c-val { color: #BD41FF; }
+pre.code .c-com { color: #6B6B73; }
+
+/* Do/Don't list */
+.dodont { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+.dodont .col {
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+}
+.dodont .col.do    { background: #ECFDF5; border: 1px solid #A7F3D0; }
+.dodont .col.dont  { background: #FEF2F2; border: 1px solid #FECACA; }
+.dodont .col h4 { display: flex; align-items: center; gap: var(--s-2); margin-bottom: var(--s-3); }
+.dodont .col.do h4 { color: #065F46; }
+.dodont .col.dont h4 { color: #991B1B; }
+.dodont ul { list-style: none; }
+.dodont li {
+  padding: var(--s-2) 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: var(--nm-grey-800);
+}
+.dodont li:last-child { border-bottom: none; }
+.dodont li::before { margin-right: var(--s-2); font-weight: 700; }
+.dodont .do li::before { content: "✓"; color: #10B981; }
+.dodont .dont li::before { content: "✗"; color: #EF4444; }
+@media (max-width: 900px) { .dodont { grid-template-columns: 1fr; } }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: var(--s-6) 0;
+  margin-top: var(--s-8);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Utilities */
+.row { display: flex; gap: var(--s-3); align-items: center; flex-wrap: wrap; }
+.stack > * + * { margin-top: var(--s-3); }
+.divider { height: 1px; background: var(--border); margin: var(--s-5) 0; }
+
+/* Demo dashboard card */
+.demo-dashboard {
+  background: var(--nm-grey-50);
+  border-radius: var(--r-xl);
+  padding: var(--s-5);
+  border: 1px solid var(--border);
+}
+.demo-dashboard .top-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: var(--s-4); margin-bottom: var(--s-4);
+  border-bottom: 1px solid var(--border);
+}
+.demo-dashboard .top-bar .brand { display: flex; align-items: center; gap: var(--s-3); }
+.demo-dashboard .top-bar .brand svg { width: 110px; height: auto; }
+.demo-dashboard .top-bar h3 { font-size: 0.95rem; margin: 0; color: var(--nm-grey-700); font-weight: 500; }
+
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============================================================
+       SIDEBAR
+       ============================================================ -->
+  <aside>
+    <div class="logo-box">
+      <!-- White logo with gradient -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4">
+        <defs>
+          <linearGradient id="sidebar-grad" x1="47.2" y1="54.8" x2="158.3" y2="54.8" gradientTransform="translate(0 82) scale(1 -1)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#01fbfd"/>
+            <stop offset="1" stop-color="#bd41ff"/>
+          </linearGradient>
+        </defs>
+        <g fill="#fff">
+          <path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5v-.2Z"/>
+          <path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5h0Z"/>
+          <path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/>
+          <path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/>
+          <rect x="255.6" y="25.7" width="10.8" height="26.2"/>
+        </g>
+        <path fill="url(#sidebar-grad)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+      </svg>
+      <div class="tag">Brand & Theming Guide</div>
+    </div>
+    <nav>
+      <div class="nav-section">Foundations</div>
+      <ul>
+        <li><a href="#brand">1. Brand essence</a></li>
+        <li><a href="#logo">2. Logo system</a></li>
+        <li><a href="#color">3. Colors</a></li>
+        <li><a href="#typography">4. Typography</a></li>
+        <li><a href="#spacing">5. Spacing & layout</a></li>
+      </ul>
+      <div class="nav-section">Components</div>
+      <ul>
+        <li><a href="#buttons">6. Buttons</a></li>
+        <li><a href="#forms">7. Forms</a></li>
+        <li><a href="#feedback">8. Alerts & badges</a></li>
+        <li><a href="#data">9. Tables & KPIs</a></li>
+      </ul>
+      <div class="nav-section">Application</div>
+      <ul>
+        <li><a href="#admin">10. Admin dashboard</a></li>
+        <li><a href="#reports">11. Reports</a></li>
+        <li><a href="#docs-site">12. Documentation site</a></li>
+        <li><a href="#tokens">13. CSS tokens (copy-paste)</a></li>
+        <li><a href="#dos-donts">14. Do's & Don'ts</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ============================================================
+       MAIN
+       ============================================================ -->
+  <main>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4">
+          <defs>
+            <linearGradient id="hero-grad" x1="47.2" y1="54.8" x2="158.3" y2="54.8" gradientTransform="translate(0 82) scale(1 -1)" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#01fbfd"/>
+              <stop offset="1" stop-color="#bd41ff"/>
+            </linearGradient>
+          </defs>
+          <g fill="#fff">
+            <path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5v-.2Z"/>
+            <path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5h0Z"/>
+            <path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/>
+            <path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/>
+            <rect x="255.6" y="25.7" width="10.8" height="26.2"/>
+          </g>
+          <path fill="url(#hero-grad)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+        </svg>
+      </div>
+      <h1>NMECAR Brand & Theming Guide</h1>
+      <p>Οδηγός εφαρμογής της οπτικής ταυτότητας στο admin dashboard, στις αναφορές και στο documentation site. Σοβαρό, λειτουργικό ύφος με το neon gradient ως υπογραφή.</p>
+    </div>
+
+    <!-- ============================================================
+         1. BRAND ESSENCE
+         ============================================================ -->
+    <section id="brand">
+      <div class="section-header">
+        <div class="eyebrow">01 · Foundations</div>
+        <h2>Brand essence</h2>
+        <p class="lead">Η NMECAR είναι μία τεχνολογική πλατφόρμα στον χώρο του automotive. Το λογότυπο συνδυάζει σταθερό σκούρο γκρι (αξιοπιστία) με ένα neon cyan→purple gradient (καινοτομία, ψηφιακή ταυτότητα). Η συνταγή του θέματος αντιγράφει αυτή ακριβώς την ισορροπία.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4>🎯 Επαγγελματικό</h4>
+          <p style="font-size:0.875rem;">Αξιοπιστία πάνω από εντυπωσιασμό. Σκούρα κείμενα, καθαρά layouts, σταθερή ιεραρχία.</p>
+        </div>
+        <div class="card">
+          <h4>⚡ Τεχνολογικό</h4>
+          <p style="font-size:0.875rem;">Το gradient είναι το χαρακτηριστικό. Χρησιμοποιείται ως υπογραφή — όχι ως φόντο.</p>
+        </div>
+        <div class="card">
+          <h4>📊 Λειτουργικό</h4>
+          <p style="font-size:0.875rem;">Σχεδιασμένο για ώρες χρήσης. Αναγνωσιμότητα, contrast και ηρεμία στην οθόνη.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Ο "70-20-10" κανόνας της παλέτας</h3>
+      <p>Για να μην κουράζει το νέον σε ένα εργαλείο που χρησιμοποιείται κάθε μέρα, διανέμουμε τα χρώματα ως εξής:</p>
+      <ul style="margin-left:var(--s-5); margin-bottom:var(--s-4);">
+        <li><strong>70% Neutrals</strong> — λευκό, ανοιχτά γκρι, ink black. Backgrounds, surfaces, body text.</li>
+        <li><strong>20% Ink (#231F20)</strong> — primary buttons, navigation, headings, icons.</li>
+        <li><strong>10% Gradient/accent</strong> — CTAs, active states, KPI accents, focus indicators, brand moments.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         2. LOGO
+         ============================================================ -->
+    <section id="logo">
+      <div class="section-header">
+        <div class="eyebrow">02 · Foundations</div>
+        <h2>Logo system</h2>
+        <p>Τρεις εκδοχές για διαφορετικά contexts. Πάντα διατηρούμε την αναλογία και το clear space.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="logo-card">
+          <div class="stage stage--light">
+            <!-- Primary logo embedded -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4">
+              <defs>
+                <linearGradient id="primary-grad" x1="47.1" y1="27.4" x2="158.2" y2="27.4" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#01fbfd"/>
+                  <stop offset="1" stop-color="#bd41ff"/>
+                </linearGradient>
+              </defs>
+              <g fill="#231f20">
+                <path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/>
+                <path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5Z"/>
+                <path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/>
+                <path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/>
+                <rect x="255.6" y="25.7" width="10.8" height="26.2"/>
+              </g>
+              <path fill="url(#primary-grad)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+            </svg>
+          </div>
+          <div class="label">
+            <div><strong>Primary</strong><br><span style="font-size:0.75rem;color:var(--text-muted);">Σε λευκό/ανοιχτό φόντο</span></div>
+            <div class="file">nmecar.svg</div>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="stage stage--dark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4">
+              <defs>
+                <linearGradient id="white-grad" x1="47.2" y1="54.8" x2="158.3" y2="54.8" gradientTransform="translate(0 82) scale(1 -1)" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#01fbfd"/>
+                  <stop offset="1" stop-color="#bd41ff"/>
+                </linearGradient>
+              </defs>
+              <g fill="#fff">
+                <path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5v-.2Z"/>
+                <path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5h0Z"/>
+                <path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/>
+                <path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/>
+                <rect x="255.6" y="25.7" width="10.8" height="26.2"/>
+              </g>
+              <path fill="url(#white-grad)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+            </svg>
+          </div>
+          <div class="label">
+            <div><strong>Reversed</strong><br><span style="font-size:0.75rem;color:var(--text-muted);">Σε σκούρο φόντο, με gradient</span></div>
+            <div class="file">nmecar_white.svg</div>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <div class="stage stage--gradient">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4">
+              <g fill="#fff">
+                <path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5v-.2Z"/>
+                <path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5h0Z"/>
+                <path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/>
+                <path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/>
+                <rect x="255.6" y="25.7" width="10.8" height="26.2"/>
+                <path d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="label">
+            <div><strong>Monochrome white</strong><br><span style="font-size:0.75rem;color:var(--text-muted);">Πάνω σε φωτογραφία/χρώμα</span></div>
+            <div class="file">nmecar_ALLwhite.svg</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--s-6);">Clear space & ελάχιστο μέγεθος</h3>
+      <p>Γύρω από το λογότυπο, διατήρησε ένα clear space ίσο με το ύψος του γράμματος <strong>N</strong>. Ελάχιστο πλάτος: <strong>120px</strong> on screen, <strong>30mm</strong> in print. Κάτω από αυτό, το tagline δεν είναι ευανάγνωστο.</p>
+
+      <h3 style="margin-top:var(--s-6);">Λανθασμένη χρήση</h3>
+      <div class="grid-4">
+        <div class="logo-card misuse-card">
+          <div class="stage stage--bad-bg">
+            <div class="x-mark">✕</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4" style="max-width:140px;">
+              <defs><linearGradient id="bad1" x1="47.1" y1="27.4" x2="158.2" y2="27.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#01fbfd"/><stop offset="1" stop-color="#bd41ff"/></linearGradient></defs>
+              <g fill="#231f20"><path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/><path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5Z"/><path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/><path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/><rect x="255.6" y="25.7" width="10.8" height="26.2"/></g>
+              <path fill="url(#bad1)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+            </svg>
+          </div>
+          <div class="label" style="font-size:0.75rem;"><div>Σε έντονο φόντο</div></div>
+        </div>
+        <div class="logo-card misuse-card">
+          <div class="stage stage--light stage--stretched">
+            <div class="x-mark">✕</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4" preserveAspectRatio="none">
+              <g fill="#231f20"><path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/><path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5Z"/><path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/></g>
+            </svg>
+          </div>
+          <div class="label" style="font-size:0.75rem;"><div>Παραμόρφωση αναλογίας</div></div>
+        </div>
+        <div class="logo-card misuse-card">
+          <div class="stage stage--light stage--rotated">
+            <div class="x-mark">✕</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4" style="max-width:160px;">
+              <g fill="#231f20"><path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/><path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/></g>
+            </svg>
+          </div>
+          <div class="label" style="font-size:0.75rem;"><div>Περιστροφή/κλίση</div></div>
+        </div>
+        <div class="logo-card misuse-card">
+          <div class="stage stage--lowcontrast">
+            <div class="x-mark">✕</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4" style="max-width:160px;">
+              <g><path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/><path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/></g>
+            </svg>
+          </div>
+          <div class="label" style="font-size:0.75rem;"><div>Ανεπαρκές contrast</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. COLORS
+         ============================================================ -->
+    <section id="color">
+      <div class="section-header">
+        <div class="eyebrow">03 · Foundations</div>
+        <h2>Χρωματική παλέτα</h2>
+        <p>Δύο σταθεροί πυλώνες: το ink του λογότυπου και το neon gradient. Όλα τα υπόλοιπα είναι λειτουργικά.</p>
+      </div>
+
+      <h3>Brand gradient</h3>
+      <div class="gradient-bar">#01FBFD &nbsp;→&nbsp; #BD41FF</div>
+      <p style="margin-bottom: var(--s-5);"><strong>Χρήση:</strong> ως υπογραφή (top border σε KPIs, hover/focus state, primary CTA, active tab indicator, progress bars, top border σε header). <strong>ΠΟΤΕ</strong> ως page background ή πάνω από body text.</p>
+
+      <h3>Primary colors</h3>
+      <div class="grid-4">
+        <div class="swatch"><div class="chip" style="background:#01FBFD;"><span>#01FBFD</span></div><div class="meta"><div class="name">Cyan (gradient start)</div><div class="hex">rgb(1, 251, 253)</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#BD41FF;"><span>#BD41FF</span></div><div class="meta"><div class="name">Purple (gradient end)</div><div class="hex">rgb(189, 65, 255)</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#231F20;"><span>#231F20</span></div><div class="meta"><div class="name">Ink (logo black)</div><div class="hex">rgb(35, 31, 32)</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#FFFFFF; border-bottom: 1px solid var(--border);"><span>#FFFFFF</span></div><div class="meta"><div class="name">White</div><div class="hex">rgb(255, 255, 255)</div></div></div>
+      </div>
+
+      <h3 style="margin-top:var(--s-6);">Cyan & Purple — accessible variants</h3>
+      <p style="font-size:0.85rem;">Τα καθαρά νέον δεν περνούν WCAG AA για κείμενο. Όταν χρειάζεσαι κείμενο σε χρώμα brand, χρησιμοποίησε τις πιο σκούρες αποχρώσεις:</p>
+      <div class="grid-4">
+        <div class="swatch"><div class="chip" style="background:#E6FEFE;"><span>#E6FEFE</span></div><div class="meta"><div class="name">Cyan 50</div><div class="hex">Background tint</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#008A8C;"><span>#008A8C</span></div><div class="meta"><div class="name">Cyan 700</div><div class="hex">Text on white ✓</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F7ECFF;"><span>#F7ECFF</span></div><div class="meta"><div class="name">Purple 50</div><div class="hex">Background tint</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#8A1FC4;"><span>#8A1FC4</span></div><div class="meta"><div class="name">Purple 700</div><div class="hex">Text on white ✓</div></div></div>
+      </div>
+
+      <h3 style="margin-top:var(--s-6);">Neutral ramp</h3>
+      <div class="grid-4">
+        <div class="swatch"><div class="chip" style="background:#F8F8FA;"><span>#F8F8FA</span></div><div class="meta"><div class="name">Grey 50</div><div class="hex">Page bg</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#F1F1F4;"><span>#F1F1F4</span></div><div class="meta"><div class="name">Grey 100</div><div class="hex">Muted bg</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#E5E5E9;"><span>#E5E5E9</span></div><div class="meta"><div class="name">Grey 200</div><div class="hex">Borders</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#D4D4DA;"><span>#D4D4DA</span></div><div class="meta"><div class="name">Grey 300</div><div class="hex">Disabled</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#8E8E96;"><span>#8E8E96</span></div><div class="meta"><div class="name">Grey 500</div><div class="hex">Placeholder</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#6B6B73;"><span>#6B6B73</span></div><div class="meta"><div class="name">Grey 600</div><div class="hex">Muted text</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#4A4A52;"><span>#4A4A52</span></div><div class="meta"><div class="name">Grey 700</div><div class="hex">Body text</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#2D2D33;"><span>#2D2D33</span></div><div class="meta"><div class="name">Grey 800</div><div class="hex">Headings</div></div></div>
+      </div>
+
+      <h3 style="margin-top:var(--s-6);">Semantic colors</h3>
+      <div class="grid-4">
+        <div class="swatch"><div class="chip dark" style="background:#10B981;"><span>#10B981</span></div><div class="meta"><div class="name">Success</div><div class="hex">Confirmations</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#F59E0B;"><span>#F59E0B</span></div><div class="meta"><div class="name">Warning</div><div class="hex">Cautions</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#EF4444;"><span>#EF4444</span></div><div class="meta"><div class="name">Danger</div><div class="hex">Errors, deletes</div></div></div>
+        <div class="swatch"><div class="chip dark" style="background:#3B82F6;"><span>#3B82F6</span></div><div class="meta"><div class="name">Info</div><div class="hex">Neutral notices</div></div></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. TYPOGRAPHY
+         ============================================================ -->
+    <section id="typography">
+      <div class="section-header">
+        <div class="eyebrow">04 · Foundations</div>
+        <h2>Τυπογραφία</h2>
+        <p>Δύο οικογένειες: <strong>Space Grotesk</strong> για display (τίτλους, KPI numbers, brand moments) — έχει γεωμετρία που ταιριάζει με το λογότυπο. <strong>Inter</strong> για body text — βελτιστοποιημένο για οθόνη, εξαιρετική αναγνωσιμότητα σε dense data.</p>
+      </div>
+
+      <div class="preview">
+        <div class="type-row">
+          <div class="meta">Display XL</div>
+          <div class="sample" style="font-size:2.5rem; font-weight:600;">NMECAR Dashboard</div>
+          <div class="specs">Space Grotesk 600 · 40px / 1.2</div>
+        </div>
+        <div class="type-row">
+          <div class="meta">Display L (H1)</div>
+          <div class="sample" style="font-size:2rem; font-weight:600;">Overview & Analytics</div>
+          <div class="specs">Space Grotesk 600 · 32px / 1.2</div>
+        </div>
+        <div class="type-row">
+          <div class="meta">Heading (H2)</div>
+          <div class="sample" style="font-size:1.5rem; font-weight:600;">Fleet status today</div>
+          <div class="specs">Space Grotesk 600 · 24px / 1.2</div>
+        </div>
+        <div class="type-row">
+          <div class="meta">Subheading (H3)</div>
+          <div class="sample" style="font-size:1.125rem; font-weight:500;">Active vehicles by region</div>
+          <div class="specs">Space Grotesk 500 · 18px / 1.3</div>
+        </div>
+        <div class="type-row body">
+          <div class="meta">Body L</div>
+          <div class="sample" style="font-size:1rem;">Στο δικτυακό τόπο NMECAR διαχειρίζεστε όλο τον στόλο σας από ένα σημείο.</div>
+          <div class="specs">Inter 400 · 16px / 1.6</div>
+        </div>
+        <div class="type-row body">
+          <div class="meta">Body M (default)</div>
+          <div class="sample" style="font-size:0.875rem;">Το προεπιλεγμένο μέγεθος κειμένου σε όλη την εφαρμογή. Ευανάγνωστο σε πυκνά layouts.</div>
+          <div class="specs">Inter 400 · 14px / 1.6</div>
+        </div>
+        <div class="type-row body">
+          <div class="meta">Body S</div>
+          <div class="sample" style="font-size:0.75rem;">Helper text, captions, table cells σε dense views.</div>
+          <div class="specs">Inter 400 · 12px / 1.5</div>
+        </div>
+        <div class="type-row mono">
+          <div class="meta">Mono</div>
+          <div class="sample" style="font-size:0.875rem;">VEH-2025-04832 · €1,247.50</div>
+          <div class="specs">JetBrains Mono 400 · 14px</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--s-5);">Κανόνες</h3>
+      <ul style="margin-left:var(--s-5); font-size:0.875rem;">
+        <li>Πάντα Space Grotesk για headings και πάντα Inter για body — μην τα ανταλλάσσεις.</li>
+        <li>Mono μόνο για: ταυτότητες (VIN, IDs), τιμές με νόημα συμμετρίας, code, timestamps σε logs.</li>
+        <li>Body line-height ≥ 1.6 για παραγράφους — κρίσιμο για το documentation site.</li>
+        <li>Σε tables, χρησιμοποίησε `font-variant-numeric: tabular-nums;` για στοίχιση αριθμών.</li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         5. SPACING
+         ============================================================ -->
+    <section id="spacing">
+      <div class="section-header">
+        <div class="eyebrow">05 · Foundations</div>
+        <h2>Spacing & layout</h2>
+        <p>Βάση 4px. Όλες οι αποστάσεις είναι πολλαπλάσια.</p>
+      </div>
+
+      <div class="preview">
+        <div class="row" style="align-items: flex-end;">
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:4px; height:4px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-1 · 4px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:8px; height:8px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-2 · 8px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:12px; height:12px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-3 · 12px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:16px; height:16px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-4 · 16px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:24px; height:24px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-5 · 24px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:32px; height:32px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-6 · 32px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:48px; height:48px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-7 · 48px</code></div>
+          <div style="text-align:center;"><div style="background:var(--nm-purple-100); width:64px; height:64px; margin: 0 auto var(--s-2);"></div><code style="font-size:0.7rem;">s-8 · 64px</code></div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--s-5);">Border radius</h3>
+      <div class="row">
+        <div style="background:var(--nm-grey-100); border-radius:4px; padding:var(--s-3) var(--s-4); font-size:0.8rem;">4px · inputs, badges</div>
+        <div style="background:var(--nm-grey-100); border-radius:8px; padding:var(--s-3) var(--s-4); font-size:0.8rem;">8px · buttons</div>
+        <div style="background:var(--nm-grey-100); border-radius:12px; padding:var(--s-3) var(--s-4); font-size:0.8rem;">12px · cards</div>
+        <div style="background:var(--nm-grey-100); border-radius:16px; padding:var(--s-3) var(--s-4); font-size:0.8rem;">16px · large sections</div>
+        <div style="background:var(--nm-grey-100); border-radius:999px; padding:var(--s-3) var(--s-4); font-size:0.8rem;">full · pills, avatars</div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. BUTTONS
+         ============================================================ -->
+    <section id="buttons">
+      <div class="section-header">
+        <div class="eyebrow">06 · Components</div>
+        <h2>Buttons</h2>
+        <p>Πέντε τύποι. Κάθε οθόνη πρέπει να έχει μόνο μία gradient (accent) ενέργεια — αυτή είναι η κύρια.</p>
+      </div>
+
+      <div class="preview">
+        <div class="row">
+          <button class="btn btn-accent">Save changes</button>
+          <button class="btn btn-primary">View report</button>
+          <button class="btn btn-secondary">Cancel</button>
+          <button class="btn btn-ghost">More info</button>
+          <button class="btn btn-danger">Delete</button>
+        </div>
+        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:var(--s-4); font-family:var(--font-mono);">
+          .btn-accent (1x ανά οθόνη) · .btn-primary · .btn-secondary · .btn-ghost · .btn-danger
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. FORMS
+         ============================================================ -->
+    <section id="forms">
+      <div class="section-header">
+        <div class="eyebrow">07 · Components</div>
+        <h2>Forms</h2>
+        <p>Focus state σε purple — η μοναδική θέση που το brand color εμφανίζεται "ζωντανά" σε λεπτό σημείο.</p>
+      </div>
+
+      <div class="preview">
+        <div class="grid-2" style="gap:var(--s-5);">
+          <div class="field">
+            <label>Vehicle plate</label>
+            <input type="text" placeholder="ABC-1234" value="ΥΗΖ-3829">
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select>
+              <option>Active</option>
+              <option>Maintenance</option>
+              <option>Inactive</option>
+            </select>
+          </div>
+          <div class="field" style="grid-column: 1 / -1;">
+            <label>Notes</label>
+            <textarea rows="3" placeholder="Πρόσθεσε σημειώσεις..."></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. ALERTS & BADGES
+         ============================================================ -->
+    <section id="feedback">
+      <div class="section-header">
+        <div class="eyebrow">08 · Components</div>
+        <h2>Alerts & badges</h2>
+      </div>
+
+      <div class="preview">
+        <div class="alert alert-info"><strong>ℹ️ Info ·</strong>&nbsp; Νέα έκδοση 2.4.0 είναι διαθέσιμη. <a href="#" style="color:inherit; font-weight:600;">Δες τις αλλαγές</a></div>
+        <div class="alert alert-success"><strong>✓ Επιτυχία ·</strong>&nbsp; Η αναφορά αποθηκεύτηκε επιτυχώς στο σύστημα.</div>
+        <div class="alert alert-warning"><strong>⚠ Προσοχή ·</strong>&nbsp; Το όχημα έχει μη ολοκληρωμένη συντήρηση. Το ταξίδι ξεκινά αύριο.</div>
+        <div class="alert alert-danger"><strong>✕ Σφάλμα ·</strong>&nbsp; Δεν ήταν δυνατή η σύνδεση με την υπηρεσία geolocation.</div>
+
+        <div class="row" style="margin-top:var(--s-4);">
+          <span class="badge badge-success">Active</span>
+          <span class="badge badge-warning">Pending</span>
+          <span class="badge badge-danger">Failed</span>
+          <span class="badge badge-info">Draft</span>
+          <span class="badge badge-accent">Premium</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. DATA — Tables & KPIs
+         ============================================================ -->
+    <section id="data">
+      <div class="section-header">
+        <div class="eyebrow">09 · Components</div>
+        <h2>Tables & KPIs</h2>
+      </div>
+
+      <h3>KPI tiles</h3>
+      <div class="grid-4" style="margin-bottom:var(--s-5);">
+        <div class="kpi">
+          <div class="kpi-label">Ενεργά οχήματα</div>
+          <div class="kpi-value">847 <span class="kpi-delta">+12</span></div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Έσοδα μήνα</div>
+          <div class="kpi-value">€48,290</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Pending tickets</div>
+          <div class="kpi-value">23</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Uptime</div>
+          <div class="kpi-value">99.7%</div>
+        </div>
+      </div>
+      <p style="font-size:0.8rem;">Η gradient λωρίδα στο top είναι η brand υπογραφή σε επιφάνειες δεδομένων. <strong>Μην</strong> την εφαρμόζεις σε κάθε card της σελίδας — μόνο σε σημαντικές μετρήσεις.</p>
+
+      <h3 style="margin-top:var(--s-5);">Table</h3>
+      <div class="preview" style="padding:0;">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Vehicle</th><th>Driver</th><th>Status</th><th style="text-align:right;">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td style="font-family:var(--font-mono);">VEH-2025-04832</td><td>Toyota Prius</td><td>Γ. Παπαδόπουλος</td><td><span class="badge badge-success">Active</span></td><td style="text-align:right; font-family:var(--font-mono);">€1,247.50</td></tr>
+            <tr><td style="font-family:var(--font-mono);">VEH-2025-04833</td><td>VW e-Golf</td><td>Α. Ιωάννου</td><td><span class="badge badge-warning">Maintenance</span></td><td style="text-align:right; font-family:var(--font-mono);">€892.10</td></tr>
+            <tr><td style="font-family:var(--font-mono);">VEH-2025-04834</td><td>Tesla Model 3</td><td>Μ. Νικολάου</td><td><span class="badge badge-success">Active</span></td><td style="text-align:right; font-family:var(--font-mono);">€2,103.40</td></tr>
+            <tr><td style="font-family:var(--font-mono);">VEH-2025-04835</td><td>Hyundai Kona</td><td>—</td><td><span class="badge badge-danger">Failed</span></td><td style="text-align:right; font-family:var(--font-mono);">€0.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. ADMIN DASHBOARD
+         ============================================================ -->
+    <section id="admin">
+      <div class="section-header">
+        <div class="eyebrow">10 · Application</div>
+        <h2>Admin dashboard — patterns</h2>
+        <p>Light surface, σκούρο left sidebar (όπως αυτό εδώ). Το gradient εμφανίζεται μόνο σε: active nav item, primary CTAs, KPI top border, focus states.</p>
+      </div>
+
+      <div class="demo-dashboard">
+        <div class="top-bar">
+          <div class="brand">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4">
+              <defs><linearGradient id="db-grad" x1="47.1" y1="27.4" x2="158.2" y2="27.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#01fbfd"/><stop offset="1" stop-color="#bd41ff"/></linearGradient></defs>
+              <g fill="#231f20"><path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/><path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5Z"/><path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/><path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/><rect x="255.6" y="25.7" width="10.8" height="26.2"/></g>
+              <path fill="url(#db-grad)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+            </svg>
+            <h3>Admin Console</h3>
+          </div>
+          <button class="btn btn-accent">+ Νέο όχημα</button>
+        </div>
+        <div class="grid-4">
+          <div class="kpi"><div class="kpi-label">Fleet size</div><div class="kpi-value">847</div></div>
+          <div class="kpi"><div class="kpi-label">Active trips</div><div class="kpi-value">112</div></div>
+          <div class="kpi"><div class="kpi-label">Alerts</div><div class="kpi-value">3</div></div>
+          <div class="kpi"><div class="kpi-label">Revenue (μήν.)</div><div class="kpi-value">€48k</div></div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:var(--s-5);">Πυραμίδα προσοχής (admin)</h3>
+      <ol style="margin-left:var(--s-5); font-size:0.875rem;">
+        <li><strong>Sidebar</strong> — σκούρο ink. Active item έχει left border σε gradient (3px) ή gradient text.</li>
+        <li><strong>Top bar</strong> — λευκό, leveled με υπόλοιπη σελίδα. Logo πάντα στο επάνω αριστερά.</li>
+        <li><strong>Content area</strong> — light grey background, λευκά cards. Καθαρή ιεραρχία τίτλων.</li>
+        <li><strong>Primary action</strong> — μόνο μία gradient button ορατή κάθε στιγμή.</li>
+      </ol>
+    </section>
+
+    <!-- ============================================================
+         11. REPORTS
+         ============================================================ -->
+    <section id="reports">
+      <div class="section-header">
+        <div class="eyebrow">11 · Application</div>
+        <h2>Reports</h2>
+        <p>Οι αναφορές διαβάζονται και τυπώνονται. Τα χρώματα μπαίνουν με φειδώ και μόνο όπου έχουν νόημα δεδομένων.</p>
+      </div>
+
+      <h3>Κανόνες για αναφορές</h3>
+      <ul style="margin-left:var(--s-5); font-size:0.875rem; margin-bottom: var(--s-4);">
+        <li><strong>Print-safe χρώματα</strong> — μόνο ink + 1-2 accent (purple 700 ή cyan 700). Το neon δεν τυπώνεται σωστά σε ασπρόμαυρα ή χαμηλή ποιότητα.</li>
+        <li><strong>Logo πάντα στο header</strong> — primary version (σκούρο σε λευκό φόντο).</li>
+        <li><strong>Σήμανση brand</strong> — μία λεπτή gradient line (2-3px) κάτω από το header. Αρκετή.</li>
+        <li><strong>Γραφήματα</strong> — primary series σε purple 700 (#8A1FC4), secondary σε cyan 700 (#008A8C). Tertiary σε grey 600. Όχι το νέον.</li>
+        <li><strong>Tables</strong> — alternating row backgrounds με grey 50, headers με grey 100. Όχι gradient backgrounds.</li>
+        <li><strong>Page numbers / footer</strong> — grey 600, font mono, 10px.</li>
+      </ul>
+
+      <div class="preview" style="background: white; padding: var(--s-6);">
+        <div style="border-bottom: 2px solid; border-image: linear-gradient(90deg, #01FBFD, #BD41FF) 1; padding-bottom: var(--s-3); margin-bottom: var(--s-4); display:flex; justify-content:space-between; align-items:end;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 79.4" style="width:140px;">
+            <defs><linearGradient id="rep-grad" x1="47.1" y1="27.4" x2="158.2" y2="27.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#01fbfd"/><stop offset="1" stop-color="#bd41ff"/></linearGradient></defs>
+            <g fill="#231f20"><path d="M162,26.4c0-14.9,11.9-26.4,26.9-26.4s17,4.6,21.4,11.8l-7.6,6c-3.3-4.6-7.5-7.7-13.6-7.7-9.3,0-15.9,7.2-15.9,16.4s6.6,16.5,15.9,16.5,10.2-3,13.6-7.6l7.6,5.9c-4.4,7.1-11.9,11.8-21.4,11.8-15,0-26.9-11.6-26.9-26.5Z"/><path d="M300,1.1v9.6h-3.3c-8.1,0-14.9,4.6-14.9,14v27.1h-10.8V1.1h10.1v6.6c3.6-4.6,9-7.1,14.8-7.1s3,.2,4.1.5Z"/><path d="M38,7.1c3.3,3.6,4.9,8.3,4.9,14.1v30.7h-10.5v-29.3c0-3.4-1-6.1-2.9-8.2-2-2.1-4.5-3.1-7.7-3.1s-5.9,1.1-8,3.2c-2.1,2.1-3.1,4.9-3.1,8.2v29.3H0V2.8h9.8v4.9c3.7-4,8.6-6,14.7-6s10.2,1.8,13.5,5.3Z"/><path d="M212.7,26.4c0-14.9,11.8-26.4,26.7-26.4s27,11.7,27,26.4-11.9,26.5-27,26.5-26.7-11.8-26.7-26.5ZM255.2,26.5c0-9.5-6.8-16.6-15.7-16.6s-15.8,7.1-15.8,16.6,6.7,16.4,15.7,16.4,15.8-7.1,15.8-16.4Z"/><rect x="255.6" y="25.7" width="10.8" height="26.2"/></g>
+            <path fill="url(#rep-grad)" d="M158.2,24.2c0-6.5-2.1-11.8-6.4-16.1-4.3-4.3-9.7-6.4-16.2-6.4s-13.1,2.5-18,7.4c-.5-.7-1-1.4-1.6-2.1-3.2-3.6-7.7-5.3-13.3-5.3s-12.6,2.6-16.6,7.7c-3.1-5.1-8.1-7.7-14.9-7.7s-10.7,1.9-14.2,5.8V2.8h-9.8v49h10.5v-29.2c0-3.4,1-6.1,3-8.2,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.5,3.1c1.9,2.1,2.8,4.8,2.8,8.2v21.1h10.5v-21.6c0-3.1,1-5.7,3-7.8,2-2.1,4.6-3.1,7.8-3.1s5.6,1,7.4,3.1c1.8,2.1,2.7,4.8,2.7,8.3v4.4c0,.1,0,.2,0,.3,0,7.3,2.5,13.3,7.5,18.2,5,4.9,11.3,7.3,18.9,7.3s14-2.6,19.6-7.9l-5-7.2c-4.4,3.9-9.2,5.8-14.3,5.8s-7.8-1.1-10.7-3.4c-2.9-2.3-4.6-5.4-5.3-9.5h36.6c.5-2.3.8-4.5.8-6.6ZM121,22.6c.8-3.7,2.5-6.6,5-8.7,2.6-2.2,5.6-3.2,9-3.2s6.5,1.1,8.9,3.2c2.4,2.2,3.6,5.1,3.7,8.7h-26.7Z"/>
+          </svg>
+          <div style="text-align:right; font-size:0.75rem; color:var(--text-muted); font-family:var(--font-mono);">
+            REPORT #2026-Q1-FLEET<br>
+            27 Μαΐου 2026
+          </div>
+        </div>
+        <h3 style="margin-bottom: var(--s-2);">Μηνιαία αναφορά στόλου · Μάιος 2026</h3>
+        <p style="font-size:0.875rem; margin-bottom: var(--s-4);">Σύνοψη χρήσης, εσόδων και συντηρήσεων για το χρονικό διάστημα 01/05 — 27/05.</p>
+        <table style="font-size: 0.85rem;">
+          <thead><tr><th>Κατηγορία</th><th style="text-align:right;">Πλήθος</th><th style="text-align:right;">Ποσοστό</th><th style="text-align:right;">Έσοδα</th></tr></thead>
+          <tbody>
+            <tr><td>Ενεργά οχήματα</td><td style="text-align:right;">847</td><td style="text-align:right;">94.2%</td><td style="text-align:right; font-family:var(--font-mono);">€48,290.00</td></tr>
+            <tr><td>Σε συντήρηση</td><td style="text-align:right;">42</td><td style="text-align:right;">4.7%</td><td style="text-align:right; font-family:var(--font-mono);">—</td></tr>
+            <tr><td>Εκτός λειτουργίας</td><td style="text-align:right;">10</td><td style="text-align:right;">1.1%</td><td style="text-align:right; font-family:var(--font-mono);">—</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono); text-align: right; margin-top: var(--s-5);">σελ. 1 / 12 · NMECAR © 2026</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. DOCUMENTATION SITE
+         ============================================================ -->
+    <section id="docs-site">
+      <div class="section-header">
+        <div class="eyebrow">12 · Application</div>
+        <h2>Documentation site</h2>
+        <p>Καθαρό, μακρόστενο column για διάβασμα. Σταθερό sidebar πλοήγησης (όπως αυτή η σελίδα).</p>
+      </div>
+
+      <h3>Συστατικά documentation site</h3>
+      <ul style="margin-left:var(--s-5); font-size:0.875rem;">
+        <li><strong>Reading column 680-720px</strong> — βέλτιστο για παραγράφους κειμένου.</li>
+        <li><strong>Sidebar 240-280px</strong> — sticky, με τρία επίπεδα ιεραρχίας.</li>
+        <li><strong>Code blocks</strong> — ink background (#231F20), syntax highlighting σε cyan (keys) και purple (values). Όπως παρακάτω.</li>
+        <li><strong>Inline code</strong> — grey 100 background, font mono, padding 2-6px.</li>
+        <li><strong>Callout boxes</strong> — οι alerts όπως ορίστηκαν παραπάνω. Χρησιμοποίησέ τους για tips, warnings, deprecations.</li>
+        <li><strong>"Edit on GitHub" / version selector</strong> — top right, ghost button.</li>
+        <li><strong>Anchor links σε headings</strong> — εμφανίζονται με opacity 0 και 0.6 on hover.</li>
+        <li><strong>Search bar</strong> — top of sidebar, με ⌘K shortcut hint.</li>
+        <li><strong>Πλοήγηση Previous/Next</strong> — στο bottom κάθε σελίδας.</li>
+      </ul>
+
+      <h3 style="margin-top:var(--s-5);">Παράδειγμα code block</h3>
+      <pre class="code"><span class="c-com">// CSS variables — τα φορτώνεις μία φορά στο :root</span>
+<span class="c-key">:root</span> {
+  <span class="c-key">--nm-gradient</span>: <span class="c-val">linear-gradient(90deg, #01FBFD, #BD41FF)</span>;
+  <span class="c-key">--nm-ink</span>: <span class="c-val">#231F20</span>;
+  <span class="c-key">--font-display</span>: <span class="c-val">"Space Grotesk", sans-serif</span>;
+}</pre>
+    </section>
+
+    <!-- ============================================================
+         13. CSS TOKENS
+         ============================================================ -->
+    <section id="tokens">
+      <div class="section-header">
+        <div class="eyebrow">13 · Implementation</div>
+        <h2>CSS tokens — copy & paste</h2>
+        <p>Ολόκληρο το σύστημα τιμών σε CSS custom properties. Δουλεύει με κάθε framework (Tailwind, Material, Bootstrap, plain CSS, Thymeleaf templates). Πρόσθεσε τες στο global stylesheet σου.</p>
+      </div>
+
+      <pre class="code">:root {
+  <span class="c-com">/* Brand gradient */</span>
+  <span class="c-key">--nm-cyan</span>: <span class="c-val">#01FBFD</span>;
+  <span class="c-key">--nm-purple</span>: <span class="c-val">#BD41FF</span>;
+  <span class="c-key">--nm-gradient</span>: <span class="c-val">linear-gradient(90deg, #01FBFD 0%, #BD41FF 100%)</span>;
+  <span class="c-key">--nm-gradient-diagonal</span>: <span class="c-val">linear-gradient(135deg, #01FBFD 0%, #BD41FF 100%)</span>;
+
+  <span class="c-com">/* Accessible brand variants (για text σε λευκό) */</span>
+  <span class="c-key">--nm-cyan-700</span>: <span class="c-val">#008A8C</span>;
+  <span class="c-key">--nm-purple-700</span>: <span class="c-val">#8A1FC4</span>;
+  <span class="c-key">--nm-cyan-50</span>: <span class="c-val">#E6FEFE</span>;
+  <span class="c-key">--nm-purple-50</span>: <span class="c-val">#F7ECFF</span>;
+
+  <span class="c-com">/* Neutrals */</span>
+  <span class="c-key">--nm-ink</span>: <span class="c-val">#231F20</span>;
+  <span class="c-key">--nm-grey-900</span>: <span class="c-val">#1A1A1F</span>;
+  <span class="c-key">--nm-grey-800</span>: <span class="c-val">#2D2D33</span>;
+  <span class="c-key">--nm-grey-700</span>: <span class="c-val">#4A4A52</span>;
+  <span class="c-key">--nm-grey-600</span>: <span class="c-val">#6B6B73</span>;
+  <span class="c-key">--nm-grey-500</span>: <span class="c-val">#8E8E96</span>;
+  <span class="c-key">--nm-grey-400</span>: <span class="c-val">#B5B5BC</span>;
+  <span class="c-key">--nm-grey-300</span>: <span class="c-val">#D4D4DA</span>;
+  <span class="c-key">--nm-grey-200</span>: <span class="c-val">#E5E5E9</span>;
+  <span class="c-key">--nm-grey-100</span>: <span class="c-val">#F1F1F4</span>;
+  <span class="c-key">--nm-grey-50</span>:  <span class="c-val">#F8F8FA</span>;
+
+  <span class="c-com">/* Semantic */</span>
+  <span class="c-key">--nm-success</span>: <span class="c-val">#10B981</span>;
+  <span class="c-key">--nm-warning</span>: <span class="c-val">#F59E0B</span>;
+  <span class="c-key">--nm-danger</span>:  <span class="c-val">#EF4444</span>;
+  <span class="c-key">--nm-info</span>:    <span class="c-val">#3B82F6</span>;
+
+  <span class="c-com">/* Surfaces (light mode default) */</span>
+  <span class="c-key">--bg-page</span>:    <span class="c-val">#F8F8FA</span>;
+  <span class="c-key">--bg-surface</span>: <span class="c-val">#FFFFFF</span>;
+  <span class="c-key">--bg-muted</span>:   <span class="c-val">#F1F1F4</span>;
+  <span class="c-key">--border</span>:     <span class="c-val">#E5E5E9</span>;
+  <span class="c-key">--text</span>:       <span class="c-val">#231F20</span>;
+  <span class="c-key">--text-muted</span>: <span class="c-val">#6B6B73</span>;
+
+  <span class="c-com">/* Typography */</span>
+  <span class="c-key">--font-display</span>: <span class="c-val">"Space Grotesk", system-ui, sans-serif</span>;
+  <span class="c-key">--font-body</span>:    <span class="c-val">"Inter", system-ui, sans-serif</span>;
+  <span class="c-key">--font-mono</span>:    <span class="c-val">"JetBrains Mono", ui-monospace, monospace</span>;
+
+  <span class="c-com">/* Spacing scale (4px base) */</span>
+  <span class="c-key">--s-1</span>: <span class="c-val">4px</span>;  <span class="c-key">--s-2</span>: <span class="c-val">8px</span>;  <span class="c-key">--s-3</span>: <span class="c-val">12px</span>; <span class="c-key">--s-4</span>: <span class="c-val">16px</span>;
+  <span class="c-key">--s-5</span>: <span class="c-val">24px</span>; <span class="c-key">--s-6</span>: <span class="c-val">32px</span>; <span class="c-key">--s-7</span>: <span class="c-val">48px</span>; <span class="c-key">--s-8</span>: <span class="c-val">64px</span>;
+
+  <span class="c-com">/* Radii */</span>
+  <span class="c-key">--r-sm</span>: <span class="c-val">4px</span>;  <span class="c-key">--r-md</span>: <span class="c-val">8px</span>;
+  <span class="c-key">--r-lg</span>: <span class="c-val">12px</span>; <span class="c-key">--r-xl</span>: <span class="c-val">16px</span>;
+  <span class="c-key">--r-full</span>: <span class="c-val">999px</span>;
+
+  <span class="c-com">/* Shadows */</span>
+  <span class="c-key">--shadow-sm</span>:   <span class="c-val">0 1px 2px rgba(35, 31, 32, 0.06)</span>;
+  <span class="c-key">--shadow-md</span>:   <span class="c-val">0 4px 12px rgba(35, 31, 32, 0.08)</span>;
+  <span class="c-key">--shadow-lg</span>:   <span class="c-val">0 12px 32px rgba(35, 31, 32, 0.12)</span>;
+  <span class="c-key">--shadow-glow</span>: <span class="c-val">0 0 24px rgba(189, 65, 255, 0.25)</span>;
+}</pre>
+
+      <h3 style="margin-top:var(--s-5);">Google Fonts (πρόσθεσε στο &lt;head&gt;)</h3>
+      <pre class="code">&lt;link rel=<span class="c-val">"preconnect"</span> href=<span class="c-val">"https://fonts.googleapis.com"</span>&gt;
+&lt;link rel=<span class="c-val">"preconnect"</span> href=<span class="c-val">"https://fonts.gstatic.com"</span> crossorigin&gt;
+&lt;link href=<span class="c-val">"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"</span> rel=<span class="c-val">"stylesheet"</span>&gt;</pre>
+
+      <h3 style="margin-top:var(--s-5);">Έτοιμα utility classes για κύρια components</h3>
+      <pre class="code"><span class="c-com">/* Primary CTA με gradient */</span>
+.btn-accent {
+  <span class="c-key">background</span>: <span class="c-val">var(--nm-gradient)</span>;
+  <span class="c-key">color</span>: <span class="c-val">#fff</span>;
+  <span class="c-key">padding</span>: <span class="c-val">10px 20px</span>;
+  <span class="c-key">border-radius</span>: <span class="c-val">var(--r-md)</span>;
+  <span class="c-key">border</span>: <span class="c-val">none</span>;
+  <span class="c-key">font-weight</span>: <span class="c-val">600</span>;
+  <span class="c-key">transition</span>: <span class="c-val">box-shadow .15s, transform .15s</span>;
+}
+.btn-accent:hover {
+  <span class="c-key">box-shadow</span>: <span class="c-val">var(--shadow-glow)</span>;
+  <span class="c-key">transform</span>: <span class="c-val">translateY(-1px)</span>;
+}
+
+<span class="c-com">/* KPI tile με gradient top accent */</span>
+.kpi {
+  <span class="c-key">position</span>: <span class="c-val">relative</span>;
+  <span class="c-key">background</span>: <span class="c-val">var(--bg-surface)</span>;
+  <span class="c-key">border</span>: <span class="c-val">1px solid var(--border)</span>;
+  <span class="c-key">border-radius</span>: <span class="c-val">var(--r-lg)</span>;
+  <span class="c-key">padding</span>: <span class="c-val">var(--s-4) var(--s-5)</span>;
+}
+.kpi::before {
+  <span class="c-key">content</span>: <span class="c-val">""</span>;
+  <span class="c-key">position</span>: <span class="c-val">absolute</span>;
+  <span class="c-key">top</span>: <span class="c-val">0</span>; <span class="c-key">left</span>: <span class="c-val">0</span>; <span class="c-key">right</span>: <span class="c-val">0</span>;
+  <span class="c-key">height</span>: <span class="c-val">3px</span>;
+  <span class="c-key">background</span>: <span class="c-val">var(--nm-gradient)</span>;
+}
+
+<span class="c-com">/* Active nav item (sidebar) */</span>
+.nav-item.active {
+  <span class="c-key">color</span>: <span class="c-val">#fff</span>;
+  <span class="c-key">background</span>: <span class="c-val">var(--nm-grey-800)</span>;
+  <span class="c-key">border-left</span>: <span class="c-val">3px solid transparent</span>;
+  <span class="c-key">border-image</span>: <span class="c-val">var(--nm-gradient) 1</span>;
+}
+
+<span class="c-com">/* Focus indicator για inputs */</span>
+input:focus {
+  <span class="c-key">outline</span>: <span class="c-val">none</span>;
+  <span class="c-key">border-color</span>: <span class="c-val">var(--nm-purple)</span>;
+  <span class="c-key">box-shadow</span>: <span class="c-val">0 0 0 3px rgba(189, 65, 255, 0.12)</span>;
+}</pre>
+
+      <h3 style="margin-top:var(--s-5);">Tailwind config (αν χρησιμοποιήσεις Tailwind)</h3>
+      <pre class="code"><span class="c-com">// tailwind.config.js</span>
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        nm: {
+          cyan: <span class="c-val">'#01FBFD'</span>,
+          purple: <span class="c-val">'#BD41FF'</span>,
+          ink: <span class="c-val">'#231F20'</span>,
+          'cyan-700': <span class="c-val">'#008A8C'</span>,
+          'purple-700': <span class="c-val">'#8A1FC4'</span>,
+        }
+      },
+      backgroundImage: {
+        'nm-gradient': <span class="c-val">'linear-gradient(90deg, #01FBFD, #BD41FF)'</span>,
+      },
+      fontFamily: {
+        display: [<span class="c-val">'Space Grotesk'</span>, <span class="c-val">'sans-serif'</span>],
+        body: [<span class="c-val">'Inter'</span>, <span class="c-val">'sans-serif'</span>],
+        mono: [<span class="c-val">'JetBrains Mono'</span>, <span class="c-val">'monospace'</span>],
+      },
+    }
+  }
+}</pre>
+    </section>
+
+    <!-- ============================================================
+         14. DO'S & DON'TS
+         ============================================================ -->
+    <section id="dos-donts">
+      <div class="section-header">
+        <div class="eyebrow">14 · Reference</div>
+        <h2>Do's & Don'ts</h2>
+      </div>
+
+      <div class="dodont">
+        <div class="col do">
+          <h4>✓ Do</h4>
+          <ul>
+            <li>Χρησιμοποίησε το gradient ως υπογραφή — KPI top borders, primary CTAs, active states.</li>
+            <li>Διατήρησε λευκά/ανοιχτά φόντα για όλο το content area.</li>
+            <li>Σε σκούρα στοιχεία (sidebar) χρησιμοποίησε το ink #231F20, όχι μαύρο.</li>
+            <li>Σε reports, χρησιμοποίησε purple 700 και cyan 700 αντί για τα νέον — είναι print-safe.</li>
+            <li>Διατήρησε αρκετό clear space γύρω από το λογότυπο.</li>
+            <li>Χρησιμοποίησε mono font για IDs, ποσά και χρόνους — βελτιώνει την αναγνωσιμότητα δεδομένων.</li>
+            <li>Σε modes σκοτεινής εφαρμογής (π.χ. embedded screens), χρησιμοποίησε την reversed version του λογοτύπου.</li>
+            <li>Πάντα alt text "NMECAR" σε κάθε image of the logo.</li>
+          </ul>
+        </div>
+        <div class="col dont">
+          <h4>✗ Don't</h4>
+          <ul>
+            <li>Μην βάζεις gradient ως page background — κουράζει και μειώνει contrast.</li>
+            <li>Μην χρωματίζεις body text με τα καθαρά νέον — δεν περνούν WCAG AA.</li>
+            <li>Μην έχεις δύο gradient buttons στην ίδια view. Μόνο μία πρωτεύουσα ενέργεια.</li>
+            <li>Μην παραμορφώνεις, περιστρέφεις ή αλλάζεις τα χρώματα του λογοτύπου.</li>
+            <li>Μην χρησιμοποιείς το λογότυπο πάνω σε φωτογραφία χωρίς overlay για contrast.</li>
+            <li>Μην αναμιγνύεις άλλες grandient αποχρώσεις στο UI (π.χ. πορτοκαλί-ροζ). Μόνο cyan→purple.</li>
+            <li>Μην προσθέτεις skeuomorphic shadows ή 3D effects — το brand είναι flat & modern.</li>
+            <li>Μην χρησιμοποιείς το ALLwhite logo πάνω σε ανοιχτά γκρι — δεν διαβάζεται.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      NMECAR Brand & Theming Guide · Έκδοση 1.0 · Μάιος 2026<br>
+      Έγγραφο εσωτερικής χρήσης για ομάδες ανάπτυξης και σχεδίασης.
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>

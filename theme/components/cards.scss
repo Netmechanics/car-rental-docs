@@ -101,7 +101,7 @@
   }
 
   &:hover {
-    border: 2px solid var(--color-red-nmcr);
+    border: 2px solid var(--nm-purple-700);
     transform: translateY(-3px);
     top: -3px;
     box-shadow: 0 10px 20px 0 var(--color-card-shadow);
@@ -110,10 +110,10 @@
 }
 
 .card-secondary a {
-  border: solid 1px #e9e9ed;
+  border: solid 1px var(--nm-grey-200);
   color: var(--color-text-light);
 
   &:hover {
-    border-color: #dfdfe0;
+    border-color: var(--nm-grey-300);
   }
 }
