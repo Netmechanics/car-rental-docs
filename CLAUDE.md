@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an **Antora 3.1** documentation site for **WheelRent**, a car rental platform. Content is authored in AsciiDoc and published to `carrental-docs.nmlabs.gr`. The interface is in Greek; technical terms use English.
+This is an **Antora 3.1** documentation site for **nmecar**, a car rental platform. Content is authored in AsciiDoc and published to `carrental-docs.nmlabs.gr`. The interface is in Greek; technical terms use English.
 
 ## Build & Preview Commands
 

@@ -24,6 +24,7 @@
   position: relative;
   top: var(--toolbar-height);
   height: var(--nav-height);
+  border-right: 1px solid var(--nav-border-color);
 
   .panels {
     display: flex;
@@ -257,16 +258,16 @@ html.is-clipped--nav {
 .nav-link,
 .nav-text {
   display: block;
-  padding: 0.3rem 0.3rem;
+  padding: 0.45rem 0.6rem;
   margin: 0 -0.3rem;
-  border-radius: 3px;
+  border-radius: 0.5rem;
 }
 
 .nav-link:hover,
 .nav-text:hover {
   text-decoration: none;
   background: var(--nav-hover-background);
-  color: #06c;
+  color: var(--nm-ink);
 }
 
 .is-current-page > .nav-link,
@@ -274,8 +275,10 @@ html.is-clipped--nav {
 .is-current-page > .nav-link:hover,
 .is-current-page > .nav-text:hover {
   font-weight: var(--body-font-weight-bold);
-  background:  var(--toc-active-background-color);
-  color: var(--toc-active-font-color);
+  background:
+    linear-gradient(180deg, var(--nm-cyan) 0%, var(--nm-purple) 100%) left / 3px 100% no-repeat,
+    var(--nm-purple-50);
+  color: var(--nm-purple-800);
 }
 
 @media screen and (min-width: 769px) {

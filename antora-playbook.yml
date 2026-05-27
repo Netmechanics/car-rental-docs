@@ -1,5 +1,5 @@
 site:
-  title: WheelRent Documentation
+  title: nmecar Documentation
   url: http://carrental-docs.nmlabs.gr
   start_page: wr::index.adoc
   robots: allow

@@ -1,14 +1,14 @@
-# WheelRent Documentation Specs
+# nmecar Documentation Specs
 
-This file captures the current structure and content summary of the WheelRent Antora documentation.
+This file captures the current structure and content summary of the nmecar Antora documentation.
 Keep it updated when documentation content or structure changes.
 
 ## Repository Purpose
-This repository contains the Antora documentation site for WheelRent (car rental platform). It includes the Antora playbook, component descriptor, content pages, reusable partials, assets, and code examples used in documentation.
+This repository contains the Antora documentation site for nmecar (car rental platform). It includes the Antora playbook, component descriptor, content pages, reusable partials, assets, and code examples used in documentation.
 
 ## Antora Structure
-- Playbook: `antora-playbook.yml`
-- Component descriptor: `docs/antora.yml` (component `wr`, ROOT module, nav at `modules/ROOT/nav.adoc`)
+- Playbook: `antora-playbook.yml` (site title `nmecar Documentation`)
+- Component descriptor: `docs/antora.yml` (display title `nmecar`, component id `wr`, ROOT module, nav at `modules/ROOT/nav.adoc`)
 - Content pages: `docs/modules/ROOT/pages/**`
 - Partials: `docs/modules/ROOT/partials/**`
 - Images: `docs/modules/ROOT/images/**` (includes placeholder screenshots for roles UI steps)
@@ -16,6 +16,12 @@ This repository contains the Antora documentation site for WheelRent (car rental
 - UI overrides: `supplemental-ui/**`
 - Vendored UI bundle: `vendor/antora-ui-default.zip`
 - Theme source: `theme/site.scss` compiled to `supplemental-ui/css/site.css`
+
+## Branding Notes
+- The project branding is `nmecar`; the Antora component id remains `wr` for internal stability.
+- Project logo assets live in `supplemental-ui/img/nmecar.svg`, `nmecar_white.svg`, and `nmecar_ALLwhite.svg`.
+- The footer keeps the company logo `supplemental-ui/img/nm_logo.svg` for NETMECHANICS branding and it is not part of the project rebrand.
+- The theme uses NMECAR color tokens and typography (`Space Grotesk`, `Inter`, `JetBrains Mono`) loaded via `supplemental-ui/partials/head-styles.hbs`.
 
 ## Navigation Tree (ROOT)
 - Home
