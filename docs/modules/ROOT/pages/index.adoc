@@ -3,4 +3,17 @@
 
 include::partial$caution.adoc[]
 
+Η παρούσα τεκμηρίωση περιγράφει το `nmecar` στη γραμμή έκδοσης `1.1`, με έμφαση στις λειτουργικές δυνατότητες του συστήματος, στη διαχείριση από το backoffice και στη νέα ενότητα reporting.
+
+Για γρήγορη μετάβαση:
+
+* xref:release-notes/1.1.adoc[Τι νέο υπάρχει στη 1.1]
+* xref:reporting/index.adoc[Reporting και Dashboards]
+* xref:technical/dashboard.adoc[Ρύθμιση σύνδεσης με dashboard]
+
+[NOTE]
+====
+Η δομή του site είναι πλέον έτοιμη για versioned documentation με Antora. Η παράλληλη προβολή της τεκμηρίωσης `1.0` και `1.1` θα ενεργοποιηθεί μόλις καταγραφεί και συνδεθεί το αντίστοιχο `1.0` ref στο repository τεκμηρίωσης.
+====
+
 include::partial$nav_main.adoc[]

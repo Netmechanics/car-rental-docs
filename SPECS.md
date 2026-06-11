@@ -8,7 +8,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 
 ## Antora Structure
 - Playbook: `antora-playbook.yml` (site title `nmecar Documentation`)
-- Component descriptor: `docs/antora.yml` (display title `nmecar`, component id `wr`, ROOT module, nav at `modules/ROOT/nav.adoc`)
+- Component descriptor: `docs/antora.yml` (display title `nmecar`, component id `nmecar`, current documentation version `1.1`, ROOT module, nav at `modules/ROOT/nav.adoc`)
 - Content pages: `docs/modules/ROOT/pages/**`
 - Partials: `docs/modules/ROOT/partials/**`
 - Images: `docs/modules/ROOT/images/**` (includes placeholder screenshots for roles UI steps)
@@ -18,7 +18,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Theme source: `theme/site.scss` compiled to `supplemental-ui/css/site.css`
 
 ## Branding Notes
-- The project branding is `nmecar`; the Antora component id remains `wr` for internal stability.
+- The project branding and active Antora component id are `nmecar`.
 - Project logo assets live in `supplemental-ui/img/nmecar.svg`, `nmecar_white.svg`, and `nmecar_ALLwhite.svg`.
 - Favicon assets live in `supplemental-ui/` (`favicon.svg`, `favicon.ico`, PNG sizes, `apple-touch-icon.png`, `android-chrome-*.png`, `site.webmanifest`) and are wired from `supplemental-ui/partials/head-icons.hbs`.
 - The footer keeps the company logo `supplemental-ui/img/nm_logo.svg` for NETMECHANICS branding and it is not part of the project rebrand.
@@ -50,9 +50,16 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `admin/tags.adoc`
   - `admin/roles.adoc`
   - `admin/payments.adoc`
+  - `admin/driver-age-charges.adoc`
   - `admin/price-rounding.adoc`
   - `admin/settings-system.adoc`
   - `admin/settings-email.adoc`
+  - `admin/cms-seo-fields.adoc`
+- Reporting
+  - `reporting/index.adoc`
+  - `reporting/lite-dashboard.adoc`
+  - `reporting/dashboards.adoc`
+  - `reporting/reports.adoc`
 - Technical
   - `technical/index.adoc`
   - `technical/rental-process.adoc`
@@ -63,6 +70,9 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `technical/dashboard.adoc`
   - `technical/logging.adoc`
   - `technical/pricing_analysis.adoc`
+- Release Notes
+  - `release-notes/index.adoc`
+  - `release-notes/1.1.adoc`
 
 ## Content Summary
 ### Home
@@ -80,8 +90,8 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Coupons: discount codes, validity windows, and regex validation.
 - Insurances: per-day or per-period cost models with calculation examples.
 - Discounts: discount types (A/B), precedence rules, and examples.
-- Extras: per-day or per-booking extras with calculation example.
-- Rentals: read-only rental fields, statuses, customer info, cost breakdown, and internal notes.
+- Extras: per-day or per-booking extras with calculation example plus availability rules per vehicle group.
+- Rentals: read-only rental fields, statuses, customer info, cost breakdown, driver age charge/payment details, and internal notes.
 
 ### Admin
 - Vehicle Models: makes and models.
@@ -89,20 +99,31 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Vehicle Features: equipment/feature taxonomy.
 - Tags: labels used to surface groups/vehicles; regex validation.
 - Roles: system roles (`system-full-access`, `basic-access-role`) and CRUD scope for business users.
-- Payments: offline/online methods, provider mapping, fees, and deposit rules.
+- Payments: offline/online methods, provider mapping, fees, and bank deposit confirmation flow.
+- Driver Age Charges: age-zone setup, validation rules, FLAT/PERCENTAGE calculation, and rental snapshot behavior.
 - Price Rounding: configurable rounding scale (0.1/0.5/1.0) and decimal places; explains which cost components are affected, examples, and step-by-step setup.
-- System Settings: locales, rental code regex, dashboard embedding, Google API, extra hours, night hours, scheduled job settings, pricing rules, and limits.
-- Email Settings: per-category sender/recipient/subject/copy rules (rental/contact/quote).
+- System Settings: locales, rental code regex, dashboard embedding, Google API, extra hours, night hours, scheduled job settings, bank deposit reserve period, follow-up email settings, pricing rules, and limits.
+- Email Settings: per-category sender/recipient/subject/copy rules (rental/contact/quote/reminder/thank-you).
+- CMS SEO Fields: multilingual SEO metadata for posts/pages and their use in the public API.
+
+### Reporting
+- Reporting landing page: overview of the current `LITE` scope, KPI logic, Superset relation, and future reporting direction for the `1.1` documentation line.
+- LITE Dashboard: implementation-oriented description of the `Σύνοψη Επιχείρησης LITE` dashboard, including scope, datasets, charts, filters, layout, and screenshot placeholders.
+- Dashboards: clarifies that only the `LITE` dashboard is currently exposed while fuller dashboard suites remain future scope.
+- Reports: planned reporting categories documented as roadmap/future scope, not as already exposed production functionality.
 
 ### Technical
 - Rental Process: flow diagram with steps and decision points.
 - Rental Search Logic: `/api/v1/booking/search` logic, duration rules, pricing bands, filters, and PlantUML workflows.
-- Email Reports: Jmix Reports + FreeMarker templates; DTO examples.
-- Scheduled Jobs: abandoned rentals, finish rentals, email send/cleanup, Google Place cache cleanup.
+- Email Reports: Jmix Reports + FreeMarker templates for contact, quote, rental confirmation, reminder, and thank-you emails; DTO examples.
+- Scheduled Jobs: abandoned rentals, finish rentals, rental follow-up emails, email send/cleanup, Google Place cache cleanup.
 - Installation Config: DB, REST API, email, logging, and placeholder sections for TODOs.
-- Dashboard: Superset integration and disable flag.
+- Dashboard: Superset integration, relation to the reporting section, prerequisites, PlantUML integration flow, and screenshot placeholders.
 - Logging: Grafana Loki settings.
 - Pricing Analysis: stub page.
+
+### Release Notes
+- Release notes landing page and initial `1.1` page for version-oriented documentation and future multi-version navigation.
 
 ## Reusable Partials
 - Caution notice in `docs/modules/ROOT/partials/caution.adoc`.
@@ -117,3 +138,4 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - The content source now builds from the checked-out `HEAD`, so local documentation edits are reflected without switching to `master`.
 - The documented build flow uses npm scripts: `npm run build:theme`, `npm run build:site`, `npm run build:site:fetch`, and `npm run preview`.
 - The playbook is configured with the deployment URL `http://carrental-docs.nmlabs.gr`.
+- The component descriptor now marks the current documentation line as `1.1`; full Antora multi-version activation still requires a dedicated `1.0` docs ref/tag with its own matching component version metadata.
