@@ -2,7 +2,7 @@
 
 Δίνεται η δυνατότητα να συνδέσουμε την αρχική οθόνη της εφαρμογής με ένα dashboard του https://superset.apache.org/[Apache Superset,window=_blank].
 
-image::superset.png[width="50%"]
+image::lite-dashboard.png[alt="Σύνοψη Επιχείρησης LITE",width="100%"]
 
 Το Superset είναι εξωτερική υπηρεσία, που υπάρχει στην υποδομή της Netmechanics και η εφαρμογή είναι παραμετροποιημένη να χρησιμοποιεί την υπηρεσία αυτή κατ' απαίτηση.
 
@@ -17,13 +17,13 @@ nmcr.dashboard.active = false
 
 == Ρόλος της ενότητας dashboard στη 1.1
 
-Στη γραμμή έκδοσης `1.1` το dashboard αντιμετωπίζεται ως μέρος μιας ευρύτερης ενότητας reporting και διοικητικής πληροφόρησης, αλλά το τρέχον production scope παραμένει σκόπιμα περιορισμένο.
+Στη γραμμή έκδοσης `1.1` το dashboard αντιμετωπίζεται ως μέρος μιας ευρύτερης ενότητας reporting και διοικητικής πληροφόρησης.
 
 Η τεχνική σύνδεση εξακολουθεί να γίνεται μέσω Superset, όμως το περιεχόμενο που προβάλλεται οργανώνεται πλέον γύρω από:
 
 * διοικητικούς δείκτες καθημερινής λειτουργίας,
 * μια compact επιχειρησιακή εικόνα σε μορφή `LITE` dashboard,
-* teaser προβολή για μελλοντική επέκταση σε πληρέστερα dashboards και reports.
+* dashboard προβολή που βοηθά τον χρήστη να βλέπει γρήγορα τη συνολική εικόνα.
 
 Για λειτουργική περιγραφή του reporting δείτε:
 
@@ -61,16 +61,3 @@ Backoffice --> User : Προβολή dashboard
 * έχει δημιουργηθεί και δημοσιευθεί το αντίστοιχο dashboard στο Superset,
 * έχει καταχωρηθεί το σωστό embedded id στις xref:admin/settings-system.adoc#dashboard-embedded-id[Ρυθμίσεις Συστήματος],
 * το property `nmcr.dashboard.active` είναι ενεργό.
-
-== Placeholder για screenshots
-
-[IMPORTANT]
-====
-Εκκρεμούν screenshots για τη γραμμή `1.1`.
-
-Προτεινόμενα screenshots για αντικατάσταση ή προσθήκη:
-
-* αρχική οθόνη backoffice με ενεργό `LITE` dashboard,
-* οθόνη ρυθμίσεων με συμπληρωμένο `Dashboard Embedded ID`,
-* το `LITE` dashboard με KPIs και φίλτρα.
-====
