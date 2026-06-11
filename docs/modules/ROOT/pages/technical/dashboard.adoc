@@ -14,3 +14,63 @@ image::superset.png[width="50%"]
 ----
 nmcr.dashboard.active = false
 ----
+
+== Ρόλος της ενότητας dashboard στη 1.1
+
+Στη γραμμή έκδοσης `1.1` το dashboard αντιμετωπίζεται ως μέρος μιας ευρύτερης ενότητας reporting και διοικητικής πληροφόρησης, αλλά το τρέχον production scope παραμένει σκόπιμα περιορισμένο.
+
+Η τεχνική σύνδεση εξακολουθεί να γίνεται μέσω Superset, όμως το περιεχόμενο που προβάλλεται οργανώνεται πλέον γύρω από:
+
+* διοικητικούς δείκτες καθημερινής λειτουργίας,
+* μια compact επιχειρησιακή εικόνα σε μορφή `LITE` dashboard,
+* teaser προβολή για μελλοντική επέκταση σε πληρέστερα dashboards και reports.
+
+Για λειτουργική περιγραφή του reporting δείτε:
+
+* xref:reporting/index.adoc[Reporting και Dashboards]
+* xref:reporting/lite-dashboard.adoc[Σύνοψη Επιχείρησης LITE]
+* xref:reporting/dashboards.adoc[Dashboards]
+* xref:reporting/reports.adoc[Reports]
+
+== Βασική ροή
+
+[plantuml,dashboard-integration-flow,svg]
+....
+@startuml
+title Ροή σύνδεσης εφαρμογής με dashboard
+
+actor "Backoffice χρήστης" as User
+rectangle "nmecar Backoffice" as Backoffice
+database "System Settings" as Settings
+cloud "Apache Superset" as Superset
+
+User --> Backoffice : Ανοίγει αρχική οθόνη
+Backoffice --> Settings : Διαβάζει dashboard embedded id
+Backoffice --> Superset : Φορτώνει embedded dashboard
+Superset --> Backoffice : Επιστρέφει dashboard view
+Backoffice --> User : Προβολή dashboard
+
+@enduml
+....
+
+== Προαπαιτούμενα
+
+Πριν ενεργοποιηθεί η προβολή dashboard, πρέπει να έχουν επιβεβαιωθεί τα παρακάτω:
+
+* η εξωτερική υπηρεσία Superset είναι διαθέσιμη,
+* έχει δημιουργηθεί και δημοσιευθεί το αντίστοιχο dashboard στο Superset,
+* έχει καταχωρηθεί το σωστό embedded id στις xref:admin/settings-system.adoc#dashboard-embedded-id[Ρυθμίσεις Συστήματος],
+* το property `nmcr.dashboard.active` είναι ενεργό.
+
+== Placeholder για screenshots
+
+[IMPORTANT]
+====
+Εκκρεμούν screenshots για τη γραμμή `1.1`.
+
+Προτεινόμενα screenshots για αντικατάσταση ή προσθήκη:
+
+* αρχική οθόνη backoffice με ενεργό `LITE` dashboard,
+* οθόνη ρυθμίσεων με συμπληρωμένο `Dashboard Embedded ID`,
+* το `LITE` dashboard με KPIs και φίλτρα.
+====
