@@ -26,6 +26,37 @@
 
 Τα στοιχεία του λογαριασμού μπορούν να προστεθούν στην περιγραφή του τρόπου πληρωμής.
 
+Στη ροή αυτή η κράτηση δημιουργείται αρχικά ως `Κρατημένο` και παραμένει σε αναμονή μέχρι να επιβεβαιωθεί η κατάθεση από χρήστη του backoffice.
+
+Μετά την επιβεβαίωση:
+
+* η κράτηση μεταβαίνει σε `Μισθωμένο`,
+* αποστέλλεται το κανονικό rental confirmation email,
+* ολοκληρώνεται η επιχειρησιακή ροή επιβεβαίωσης χωρίς workaround.
+
+[NOTE]
+====
+Οι κρατήσεις `BANK_DEPOSIT` μπορούν να ακολουθούν ξεχωριστή περίοδο αναμονής, μέσω της ρύθμισης xref:admin/settings-system.adoc#bank-deposit-reserve-period[Περίοδος αναμονής τραπεζικής κατάθεσης (λεπτά)].
+====
+
+[plantuml,bank-deposit-confirmation-flow,svg]
+....
+@startuml
+title Ροή επιβεβαίωσης BANK_DEPOSIT
+
+actor Customer
+actor "Backoffice User" as User
+
+Customer --> [Reserve Booking]
+[Reserve Booking] --> [Rental = RESERVED]
+[Rental = RESERVED] --> [Αναμονή κατάθεσης]
+User --> [Επιβεβαίωση τραπεζικής κατάθεσης]
+[Επιβεβαίωση τραπεζικής κατάθεσης] --> [Rental = RENTED]
+[Rental = RENTED] --> [Αποστολή rental confirmation email]
+
+@enduml
+....
+
 == Πιστωτική/Χρεωστική κάρτα
 
 Η πληρωμή θα γίνει μέσω πιστωτικής/χρεωστικής κάρτας.

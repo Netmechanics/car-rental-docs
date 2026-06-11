@@ -1,0 +1,99 @@
+= Reporting και Dashboards
+:navtitle: Reporting
+
+Η έκδοση `1.1` οργανώνει πιο καθαρά την ενότητα διοικητικής πληροφόρησης του `nmecar`, με πρώτο ορατό παραδοτέο ένα μικρό αλλά επιχειρησιακά χρήσιμο dashboard `LITE`.
+
+Η ενότητα αυτή συγκεντρώνει:
+
+* το τρέχον παραδοτέο `Σύνοψη Επιχείρησης LITE`,
+* τη λογική των KPIs που τροφοδοτούν το dashboard,
+* τη σχέση της εφαρμογής με το Superset,
+* τη μελλοντική κατεύθυνση για πιο πλήρη dashboards και reports.
+
+== Τι προστέθηκε στη 1.1
+
+Στη γραμμή `1.1` η τεκμηρίωση επεκτείνεται ώστε να περιγράφει πιο ολοκληρωμένα:
+
+* το τρέχον `LITE` dashboard που λειτουργεί ως κοινό entry point για sales, operations και διοίκηση,
+* τη λογική των KPIs που χρησιμοποιεί αυτή η πρώτη έκδοση,
+* τη σχέση ανάμεσα στα δεδομένα κρατήσεων, στόλου, τιμολόγησης και reporting,
+* το διαχωρισμό ανάμεσα στο υλοποιημένο `LITE` scope και στη μελλοντική πλήρη suite dashboards και reports.
+
+[IMPORTANT]
+====
+Στη `1.1` δεν παρουσιάζεται ως ήδη διαθέσιμη μια πλήρης σουίτα reporting.
+
+Το ορατό production scope περιορίζεται στο dashboard `Σύνοψη Επιχείρησης LITE`. Πιο αναλυτικά dashboards, breakdowns και reports αποτελούν επόμενη γραμμή εξέλιξης.
+====
+
+== Αρχιτεκτονική πληροφορίας
+
+[plantuml,reporting-information-architecture,svg]
+....
+@startuml
+title Αρχιτεκτονική πληροφορίας reporting
+
+rectangle "Operational Data" {
+  component "Rentals"
+  component "Vehicles"
+  component "Locations"
+  component "Pricing / Discounts"
+  component "Extras / Insurance"
+  component "Payments"
+}
+
+rectangle "Reporting Layer" {
+  component "KPI Definitions"
+  component "Dashboards"
+  component "Reports"
+}
+
+actor "Operations" as Ops
+actor "Διοίκηση" as Mgmt
+actor "Commercial / Finance" as Fin
+
+Rentals --> "KPI Definitions"
+Vehicles --> "KPI Definitions"
+Locations --> "KPI Definitions"
+"Pricing / Discounts" --> "KPI Definitions"
+"Extras / Insurance" --> "KPI Definitions"
+Payments --> "KPI Definitions"
+
+"KPI Definitions" --> Dashboards
+"KPI Definitions" --> Reports
+
+Dashboards --> Ops
+Dashboards --> Mgmt
+Reports --> Mgmt
+Reports --> Fin
+
+@enduml
+....
+
+== Τρέχον scope και επόμενη κατεύθυνση
+
+Το reporting material της `1.1` πρέπει να διαβάζεται σε δύο επίπεδα:
+
+* *Τρέχον scope:* το dashboard `LITE`, με συμπαγή επιχειρησιακή εικόνα σε μία οθόνη.
+* *Μελλοντική κατεύθυνση:* πιο πλήρες executive dashboard, operations board, revenue breakdowns, fleet views και αναλυτικά reports.
+
+Για περισσότερα δείτε:
+
+* xref:reporting/lite-dashboard.adoc[Σύνοψη Επιχείρησης LITE]
+* xref:reporting/dashboards.adoc[Dashboards]
+* xref:reporting/reports.adoc[Reports]
+
+== Placeholder για screenshots
+
+[IMPORTANT]
+====
+Εκκρεμούν screenshots για τη γραμμή `1.1`.
+
+Προτεινόμενα screenshots:
+
+* landing view της ενότητας reporting στο backoffice,
+* το dashboard `Σύνοψη Επιχείρησης LITE`,
+* ένα κοντινό screenshot του KPI strip,
+* ένα screenshot του mixed trend chart,
+* ένα screenshot των δύο summary tables.
+====
