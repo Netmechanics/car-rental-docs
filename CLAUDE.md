@@ -20,10 +20,10 @@ Output goes to `./build/site`. Kroki diagrams require network access to `https:/
 
 ## Architecture
 
-**Single Antora component** (`wr`) with one ROOT module:
+**Single Antora component** (`nmecar`) with one ROOT module:
 
 - `antora-playbook.yml` — site configuration: URL, extensions (Lunr bilingual search, Kroki, AsciiDoc Tabs), Greek UI captions, vendored UI bundle
-- `docs/antora.yml` — component descriptor (name `wr`, version `~`)
+- `docs/antora.yml` — component descriptor (name `nmecar`, current version `1.1`)
 - `docs/modules/ROOT/pages/` — documentation pages organized by section (`admin/`, `booking/`, `fleet/`, `technical/`)
 - `docs/modules/ROOT/nav.adoc` — top-level navigation; delegates to `partials/nav_*.adoc` for sub-sections
 - `docs/modules/ROOT/partials/` — reusable AsciiDoc fragments (nav partials, sonarqube badges, admonitions)

@@ -7,5 +7,11 @@ include::partial$nav_booking.adoc[]
 * xref:admin/index.adoc[]
 include::partial$nav_admin.adoc[]
 
+* xref:reporting/index.adoc[]
+include::partial$nav_reporting.adoc[]
+
 * xref:technical/index.adoc[]
 include::partial$nav_technical.adoc[]
+
+* xref:release-notes/index.adoc[]
+include::partial$nav_release_notes.adoc[]

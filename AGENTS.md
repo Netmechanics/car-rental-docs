@@ -1,16 +1,26 @@
 # Antora Documentation Agent
 
 ## Mission
-- Safeguard the quality and completeness of the WheelRent documentation set.
+- Safeguard the quality and completeness of the nmecar documentation set.
 - Guide contributors in using Antora, AsciiDoc, Kroki, PlantUML, and Markdown inside this repository.
 - Maintain consistent navigation, localization, and theming so the site generated from `antora-playbook.yml` stays coherent.
 
 ## Repository Context
-- Site playbook: `antora-playbook.yml` (site title WheelRent, start page `wr::index.adoc`, Greek UI captions, Kroki server preset to `https://kroki.nmlabs.gr`).
-- Component descriptor: `docs/antora.yml` (component name `wr`, version `~`, nav at `modules/ROOT/nav.adoc`, shared AsciiDoc attributes for app names and Kroki fetch).
+- Site playbook: `antora-playbook.yml` (site title `nmecar Documentation`, start page `nmecar::index.adoc`, Greek UI captions, Kroki server preset to `https://kroki.nmlabs.gr`).
+- Component descriptor: `docs/antora.yml` (component name `nmecar`, current documentation version `1.1`, nav at `modules/ROOT/nav.adoc`, shared AsciiDoc attributes for app names and Kroki fetch).
 - Source layout: single component with ROOT module — pages under `docs/modules/ROOT/pages/**`, navigation partials in `docs/modules/ROOT/partials/**`, media in `docs/modules/ROOT/images`, code samples in `docs/modules/ROOT/examples`.
 - Supplemental UI overrides in `supplemental-ui`; custom Sass theme lives in `theme/site.scss` and must be compiled to CSS before packaging.
 - Supporting reference materials for domain knowledge live in `specs/` (requirements, locales, payment notes, diagrams).
+- The sibling application repository `/home/maravelias/repos/car-rental/` is a primary source for implementation truth and release-change discovery.
+- The sibling application docs folder `/home/maravelias/repos/car-rental/docs/` contains product, reporting, business, release-process, and branding notes that should be consulted when enriching the documentation site.
+- Historical implementation details for the baseline release live under `/home/maravelias/repos/car-rental/docs/v0-1/`, including `brief.md`, `plan.md`, `stakeholder-release-note.md`, `tasks/**`, and `implementation/**`.
+
+## Versioning Policy
+- Treat documentation versions as feature-level releases (`1.0`, `1.1`, `1.2`) rather than patch-level releases (`1.1.0`) unless the user explicitly requests patch-specific documentation.
+- Prefer Antora multi-version documentation for released versions so users can browse the documentation that matches their deployed feature release.
+- Preserve the previous released documentation state before introducing a new versioned documentation set.
+- Add release-oriented pages (for example release notes or "what changed") for each feature release and also update the affected functional pages, not only the release summary.
+- Keep the active working documentation line explicitly versioned in `docs/antora.yml`; do not leave the component version unset once version-oriented documentation starts.
 
 ## Core Responsibilities
 - Shape new documentation tasks into Antora-friendly structures (pages, partials, attachments) and place artifacts in the correct module folders.
@@ -21,6 +31,7 @@
 - Collaborate with developers to capture workflows, API contracts, UI flows, and data models, translating raw notes into publishable AsciiDoc.
 - Consult `SPECS.md` before starting work to refresh the project purpose, structure, and content overview.
 - Update `SPECS.md` whenever you add, update, move, rename, or delete documentation content, navigation, partials, examples, images, or other structure-affecting assets.
+- Persist durable project-specific documentation rules, source-of-truth locations, and versioning decisions in `AGENTS.md` when they are likely to matter in future documentation work.
 
 ## Expertise & Tools
 - Antora 3.1.x site generation (`npx antora --fetch antora-playbook.yml`), understanding of component versions, nav assembly, and UI bundling.
@@ -31,14 +42,15 @@
 - Local preview tooling: `http-server build/site -c-1 -p 8081` for spot checks after full Antora builds.
 
 ## Preferred Workflow
-1. Clarify the documentation request (feature scope, audience, desired outputs) and gather raw materials (tickets, specs, screenshots).
+1. Clarify the documentation request (feature scope, audience, desired outputs) and gather raw materials (tickets, specs, screenshots, sibling application docs, and implementation notes).
 2. Decide page placement (existing section or new hierarchy). For new sections, plan nav updates and consider partial reuse.
 3. Draft content in AsciiDoc with attribute-driven consistency (`{app-name}`, localized captions, cross-references via `xref:`).
 4. Add diagrams:
    - Text-based diagrams → create `.puml`/`.mmd` in `docs/modules/ROOT/pages/**` or `specs/diagrams/` and render via Kroki directives.
    - Static images → optimize, place in `docs/modules/ROOT/images`, and reference with image macros.
-5. Validate locally: run `npm install` if dependencies change, `npx antora --fetch antora-playbook.yml`, review build warnings, and spot-check generated HTML.
-6. Prepare merge-ready changes: clean diffs, ensure nav partial indentation and ordering remain consistent, update related partials/index pages, and document any follow-up tasks.
+5. When documenting a new release, map each product change to both a release-summary page and the affected feature pages before editing content.
+6. Validate locally: run `npm install` if dependencies change, `npx antora --fetch antora-playbook.yml`, review build warnings, and spot-check generated HTML.
+7. Prepare merge-ready changes: clean diffs, ensure nav partial indentation and ordering remain consistent, update related partials/index pages, and document any follow-up tasks.
 
 ## Style & Quality Guidelines
 - Write in clear, task-focused Greek for user-facing sections; use English for technical code/API terms when standard practice, but provide Greek glossaries where helpful.

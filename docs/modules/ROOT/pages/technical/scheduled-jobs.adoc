@@ -52,6 +52,32 @@ nmcr.use-default-finish-rentals-quartz-configuration = false
 gr.netmechanics.carrental.job.FinishRentalsJob
 ----
 
+[[rental-followup-emails-job]]
+== Follow-up emails ενοικιάσεων
+
+Η εργασία αυτή αναλαμβάνει την αυτόματη αποστολή δύο ειδών follow-up email:
+
+* reminder πριν από την παραλαβή,
+* thank-you μετά την ολοκλήρωση της ενοικίασης.
+
+Τα follow-up emails είναι απενεργοποιημένα από default και ενεργοποιούνται ρητά από τις xref:admin/settings-system.adoc#rental-reminder-enabled[Ρυθμίσεις Συστήματος].
+
+Έχει ρυθμιστεί να εκτελείται μία φορά την ημέρα.
+
+[source,properties]
+----
+nmcr.rental-followup-emails-cron = 0 0 8 ? * *
+----
+
+Η λογική βασίζεται σε ημερολογιακές ημέρες και όχι σε rolling παράθυρο ωρών. Για παράδειγμα, αν το reminder είναι ορισμένο στις `3` ημέρες, ο job ελέγχει όλες τις κρατήσεις που έχουν pickup στην αντίστοιχη ημερολογιακή ημέρα.
+
+Για να μην αποσταλεί δεύτερο email για την ίδια κράτηση, το σύστημα κρατά εσωτερική πληροφορία ότι το email έχει ήδη μπει στην ουρά αποστολής.
+
+.Java class for the job
+----
+gr.netmechanics.carrental.job.RentalFollowupEmailsJob
+----
+
 == Καθαρισμός Cache Google Place
 
 Η εργασία αυτή προέρχεται από το πρόσθετο https://www.jmix.io/marketplace/google-place/[Google Place,window=_blank] του Jmix. Αναλαμβάνει τον καθαρισμό της cache από δεδομένα που υπάρχουν από τη χρήση της υπηρεσίας Google Place.

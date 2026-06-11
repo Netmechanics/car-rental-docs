@@ -1,0 +1,74 @@
+= Reports
+
+Στη γραμμή `1.1` τα reports δεν πρέπει να παρουσιάζονται σαν πλήρως εκτεθειμένο production feature set προς τον τελικό χρήστη.
+
+Το ορατό production reporting scope παραμένει στο dashboard `LITE`. Η παρούσα σελίδα λειτουργεί ως τεκμηρίωση κατεύθυνσης για τα reports που έχουν σχεδιαστεί ή προδιαγραφεί για επόμενη έκδοση.
+
+[IMPORTANT]
+====
+Τα παρακάτω reports αποτελούν roadmap / planned reporting suite και όχι ισχυρισμό ότι όλα είναι ήδη ενεργά και ορατά στο `1.1` backoffice.
+====
+
+== Ενδεικτικές κατηγορίες reports
+
+=== Daily Operations Reports
+
+Reports για καθημερινή επιχειρησιακή παρακολούθηση, όπως:
+
+* Daily Reservations Register,
+* Daily Pickups & Drop-offs.
+
+=== Revenue και Commercial Reports
+
+Reports που βοηθούν στη διερεύνηση της εμπορικής απόδοσης, όπως:
+
+* Revenue by Period / Location / Vehicle Group,
+* Pricing Breakdown Analysis,
+* Extras & Insurance Performance,
+* Coupon & Discount Effectiveness,
+* Driver Age Charges Impact.
+
+=== Fleet και Location Reports
+
+Reports που δείχνουν αξιοποίηση στόλου και συγκριτική εικόνα τοποθεσιών, όπως:
+
+* Fleet Utilization Report,
+* Location Profitability Proxy.
+
+=== Customer και Forecast Reports
+
+Αναφορές διοικητικής και στρατηγικής εικόνας, όπως:
+
+* Customer Geography & Demographics,
+* Lead Time & Booking Window Analysis,
+* Follow-up Email Effectiveness,
+* Demand Forecast Report.
+
+== Ρόλος αυτής της σελίδας στην 1.1
+
+Στη γραμμή `1.1` τα reports τεκμηριώνονται μόνο σε επίπεδο:
+
+* επιχειρησιακού σκοπού,
+* βασικών αξόνων ανάλυσης,
+* ενδεικτικών metrics,
+* σχέσης με τα δεδομένα του συστήματος,
+* προετοιμασίας για μελλοντική πλήρη suite.
+
+Αν χρειαστεί στο μέλλον, η ενότητα μπορεί να εμπλουτιστεί με αναλυτικά pages ανά report.
+
+== Placeholder για screenshots
+
+[IMPORTANT]
+====
+Εκκρεμούν screenshots για reports της `1.1`.
+
+Προτεινόμενα screenshots:
+
+* Δεν απαιτούνται άμεσα screenshots αν τα reports δεν είναι ακόμη ορατά στο production scope της `1.1`.
+
+Αν αργότερα ενεργοποιηθούν:
+
+* report register ημερήσιων κρατήσεων,
+* report ανάλυσης εσόδων ανά location / vehicle group,
+* report αξιοποίησης στόλου.
+====
