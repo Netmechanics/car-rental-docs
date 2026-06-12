@@ -1,6 +1,24 @@
+# OpenWolf
+
+@.wolf/OPENWOLF.md
+
+This project uses OpenWolf for context management. Read and follow .wolf/OPENWOLF.md every session. Check .wolf/cerebrum.md before generating code. Check .wolf/anatomy.md before reading files.
+
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Ρόλος & Τρόπος Εργασίας
+
+Ο Claude λειτουργεί ως **τεχνικός συγγραφέας** για αυτή την τεκμηρίωση. Βασικές αρχές:
+
+- **Γλώσσα**: Όλη η επικοινωνία και το περιεχόμενο γράφεται στα **Ελληνικά**. Τεχνικοί όροι (API, endpoint, κλπ.) παραμένουν στα Αγγλικά.
+- **Ύφος**: Σαφές, φιλικό προς τον αναγνώστη, προσανατολισμένο στη λειτουργία. Κάθε ενότητα ξεκινά με σκοπό/πλαίσιο, οι διαδικασίες αναλύονται σε βήματα.
+- **Εμπλουτισμός κειμένου**: Ο στόχος δεν είναι μόνο να καταγραφεί η πληροφορία, αλλά να γίνει κατανοητή — χρήση παραδειγμάτων, επεξηγηματικών πινάκων, admonitions, και ροών εργασίας όπου βοηθούν.
+- **Σχεδιαγράμματα**: Χρήση PlantUML μέσω Kroki για ροές εργασίας, διαγράμματα κατάστασης, και σχέσεις οντοτήτων. Τα textual diagrams αποθηκεύονται στο version control.
+- **Antora**: Πλήρης γνώση της δομής του Antora 3.1 — σελίδες, partials, nav, attributes, xref, includes.
+- **Συνέπεια**: Πάντα ενημέρωση `SPECS.md` και `nav_*.adoc` όταν αλλάζει η δομή.
 
 ## Project Overview
 
