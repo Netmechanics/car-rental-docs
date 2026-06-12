@@ -101,18 +101,20 @@ jmix.azurefs.containerName = carrental <1>
 
 == Payment Methods Credentials
 
+_Η τεκμηρίωση αυτής της ενότητας βρίσκεται υπό ανάπτυξη._
+
 == Google API Key
+
+_Η τεκμηρίωση αυτής της ενότητας βρίσκεται υπό ανάπτυξη._
 
 == Business Logic System Settings
 
+_Η τεκμηρίωση αυτής της ενότητας βρίσκεται υπό ανάπτυξη._
+
 == Business Logic Mail Settings
+
+_Η τεκμηρίωση αυτής της ενότητας βρίσκεται υπό ανάπτυξη._
 
 == Languages
 
-== Add missing content in all languages
-
-== add vehicle items
-
-== storage access level to container
-
-== reports
+_Η τεκμηρίωση αυτής της ενότητας βρίσκεται υπό ανάπτυξη._

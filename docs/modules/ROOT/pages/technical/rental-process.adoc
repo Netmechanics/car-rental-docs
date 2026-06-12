@@ -1,5 +1,7 @@
 = Διαδικασία Ενοικίασης Οχήματος
 
+Η ενότητα αυτή περιγράφει τη ροή ολοκλήρωσης μιας ενοικίασης, από τη στιγμή που ο πελάτης επιλέγει όχημα έως την τελική επιβεβαίωση. Καλύπτονται τόσο η ομαλή πορεία όσο και τα κρίσιμα edge cases.
+
 == Διάγραμμα ροής
 
 [%autowidth,frame=none,grid=none]
@@ -40,3 +42,54 @@ a|image::rental_process_diagram.svg[] a|
 
 . Ολοκληρώνεται η διαδικασία.
 |===
+
+== Αναλυτική ροή — Sequence Diagram
+
+Το παρακάτω διάγραμμα απεικονίζει την αναλυτική αλληλουχία κλήσεων μεταξύ πελάτη, front-end και API, συμπεριλαμβανομένων των δύο κρίσιμων edge cases: μη διαθεσιμότητας οχήματος και αποτυχίας πληρωμής.
+
+[plantuml,rental-process-sequence,svg]
+....
+@startuml
+skinparam defaultFontName Arial
+skinparam sequenceArrowThickness 1.5
+skinparam sequenceGroupBackgroundColor #EEF4FF
+skinparam sequenceGroupBorderColor #4A6FA5
+
+actor "Πελάτης" as C
+participant "Front-end" as FE
+participant "Booking API" as API
+database "Σύστημα" as SYS
+
+C -> FE: Επιλογή οχήματος, extras, ασφάλεια
+C -> FE: Συμπλήρωση στοιχείων & τρόπου πληρωμής
+C -> FE: Επιβεβαίωση κράτησης
+FE -> API: POST /booking/create
+
+group Έλεγχος διαθεσιμότητας
+  API -> SYS: Αναζήτηση διαθέσιμης πινακίδας
+  alt Δεν υπάρχει διαθέσιμη πινακίδα
+    API --> FE: Σφάλμα — μη διαθεσιμότητα
+    FE --> C: Ενημέρωση · επιλογή εκ νέου
+  else Πινακίδα διαθέσιμη
+    SYS -> SYS: Πινακίδα → Reserved
+    SYS -> SYS: Ενοικίαση → Κρατημένο
+  end
+end
+
+group Διαδικασία πληρωμής
+  API --> FE: Ανακατεύθυνση στο payment gateway
+  C -> FE: Εκτέλεση πληρωμής
+  alt Αποτυχία πληρωμής
+    FE --> C: Ενημέρωση · νέα προσπάθεια ή αλλαγή μεθόδου
+    note right of C: Η ενοικίαση παραμένει\nΚρατημένο έως λήξη\nδέσμευσης (AbandonedRentalsJob)
+  else Επιτυχής πληρωμή
+    API -> SYS: Ενοικίαση → Μισθωμένο
+    SYS -> SYS: Πινακίδα → Rented
+    API --> FE: Επιβεβαίωση κράτησης
+    FE --> C: Οθόνη επιβεβαίωσης + αποστολή email
+  end
+end
+@enduml
+....
+
+NOTE: Στην περίπτωση `BANK_DEPOSIT`, η ενοικίαση παραμένει σε κατάσταση *Κρατημένο* μέχρι ο διαχειριστής να επιβεβαιώσει χειροκίνητα την κατάθεση. Δείτε xref:admin/payments.adoc[].
