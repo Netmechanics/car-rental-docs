@@ -18,8 +18,8 @@
 . Υπολογισμός κόστους ανά όχημα.
 . Φιλτράρισμα οχημάτων με συνολικό κόστος `<= 0`.
 
-[plantuml]
-----
+[plantuml,search-workflow,svg]
+....
 @startuml
 title Booking Search Workflow (/api/v1/booking/search)
 
@@ -45,7 +45,7 @@ else (no)
   stop
 endif
 @enduml
-----
+....
 
 == Αναλυτική λογική
 
@@ -102,8 +102,8 @@ endif
 - Η `getDayPrice(days)` κάνει fallback στο **D30** για `days > 30`.
 - Η ημερήσια τιμή υπολογίζεται από το D30, το συνολικό κόστος υπολογίζεται κανονικά και τα οχήματα επιστρέφονται αν είναι διαθέσιμα.
 
-[plantuml]
-----
+[plantuml,pricing-band,svg]
+....
 @startuml
 title Pricing Band Decision (Based on Chargeable Days)
 
@@ -129,10 +129,10 @@ else (no)
   endif
 endif
 @enduml
-----
+....
 
-[plantuml]
-----
+[plantuml,min-duration-gate,svg]
+....
 @startuml
 title Minimum Duration Gate (Season + Location)
 
@@ -158,10 +158,10 @@ else (no)
   stop
 endif
 @enduml
-----
+....
 
-[plantuml]
-----
+[plantuml,vehicle-availability,svg]
+....
 @startuml
 title Vehicle Availability Filtering
 
@@ -185,10 +185,10 @@ endwhile
 :Return available vehicles;
 stop
 @enduml
-----
+....
 
-[plantuml]
-----
+[plantuml,pricing-accumulation,svg]
+....
 @startuml
 title Pricing Accumulation (Per Vehicle)
 
@@ -222,10 +222,10 @@ else (no)
 endif
 stop
 @enduml
-----
+....
 
-[plantuml]
-----
+[plantuml,discount-calculation,svg]
+....
 @startuml
 title Discount Calculation
 
@@ -240,10 +240,10 @@ endwhile
 :discountAmount += durationDiscount(vehicle, basicPrice, costList);
 stop
 @enduml
-----
+....
 
-[plantuml]
-----
+[plantuml,extra-hours-handling,svg]
+....
 @startuml
 title Extra Hours Handling
 
@@ -268,7 +268,7 @@ if (ExtraHoursType == PERCENTAGE?) then (yes)
 endif
 stop
 @enduml
-----
+....
 
 == Παραδείγματα (με βάση τους πραγματικούς κανόνες)
 Τα παραδείγματα χρησιμοποιούν συγκεκριμένους αριθμούς και ακολουθούν την πραγματική ροή του συστήματος.

@@ -1,15 +1,21 @@
 = Ρυθμίσεις Email
 
-Έχουμε τις κατηγορίες email
+Οι ρυθμίσεις email καθορίζουν τον αποστολέα, τον παραλήπτη, το θέμα και τους αποδέκτες αντιγράφου για κάθε κατηγορία αυτόματου email που στέλνει το σύστημα.
 
-* <<#general>>
-* <<#rental-form>>
-* <<#rental-reminder>>
-* <<#rental-thankyou>>
-* <<#contact-form>>
-* <<#quote-form>>
+Τα email αποστέλλονται μέσω της ουράς αποστολής του Jmix (Email Sending plugin) και εκτελούνται από την αντίστοιχη xref:technical/scheduled-jobs.adoc[προγραμματισμένη εργασία].
 
-NOTE: Για το περιεχόμενο των email δείτε την ενότητα xref:technical/reports_email.adoc[].
+Οι κατηγορίες email είναι:
+
+* <<#general,Γενικές ρυθμίσεις>> — εφεδρικές τιμές αν δεν έχουν οριστεί ειδικές.
+* <<#rental-form,Φόρμα ενοικίασης>> — αποστέλλεται μετά από κάθε νέα κράτηση.
+* <<#rental-reminder,Reminder ενοικίασης>> — αυτόματο reminder πριν την παραλαβή.
+* <<#rental-thankyou,Ευχαριστήριο ενοικίασης>> — αυτόματο thank-you μετά την παράδοση.
+* <<#contact-form,Φόρμα επικοινωνίας>> — αποστέλλεται από τη σελίδα επικοινωνίας του {app-front}.
+* <<#quote-form,Φόρμα προσφοράς>> — αποστέλλεται από αίτημα προσφοράς του πελάτη.
+
+image:settings_email_form.png[]
+
+NOTE: Για το περιεχόμενο και τη δομή των email templates δείτε xref:technical/reports_email.adoc[].
 
 [[general]]
 == Γενικές

@@ -62,6 +62,16 @@
 - Keep diagrams legible: for Kroki, prefer textual inputs stored in version control; for large images, provide alt text and captions.
 - Before completion, run a spelling/language review (Greek + English technical terms) and ensure steps match the live application.
 
+## Οδηγίες τεκμηρίωσης νέων Dashboards
+
+Όταν τεκμηριώνεται νέο dashboard σε επόμενη γραμμή έκδοσης, να περιγράφονται:
+
+* ο επιχειρησιακός σκοπός,
+* οι βασικοί KPI δείκτες,
+* τα κύρια φίλτρα,
+* τα κύρια οπτικά στοιχεία,
+* τυχόν προαπαιτούμενα δεδομένων ή παραμετροποίησης.
+
 ## Review Checklist
 - Builds cleanly with `npx antora --fetch antora-playbook.yml` (no unresolved `include` or `xref` warnings).
 - Navigation entries point to existing pages; breadcrumbs and sidebar render correctly.

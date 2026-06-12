@@ -2,6 +2,43 @@
 
 Το σύστημα εκτελεί αυτόματα συγκεκριμένες εργασίες σε προκαθορισμένα χρονικά διαστήματα.
 
+== Σύνοψη εργασιών
+
+[options="header",cols="2a,1,2m,3"]
+|===
+|Εργασία|Συχνότητα|Cron expression|Java class
+
+|xref:#abandoned-rentals-job[Εγκαταλελειμμένες ενοικιάσεις]
+|Κάθε 3 λεπτά
+|0 1/3 * ? * *
+|AbandonedRentalsJob
+
+|xref:#finsish-rentals-job[Ολοκλήρωση ενοικιάσεων]
+|Κάθε 10 λεπτά
+|0 1/10 * ? * *
+|FinishRentalsJob
+
+|xref:#rental-followup-emails-job[Follow-up emails ενοικιάσεων]
+|1 φορά/ημέρα (08:00)
+|0 0 8 ? * *
+|RentalFollowupEmailsJob
+
+|Καθαρισμός Cache Google Place
+|1 φορά/μήνα
+|0 0 1 1 1/1 ? *
+|_(Jmix Google Place plugin)_
+
+|Αποστολή Email
+|Κάθε 2 λεπτά
+|* 0/2 * * * ?
+|_(Jmix Email Sending plugin)_
+
+|Καθαρισμός Email
+|Κάθε 2 ημέρες
+|0 0 0 1/2 * ?
+|_(Jmix Email Sending plugin)_
+|===
+
 [[abandoned-rentals-job]]
 == Εγκαταλελειμμένες ενοικιάσεις
 
@@ -14,7 +51,7 @@
 nmcr.abandoned-rentals-cron = 0 1/3 * ? * *
 ----
 
-Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
+Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI, αλλάζουμε το property
 
 .application.properties
 [source,properties]
@@ -39,7 +76,7 @@ gr.netmechanics.carrental.job.AbandonedRentalsJob
 nmcr.finish-rentals-cron = 0 1/10 * ? * *
 ----
 
-Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
+Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI, αλλάζουμε το property
 
 .application.properties
 [source,properties]
@@ -89,7 +126,7 @@ gr.netmechanics.carrental.job.RentalFollowupEmailsJob
 jmix.gplace.cleaning-cache-cron = 0 0 1 1 1/1 ? *
 ----
 
-Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI αλλάζουμε, αλλάζουμε το property
+Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI, αλλάζουμε το property
 
 .application.properties
 [source,properties]
