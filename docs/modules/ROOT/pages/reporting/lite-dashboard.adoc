@@ -2,12 +2,11 @@
 
 Το dashboard `Σύνοψη Επιχείρησης LITE` είναι το πρώτο οργανωμένο reporting deliverable που παρουσιάζεται στη γραμμή `1.1`.
 
-Στόχος του είναι να δίνει άμεση πρώτη αξία στον τελικό χρήστη, χωρίς να ανοίγει ακόμα σε πλήρη suite dashboards και reports.
+Στόχος του είναι να δίνει άμεση πρώτη αξία στον τελικό χρήστη, χωρίς να φορτώνει την οθόνη με υπερβολική πληροφορία.
 
 Πρακτικά λειτουργεί ως:
 
 * κοινό entry point για sales, operations και διοίκηση,
-* teaser για την πλήρη suite που θα ακολουθήσει,
 * single-screen dashboard με μικρό αλλά ουσιώδες επιχειρησιακό scope.
 
 image::lite-dashboard.png[alt="Σύνοψη Επιχείρησης LITE",width="100%"]
@@ -38,41 +37,6 @@ image::lite-dashboard.png[alt="Σύνοψη Επιχείρησης LITE",width="
 * τι αξία παράγει,
 * πόση πίεση δέχεται ο στόλος,
 * ποια σημεία θέλουν άμεση προσοχή.
-
-== Προτεινόμενα datasets
-
-Η βασική αρχή είναι να χρησιμοποιούνται curated exposure views και όχι raw tables ή ad-hoc business logic μέσα στο Superset.
-
-Πυρήνας του dashboard:
-
-* `exp_dashboard_lite_daily`
-* `exp_dashboard_lite_action_list`
-* `exp_dashboard_executive_daily_top_locations`
-
-Υποστηρικτικά ή fallback datasets:
-
-* `exp_dashboard_executive_daily_kpis`
-* `exp_dashboard_revenue_sales_daily`
-* `exp_dashboard_fleet_utilization_daily`
-* `exp_dashboard_operations_board_summary`
-
-[NOTE]
-====
-Η προτιμώμενη παραγωγική κατεύθυνση είναι dedicated exposure objects για το `LITE` dashboard, ώστε η επιχειρησιακή λογική να παραμένει στη PostgreSQL και όχι στο Superset.
-====
-
-== Στρατηγική υλοποίησης
-
-Προκρίνεται η πιο «καθαρή» παραγωγική προσέγγιση:
-
-* νέο exposure object `exp_dashboard_lite_daily`
-* νέο exposure object `exp_dashboard_lite_action_list`
-
-Αυτή η επιλογή μειώνει:
-
-* το πλήθος datasets που πρέπει να συγχρονιστούν,
-* την πιθανότητα semantic drift,
-* την ανάγκη για virtual SQL λογική μέσα στα charts.
 
 == Προτεινόμενα charts
 
@@ -133,24 +97,18 @@ rectangle "Summary Tables" {
 
 Η πρώτη έκδοση πρέπει να μείνει απλή.
 
-Required filters:
+Διαθέσιμα φίλτρα:
 
 * `Ημερομηνία αναφοράς`
 * `Horizon ημερών`
 
 Στο τρέχον UI του Superset τα φίλτρα εμφανίζονται στο αριστερό filter panel και όχι ως ξεχωριστή πάνω ζώνη μέσα στο σώμα του dashboard.
 
-Optional filters για επόμενη έκδοση:
-
-* pickup location
-* vehicle group
-* locale
-
 Interaction policy:
 
 * τα KPI cards δεν χρειάζεται να έχουν drill-down στο v1,
 * οι πίνακες παραμένουν read-only summary lists,
-* το dashboard είναι management / teaser view και όχι αναλυτικό workspace.
+* το dashboard χρησιμοποιείται για γρήγορη εποπτεία και όχι για βαθιά ανάλυση μέσα από την ίδια οθόνη.
 
 == Layout
 
@@ -163,24 +121,3 @@ Interaction policy:
 * KPI strip με `8` Big Number charts σε `2` σειρές των `4`
 * ένα μεγάλο mixed trend chart full width
 * δύο summary tables στο κάτω μέρος
-
-== Acceptance criteria
-
-Το `LITE` dashboard θεωρείται επιτυχές όταν:
-
-1. ανοίγει στο Superset χωρίς ad-hoc SQL μέσα στα charts,
-2. τα KPIs συμφωνούν με τα preview semantics,
-3. διαβάζεται σε μία οθόνη laptop με περιορισμένο scrolling,
-4. διατηρεί σαφή διάκριση ανάμεσα σε teaser scope και full dashboard suite,
-5. τα datasets και metrics μπορούν να επαναχρησιμοποιηθούν αργότερα.
-
-== Placeholder για screenshots
-
-[IMPORTANT]
-====
-Το βασικό screenshot του `LITE` dashboard έχει ήδη ενσωματωθεί, αλλά εκκρεμούν συμπληρωματικά screenshots για πληρέστερη τεκμηρίωση.
-
-Χρειάζονται ακόμα κατά προτεραιότητα:
-
-* screenshot από `Settings System` με συμπληρωμένο `Dashboard Embedded ID`.
-====

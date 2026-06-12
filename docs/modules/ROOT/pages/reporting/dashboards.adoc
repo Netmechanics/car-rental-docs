@@ -15,8 +15,6 @@
 
 * xref:reporting/lite-dashboard.adoc[Σύνοψη Επιχείρησης LITE]
 
-Αυτό λειτουργεί ως κοινό teaser / entry point για sales, operations και διοίκηση, χωρίς να ανοίγει ακόμη σε πλήρες executive workspace.
-
 == Dashboards που δεν θεωρούνται ακόμα εκτεθειμένα
 
 Τα παρακάτω πρέπει να αντιμετωπίζονται στην `1.1` ως μελλοντική κατεύθυνση και όχι ως ήδη διαθέσιμο production scope:
@@ -26,11 +24,6 @@
 * αναλυτικό revenue dashboard,
 * αναλυτικό fleet utilization dashboard,
 * δεύτερες σελίδες ή tabs με drill-through ανάλυση.
-
-[NOTE]
-====
-Αν μελλοντικά προστεθούν επιπλέον dashboards, αυτή η σελίδα θα λειτουργήσει ως κεντρική σελίδα καταλόγου. Στην τρέχουσα γραμμή `1.1` κρατάμε σκόπιμα στενό scope.
-====
 
 == Σχέση με το Superset
 
@@ -47,17 +40,3 @@
 * τα κύρια φίλτρα,
 * τα κύρια οπτικά στοιχεία,
 * τυχόν προαπαιτούμενα δεδομένων ή παραμετροποίησης.
-
-== Placeholder για screenshots
-
-[IMPORTANT]
-====
-Εκκρεμούν screenshots για τα dashboards της `1.1`.
-
-Προτεινόμενα screenshots:
-
-* πλήρης οθόνη `Σύνοψη Επιχείρησης LITE`,
-* KPI strip του `LITE`,
-* mixed trend chart του `LITE`,
-* summary tables του `LITE`.
-====

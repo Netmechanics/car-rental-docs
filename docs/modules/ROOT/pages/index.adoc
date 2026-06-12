@@ -1,7 +1,20 @@
 = Καλώς Ήρθατε
 :navtitle: Αρχική
 
-include::partial$caution.adoc[]
+== Τι νέο υπάρχει στη 1.1
+
+Η έκδοση `1.1` εμπλουτίζει την τεκμηρίωση του `nmecar` με νέα ενότητα για το reporting και με πιο καθαρή περιγραφή βασικών λειτουργιών του συστήματος.
+
+Σημεία που ξεχωρίζουν:
+
+* το dashboard xref:reporting/lite-dashboard.adoc[Σύνοψη Επιχείρησης LITE],
+* εμπλουτισμένη τεκμηρίωση για χρεώσεις ηλικίας οδηγού,
+* εμπλουτισμένη τεκμηρίωση για extras ανά ομάδα οχημάτων,
+* πιο πλήρης περιγραφή για reminder / thank-you emails,
+* πιο σαφής ροή για πληρωμές `BANK_DEPOSIT`.
+
+Για τη συνοπτική παρουσίαση της έκδοσης δείτε και τη σελίδα xref:release-notes/1.1.adoc[Τι νέο υπάρχει στη 1.1].
+
 
 Η παρούσα τεκμηρίωση περιγράφει το `nmecar` στη γραμμή έκδοσης `1.1`, με έμφαση στις λειτουργικές δυνατότητες του συστήματος, στη διαχείριση από το backoffice και στη νέα ενότητα reporting.
 
@@ -10,10 +23,5 @@ include::partial$caution.adoc[]
 * xref:release-notes/1.1.adoc[Τι νέο υπάρχει στη 1.1]
 * xref:reporting/index.adoc[Reporting και Dashboards]
 * xref:technical/dashboard.adoc[Ρύθμιση σύνδεσης με dashboard]
-
-[NOTE]
-====
-Η δομή του site είναι πλέον έτοιμη για versioned documentation με Antora. Η παράλληλη προβολή της τεκμηρίωσης `1.0` και `1.1` θα ενεργοποιηθεί μόλις καταγραφεί και συνδεθεί το αντίστοιχο `1.0` ref στο repository τεκμηρίωσης.
-====
 
 include::partial$nav_main.adoc[]
