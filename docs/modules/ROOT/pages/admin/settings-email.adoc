@@ -13,6 +13,8 @@
 * <<#contact-form,Φόρμα επικοινωνίας>> — αποστέλλεται από τη σελίδα επικοινωνίας του {app-front}.
 * <<#quote-form,Φόρμα προσφοράς>> — αποστέλλεται από αίτημα προσφοράς του πελάτη.
 
+image:settings_email_form.png[]
+
 NOTE: Για το περιεχόμενο και τη δομή των email templates δείτε xref:technical/reports_email.adoc[].
 
 [[general]]

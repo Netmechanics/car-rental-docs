@@ -22,6 +22,8 @@
 
 == Οργάνωση στο backoffice
 
+image:cms_editor.png[]
+
 Στον editor των posts/pages:
 
 * τα γενικά στοιχεία παραμένουν στο βασικό form,

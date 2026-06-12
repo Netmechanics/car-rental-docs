@@ -33,7 +33,7 @@
 | 5 | `technical/scheduled-jobs.adoc` | Διπλό «αλλάζουμε,» σε γρ. 17 και 42 | Διορθώθηκε | ΟΛΟΚΛΗΡΩΘΗΚΕ |
 | 6 | `booking/discounts.adoc` γρ. 41 | `<<<` page-break directive (PDF-only, χωρίς νόημα σε HTML) | Αφαιρέθηκε | ΟΛΟΚΛΗΡΩΘΗΚΕ |
 | 7 | `admin/settings-system.adoc` γρ. 232–233 | `// TODO` comments για locations charge policy / routes | Αντικαταστάθηκαν με NOTE + xref στις σελίδες locations/routes | ΟΛΟΚΛΗΡΩΘΗΚΕ |
-| 8 | `admin/roles.adoc` | 3 placeholder images — δεν έχουν αντικατασταθεί | Αναμένει screenshots από την εφαρμογή | ΑΝΟΙΧΤΟ — αναμένει screenshots |
+| 8 | `admin/roles.adoc` | 3 placeholder images — δεν έχουν αντικατασταθεί | Αντικαταστάθηκαν με 1 πραγματικό screenshot· διορθώθηκε και η ροή ανάθεσης | ΟΛΟΚΛΗΡΩΘΗΚΕ |
 
 ---
 
@@ -76,13 +76,13 @@
 
 | # | Αρχείο | Τι screenshot χρειάζεται | Κατάσταση |
 |---|---|---|---|
-| 30 | `admin/roles.adoc` | Λίστα χρηστών, context menu ρόλου, φόρμα προσθήκης ρόλου | ΑΝΟΙΧΤΟ |
-| 31 | `fleet/vehicles.adoc` | Φόρμα οχήματος με πίνακα πινακίδων | ΑΝΟΙΧΤΟ |
-| 32 | `fleet/vehicle_groups.adoc` | Φόρμα τιμολόγησης σεζόν | ΑΝΟΙΧΤΟ |
-| 33 | `booking/rentals.adoc` | Λίστα ενοικιάσεων + ανάλυση κόστους | ΑΝΟΙΧΤΟ |
-| 34 | `booking/locations.adoc` | Λίστα τοποθεσιών ή φόρμα δημιουργίας | ΑΝΟΙΧΤΟ |
-| 35 | `admin/cms-seo-fields.adoc` | Editor με tabs (Text / Small text / SEO) | ΑΝΟΙΧΤΟ |
-| 36 | `admin/settings-email.adoc` | Φόρμα email κατηγορίας | ΑΝΟΙΧΤΟ |
+| 30 | `admin/roles.adoc` | Λίστα χρηστών, context menu ρόλου, φόρμα προσθήκης ρόλου | ΟΛΟΚΛΗΡΩΘΗΚΕ |
+| 31 | `fleet/vehicles.adoc` | Φόρμα οχήματος με πίνακα πινακίδων | ΟΛΟΚΛΗΡΩΘΗΚΕ |
+| 32 | `fleet/vehicle_groups.adoc` | Φόρμα τιμολόγησης σεζόν | ΟΛΟΚΛΗΡΩΘΗΚΕ |
+| 33 | `booking/rentals.adoc` | Λίστα ενοικιάσεων + ανάλυση κόστους | ΟΛΟΚΛΗΡΩΘΗΚΕ |
+| 34 | `booking/locations.adoc` | Λίστα τοποθεσιών ή φόρμα δημιουργίας | ΟΛΟΚΛΗΡΩΘΗΚΕ |
+| 35 | `admin/cms-seo-fields.adoc` | Editor με tabs (Text / Small text / SEO) | ΟΛΟΚΛΗΡΩΘΗΚΕ |
+| 36 | `admin/settings-email.adoc` | Φόρμα email κατηγορίας | ΟΛΟΚΛΗΡΩΘΗΚΕ |
 
 ---
 
@@ -99,12 +99,12 @@
 
 | Κατηγορία | Σύνολο | Ολοκληρώθηκε |
 |---|---|---|
-| 🔴 Άμεσα (correctness) | 8 | 7 |
+| 🔴 Άμεσα (correctness) | 8 | 8 |
 | 🟡 Ποιότητα κειμένου | 14 | 13 |
 | 🟢 Διαγράμματα | 7 | 7 |
-| 🟢 Screenshots | 7 | 0 |
+| 🟢 Screenshots | 7 | 7 |
 | 🟡 Ομοιομορφία | 2 | 2 |
-| **Σύνολο** | **38** | **29** |
+| **Σύνολο** | **38** | **37** |
 
 ---
 
@@ -123,4 +123,4 @@
 
 ---
 
-*Τελευταία ενημέρωση: 2026-06-12 — 29/38 ολοκληρώθηκαν. Εκκρεμεί: #8 (screenshots roles), #15 (reports_email Jmix nav), #30–36 (screenshots). Όλα τα εκκρεμή απαιτούν υλικό από την εφαρμογή.*
+*Τελευταία ενημέρωση: 2026-06-12 — 37/38 ολοκληρώθηκαν. Εκκρεμεί μόνο: #15 (reports_email Jmix nav — απαιτεί λεπτομέρειες από την εφαρμογή).*
