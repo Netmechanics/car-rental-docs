@@ -5,4 +5,4 @@
 ** xref:technical/config_installation.adoc[]
 ** xref:technical/dashboard.adoc[]
 ** xref:technical/logging.adoc[]
-// * xref:thechnical/pricing_analysis.adoc[]
+// * xref:technical/pricing_analysis.adoc[]

@@ -18,6 +18,42 @@ NOTE: Οι υποστηριζόμενες γλώσσες ορίζονται στ
 
 NOTE: Για τις ρυθμίσεις της κάθε κατηγορίας email θα βρείτε πληροφορίες στη σχετική ενότητα xref:admin/settings-email.adoc[].
 
+== Πρόσβαση και επεξεργασία προτύπων
+
+Πρόσβαση στα reports έχουν μόνο χρήστες με ρόλο `system-full-access`. Η πλοήγηση γίνεται από το μενού *JMIX → Reports*.
+
+=== Λίστα reports
+
+image::reports_list.png[alt="Λίστα reports στο Jmix"]
+
+Εμφανίζεται η λίστα με όλα τα reports του συστήματος. Κάθε report αντιστοιχεί σε μια κατηγορία email και έχει μοναδικό *System code*:
+
+[options="header",cols="2m,2,4"]
+|===
+|System code|Όνομα|Κατηγορία email
+|RENTAL|Rental|Επιβεβαίωση ενοικίασης (mail + PDF απόδειξη)
+|RENTAL_REMINDER|Rental Reminder|Υπενθύμιση πριν την παραλαβή
+|RENTAL_THANKYOU|Rental Thank You|Ευχαριστήριο μετά την ολοκλήρωση
+|CONTACT|Contact Form|Φόρμα επικοινωνίας
+|QUOTE|Quote Form|Φόρμα αιτήματος προσφοράς
+|===
+
+=== Επεξεργασία template
+
+. Ανοίγουμε το report που θέλουμε από τη λίστα (*Edit*).
+. Πηγαίνουμε στο tab *Templates*.
+. Εμφανίζεται η λίστα με τα `.ftl` αρχεία — ένα για κάθε ενεργή γλώσσα. Τα αρχεία τύπου *HTML* αντιστοιχούν στο body του email· τα αρχεία τύπου *PDF* στο επισυναπτόμενο έγγραφο (μόνο στο Rental report).
+. Επιλέγουμε το αρχείο που θέλουμε να τροποποιήσουμε και πατάμε *Edit*.
+. Στο dialog που ανοίγει:
+.. Κατεβάζουμε το τρέχον `.ftl` αρχείο πατώντας πάνω στο όνομά του.
+.. Κάνουμε τις αλλαγές τοπικά σε οποιοδήποτε text editor.
+.. Ανεβάζουμε το νέο αρχείο με *Upload*.
+.. Πατάμε *OK* για αποθήκευση.
+
+image::report_template_list_plus_edit_template_pop_up_screen.png[alt="Tab Templates με λίστα .ftl αρχείων και Edit popup"]
+
+CAUTION: Η σύνταξη FreeMarker είναι case-sensitive. Πριν από κάθε αλλαγή, δοκιμάστε το template σε ένα test email για να επαληθεύσετε ότι αποδίδεται σωστά.
+
 == Mail επικοινωνίας
 
 Το mail επικοινωνίας χρησιμοποιεί την αναφορά `Contact Form` και έχει ένα πρότυπο με κωδικό `contact_mail_en`.

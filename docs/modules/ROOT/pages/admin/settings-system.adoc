@@ -229,8 +229,7 @@ TIP: Για αναλυτική περιγραφή της λογικής στρο
 
 Το ποσοστό του ΦΠΑ. Η προεπιλεγμένη τιμή είναι το 24%.
 
-// TODO locations charge policy
-// TODO routes
+NOTE: Η πολιτική χρέωσης τοποθεσιών και οι διαδρομές ρυθμίζονται ξεχωριστά. Δείτε xref:booking/locations.adoc[] και xref:booking/routes.adoc[].
 
 == Όρια
 
