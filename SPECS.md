@@ -72,6 +72,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `technical/pricing_analysis.adoc`
 - Release Notes
   - `release-notes/index.adoc`
+  - `release-notes/2.0.adoc`
   - `release-notes/1.1.adoc`
 
 ## Content Summary
@@ -85,7 +86,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 ### Booking
 - Locations: pickup/dropoff locations, costs, grouping, Google place link, defaults, and activation.
 - Routes: location pairs with route pricing and charge policy integration.
-- Rental Search Logic (Business): business-focused summary of search, duration, extra-hours rules, pricing bands, and outcomes.
+- Rental Search Logic (Business): business-focused summary of search, duration, extra-hours rules, pricing bands, mixed availability, and on-request outcomes.
 - Seasons: calendar coverage requirement and minimum duration rules.
 - Coupons: discount codes, validity windows, and regex validation.
 - Insurances: per-day or per-period cost models with calculation examples.
@@ -102,7 +103,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Payments: offline/online methods, provider mapping, fees, and bank deposit confirmation flow.
 - Driver Age Charges: age-zone setup, validation rules, FLAT/PERCENTAGE calculation, and rental snapshot behavior.
 - Price Rounding: configurable rounding scale (0.1/0.5/1.0) and decimal places; explains which cost components are affected, examples, and step-by-step setup.
-- System Settings: locales, rental code regex, dashboard embedding, Google API, extra hours, night hours, scheduled job settings, bank deposit reserve period, follow-up email settings, pricing rules, and limits.
+- System Settings: locales, rental code regex, dashboard embedding, on-request search toggle, Google API, extra hours, night hours, scheduled job settings, bank deposit reserve period, follow-up email settings, pricing rules, and limits.
 - Email Settings: per-category sender/recipient/subject/copy rules (rental/contact/quote/reminder/thank-you).
 - CMS SEO Fields: multilingual SEO metadata for posts/pages and their use in the public API.
 
@@ -114,7 +115,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 
 ### Technical
 - Rental Process: flow diagram with steps and decision points.
-- Rental Search Logic: `/api/v1/booking/search` logic, duration rules, pricing bands, filters, and PlantUML workflows.
+- Rental Search Logic: `/api/v1/booking/search` logic, duration rules, pricing bands, availability contract, select/reserve guards, filters, and PlantUML workflows.
 - Email Reports: Jmix Reports + FreeMarker templates for contact, quote, rental confirmation, reminder, and thank-you emails; DTO examples.
 - Scheduled Jobs: abandoned rentals, finish rentals, rental follow-up emails, email send/cleanup, Google Place cache cleanup.
 - Installation Config: DB, REST API, email, logging, and placeholder sections for TODOs.
@@ -123,7 +124,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Pricing Analysis: stub page.
 
 ### Release Notes
-- Release notes landing page and initial `1.1` page for version-oriented documentation and future multi-version navigation.
+- Release notes landing page, `1.1` baseline, and `2.0` mixed-availability/on-request release page.
 
 ## Reusable Partials
 - Caution notice in `docs/modules/ROOT/partials/caution.adoc`.
