@@ -10,6 +10,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Playbook: `antora-playbook.yml` (site title `nmecar Documentation`)
 - Component descriptor: `docs/antora.yml` (display title `nmecar`, component id `nmecar`, current documentation version `1.1`, ROOT module, nav at `modules/ROOT/nav.adoc`)
 - Content pages: `docs/modules/ROOT/pages/**`
+- Version 2 booking documentation includes `booking/offline-inventory.adoc` for offline reservations, availability blocks, locking, rollout and deferred scope.
 - Partials: `docs/modules/ROOT/partials/**`
 - Images: `docs/modules/ROOT/images/**` (includes placeholder screenshots for roles UI steps)
 - Examples: `docs/modules/ROOT/examples/**`

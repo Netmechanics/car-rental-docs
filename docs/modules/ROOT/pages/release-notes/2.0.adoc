@@ -20,8 +20,13 @@
 
 Η νέα ρύθμιση είναι απενεργοποιημένη από προεπιλογή. Έτσι, αμέσως μετά την αναβάθμιση, το search συνεχίζει να επιστρέφει μόνο διαθέσιμα οχήματα μέχρι να γίνει ρητή ενεργοποίηση από το Backoffice.
 
+== Offline inventory
+
+Το Backoffice υποστηρίζει επιβεβαιωμένες offline κρατήσεις με χειροκίνητο συνολικό ποσό και προαιρετική αρχική ανάθεση πινακίδας. Νέα availability blocks καλύπτουν service, βλάβες και λειτουργικούς περιορισμούς ανά πινακίδα, μοντέλο ή group. Όλα τα κανάλια χρησιμοποιούν κοινό υπολογισμό διαθεσιμότητας και τελικό database locking.
+
 Σχετικές ενότητες:
 
 * xref:booking/rental-search-logic.adoc[Λογική αναζήτησης ενοικίασης]
 * xref:technical/rental-search-logic.adoc[Τεχνική λογική και API contract]
 * xref:admin/settings-system.adoc#on-request-search[Ρύθμιση αναζήτησης κατόπιν αιτήματος]
+* xref:booking/offline-inventory.adoc[Offline κρατήσεις και ενιαία διαθεσιμότητα]
