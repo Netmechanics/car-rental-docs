@@ -39,3 +39,8 @@ node_modules/
 
 ### Antora ###
 antora/build/
+
+### MCP Server ###
+mcp-server/data/
+mcp-server/dist/
+mcp-server/.env
