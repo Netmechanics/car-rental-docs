@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nmecar-mcp
+  namespace: nmecar-mcp
+  labels:
+    app: nmecar-mcp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nmecar-mcp
+  template:
+    metadata:
+      labels:
+        app: nmecar-mcp
+    spec:
+      imagePullSecrets:
+        - name: ghcr-pull-secret
+      containers:
+        - name: nmecar-mcp
+          image: ghcr.io/netmechanics/nmecar-docs-mcp:8a04778
+          envFrom:
+            - configMapRef:
+                name: nmecar-mcp-config
+          ports:
+            - containerPort: 8765
+              name: web8765
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8765
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8765
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

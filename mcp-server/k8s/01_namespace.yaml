@@ -1,0 +1,9 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: nmecar-mcp
+  finalizers:
+  labels:
+    name: nmecar-mcp
+    kubernetes.io/metadata.name: nmecar-mcp
+---

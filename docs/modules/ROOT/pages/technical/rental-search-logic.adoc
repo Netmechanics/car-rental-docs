@@ -14,7 +14,7 @@
 . Επίλυση τοποθεσιών παραλαβής/παράδοσης και κόστους διαδρομής.
 . Δημιουργία `RentalSeason` από όλες τις `Season` οντότητες.
 . Έλεγχος ελάχιστης διάρκειας ανά σεζόν.
-. Εύρεση διαθέσιμων οχημάτων (κατάσταση + περίοδοι μη διαθεσιμότητας).
+. Ταξινόμηση ενεργών οχημάτων ως `AVAILABLE` ή `UNAVAILABLE` βάσει περιόδων μη διαθεσιμότητας.
 . Υπολογισμός κόστους ανά όχημα.
 . Φιλτράρισμα οχημάτων με συνολικό κόστος `<= 0`.
 
@@ -31,7 +31,12 @@ start
 :Build rental seasons (Season -> RentalSeason);
 
 if (Minimum duration valid\nfor each season?) then (yes)
-  :Find available vehicles;
+  :Classify vehicle availability;
+  if (Include unavailable setting enabled?) then (yes)
+    :Keep AVAILABLE and UNAVAILABLE vehicles;
+  else (no)
+    :Keep AVAILABLE vehicles only;
+  endif
   :Calculate pricing per vehicle;
   if (Total price > 0?) then (yes)
     :Include in fleet list;
@@ -69,6 +74,22 @@ endif
 - Ενεργή κατάσταση οχήματος.
 - Προαιρετικά φίλτρα τύπου οχήματος.
 - Περιόδους μη διαθεσιμότητας ομάδων που επικαλύπτουν το ζητούμενο διάστημα και ταιριάζουν στις τοποθεσίες.
+
+Το `SystemSettings.includeUnavailableVehiclesInSearch` ελέγχει αν τα `UNAVAILABLE` αποτελέσματα παραμένουν στη λίστα. Η effective προεπιλογή είναι `false`.
+
+[options="header",cols="1,2,2"]
+|===
+|Toggle|Αποτέλεσμα αναζήτησης|Επιτρεπόμενη συνέχεια
+|`OFF`|Μόνο `AVAILABLE`, `bookable=true`|`booking/select` και `booking/reserve`
+|`ON`|`AVAILABLE` και `UNAVAILABLE`|Τα `UNAVAILABLE`, `bookable=false` οδηγούνται μόνο σε quote/request
+|===
+
+Κάθε στοιχείο `fleet.items` περιλαμβάνει:
+
+* `availabilityStatus`: `AVAILABLE` ή `UNAVAILABLE`,
+* `bookable`: boolean βοηθητικό πεδίο για ασφαλή δρομολόγηση του client.
+
+Τα `/api/v1/booking/select` και `/api/v1/booking/reserve` παραμένουν authoritative. Απόπειρα χρήσης μη κρατήσιμου οχήματος απορρίπτεται με HTTP `409` και business code `VEHICLE_UNAVAILABLE`.
 
 === 4) Τιμολόγηση
 Η τιμολόγηση βασίζεται στις εποχικές τιμές ανά ημέρα για την ομάδα οχημάτων.
@@ -181,8 +202,12 @@ while (for each vehicle)
   endif
 endwhile
 
-:Filter out vehicles whose group is unavailable;
-:Return available vehicles;
+if (Include unavailable setting?) then (yes)
+  :Return available and unavailable vehicles;
+else (no)
+  :Filter out unavailable vehicles;
+endif
+:Set availabilityStatus and bookable per result;
 stop
 @enduml
 ....

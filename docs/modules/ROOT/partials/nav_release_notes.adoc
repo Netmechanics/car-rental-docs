@@ -1,1 +1,2 @@
+** xref:release-notes/2.0.adoc[]
 ** xref:release-notes/1.1.adoc[]
