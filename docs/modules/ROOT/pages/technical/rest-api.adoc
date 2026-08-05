@@ -1,0 +1,147 @@
+= REST API
+
+Το NMECAR εκθέτει ένα REST API μέσω του οποίου το {app-front} επικοινωνεί με το {app-back} για αναζήτηση διαθεσιμότητας, κρατήσεις, ανάκτηση στοιχείων στόλου, CMS περιεχομένου και αποστολή emails.
+
+== Τρέχουσα έκδοση
+
+Η τρέχουσα έκδοση του API είναι *1.9*.
+
+Το changelog των αλλαγών ανά έκδοση είναι διαθέσιμο μέσω του Swagger UI στη διεύθυνση `/api/docs` του {app-back}.
+
+== Authentication
+
+Όλα τα endpoints του API (`/api/v1/**`) απαιτούν authentication μέσω *OAuth2 Client Credentials*.
+
+Ο client πρέπει πρώτα να αποκτήσει access token:
+
+[source,http]
+----
+POST /oauth2/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id=<client-id>&client_secret=<client-secret>
+----
+
+Στη συνέχεια, κάθε request προς το API πρέπει να περιλαμβάνει το token στο header:
+
+[source,http]
+----
+Authorization: Bearer <access-token>
+----
+
+== Base URL & Swagger UI
+
+Το API είναι διαθέσιμο στη base URL του {app-back}.
+
+Το Swagger UI είναι διαθέσιμο στη διεύθυνση `/api/docs/swagger-ui.html` και παρέχει διαδραστική τεκμηρίωση όλων των endpoints με τη δυνατότητα εκτέλεσης requests.
+
+== Κοινά Error Responses
+
+Όλα τα endpoints επιστρέφουν errors σε μορφή https://datatracker.ietf.org/doc/html/rfc7807[Problem Details,window=_blank] (RFC 7807).
+
+[options="header",cols="1m,3a"]
+|===
+|Status|Περιγραφή
+|400|Bad Request — μη έγκυρα δεδομένα request (validation error)
+|403|Forbidden — ο client δεν είναι εξουσιοδοτημένος
+|404|Not Found — ο πόρος δεν βρέθηκε
+|409|Conflict — επιχειρηματικός κανόνας αποτρέπει την ενέργεια (π.χ. ελάχιστη διάρκεια, μη διαθέσιμο όχημα)
+|422|Unprocessable Entity — validation error
+|500|Internal Server Error
+|503|Service Unavailable
+|===
+
+=== Δομή Problem Details Response
+
+[source,json]
+----
+{
+  "type": "about:blank",
+  "title": "Conflict",
+  "status": 409,
+  "detail": "Human-readable description of the problem.",
+  "instance": "/api/v1/booking/select",
+  "code": "BUSINESS_ERROR_CODE"
+}
+----
+
+Το πεδίο `code` περιέχει ένα σταθερό business error code που επιτρέπει στον client να κάνει branching λογική (π.χ. `MINIMUM_DURATION_NOT_MET`, `VEHICLE_UNAVAILABLE`, `BOOKING_DATE_IN_PAST`).
+
+== Ροή Κράτησης
+
+Η διαδικασία κράτησης αποτελείται από 4 διαδοχικά βήματα:
+
+[plantuml,booking-api-flow,svg]
+....
+@startuml
+skinparam defaultFontName Arial
+skinparam activity {
+  BackgroundColor #EEF4FF
+  BorderColor #4A6FA5
+  ArrowColor #4A6FA5
+}
+
+|Client|
+start
+:GET /api/v1/booking/search;
+note right
+  Αναζήτηση διαθεσιμότητας
+  (τοποθεσίες, ημερομηνίες, τύποι)
+end note
+
+|Server|
+:Επιστροφή SearchResultDto
+(ημέρες, κόστος τοποθεσιών,
+λίστα διαθέσιμων οχημάτων);
+
+|Client|
+:PUT /api/v1/booking/select;
+note right
+  Επιλογή συγκεκριμένου οχήματος
+  (+ coupon, birthDate για ηλικιακές χρεώσεις)
+end note
+
+|Server|
+:Επιστροφή SelectVehicleResultDto
+(κόστη, ασφάλειες, extras, coupon);
+
+|Client|
+:POST /api/v1/booking/reserve;
+note right
+  Στοιχεία πελάτη, ημερομηνίες,
+  τοποθεσίες, extras, ασφάλεια,
+  μέθοδος πληρωμής, τιμές
+end note
+
+|Server|
+:Επιστροφή RentalReserveResultDto
+(code, reserveToken);
+
+|Client|
+:PUT /api/v1/booking/sale;
+note right
+  code + reserveToken + paymentTrxId
+end note
+
+|Server|
+:Επιστροφή RentalDto
+(πλήρες αντικείμενο κράτησης);
+
+stop
+@enduml
+....
+
+IMPORTANT: Κάθε βήμα επιστρέφει τα δεδομένα που χρειάζεται το επόμενο. Ο client πρέπει να διατηρήσει τα responses και να τα περάσει σωστά στα επόμενα calls.
+
+== Κριτήρια Ορατότητας Fleet
+
+Τα endpoints του Fleet (`/api/v1/fleet` και τα υπο-endpoints του) επιστρέφουν μόνο οχήματα που ικανοποιούν *ταυτόχρονα* και τις δύο παρακάτω συνθήκες:
+
+. *Το όχημα (Vehicle) είναι ενεργό* — το πεδίο `ACTIVE` στην οντότητα Vehicle είναι `true`.
+. *Η ομάδα οχήματος (VehicleGroup) στην οποία ανήκει είναι ενεργή* — το πεδίο `ACTIVE` στην οντότητα VehicleGroup είναι `true`.
+
+Αν ένα όχημα είναι ενεργό αλλά ανήκει σε ανενεργή ομάδα, *δεν θα επιστραφεί* στα αποτελέσματα. Αντιστοίχως, αν η ομάδα είναι ενεργή αλλά το ίδιο το όχημα είναι ανενεργό, επίσης *δεν θα επιστραφεί*.
+
+== Endpoints
+
+Για αναλυτική περιγραφή όλων των endpoints, των request/response πεδίων και των παραμέτρων, δείτε τη σελίδα xref:technical/rest-api-endpoints.adoc[].
