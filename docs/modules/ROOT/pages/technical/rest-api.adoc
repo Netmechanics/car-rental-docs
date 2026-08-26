@@ -4,9 +4,16 @@
 
 == Τρέχουσα έκδοση
 
-Η τρέχουσα έκδοση του API είναι *1.9*.
+Η τρέχουσα έκδοση του API είναι *2.0*.
 
 Το changelog των αλλαγών ανά έκδοση είναι διαθέσιμο μέσω του Swagger UI στη διεύθυνση `/api/docs` του {app-back}.
+
+=== Αλλαγές στην έκδοση 2.0
+
+* Προσθήκη `availabilityStatus` (`AVAILABLE` ή `UNAVAILABLE`) και `bookable` στα fleet items του booking search
+* Τα non-bookable results είναι display-only και απορρίπτονται από τα booking select/reserve endpoints
+* Προσθήκη `maxQuantity` field στα extras
+* Προσθήκη Chat Widget endpoints (`/api/v1/chat-widget/**`)
 
 == Authentication
 

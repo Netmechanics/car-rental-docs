@@ -1,7 +1,51 @@
 = Τι νέο υπάρχει στη 2.0
-:revdate: Ιούλιος 2026
+:revdate: Αύγουστος 2026
 
-Η έκδοση `2.0` εισάγει προαιρετική αναζήτηση μικτής διαθεσιμότητας για το booking site.
+Η έκδοση `2.0` αποτελεί σημαντική αναβάθμιση που εισάγει AI features, ενοποιημένη διαχείριση διαθεσιμότητας, audit logging και βελτιώσεις στο booking flow.
+
+== AI Assistant Backoffice
+
+Το {app-back} αποκτά AI chat assistant βασισμένο στο Jmix 3 AI Tools add-on.
+
+=== Χαρακτηριστικά
+
+* *Deterministic Analytics Templates* — Pre-built templates για άμεση πρόσβαση σε κρίσιμα metrics:
+** BOOKINGS_BY_STATUS
+** BOOKINGS_BY_PICKUP_LOCATION
+** BOOKINGS_REVENUE_BY_CREATED_MONTH
+** RECENT_BOOKINGS_SAMPLE
+** PAYMENT_METHOD_SAMPLE
+** BOOKING_FULL_REPORT
+** BOOKING_EXTRAS_BREAKDOWN
+
+* *Entity Filter* — Έλεγχος ποια entities εκτίθενται στο AI (Booking, Pricing, Fleet entities approved. CMS, Users, Settings, Customer entities excluded).
+
+* *AI Diagnostics* — Πλήρες audit trail για κάθε αλληλεπίδραση AI με events: SUCCESS, NO_DATA, VALIDATION_FAILURE, TOOL_FAILURE.
+
+* *System Prompts* — Custom prompts για general assistant behavior και data load guidance.
+
+Δείτε τη σελίδα xref:admin/ai-assistant.adoc[] για λεπτομέρειες.
+
+== AI Support Chat Widget
+
+Floating chat widget για υποστήριξη χρηστών μέσω external AI Helper API, προσβάσιμο από όλες τις σελίδες του {app-back}.
+
+=== Χαρακτηριστικά
+
+* *Floating Action Button* — Κάτω δεξιά σε όλες τις σελίδες
+* *Session Management* — Συνέχεια συνομιλίας μέσω sessionStorage
+* *Auto-scroll* — Αυτόματο scroll σε νέα messages
+* *Loading Indicator* — Οπτική ένδειξη κατά την αποστολή
+* *Typing Indicator* — Animation 3 dots ενώ το AI "σκέφτεται"
+* *Error Handling* — Fallback responses όταν το API δεν είναι διαθέσιμο
+
+=== REST Endpoints
+
+* `GET /api/v1/chat-widget/messages?sessionId={id}` — Λήψη ιστορικού
+* `POST /api/v1/chat-widget/send` — Αποστολή message
+* `DELETE /api/v1/chat-widget/session/{sessionId}` — Διαγραφή session
+
+Δείτε τη σελίδα xref:admin/chat-widget.adoc[] για λεπτομέρειες.
 
 == Αναζήτηση κατόπιν αιτήματος
 
@@ -12,21 +56,124 @@
 
 Τα δεύτερα εμφανίζονται με σαφή σήμανση *Κατόπιν αιτήματος* και οδηγούν στην υπάρχουσα φόρμα quote/request αντί στη ροή κράτησης.
 
-== Ασφάλεια ροής κράτησης
+=== Ασφάλεια ροής κράτησης
 
 Η διαθεσιμότητα του search response δεν αποτελεί άδεια κράτησης. Τα βήματα `booking/select` και `booking/reserve` επανελέγχουν το αποτέλεσμα και επιστρέφουν conflict για μη κρατήσιμο όχημα.
 
-== Συμβατότητα και rollout
+=== Συμβατότητα και rollout
 
 Η νέα ρύθμιση είναι απενεργοποιημένη από προεπιλογή. Έτσι, αμέσως μετά την αναβάθμιση, το search συνεχίζει να επιστρέφει μόνο διαθέσιμα οχήματα μέχρι να γίνει ρητή ενεργοποίηση από το Backoffice.
 
 == Offline inventory
 
-Το Backoffice υποστηρίζει επιβεβαιωμένες offline κρατήσεις με χειροκίνητο συνολικό ποσό και προαιρετική αρχική ανάθεση πινακίδας. Νέα availability blocks καλύπτουν service, βλάβες και λειτουργικούς περιορισμούς ανά πινακίδα, μοντέλο ή group. Όλα τα κανάλια χρησιμοποιούν κοινό υπολογισμό διαθεσιμότητας και τελικό database locking.
+Το {app-back} υποστηρίζει επιβεβαιωμένες offline κρατήσεις με χειροκίνητο συνολικό ποσό και προαιρετική αρχική ανάθεση πινακίδας. Νέα availability blocks καλύπτουν service, βλάβες και λειτουργικούς περιορισμούς ανά πινακίδα, μοντέλο ή group. Όλα τα κανάλια χρησιμοποιούν κοινό υπολογισμό διαθεσιμότητας και τελικό database locking.
 
-Σχετικές ενότητες:
+Δείτε τη σελίδα xref:booking/offline-inventory.adoc[] για λεπτομέρειες.
 
+== Rental Audit Logging System
+
+Πλήρες audit trail για όλες τις αλλαγές status σε κρατήσεις, με tracking email αποστολής και αυτόματη καθαριότητα παλιών εγγραφών.
+
+=== Χαρακτηριστικά
+
+* *Καταγραφή αλλαγών* — Κάθε αλλαγή status καταγράφεται με:
+** rentalId, rentalCode
+** oldStatus, newStatus
+** action: CONFIRM, CANCEL, FINISH, REACTIVATE
+** changedBy (username ή SYSTEM)
+** emailSent, emailError
+** timestamp, details
+
+* *Async Logging* — Χρησιμοποιεί ξεχωριστό thread (`@Async`) για να μην μπλοκάρει το main flow.
+
+* *Scheduled Cleanup* — Καθημερινά 2:00 πμ διαγράφει records παλαιότερα από retention period (default: 90 ημέρες).
+
+* *Admin-only Access* — Μόνο `FullAccessRole` έχει πρόσβαση στα audit logs.
+
+Δείτε τη σελίδα xref:admin/audit-logs.adoc[] για λεπτομέρειες.
+
+== Rental Reactivation
+
+Δυνατότητα επανενεργοποίησης ακυρωμένων κρατήσεων όταν η πληρωμή μέσω τράπεζας αποτύχει.
+
+=== Πώς λειτουργεί
+
+* *Προϋποθέσεις:* status = CANCELED, vehicleItemId != null
+* *Ενέργεια:* Rental status αλλάζει από CANCELED σε RENTED
+* *Vehicle Item:* Status επιστρέφει σε RENTED
+* *Notification:* Email notification στέλνεται στον πελάτη
+* *Audit:* Audit log entry δημιουργείται (action: REACTIVATE)
+
+Δείτε τη σελίδα xref:booking/rentals.adoc#rental-reactivation[] για λεπτομέρειες.
+
+== Extras Max Quantity Limit
+
+Περιορισμός μέγιστης ποσότητας για extras κατά την κράτηση.
+
+=== Χαρακτηριστικά
+
+* *Νέο πεδίο:* `maxQuantity` (nullable Integer) στο Extra entity
+* *Validation:* Reject quantity > maxQuantity στο `ReservePricingSnapshotService`
+* *UI:* maxQuantity field στο extra-detail-view, unlimited checkbox
+* *API:* OpenAPI updated to version 2.0
+
+Δείτε τη σελίδα xref:booking/extras.adoc#max-quantity[] για λεπτομέρειες.
+
+== Notification Cleanup Job
+
+Αυτόματη διαγραφή in-app notifications παλαιότερων από 90 ημέρες (configurable) για αποφυγή συσσώρευσης δεδομένων.
+
+=== Χαρακτηριστικά
+
+* *Scheduled Job:* Καθημερινά 3:00 πμ
+* *Retention Period:* Default 90 ημέρες, configurable από UI
+* *Configuration:* `nmcr.notification-cleanup-cron=0 0 3 ? * *`
+
+Δείτε τη σελίδα xref:technical/scheduled-jobs.adoc#notification-cleanup-job[] για λεπτομέρειες.
+
+== System Settings Tabbed UI
+
+Αναδιοργάνωση της οθόνης "Ρυθμίσεις Συστήματος" σε tabs για καλύτερη οργάνωση.
+
+=== Tabs
+
+* *Γενικά* — Locales, rental code pattern, dashboard, Google API, search/offline settings
+* *Χρεώσεις* — Extra Hours, Night Hours, Τιμολόγηση (pricing, VAT)
+* *Κανόνες Ενοικίασης* — Προγραμματισμένες Εργασίες, Όρια, Retention periods
+
+Δείτε τη σελίδα xref:admin/settings-system.adoc[] για λεπτομέρειες.
+
+== Platform Upgrade
+
+Αναβάθμιση σε Jmix 3.0.1 με βελτιώσεις performance και foundation για multi-tenancy.
+
+=== Αλλαγές
+
+* Νέα dependencies και configurations
+* Foundation για multi-tenancy (tenant_id columns)
+* Βελτιωμένο startup time (Generex on-demand)
+
+== Database Migrations
+
+Νέα v2 migration files για multi-tenancy και availability features:
+
+* `v2/01-platform-and-ai.xml` — tenant_id columns, AI diagnostics table
+* `v2/02-rental-availability-foundation.xml` — rental availability columns, constraints
+* `v2/03-feature-settings.xml` — feature toggle settings
+* `v2/04-availability-block.xml` — availability_block table
+* `v2/05-extra-max-quantity.xml` — extra maxQuantity field
+* `v2/06-rental-audit-log.xml` — rental audit log table
+* `v2/07-audit-log-retention-days.xml` — audit log retention setting
+* `v2/08-notification-retention-days.xml` — notification retention setting
+
+== Σχετικές ενότητες
+
+* xref:admin/ai-assistant.adoc[AI Assistant Backoffice]
+* xref:admin/chat-widget.adoc[AI Support Chat Widget]
+* xref:admin/audit-logs.adoc[Rental Audit Logging]
 * xref:booking/rental-search-logic.adoc[Λογική αναζήτησης ενοικίασης]
-* xref:technical/rental-search-logic.adoc[Τεχνική λογική και API contract]
-* xref:admin/settings-system.adoc#on-request-search[Ρύθμιση αναζήτησης κατόπιν αιτήματος]
 * xref:booking/offline-inventory.adoc[Offline κρατήσεις και ενιαία διαθεσιμότητα]
+* xref:booking/rentals.adoc#rental-reactivation[Rental Reactivation]
+* xref:booking/extras.adoc#max-quantity[Extras Max Quantity]
+* xref:technical/scheduled-jobs.adoc[Προγραμματισμένες εργασίες]
+* xref:admin/settings-system.adoc[Ρυθμίσεις Συστήματος]

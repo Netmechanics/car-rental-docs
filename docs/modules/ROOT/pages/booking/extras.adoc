@@ -87,3 +87,43 @@ API --> Customer : visible extras list
 
 @enduml
 ....
+
+[[max-quantity]]
+== Μέγιστη ποσότητα (maxQuantity)
+
+Κάθε πρόσθετο μπορεί να έχει ένα προαιρετικό όριο μέγιστης ποσότητας (`maxQuantity`) που περιορίζει τον αριθμό που μπορεί να επιλέξει ο πελάτης κατά την κράτηση.
+
+=== Κανόνες
+
+* Αν το `maxQuantity` είναι κενό (null), δεν υπάρχει όριο — ο πελάτης μπορεί να επιλέξει όσα θέλει.
+* Αν το `maxQuantity` έχει τιμή (π.χ. `5`), ο πελάτης δεν μπορεί να επιλέξει ποσότητα μεγαλύτερη από αυτήν.
+* Η επικύρωση γίνεται τόσο στο UI (client-side) όσο και στο backend (`ReservePricingSnapshotService`).
+
+=== UI
+
+Στην οθόνη διαχείρισης extras ({app-back}):
+
+* Το πεδίο *Μέγιστη ποσότητα* δέχεται θετικό ακέραιο αριθμό.
+* Το checkbox *Απεριόριστη ποσότητα* (unlimited) αφήνει το πεδίο κενό, καταργώντας το όριο.
+
+=== API
+
+Στο booking select/reserve API, αν η ποσότητα υπερβαίνει το `maxQuantity`, το endpoint επιστρέφει error:
+
+[source,json]
+----
+{
+  "status": 409,
+  "title": "Conflict",
+  "detail": "Extra quantity exceeds maximum allowed",
+  "code": "EXTRA_MAX_QUANTITY_EXCEEDED"
+}
+----
+
+.Παράδειγμα
+[example]
+====
+* *GPS* — `maxQuantity` = null → Απεριόριστη ποσότητα
+* *Παιδικό κάθισμα* — `maxQuantity` = 3 → Μέγιστο 3 ανά κράτηση
+* *Καθιστικό ενισχυτή* — `maxQuantity` = 2 → Μέγιστο 2 ανά κράτηση
+====

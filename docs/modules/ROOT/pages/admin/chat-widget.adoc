@@ -1,0 +1,179 @@
+= AI Support Chat Widget
+:revdate: Αύγουστος 2026
+
+Floating chat widget για υποστήριξη χρηστών μέσω external AI Helper API, προσβάσιμο από όλες τις σελίδες του {app-back}.
+
+== Επισκόπηση
+
+Το chat widget παρέχει άμεση υποστήριξη στους χρήστες του {app-back} μέσω AI. Επικοινωνεί με το external AI Helper API (`https://nmecar-ai-helper.nmlabs.gr`) για να απαντήσει σε ερωτήσεις και να παρέχει guidance.
+
+== Frontend Component
+
+Το widget υλοποιείται ως Lit Web Component (`nmcr-chat-widget.ts`) και ενσωματώνεται στο `MainView.java`.
+
+=== Χαρακτηριστικά UI
+
+* *Floating Action Button* — Κάτω δεξιά σε όλες τις σελίδες
+* *Chat Panel* — Messages area, input field, send button
+* *Session Management* — Συνέχεια συνομιλίας μέσω sessionStorage
+* *Auto-scroll* — Αυτόματο scroll σε νέα messages
+* *Loading Indicator* — Οπτική ένδειξη κατά την αποστολή
+* *Typing Indicator* — Animation 3 dots ενώ το AI "σκέφτεται"
+* *Timestamp* — Σε κάθε message
+* *Error Handling* — Fallback responses όταν το API δεν είναι διαθέσιμο
+* *Responsive Design* — Λειτουργεί σε όλα τα screen sizes
+* *Smooth Animations* — Slide up animation κατά το άνοιγμα
+
+== REST Endpoints
+
+=== GET /messages
+
+Λήψη ιστορικού συνομιλίας.
+
+[source,http]
+----
+GET /api/v1/chat-widget/messages?sessionId={sessionId}
+----
+
+.Response
+[source,json]
+----
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Πώς μπορώ να αλλάξω την κράτησή μου;",
+      "timestamp": "2026-08-26T10:30:00Z",
+      "sessionId": "session-123"
+    },
+    {
+      "role": "assistant",
+      "content": "Μπορείτε να αλλάξετε την κράτησή σας...",
+      "timestamp": "2026-08-26T10:30:05Z",
+      "sessionId": "session-123"
+    }
+  ]
+}
+----
+
+=== POST /send
+
+Αποστολή μηνύματος.
+
+[source,http]
+----
+POST /api/v1/chat-widget/send
+Content-Type: application/json
+
+{
+  "sessionId": "session-123",
+  "message": "Πώς μπορώ να αλλάξω την κράτησή μου;"
+}
+----
+
+.Response
+[source,json]
+----
+{
+  "reply": {
+    "role": "assistant",
+    "content": "Μπορείτε να αλλάξετε την κράτησή σας...",
+    "timestamp": "2026-08-26T10:30:05Z",
+    "sessionId": "session-123"
+  }
+}
+----
+
+=== DELETE /session/{sessionId}
+
+Διαγραφή session.
+
+[source,http]
+----
+DELETE /api/v1/chat-widget/session/{sessionId}
+----
+
+.Response
+[source,json]
+----
+{
+  "status": "deleted"
+}
+----
+
+== Backend Integration
+
+=== ChatSupportService
+
+Η `ChatSupportService` επικοινωνεί με το external AI Helper API:
+
+* *Authentication:* Basic Authentication (username/password)
+* *Timeouts:* Connect: 10s, Read: 30s
+* *Fallback:* Fallback response όταν το API δεν είναι διαθέσιμο
+* *Session Continuity:* Session management μέσω sessionId
+
+=== Configuration
+
+[source,properties]
+----
+nmcr.chat.enabled=true
+nmcr.chat.support-api-url=https://nmecar-ai-helper.nmlabs.gr
+nmcr.chat.username=admin
+nmcr.chat.password=${CHAT_PASSWORD}
+nmcr.chat.default-language=el
+nmcr.chat.timeout-seconds=30
+----
+
+== Security
+
+* *Authentication:* Endpoint `/api/v1/chat-widget/**` απαιτεί authenticated session
+* *Authorization:* Χρησιμοποιεί default Jmix REST security configuration
+* *No Custom Filter:* Δεν απαιτείται custom security filter chain
+
+== DTOs
+
+=== ChatMessageDto
+
+[source,json]
+----
+{
+  "role": "user" | "assistant",
+  "content": "string",
+  "timestamp": "ISO 8601 datetime",
+  "sessionId": "string"
+}
+----
+
+=== ChatSendRequestDto
+
+[source,json]
+----
+{
+  "sessionId": "string",
+  "message": "string"
+}
+----
+
+== Troubleshooting
+
+=== Widget δεν εμφανίζεται
+
+* Ελέγξτε ότι ο χρήστης είναι authenticated
+* Ελέγξτε browser console για JavaScript errors
+* Βεβαιωθείτε ότι `nmcr.chat.enabled=true`
+
+=== AI δεν απαντά
+
+* Ελέγξτε connectivity με AI Helper API
+* Ελέγξτε logs για timeout errors
+* Fallback response θα δοθεί αν το API είναι down
+
+=== Session χάνεται
+
+* Session αποθηκεύεται σε sessionStorage (χάνεται αν κλείσει το tab)
+* Για νέο session, καθαρίστε το sessionStorage
+
+== Σχετικές ενότητες
+
+* xref:admin/ai-assistant.adoc[AI Assistant Backoffice]
+* xref:technical/rest-api-endpoints.adoc[REST API Endpoints]

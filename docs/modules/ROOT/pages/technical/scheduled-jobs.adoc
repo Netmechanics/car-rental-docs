@@ -28,6 +28,16 @@
 |0 0 1 1 1/1 ? *
 |_(Jmix Google Place plugin)_
 
+|xref:#audit-log-cleanup-job[Καθαρισμός Audit Logs]
+|1 φορά/ημέρα (02:00)
+|0 0 2 ? * *
+|AuditLogCleanupJob
+
+|xref:#notification-cleanup-job[Καθαρισμός Notifications]
+|1 φορά/ημέρα (03:00)
+|0 0 3 ? * *
+|NotificationCleanupJob
+
 |Αποστολή Email
 |Κάθε 2 λεπτά
 |* 0/2 * * * ?
@@ -159,3 +169,61 @@ jmix.email.email-cleaning-cron = 0 0 0 1/2 * ?
 ----
 
 NOTE: Για περισσότερες πληροφορίες δείτε την τεκμηρίωση της εργασίας https://docs.jmix.io/jmix/email/configuration.html#email-cleaning-scheduler["Email Cleaning Scheduler",window=_blank].
+
+[[audit-log-cleanup-job]]
+== Καθαρισμός Audit Logs
+
+Η εργασία αυτή διαγράφει rental audit log records παλαιότερα από το configured retention period.
+
+Έχει ρυθμιστεί να εκτελείται αυτόματα καθημερινά στις 2:00 πμ.
+
+[source,properties]
+----
+nmcr.use-default-audit-log-cleanup-cron-quartz-configuration = true
+nmcr.audit-log-cleanup-cron = 0 0 2 ? * *
+----
+
+Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI, αλλάζουμε το property
+
+.application.properties
+[source,properties]
+----
+nmcr.use-default-audit-log-cleanup-quartz-configuration = false
+----
+
+IMPORTANT: Το retention period (προεπιλογή: 90 ημέρες) ρυθμίζεται από τις xref:admin/settings-system.adoc[Ρυθμίσεις Συστήματος] → Κανόνες Ενοικίασης → Audit log retention (days).
+
+.Java class for the job
+----
+gr.netmechanics.carrental.job.AuditLogCleanupJob
+----
+
+Δείτε επίσης την τεκμηρίωση xref:admin/audit-logs.adoc[Rental Audit Logging].
+
+[[notification-cleanup-job]]
+== Καθαρισμός Notifications
+
+Η εργασία αυτή διαγράφει in-app notifications (`ntf_InAppNotification`) παλαιότερες από το configured retention period για αποφυγή συσσώρευσης δεδομένων.
+
+Έχει ρυθμιστεί να εκτελείται αυτόματα καθημερινά στις 3:00 πμ.
+
+[source,properties]
+----
+nmcr.use-default-notification-cleanup-quartz-configuration = true
+nmcr.notification-cleanup-cron = 0 0 3 ? * *
+----
+
+Αν δε θέλουμε να ενεργοποιηθεί αυτόματα η εργασία, αλλά να τη ρυθμίσουμε μέσα από το UI, αλλάζουμε το property
+
+.application.properties
+[source,properties]
+----
+nmcr.use-default-notification-cleanup-quartz-configuration = false
+----
+
+IMPORTANT: Το retention period (προεπιλογή: 90 ημέρες) ρυθμίζεται από τις xref:admin/settings-system.adoc[Ρυθμίσεις Συστήματος] → Κανόνες Ενοικίασης → Notification retention (days).
+
+.Java class for the job
+----
+gr.netmechanics.carrental.job.NotificationCleanupJob
+----
