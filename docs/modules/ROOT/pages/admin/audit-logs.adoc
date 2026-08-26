@@ -94,6 +94,8 @@ public void logStatusChange(
 * *Path:* Administration → Rental Audit Logs
 * *URL:* `/rental-audit-logs`
 
+image::audit-logs-list.png[alt="Rental Audit Logs List",width="85%"]
+
 == Scheduled Cleanup Job
 
 === AuditLogCleanupJob

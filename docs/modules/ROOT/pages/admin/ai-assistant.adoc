@@ -5,7 +5,9 @@
 
 == Πρόσβαση
 
-Ο AI Assistant είναι διαθέσιμος μέσω του μενού *AI Chat Hub* στο {app-back}. Η πρόσβαση ελέγχεται μέσω του ρόλου `BasicAccessRole` που περιλαμβάνει το `AiToolsChatUserRole`.
+Ο AI Assistant είναι διαθέσιμος μέσω του μενού *AI Analytics* στο {app-back}. Η πρόσβαση ελέγχεται μέσω του ρόλου `BasicAccessRole` που περιλαμβάνει το `AiToolsChatUserRole`.
+
+image::ai-analytics.png[alt="AI Analytics",width="85%"]
 
 == Deterministic Analytics Templates
 
@@ -112,6 +114,8 @@ IMPORTANT: Το entity filter εφαρμόζεται αυτόματα. Ο χρή
 * *List View:* `AiDiagnosticsLogListView` — Προβολή όλων των diagnostic entries
 * *Detail View:* `AiDiagnosticsDialogSupport` — Λεπτομέρειες συγκεκριμένου entry
 * *Menu:* Administration → AI Diagnostics Logs
+
+image::ai-diagnostics-list.png[alt="AI Diagnostics List",width="85%"]
 
 == Configuration
 

@@ -7,6 +7,18 @@ Floating chat widget για υποστήριξη χρηστών μέσω externa
 
 Το chat widget παρέχει άμεση υποστήριξη στους χρήστες του {app-back} μέσω AI. Επικοινωνεί με το external AI Helper API (`https://nmecar-ai-helper.nmlabs.gr`) για να απαντήσει σε ερωτήσεις και να παρέχει guidance.
 
+== Floating Action Button (FAB)
+
+Το widget εμφανίζεται ως ένα floating button κάτω δεξιά σε όλες τις σελίδες του {app-back}:
+
+image::chat-widget-fab.png[alt="Chat Widget FAB",width="85%"]
+
+== Chat Panel
+
+Πατώντας στο FAB ανοίγει το chat panel:
+
+image::chat-widget-open.png[alt="Chat Widget Open",width="85%"]
+
 == Frontend Component
 
 Το widget υλοποιείται ως Lit Web Component (`nmcr-chat-widget.ts`) και ενσωματώνεται στο `MainView.java`.

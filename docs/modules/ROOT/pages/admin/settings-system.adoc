@@ -3,6 +3,8 @@
 
 Η οθόνη *Ρυθμίσεις Συστήματος* είναι οργανωμένη σε tabs για καλύτερη πλοήγηση:
 
+image::system-settings-tabs.png[alt="System Settings Tabs",width="85%"]
+
 * *Γενικά* — Locales, πρότυπο κωδικού, dashboard, Google API, search/offline settings
 * *Χρεώσεις* — Έξτρα ώρες, νυχτερινές ώρες, τιμολόγηση
 * *Κανόνες Ενοικίασης* — Προγραμματισμένες εργασίες, όρια, retention periods
