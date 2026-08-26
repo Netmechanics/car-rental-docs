@@ -1,27 +1,28 @@
 = Καλώς Ήρθατε
 :navtitle: Αρχική
 
-== Τι νέο υπάρχει στη 1.1
+== Τι νέο υπάρχει στη 2.0
 
-Η έκδοση `1.1` εμπλουτίζει την τεκμηρίωση του `nmecar` με νέα ενότητα για το reporting και με πιο καθαρή περιγραφή βασικών λειτουργιών του συστήματος.
+Η έκδοση `2.0` του `nmecar` αποτελεί σημαντική αναβάθμιση που εισάγει AI features, ενοποιημένη διαχείριση διαθεσιμότητας, audit logging και βελτιώσεις στο booking flow.
 
 Σημεία που ξεχωρίζουν:
 
-* το dashboard xref:reporting/lite-dashboard.adoc[Σύνοψη Επιχείρησης LITE],
-* εμπλουτισμένη τεκμηρίωση για χρεώσεις ηλικίας οδηγού,
-* εμπλουτισμένη τεκμηρίωση για extras ανά ομάδα οχημάτων,
-* πιο πλήρης περιγραφή για reminder / thank-you emails,
-* πιο σαφής ροή για πληρωμές `BANK_DEPOSIT`.
+* xref:admin/ai-assistant.adoc[AI Assistant Backoffice] — AI chat assistant με deterministic analytics templates
+* xref:admin/chat-widget.adoc[AI Support Chat Widget] — Floating chat widget για υποστήριξη χρηστών
+* xref:booking/offline-inventory.adoc[Offline Inventory Availability] — Ενοποιημένη διαχείριση online/offline κρατήσεων
+* xref:admin/audit-logs.adoc[Rental Audit Logging] — Πλήρες audit trail για αλλαγές status
+* xref:booking/rentals.adoc#rental-reactivation[Rental Reactivation] — Επανενεργοποίηση ακυρωμένων κρατήσεων
+* xref:booking/extras.adoc#max-quantity[Extras Max Quantity] — Περιορισμός μέγιστης ποσότητας extras
 
-Για τη συνοπτική παρουσίαση της έκδοσης δείτε και τη σελίδα xref:release-notes/1.1.adoc[Τι νέο υπάρχει στη 1.1].
+Για τη συνοπτική παρουσίαση της έκδοσης δείτε και τη σελίδα xref:release-notes/2.0.adoc[Τι νέο υπάρχει στη 2.0].
 
-
-Η παρούσα τεκμηρίωση περιγράφει το `nmecar` στη γραμμή έκδοσης `1.1`, με έμφαση στις λειτουργικές δυνατότητες του συστήματος, στη διαχείριση από το backoffice και στη νέα ενότητα reporting.
+Η παρούσα τεκμηρίωση περιγράφει το `nmecar` στη γραμμή έκδοσης `2.0`, με έμφαση στις λειτουργικές δυνατότητες του συστήματος, στη διαχείριση από το {app-back} και στα νέα AI features.
 
 Για γρήγορη μετάβαση:
 
-* xref:release-notes/1.1.adoc[Τι νέο υπάρχει στη 1.1]
-* xref:reporting/index.adoc[Reporting και Dashboards]
-* xref:technical/dashboard.adoc[Ρύθμιση σύνδεσης με dashboard]
+* xref:release-notes/2.0.adoc[Τι νέο υπάρχει στη 2.0]
+* xref:admin/ai-assistant.adoc[AI Assistant Backoffice]
+* xref:booking/offline-inventory.adoc[Offline Inventory Management]
+* xref:admin/audit-logs.adoc[Rental Audit Logging]
 
 include::partial$nav_main.adoc[]

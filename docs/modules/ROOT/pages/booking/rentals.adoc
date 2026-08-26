@@ -96,3 +96,51 @@ Cancelled --> [*]
 
 * xref:technical/scheduled-jobs.adoc#abandoned-rentals-job[Εγκαταλελειμμένες ενοικιάσεις] — αυτόματη ακύρωση εγκαταλελειμμένων κρατήσεων.
 * xref:technical/scheduled-jobs.adoc#finsish-rentals-job[Ολοκλήρωση ενοικιάσεων] — αυτόματη μετάβαση σε «Ολοκληρώθηκε» μετά την παράδοση.
+
+[[rental-reactivation]]
+== Επανενεργοποίηση ενοικίασης
+
+Η έκδοση 2.0 εισάγει τη δυνατότητα επανενεργοποίησης ακυρωμένων κρατήσεων, κυρίως για περιπτώσεις όπου η πληρωμή μέσω τράπεζας απέτυχε.
+
+=== Προϋποθέσεις
+
+* Η ενοικίαση πρέπει να είναι σε κατάσταση *Ακυρώθηκε* (CANCELED).
+* Πρέπει να έχει αντιστοιχισμένο vehicle item (`vehicleItemId != null`).
+
+=== Διαδικασία
+
+. Βρείτε την ακυρωμένη ενοικίαση στη λίστα ενοικιάσεων.
+. Από το μενού ενεργειών (dropdown ⋮), επιλέξτε *Επανενεργοποίηση Ενοικίασης*.
+. Επιβεβαιώστε το dialog.
+
+=== Τι συμβαίνει κατά την επανενεργοποίηση
+
+* Το status της ενοικίασης αλλάζει από `CANCELED` σε `RENTED`.
+* Το status του vehicle item επιστρέφει σε `RENTED`.
+* Στέλνεται email notification στον πελάτη.
+* Δημιουργείται audit log entry με action `REACTIVATE`.
+
+[plantuml,rental-reactivation-flow,svg]
+....
+@startuml
+hide empty description
+skinparam defaultFontName Arial
+skinparam state {
+  BackgroundColor #EEF4FF
+  BorderColor #4A6FA5
+  ArrowColor #4A6FA5
+}
+
+state "Ακυρώθηκε" as Cancelled
+state "Μισθωμένο" as Rented
+
+Cancelled --> Rented : Επανενεργοποίηση\n(από Backoffice UI)
+Rented --> Cancelled : Ακύρωση\n(χειροκίνητα ή αυτόματα)
+@enduml
+....
+
+NOTE: Η επανενεργοποίηση καταγράφεται στο xref:admin/audit-logs.adoc[audit log] και μπορεί να ανιχνευθεί από τους διαχειριστές.
+
+Δείτε επίσης:
+
+* xref:admin/audit-logs.adoc[Rental Audit Logging] — πλήρες audit trail για αλλαγές status.

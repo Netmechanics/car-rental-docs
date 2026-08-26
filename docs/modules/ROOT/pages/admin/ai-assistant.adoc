@@ -1,0 +1,145 @@
+= AI Assistant Backoffice
+:revdate: Αύγουστος 2026
+
+Το {app-back} διαθέτει AI chat assistant βασισμένο στο Jmix 3 AI Tools add-on που επιτρέπει στους operators να ανακτούν analytics και να λαμβάνουν υποστήριξη μέσω φυσικής γλώσσας.
+
+== Πρόσβαση
+
+Ο AI Assistant είναι διαθέσιμος μέσω του μενού *AI Analytics* στο {app-back}. Η πρόσβαση ελέγχεται μέσω του ρόλου `BasicAccessRole` που περιλαμβάνει το `AiToolsChatUserRole`.
+
+image::ai-analytics.png[alt="AI Analytics",width="85%"]
+
+== Deterministic Analytics Templates
+
+Το σύστημα προτιμά pre-built analytics templates έναντι generic exploration για consistency και accuracy.
+
+=== Διαθέσιμα Templates
+
+[options="header",cols="1m,3a"]
+|===
+|Template|Περιγραφή
+
+|BOOKINGS_BY_STATUS
+|Κατανομή κρατήσεων ανά status (Reserved, Rented, Cancelled, Completed)
+
+|BOOKINGS_BY_PICKUP_LOCATION
+|Κατανομή κρατήσεων ανά τοποθεσία παραλαβής
+
+|BOOKINGS_REVENUE_BY_CREATED_MONTH
+|Έσοδα ανά μήνα δημιουργίας κράτησης
+
+|RECENT_BOOKINGS_SAMPLE
+|Δείγμα πρόσφατων κρατήσεων
+
+|PAYMENT_METHOD_SAMPLE
+|Κατανομή μεθόδων πληρωμής
+
+|BOOKING_FULL_REPORT
+|Πλήρης αναφορά κρατήσεων με όλα τα πεδία
+
+|BOOKING_EXTRAS_BREAKDOWN
+|Ανάλυση extras ανά κράτηση
+|===
+
+=== Πώς λειτουργεί
+
+Το `NmcrAnalyticsTemplateTool` είναι custom `JmixAiTool` που:
+
+. Αναγνωρίζει analytics requests από τον χρήστη
+. Επιλέγει το κατάλληλο template
+. Εκτελεί το template με παραμέτρους
+. Επιστρέφει structured results
+
+IMPORTANT: Τα templates προτιμώνται έναντι generic exploration. Αν ο χρήστης ζητήσει "δείξε μου κρατήσεις ανά status", το σύστημα θα χρησιμοποιήσει το `BOOKINGS_BY_STATUS` template αντί να κάνει generic query.
+
+== Entity Filter
+
+Το `NmcrAiAvailableEntityFilter` ελέγχει ποια entities εκτίθενται στο AI:
+
+=== Approved Entities
+
+* Booking
+* Pricing
+* Fleet entities (Vehicle, VehicleGroup, VehicleItem)
+
+=== Excluded Entities
+
+* CMS entities (Posts, Menus)
+* Users
+* Settings (SystemSettings, MailSettings)
+* Customer entities
+
+IMPORTANT: Το entity filter εφαρμόζεται αυτόματα. Ο χρήστης δεν μπορεί να ζητήσει πρόσβαση σε excluded entities μέσω του AI chat.
+
+== System Prompts
+
+Δύο system prompts καθοδηγούν τη συμπεριφορά του AI:
+
+[options="header",cols="1m,3a"]
+|===
+|Prompt|Σκοπός
+
+|nmcr-ai-chat-system-prompt.st
+|General assistant behavior — Τόνος, ύφος, όρια
+
+|nmcr-ai-dataload-chat-system-prompt.st
+|Data load guidance — Οδηγίες για φόρτωση δεδομένων
+|===
+
+== AI Diagnostics
+
+Πλήρες audit trail για κάθε αλληλεπίδραση AI μέσω του `AiDiagnosticsLog` entity.
+
+=== Events
+
+[options="header",cols="1m,3a"]
+|===
+|Event|Περιγραφή
+
+|SUCCESS
+|Επιτυχής αλληλεπίδραση
+
+|NO_DATA
+|Δεν βρέθηκαν δεδομένα για το query
+
+|VALIDATION_FAILURE
+|Validation error στα δεδομένα
+
+|TOOL_FAILURE
+|Error κατά την εκτέλεση tool
+|===
+
+=== Προβολή Diagnostics
+
+* *List View:* `AiDiagnosticsLogListView` — Προβολή όλων των diagnostic entries
+* *Detail View:* `AiDiagnosticsDialogSupport` — Λεπτομέρειες συγκεκριμένου entry
+* *Menu:* Administration → AI Diagnostics Logs
+
+image::ai-diagnostics-list.png[alt="AI Diagnostics List",width="85%"]
+
+== Configuration
+
+=== Application Properties
+
+[source,properties]
+----
+# OpenAI Configuration
+spring.ai.openai.api-key=${OPENAI_API_KEY}
+spring.ai.openai.chat.options.model=gpt-4
+spring.ai.openai.chat.options.temperature=0.7
+----
+
+=== Feature Toggle
+
+Δεν υπάρχει feature toggle για τον AI Assistant. Είναι πάντα ενεργός όταν το Jmix AI Tools add-on είναι present.
+
+== Security
+
+* *Access Control:* Μόνο χρήστες με `BasicAccessRole` (περιλαμβάνει `AiToolsChatUserRole`)
+* *Entity Filter:* Αυτόματο filtering βάσει `NmcrAiAvailableEntityFilter`
+* *Audit Trail:* Όλες οι αλληλεπιδράσεις καταγράφονται στο `AiDiagnosticsLog`
+
+== Σχετικές ενότητες
+
+* xref:admin/chat-widget.adoc[AI Support Chat Widget]
+* xref:admin/roles.adoc[Ρόλοι Χρηστών]

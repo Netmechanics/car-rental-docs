@@ -9,3 +9,6 @@
 ** xref:admin/settings-system.adoc[]
 ** xref:admin/settings-email.adoc[]
 ** xref:admin/cms-seo-fields.adoc[]
+** xref:admin/ai-assistant.adoc[]
+** xref:admin/chat-widget.adoc[]
+** xref:admin/audit-logs.adoc[]

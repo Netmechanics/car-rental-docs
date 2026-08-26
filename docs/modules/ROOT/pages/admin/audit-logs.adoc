@@ -1,0 +1,159 @@
+= Rental Audit Logging
+:revdate: Αύγουστος 2026
+
+Πλήρες audit trail για όλες τις αλλαγές status σε κρατήσεις, με tracking email αποστολής και αυτόματη καθαριότητα παλιών εγγραφών.
+
+== Επισκόπηση
+
+Το Rental Audit Logging System καταγράφει κάθε αλλαγή status σε κρατήσεις, παρέχοντας πλήρη traceability για compliance και debugging.
+
+== Audit Log Entity
+
+Το `RentalAuditLog` entity καταγράφει τις εξής πληροφορίες:
+
+[options="header",cols="1m,3a"]
+|===
+|Πεδίο|Περιγραφή
+
+|rentalId
+|Αναφορά στο rental (UUID)
+
+|rentalCode
+|Κωδικός ενοικίασης (human-readable)
+
+|oldStatus
+|Προηγούμενη κατάσταση (π.χ. RESERVED)
+
+|newStatus
+|Νέα κατάσταση (π.χ. RENTED)
+
+|action
+|Τύπος ενέργειας: CONFIRM, CANCEL, FINISH, REACTIVATE
+
+|changedBy
+|Username του χρήστη ή "SYSTEM" για αυτόματες ενέργειες
+
+|emailSent
+|Αν στάλθηκε email notification (true/false)
+
+|emailError
+|Μήνυμα error αν υπήρξε πρόβλημα στην αποστολή email
+
+|timestamp
+|Χρονική σήμανση της αλλαγής
+
+|details
+|Επιπλέον πληροφορίες (JSON format)
+|===
+
+== Logging Service
+
+Η `RentalAuditLogService` χρησιμοποιεί `@Async` και `SystemAuthenticator` για async logging χωρίς να μπλοκάρει το main flow.
+
+=== Μέθοδοι
+
+[source,java]
+----
+@Async
+public void logStatusChange(
+    String rentalId,
+    String rentalCode,
+    String oldStatus,
+    String newStatus,
+    String action,
+    String changedBy,
+    String details
+)
+----
+
+=== Enhanced Services
+
+Οι εξής services καλούν τη `RentalAuditLogService`:
+
+* *RentalConfirmationService:* Logging για CONFIRM/REACTIVATE actions
+* *RentalManageService:* Logging για CANCEL/FINISH actions
+* *EmailService:* Comprehensive logging για όλες τις email operations
+
+== UI Views
+
+=== RentalAuditLogListView
+
+* Προβολή audit logs με pagination
+* Φιλτράρισμα ανά rentalCode, action, changedBy
+* Ταξινόμηση ανά timestamp (newest first)
+* Μόνο `FullAccessRole` έχει πρόσβαση
+
+=== RentalAuditLogDetailView
+
+* Λεπτομέρειες κάθε audit log entry
+* Προβολή email tracking information
+* Προβολή details JSON
+
+=== Menu
+
+* *Path:* Administration → Rental Audit Logs
+* *URL:* `/rental-audit-logs`
+
+image::audit-logs-list.png[alt="Rental Audit Logs List",width="85%"]
+
+== Scheduled Cleanup Job
+
+=== AuditLogCleanupJob
+
+Διαγράφει records παλαιότερα από retention period.
+
+* *Schedule:* Καθημερινά 2:00 πμ
+* *Cron:* `0 0 2 ? * *`
+* *Retention Period:* Default 90 ημέρες (configurable)
+
+[source,properties]
+----
+nmcr.use-default-audit-log-cleanup-quartz-configuration=true
+nmcr.audit-log-cleanup-cron=0 0 2 ? * *
+----
+
+=== Configuration από UI
+
+Το retention period είναι ρυθμιζόμενο από το UI:
+
+* *Path:* Ρυθμίσεις Συστήματος → Κανόνες Ενοικίασης → Audit log retention (days)
+* *Default:* 90 ημέρες
+
+== Security
+
+* *Access Control:* Μόνο `FullAccessRole` έχει πρόσβαση
+* *BasicAccessRole:* Δεν περιλαμβάνει τα audit log views
+* *Audit Trail:* Οι ίδιοι οι audit logs δεν μπορούν να τροποποιηθούν ή διαγραφούν manually
+
+== Database Schema
+
+=== NMCR_RENTAL_AUDIT_LOG Table
+
+[source,sql]
+----
+CREATE TABLE NMCR_RENTAL_AUDIT_LOG (
+    ID UUID PRIMARY KEY,
+    RENTAL_ID UUID NOT NULL,
+    RENTAL_CODE VARCHAR(255),
+    OLD_STATUS VARCHAR(50),
+    NEW_STATUS VARCHAR(50),
+    ACTION VARCHAR(50),
+    CHANGED_BY VARCHAR(255),
+    EMAIL_SENT BOOLEAN,
+    EMAIL_ERROR TEXT,
+    TIMESTAMP TIMESTAMP,
+    DETAILS TEXT
+);
+----
+
+=== Indexes
+
+* `IDX_RENTAL_AUDIT_LOG_RENTAL_ID` — Στο rentalId
+* `IDX_RENTAL_AUDIT_LOG_RENTAL_CODE` — Στο rentalCode
+* `IDX_RENTAL_AUDIT_LOG_TIMESTAMP` — Στο timestamp
+
+== Σχετικές ενότητες
+
+* xref:booking/rentals.adoc[Ενοικιάσεις]
+* xref:technical/scheduled-jobs.adoc#audit-log-cleanup-job[Audit Log Cleanup Job]
+* xref:admin/settings-system.adoc[Ρυθμίσεις Συστήματος]
