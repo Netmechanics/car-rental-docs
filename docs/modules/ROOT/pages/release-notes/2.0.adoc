@@ -143,6 +143,33 @@ Floating chat widget για υποστήριξη χρηστών μέσω externa
 
 Δείτε τη σελίδα xref:admin/settings-system.adoc[] για λεπτομέρειες.
 
+== AI Multi-Provider Configuration
+
+Δυνατότητα runtime ρύθμισης του AI provider μέσω Backoffice UI, χωρίς redeployment.
+
+=== Χαρακτηριστικά
+
+* *Multi-Provider Support* — Επιλογή μεταξύ OpenAI, OpenRouter και Custom (OpenAI-compatible) providers
+* *Runtime Configuration* — Αλλαγή provider, model, API key, temperature, max tokens από το Administration → Ρυθμίσεις AI
+* *Secure API Key Storage* — Password field με masked εμφάνιση
+* *Dynamic ChatModel* — Το `DynamicAiConfiguration` δημιουργεί `@Primary` `OpenAiChatModel` bean από τις ρυθμίσεις της βάσης
+* *FullAccess Only* — Πρόσβαση μόνο για ρόλο `FullAccessRole`
+
+=== Προεπιλεγμένες τιμές
+
+[options="header",cols="1m,1m"]
+|===
+|Πεδίο|Προεπιλογή
+
+|Provider|OPENROUTER
+|Base URL|`https://openrouter.ai/api/v1`
+|Model|`anthropic/claude-sonnet-4.5`
+|Temperature|`0.1`
+|Max Tokens|`4096`
+|===
+
+Δείτε τη σελίδα xref:admin/settings-ai.adoc[] για λεπτομέρειες.
+
 == Platform Upgrade
 
 Αναβάθμιση σε Jmix 3.0.1 με βελτιώσεις performance και foundation για multi-tenancy.
@@ -165,10 +192,12 @@ Floating chat widget για υποστήριξη χρηστών μέσω externa
 * `v2/06-rental-audit-log.xml` — rental audit log table
 * `v2/07-audit-log-retention-days.xml` — audit log retention setting
 * `v2/08-notification-retention-days.xml` — notification retention setting
+* `v2/09-ai-settings.xml` — AI settings table (`NMCR_AI_SETTINGS`) με default row (OpenRouter/claude-sonnet-4.5)
 
 == Σχετικές ενότητες
 
 * xref:admin/ai-assistant.adoc[AI Assistant Backoffice]
+* xref:admin/settings-ai.adoc[Ρυθμίσεις AI]
 * xref:admin/chat-widget.adoc[AI Support Chat Widget]
 * xref:admin/audit-logs.adoc[Rental Audit Logging]
 * xref:booking/rental-search-logic.adoc[Λογική αναζήτησης ενοικίασης]

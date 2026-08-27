@@ -1,0 +1,97 @@
+= Ρυθμίσεις AI
+:revdate: Αύγουστος 2026
+
+Η οθόνη *Ρυθμίσεις AI* επιτρέπει τη runtime διαχείριση του AI provider χωρίς redeployment.
+
+image::ai-settings.png[alt="AI Settings",width="85%"]
+
+== Πρόσβαση
+
+Η οθόνη βρίσκεται στο μενού *Διαχείριση* → *Ρυθμίσεις AI*.
+Η πρόσβαση περιορίζεται στον ρόλο `FullAccessRole` (`system-full-access`).
+
+IMPORTANT: Μόνο χρήστες με πλήρη δικαιώματα μπορούν να αλλάξουν τις ρυθμίσεις AI, επειδή η αλλαγή provider ή API key επηρεάζει όλο το σύστημα.
+
+== Πεδία ρυθμίσεων
+
+=== Πάροχος
+
+Καθορίζει τον AI provider στον οποίο θα συνδέεται το AI chat.
+
+[options="header",cols="1m,3a"]
+|===
+|Τιμή|Περιγραφή
+
+|OpenAI
+|Απευθείας σύνδεση με το OpenAI API (`https://api.openai.com/v1`).
+Μοντέλα: `gpt-4o`, `gpt-4o-mini`.
+
+|OpenRouter
+|Σύνδεση μέσω OpenRouter (`https://openrouter.ai/api/v1`).
+Πρόσβαση σε πολλαπλά μοντέλα (Anthropic, Meta, κ.α.).
+Προεπιλεγμένη τιμή: `anthropic/claude-sonnet-4.5`.
+
+|Custom
+|Οποιοσδήποτε OpenAI-compatible provider.
+Ο χρήστης ορίζει δικό του Base URL.
+|===
+
+=== API Key
+
+Το κλειδί πρόσβασης του provider. Αποθηκεύεται στη βάση και εμφανίζεται masked (password field) στο UI.
+
+=== Base URL
+
+Η διεύθυνση του API endpoint. Συμπληρώνεται αυτόματα ανάλογα με τον πάροχο, αλλά μπορεί να αλλάξει χειροκίνητα για Custom provider.
+
+=== Model
+
+Το μοντέλο που θα χρησιμοποιηθεί. Παραδείγματα:
+
+* `gpt-4o`, `gpt-4o-mini` (OpenAI)
+* `anthropic/claude-sonnet-4.5` (OpenRouter)
+* Οποιοδήποτε μοντέλο OpenAI-compatible (Custom)
+
+=== Θερμοκρασία (Temperature)
+
+Ελέγχει τη "δημιουργικότητα" των απαντήσεων. Εύρος: `0.0` – `2.0`.
+Η προεπιλεγμένη τιμή είναι `0.1` (συντηρητικές, deterministic απαντήσεις).
+
+=== Μέγ. Tokens (Max Tokens)
+
+Ο μέγιστος αριθμός tokens ανά απάντηση. Εύρος: `1` – `128000`.
+Η προεπιλεγμένη τιμή είναι `4096`.
+
+== Πώς λειτουργεί
+
+. Ο διαχειριστής ανοίγει τις *Ρυθμίσεις AI* και επιλέγει πάροχο, μοντέλο, κλπ.
+. Οι τιμές αποθηκεύονται στον πίνακα `NMCR_AI_SETTINGS` (singleton row, id=1).
+. Το `DynamicAiConfiguration` διαβάζει τις ρυθμίσεις κατά την εκκίνηση και δημιουργεί ένα `@Primary` `OpenAiChatModel` bean.
+. Το bean παρακάμπτει το Spring AI auto-configuration, οπότε οι αλλαγές εφαρμόζονται στο *επόμενο* restart της εφαρμογής.
+
+NOTE: Η αλλαγή ρυθμίσεων AI απαιτεί επανεκκίνηση της εφαρμογής για να ενεργοποιηθεί. Το `ChatModel` bean δημιουργείται μία φορά κατά το startup.
+
+== Προεπιλεγμένες τιμές
+
+[options="header",cols="1m,1m"]
+|===
+|Πεδίο|Προεπιλογή
+
+|Provider|OPENROUTER
+|Base URL|`https://openrouter.ai/api/v1`
+|Model|`anthropic/claude-sonnet-4.5`
+|Temperature|`0.1`
+|Max Tokens|`4096`
+|===
+
+== Ασφάλεια
+
+* *Πρόσβαση:* Μόνο `FullAccessRole` (`system-full-access`)
+* *API Key:* Password field — masked στο UI
+* *Μενού:* Αυτόματα κρυμμένο για χρήστες χωρίς τον κατάλληλο ρόλο
+
+== Σχετικές ενότητες
+
+* xref:admin/ai-assistant.adoc[AI Assistant Backoffice]
+* xref:admin/settings-system.adoc[Ρυθμίσεις Συστήματος]
+* xref:admin/roles.adoc[Ρόλοι Χρηστών]
