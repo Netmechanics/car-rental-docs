@@ -7,6 +7,8 @@ export default defineConfig({
       PARTIALS_ROOT: "/tmp/partials",
       EXAMPLES_ROOT: "/tmp/examples",
       DATA_DIR: "/tmp/data",
+      EMBEDDING_PROVIDER: "openrouter",
+      OPENROUTER_API_KEY: "sk-or-test",
       OPENAI_API_KEY: "sk-test",
       MCP_AUTH_TOKEN: "test",
     },

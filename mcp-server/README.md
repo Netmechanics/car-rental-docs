@@ -16,7 +16,7 @@ Lightweight [Model Context Protocol](https://modelcontextprotocol.io) server π�
 
 ```bash
 cp .env.example .env
-# Συμπλήρωσε OPENAI_API_KEY και MCP_AUTH_TOKEN στο .env
+# Συμπλήρωσε OPENROUTER_API_KEY και MCP_AUTH_TOKEN στο .env
 
 npm install
 npm run dev
@@ -38,7 +38,7 @@ npm run ingest:dump
 docker build -t nmecar-docs-mcp:latest -f mcp-server/Dockerfile .
 
 docker run --rm -p 8765:8765 \
-  -e OPENAI_API_KEY=sk-... \
+  -e OPENROUTER_API_KEY=sk-or-... \
   -e MCP_AUTH_TOKEN=your-secret-token \
   -v $(pwd)/.mcp-data:/data \
   nmecar-docs-mcp:latest
@@ -68,9 +68,12 @@ docker run --rm -p 8765:8765 \
 | `PARTIALS_ROOT` | — | Φάκελος partials |
 | `EXAMPLES_ROOT` | — | Φάκελος examples |
 | `DATA_DIR` | `/data` | Cache vector index |
-| `EMBEDDING_PROVIDER` | `openai` | `openai` ή `gemini` |
+| `EMBEDDING_PROVIDER` | `openrouter` | `openrouter`, `openai` ή `gemini` |
+| `OPENROUTER_API_KEY` | — | Υποχρεωτικό αν provider=openrouter |
+| `OPENROUTER_BASE_URL` | `https://openrouter.ai/api/v1` | Base URL για OpenRouter |
+| `OPENROUTER_EMBED_MODEL` | `openai/text-embedding-3-small` | Μοντέλο embeddings μέσω OpenRouter |
 | `OPENAI_API_KEY` | — | Υποχρεωτικό αν provider=openai |
-| `OPENAI_EMBED_MODEL` | `text-embedding-3-small` | Μοντέλο embeddings |
+| `OPENAI_EMBED_MODEL` | `text-embedding-3-small` | Μοντέλο embeddings (OpenAI direct) |
 | `MCP_AUTH_TOKEN` | — | Bearer token (υποχρεωτικό σε prod) |
 | `ALLOWED_ORIGINS` | `*` | CORS origins (comma-separated) |
 | `LOG_LEVEL` | `info` | `debug`/`info`/`warn`/`error` |

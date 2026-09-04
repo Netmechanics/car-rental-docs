@@ -119,15 +119,25 @@ image::ai-diagnostics-list.png[alt="AI Diagnostics List",width="85%"]
 
 == Configuration
 
-=== Application Properties
+=== Ρυθμίσεις AI (Runtime UI)
+
+Ο AI provider, το μοντέλο, το API key και οι παράμετροι (temperature, max tokens) ρυθμίζονται runtime μέσω της οθόνης xref:admin/settings-ai.adoc[*Ρυθμίσεις AI*] (Administration → Ρυθμίσεις AI).
+
+Οι τιμές αποθηκεύονται στη βάση (`NMCR_AI_SETTINGS`) και εφαρμόζονται κατά την εκκίνηση της εφαρμογής μέσω του `DynamicAiConfiguration`.
+
+=== Application Properties (fallback)
+
+Οι `application.properties` παρέχουν fallback τιμές όταν δεν υπάρχει row στη βάση:
 
 [source,properties]
 ----
-# OpenAI Configuration
-spring.ai.openai.api-key=${OPENAI_API_KEY}
-spring.ai.openai.chat.options.model=gpt-4
-spring.ai.openai.chat.options.temperature=0.7
+spring.ai.openai.api-key=${SPRING_AI_OPENAI_APIKEY:}
+spring.ai.openai.chat.model=gpt-5.4-mini
+spring.ai.openai.chat.temperature=0.1
+spring.ai.openai.chat.max-completion-tokens=4096
 ----
+
+IMPORTANT: Οι ρυθμίσεις από το UI (`NMCR_AI_SETTINGS`) υπερισχύουν των `application.properties` μέσω του `@Primary` `DynamicAiConfiguration` bean.
 
 === Feature Toggle
 

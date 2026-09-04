@@ -6,7 +6,10 @@ const configSchema = z.object({
   PARTIALS_ROOT: z.string().min(1),
   EXAMPLES_ROOT: z.string().min(1),
   DATA_DIR: z.string().min(1).default("/data"),
-  EMBEDDING_PROVIDER: z.enum(["openai", "gemini"]).default("openai"),
+  EMBEDDING_PROVIDER: z.enum(["openrouter", "openai", "gemini"]).default("openrouter"),
+  OPENROUTER_API_KEY: z.string().optional(),
+  OPENROUTER_BASE_URL: z.string().url().default("https://openrouter.ai/api/v1"),
+  OPENROUTER_EMBED_MODEL: z.string().default("openai/text-embedding-3-small"),
   OPENAI_API_KEY: z.string().optional(),
   OPENAI_EMBED_MODEL: z.string().default("text-embedding-3-small"),
   GEMINI_API_KEY: z.string().optional(),
@@ -24,6 +27,10 @@ if (!parsed.success) {
 
 const config = parsed.data;
 
+if (config.EMBEDDING_PROVIDER === "openrouter" && !config.OPENROUTER_API_KEY) {
+  console.error("OPENROUTER_API_KEY is required when EMBEDDING_PROVIDER=openrouter");
+  process.exit(1);
+}
 if (config.EMBEDDING_PROVIDER === "openai" && !config.OPENAI_API_KEY) {
   console.error("OPENAI_API_KEY is required when EMBEDDING_PROVIDER=openai");
   process.exit(1);
