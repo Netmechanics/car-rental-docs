@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4407e00242ebc4dd7df846220cd0611c94f844094694bebebf8c6eb82ff978d6",
+  "claims": [
+    {
+      "id": "claim_17a3fc90668947a2aebec95d9193f137",
+      "statement": "The repository owns two independent consumers of one AsciiDoc documentation corpus: an Antora site published to GitHub Pages for human readers, and a retrieval-only MCP server that turns the same source into a searchable vector index for a future AI agent.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L13-L30",
+          "version": "repo-lines-v1:sha256:9cbed30ae87c1f26fac1d125288bef65d71eef6718bc802035f865536a8ef2a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxZDgxMTcwMjNiYTY5NjY1ZjQ3YmIxNTMzNjM1NTE4NTcwYWIyMWQzNjk1NWE3ZGEzOTk4NmViYjIzMTU0ZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiMTFiZmEyYTMxNjU5MzdiMzU4MDkwZmFjOWJjMzhmNDQ4YWM2ZDMwMDRlM2MxMzUzMjBlYjBjNTc4YzdlODQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3ZjQ2MjEwNDA4OWJkOTFiZGNjODkwN2QxOTNiODVjMWY5ZGI4Yzg2MTM0MmQ3ZmY5NzVjODNjYTEyZTkyZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmNTllMjczMDIwNjFiMjllNGNhYzdhNzA5ZGY0NjkzNTQ0YmJjNDliMzNjMWQ4MjJmMGY5MTE5ZWNkNjQ5ZjYifQ"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L1-L25",
+          "version": "repo-lines-v1:sha256:58649dcd8d0054b09e5d129f5facf7cac3542ce41d76a95c4fb2263d093ac5f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhZmRhZmU0MDQyMjExMGRkYzMwYWM3NTY3YWZlNjVhNTA5YzA3MGI1ZmVlNjE4NGRkN2NmNTQwMWZlN2RiZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNjMWQxODY1NTRmYjQzNTc0ODMzMmEzMWQxMjNlNGQyZTFlMWIyNGVkYWU0MDVjYjU1ZDVjN2Y0MjQyZGMxZmMifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/index.ts#L13-L53",
+          "version": "repo-lines-v1:sha256:8d988c3d12024b8be6e9511d00099a11bd54e4c0f9cff57990e49bb934849f3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlODIwMGViZDE3MDliNmE2NzViZWNiM2JlOWYzOWU1M2JiYWMwMmNjOTI3MjM0NjJjMDU0NjhlYjBkYTZhMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiYmE3MjRhMTQzN2MzYThlN2VmZmEzYmRkZTc1ZmRmYTVkNjRhMTMxMTdjZjk5MDQ0ODM1M2Y4YTQ4YzNkMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzZjI0YmI1N2M2ZjhiMjZhYTI5OWJmOTdiOWFjYTE5MTJjNTBhMzkxZGY0ZmUwODA1MTkzMDA0YTBjODg5NDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a9604ecf2a084e85a31933b57b24a11e",
+      "statement": "The single source of truth for documentation content is the AsciiDoc page tree docs/modules/ROOT/pages/**/*.adoc, with partials and examples in sibling folders; Antora builds from git HEAD while the MCP server reads the same files at startup.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L39-L43",
+          "version": "repo-lines-v1:sha256:76d81cc0e0084606aabdac65d63a45749fe7ce714cab7dc5ef1ad30064be6db8:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTcwNWFhMWIyOTkyNzU5NmI2ZWEwZDJiNGE5YjFhODZiNTRlNTEyMTE2YmJlZmYzODIwMGQxNmU0NDEwNTI3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjM0YmE4YjY0NWVmYTBmY2NmZDA4ZmJjMTk2NDJjZmE3ZjQ5NDMzZTJmZTY0MWY1YmY1YWJkMDk4ZTQ2ZjQ4MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTA1YTJmYmQ1MTQ0YTIwMDMzZmZiNzllZTc1Mjc3NmQ2ZjU2MDgzNTgzMzI1NzQxZDRkYTczYTZhNjZhYTU3MyJ9"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L13-L19",
+          "version": "repo-lines-v1:sha256:3740c4248cef1209f6115242b5ffbd83b0215b2bba14e10d5240739a46d9f3d2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTNiNTExYTZkMDc3ZDBjNmQyZmFjMWY3MWY4ZTk0NGRiOWExNWRiODQ4ODcxNzAzYWQ3NTk1MzBmYWJkODM4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY0MTJmMzRjMmYwYTc2NDY3MGU5M2YzY2UxNjI5YmU2YWVkN2FlNTBkNWFjNWVmMGUxYzkwYjM1OTI5NmU0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQwZDIyNGE3ZjZiMjRjZjFjMGFhZWY0MGUwY2UxY2ZhNDRkN2Q3ZTg5YmZmZjUxZWFhNjQ3NGEzZTBlMzQwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQ2ZjUxMzZhZTlhNTgzZTE2ZGE2MTMxMmY5MTkwNWY0MjY0YzdhNzMxZjdhMTFkYjA4ZjcxOGZiOThhYjkzMSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/ingest/loadAdoc.ts#L10-L31",
+          "version": "repo-lines-v1:sha256:0002b776e29ca7276925bd44b447f632b2d36eaa5e71b305b814609ffa060f68:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkYjU3MmYxZDBiOGMyMjhlNmFlZWU4YTYzOWJlYzU1YTNhYWEyNjYyYWU5ZGViMWRkMDk3ZGYzMzlhMGRkNjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5N2ZkN2UzYjlhYzViZGI4YTQxNzdmOWM1MTdhZGU5ZjUxMDk1N2IyN2M1ODY5ZjAxYThlM2Q5YzJmY2Q5ZGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e905629478ec47ac90a6b50895a39774",
+      "statement": "The MCP server is explicitly retrieval-only and does not perform LLM generation or answer synthesis; generating answers is the responsibility of a future separate AI agent that is out of scope for the server.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L13-L30",
+          "version": "repo-lines-v1:sha256:9cbed30ae87c1f26fac1d125288bef65d71eef6718bc802035f865536a8ef2a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxZDgxMTcwMjNiYTY5NjY1ZjQ3YmIxNTMzNjM1NTE4NTcwYWIyMWQzNjk1NWE3ZGEzOTk4NmViYjIzMTU0ZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRiMTFiZmEyYTMxNjU5MzdiMzU4MDkwZmFjOWJjMzhmNDQ4YWM2ZDMwMDRlM2MxMzUzMjBlYjBjNTc4YzdlODQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3ZjQ2MjEwNDA4OWJkOTFiZGNjODkwN2QxOTNiODVjMWY5ZGI4Yzg2MTM0MmQ3ZmY5NzVjODNjYTEyZTkyZDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmNTllMjczMDIwNjFiMjllNGNhYzdhNzA5ZGY0NjkzNTQ0YmJjNDliMzNjMWQ4MjJmMGY5MTE5ZWNkNjQ5ZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9dd253d2962f462e9afa9aa1e3456259",
+      "statement": "The MCP server is a non-goal for modifying the existing Antora setup: it must not touch antora-playbook.yml, docs/, docs/antora.yml, or the publish workflow.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L26-L30",
+          "version": "repo-lines-v1:sha256:38c4a6e24854f0df88d5562ca7c7024d9bc3868b46790e95f07a11b7f3dfe94d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGE2YTIyZGM5MTJiYjIyZjhlODkyZDIzMDNkNzlhNjliMTllZmQzN2NlMGI1M2MwY2NmZmExY2VmYTdmN2NjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxMWJmYTJhMzE2NTkzN2IzNTgwOTBmYWM5YmMzOGY0NDhhYzZkMzAwNGUzYzEzNTMyMGViMGM1NzhjN2U4NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2FiMGY4ZDA1YjI0MTA2NzA0ZTBhZTgwODE3Nzk5MjcyMzE3YmEwOWI1ODFiMGFiZTE1YTQ0NjdlMDMwNDVmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmY1OWUyNzMwMjA2MWIyOWU0Y2FjN2E3MDlkZjQ2OTM1NDRiYmM0OWIzM2MxZDgyMmYwZjkxMTllY2Q2NDlmNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d56e6041d7534f7eb199b45e9bfd1216",
+      "statement": "At startup the MCP server walks DOCS_ROOT for .adoc files, resolves Antora macros, renders to plain text, chunks by heading, computes a content hash, and either loads a cached vector index from disk or builds embeddings and persists the index, before serving over HTTP.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L13-L53",
+          "version": "repo-lines-v1:sha256:8d988c3d12024b8be6e9511d00099a11bd54e4c0f9cff57990e49bb934849f3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlODIwMGViZDE3MDliNmE2NzViZWNiM2JlOWYzOWU1M2JiYWMwMmNjOTI3MjM0NjJjMDU0NjhlYjBkYTZhMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiYmE3MjRhMTQzN2MzYThlN2VmZmEzYmRkZTc1ZmRmYTVkNjRhMTMxMTdjZjk5MDQ0ODM1M2Y4YTQ4YzNkMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzZjI0YmI1N2M2ZjhiMjZhYTI5OWJmOTdiOWFjYTE5MTJjNTBhMzkxZGY0ZmUwODA1MTkzMDA0YTBjODg5NDYifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L30-L77",
+          "version": "repo-lines-v1:sha256:14c42b1b9f8c78fafdb4b2ecba872498bee8d7bb0bd9ad71077467665cd486ae:eyJzZWxlY3RlZExpbmVDb3VudCI6NDgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3Nzk0YmZiMTQ5ZDVmMGQ0OTExMzYwMDE3OTZlMzUzNWFiNWViMzVhMmU5NDY2MDBkZGVkOTI3Mzk4NTM5MTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiNmIyMTgzNDcxMTkxNjE5MDYyMzEyNzY4MTc2NmYyMmVkMDIzYWVhYTVjYjc5ZDNlY2E4M2JlMDY3ZDI0MzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFlNGE3ZGI5ZWJlMTc0NTExZDExZTFkZjZiNTZmNTE0ZjU3YzM2ZmNjZDgwMDQ3YWI4NjBmNWU3YWUwMDM1N2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8973c1eb00b1421682ae5025474c6d74",
+      "statement": "loadAdoc skips stub pages defined as files with fewer than 50 non-whitespace characters after the first heading line.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/loadAdoc.ts#L18-L24",
+          "version": "repo-lines-v1:sha256:4a123e13064f988e32f2a1122b8ed7646ded1689a6ed7e2e647884426d18db38:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI4M2FiNmYyNmM4N2YzZjgwNTg0NWFlZmI1NmI4NzQ1ZGVhNzg2YTY4YTg3YzJhZGM3NmFiNzczNzQzZjdkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmU0NGQzOTVkZTMwMmNlNTc1MWJlNzk3ZTY4NzllOTNhYTEyOTA1ODYxMWY2OGYxNDRlNWE3ZjZhMWRkMGFkYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdmZTAyZjdhYjI0NjkyMjQ2ODdhNDc4OGU3M2QzZGRiYzNiYjlmMWMxMWI1N2Y5YjBmNDBhNzJjZTZiNTViMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_80afe2a09e9643c5bed9da8c1428b54c",
+      "statement": "The VectorStore normalizes vectors to unit length at build time and performs cosine similarity search via dot product; it persists the index as JSON keyed by content hash and loads it on a matching hash, skipping the embeddings API on a cache hit.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L18-L76",
+          "version": "repo-lines-v1:sha256:b7a8159a8fd0dd1a6de0c178f7e7242aeae89def49344deb980a25eaf5cd1874:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2YTNlNWNiM2E4NGZkMTY2YWMxNmRkMWExY2I1NzZmYWQ4ZDZiMmJlZWFiOGU4MjMzYTA0YmM4MzM3YzYzZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiMzk1YjI3YjhjZTc4YjA4MTk3ZjgwYzliNWVjYmIxOTliOTIwYTFmYzEyMTE5YTU1MjE5MTdmZjNiZGExNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYjQ0NGUwNDQyMzdjZTBhYjZiNzM2YzI1OWRmZWY2MDk0YWM3OGY2MzAyNGFjZGY3NDdhMmIwNTVjZGJmMjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_120edc296e3c42f693746c5baa522c80",
+      "statement": "The content hash used to gate the vector-index cache is sha256 over the sorted chunk text plus a PIPELINE_VERSION plus the embedding model name, so changes to content, pipeline version, or model invalidate the cache.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L256-L258",
+          "version": "repo-lines-v1:sha256:0cb1ba66af034a050d19042fd52e2d789cada6d7d59614b0ebd0a907f9343031:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFhYzQ3ZGY2YWFjY2QzMDRjZmMwYTBkMDYzYTgxNzQ5MGE4MThjYWMxMTBhZjRjMTYyMzJkZWIyN2JiMDc1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NkZDExMjI3ODE2MzMyN2E2NTFkOGM1MWFhZDRiYTM1YTYyZDBkYmFmMDM3M2IxMTExZjIzZDE3YWFiOTEzOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjVkZTVkYWM5ZjQzNzE1NGYzZjI1ZjU4NGFmNDBmODFlNGI3OTVkMjE1M2Q0YWNmYjE5MTc0NWE3NjgwMmE4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Y0NWVhMjA5YTM2MGQwYmUxZjA2Zjc2Y2IzMWVkNjU4ZTc1YjJiOTQ4MWNmN2YzOGZhMmQyOWExNDM0ZjYwNCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/hash.ts#L1-L10",
+          "version": "repo-lines-v1:sha256:fb2f6d511bb59f6a1da7496bd6a13b8b94405ac01942a24ede3281199ee97859:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxYzQ1Yzc5YTgzNWNhMjRiYzYzNmMzMmRmNDllZWUxZTI3YTQxZTExNmMxZDZmMGU5MDIyNTg0ODBjMjA5NDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a7edc72acc5d48f586ec05b49e70cf26",
+      "statement": "The MCP server exposes exactly three tools over the MCP protocol: search_nmecar_docs (semantic search returning top-k chunks), get_doc_page (full page text by path), and list_doc_sections (all pages and sections).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/server.ts#L9-L68",
+          "version": "repo-lines-v1:sha256:2d24ec927d8cc700720ea4aeecca66dc647abb28ca60dc8d9d2844c5e5436046:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NGE1YTdmMzI1NDcxNjMxYWY1ZDY2NWQ1YmExYTdlMWY3M2E5NDliOWY3M2RkNTI2ZjRlYWU5YjZmY2ZiZWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwMTU4OWRiNWYxMDI3YjYzMmU5NDE4NTAyNGYwZjQwNWViNmFkZGNjOTZmYjY1MDdiMmNlMDM0ZDcxMzIxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3MDc5MzQyODQzYzZkNjIxMmFjN2ViMzgwMmE0MTBmNDAwOTBkMGQ0NDBmZTExMzQ3NTAzZTgzYmExMDk4OGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ad350d8603984cfdb5abdc7176d1db4b",
+      "statement": "MCP transport is stateless Streamable HTTP: each /mcp request constructs a fresh McpServer and StreamableHTTPServerTransport with sessionIdGenerator undefined, then connects and handles the request.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L52-L68",
+          "version": "repo-lines-v1:sha256:bc635b4053cd2025b1670dab675f6c5aa6146be9b9c73f8c5ffc1c66c2da0da5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0ZmVlM2MwNjIxNWRiMmUyMzQ5Zjc5Y2NkMGRiZjA1MzFjNzU1YzM4ZTQwMTZkMmVlMjYwMzJkYzJjOTM5MGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZDM3MjQ3MmZkYTdhNjA5ZWQxNmMwMTgyM2RlZWI1MWU4NmQ2OGIyNGQ4YTQ4MWQ5YmE0NTc4NDBkZjhiNDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3NmU1ZWM5NTMwZDhjYzE0Nzc2YmM3M2U5OGFhZjcyZWI1NGY2ODE5YjE4YzYwNWQ0YjczYzM5MzdjYThkMWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0891ba23425448669bb1aee1deaeabe9",
+      "statement": "Access to /mcp is guarded by a bearer-token check against MCP_AUTH_TOKEN returning 401 on mismatch, while /health is exempt; when MCP_AUTH_TOKEN is unset the auth middleware passes through (local dev).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L25-L52",
+          "version": "repo-lines-v1:sha256:9ef82eb7b1a48c0e7864b8776d30f04e7e5b8aaf6251f59b7cccde283e2d8157:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3Y2RkMjQ3YmJkNzM4Y2RkNTRmMjJjNGY1NjkwMTY2ZmQ3YjdlM2E2MDlmNmEyZjM1ODg4NzM0YzJlOTc1ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0ZmVlM2MwNjIxNWRiMmUyMzQ5Zjc5Y2NkMGRiZjA1MzFjNzU1YzM4ZTQwMTZkMmVlMjYwMzJkYzJjOTM5MGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2N2JhMTJmNDcyODY4YjhhNzRlNGE0ZmMwOWFhODcxZTEwZTEyNDc1NDk1YWJmNjdmZWJlZDQxMDE4NDZkNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhM2RhYTJjMmNiNmI1YzNhYTY2NjNlZjY3ZTI0NGE0Mjk5NjcwMzJjZTNmNmU3Nzc0ZGE5MzMwYTJiYTEyY2YifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2c66c15ee86c442da61b669533bd6d92",
+      "statement": "All MCP server configuration comes from environment variables validated with zod in config.ts, which fail-fast exits on invalid config or a missing API key for the selected embedding provider.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L1-L35",
+          "version": "repo-lines-v1:sha256:482c1a65ea2cebeff67f232e536e90bcbdb6532a5105fdacd345cc1547fa8def:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNDUyODY0YjBkOTZlZmU4NjkxNmZmNzQ1YTBmNzdhYzcwYjMyNjU4NWMwZWFmNWMzNGY5ZTRhNGY2ZmJmNjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiZjkzZmZhNDg4NmE5N2YyZmI1MDkzMTkyNGNhZDY1NTI2ZGRjM2FjMDA4NmM5ODRkN2E0MWZkMGUwZDI1M2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4929b1f52bcb43c2b758f05e86870edd",
+      "statement": "The Antora site is built and published to GitHub Pages by a workflow on master that builds the site with Node 20 and deploys build/site with a CNAME of carrental-docs.nmlabs.gr.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/publish.yml#L1-L43",
+          "version": "repo-lines-v1:sha256:0ab4969fbbbe31963d6c96d6edf7c24239a142bdba48e2306069b951a5074acf:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYwZjAzMjQyZTc5MGVlYTliOGM0NTZmZTViMTZkN2ZmNzEwZThkMGVkMTIzODJiN2I0NTg5ZDZhN2I0NmU3YzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2MzQxMzJhMWI5YWUwNmQ4YjQ5YjY1ZTY0YmVhNTExZGQ2MGI5N2NkYjJhNDM1ZTQ2ZDAwYjIwYjUwODJjZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5a86c108ec2e4137b41d7401d1de057f",
+      "statement": "The MCP Docker image is built and pushed to ghcr.io/netmechanics/nmecar-docs-mcp by a workflow triggered on pushes to mcp-integration or master that touch docs/** or mcp-server/**; the embeddings API key is not needed at build time because the index is built at container startup.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L1-L69",
+          "version": "repo-lines-v1:sha256:e0afc711a697b932eb6c13ec7293e45f522c7449bc7992f3173e9b239da23599:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZWIxZWVjYTE0M2FiMDkzMTU2ZmQ2ZDQ1NzAwYWFlNzM0OWViMTQ2ZTRmMjc0YWUxYTJjNzg5ZmI2OTYxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MDBkZTFiODIwMWUzYjYxYmI5NGM0YWQ3MWVkM2ZjOTE4NGFhMjBjYjY0NjNlZWVlYzQyZmU5YTQ4NTk4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/Dockerfile#L1-L38",
+          "version": "repo-lines-v1:sha256:3408b06c70a206ec92f3577cb82b3b4bc72c66d1c1d88d2feee7f29f025df149:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkMDNkNTllYjVhYzc2YTIzYWU1NmYxZTY1ZDNhYjVkM2E2OGQwY2U3YTc5ZDUwYTczOGVlMzBkMGRlYjY2YzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2N2FiODAxOTY0ZTZmNDdkMzk1NThlMzVjYmRmNjJmNTg3Mzc1MjE2ZmM5YTdlNjIxOTA1ZTYwMzQ2MmJiODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8f65951eaaa34a439ff7080774275cfa",
+      "statement": "The MCP Docker image bakes the .adoc pages, partials, and examples into the image as read-only content under DOCS_ROOT/PARTIALS_ROOT/EXAMPLES_ROOT, exposes port 8765, mounts a /data volume for the vector-index cache, and uses a /health-based healthcheck.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/Dockerfile#L20-L38",
+          "version": "repo-lines-v1:sha256:467101d31a7b324d1f5057b23d7295584328454d426d8d6b0e0fd90b8555a43f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2N2FiODAxOTY0ZTZmNDdkMzk1NThlMzVjYmRmNjJmNTg3Mzc1MjE2ZmM5YTdlNjIxOTA1ZTYwMzQ2MmJiODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyZmQ0NzAyNzA5ZjIwZWM5Y2VjNzlkMDM4MDA0NTgyMGUzMDZjZGYxZjdhZTkyOTJmYjkwNzhiN2IzYzcyZjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d4353f91569d455ebce7e61ace9e5d4d",
+      "statement": "Because documentation content is baked into the MCP image and indexing happens at startup, serving updated docs through the MCP server requires rebuilding and redeploying the image; there is no live synchronization with the Antora build.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L485-L488",
+          "version": "repo-lines-v1:sha256:dc6b9cf3dbfa8dcfd5f1cd13cd5dad04d1fd35cfc64c93105ce80b59242708ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM3ZGZhODYwYTQ4NmRmOGFmZDQzYjBhZTYzZmVjMjZhNDcyYjJhN2MzMzE0ODQ5NTY2NzYwODcyMGZjMWJhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdiNmE3OWI4ZWExNThkZTNmMzcwOGIyOWUyODQ0M2U1ZGIzNGZmMzk0OTc1MzAxODI4YjI2MmQ2MTBlMzc0ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDU3YTdjNTgzMTJkOGZmNWZiNWI1YTRhYTI0OWM5N2NjYTk2NDczNjZlZTEwMWY5NzdkMzU5NGI1MTY2OGY4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM3ODcwZTE0YjJmNzJkMzRmZGQ5YjMyNTk2NjIyNjE4NmU2ZDI4Y2QxMmJhNTE1NGJjMjA1YzkxYjJjZWQ1MyJ9"
+        },
+        {
+          "resource": "repo://mcp-server/Dockerfile#L20-L38",
+          "version": "repo-lines-v1:sha256:467101d31a7b324d1f5057b23d7295584328454d426d8d6b0e0fd90b8555a43f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2N2FiODAxOTY0ZTZmNDdkMzk1NThlMzVjYmRmNjJmNTg3Mzc1MjE2ZmM5YTdlNjIxOTA1ZTYwMzQ2MmJiODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyZmQ0NzAyNzA5ZjIwZWM5Y2VjNzlkMDM4MDA0NTgyMGUzMDZjZGYxZjdhZTkyOTJmYjkwNzhiN2IzYzcyZjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f9780f55d12cc700c2e43bd04244783995058cd4080ba5e43090d151123c8f26",
+  "claims": [
+    {
+      "id": "claim_86cf62af803647a4adeb50cf42e8f132",
+      "statement": "The nmecar documentation site is a single Antora content component (name `nmecar`) with one ROOT module; the playbook declares one source at the repository root (`url: .`, branch `HEAD`, `start_path: docs`) and the component descriptor points `nav` at `modules/ROOT/nav.adoc` with `start_page: ROOT:index.adoc`.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L13-L19",
+          "version": "repo-lines-v1:sha256:3740c4248cef1209f6115242b5ffbd83b0215b2bba14e10d5240739a46d9f3d2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTNiNTExYTZkMDc3ZDBjNmQyZmFjMWY3MWY4ZTk0NGRiOWExNWRiODQ4ODcxNzAzYWQ3NTk1MzBmYWJkODM4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY0MTJmMzRjMmYwYTc2NDY3MGU5M2YzY2UxNjI5YmU2YWVkN2FlNTBkNWFjNWVmMGUxYzkwYjM1OTI5NmU0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQwZDIyNGE3ZjZiMjRjZjFjMGFhZWY0MGUwY2UxY2ZhNDRkN2Q3ZTg5YmZmZjUxZWFhNjQ3NGEzZTBlMzQwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQ2ZjUxMzZhZTlhNTgzZTE2ZGE2MTMxMmY5MTkwNWY0MjY0YzdhNzMxZjdhMTFkYjA4ZjcxOGZiOThhYjkzMSJ9"
+        },
+        {
+          "resource": "repo://docs/antora.yml#L1-L7",
+          "version": "repo-lines-v1:sha256:9a1e057fcdf4f135d41d9b88e5ef371b37b0865ccd545518921f5d2a5571e48d:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTg4NWZiNWZiNzQ5ZmMxMzU0NmU0ZWQyOTcxZTBlOTI2ZDQwNTA4Y2M3MjhlOGFiNWM5NzgwMzFiMGRjNGY2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWFlMTBkZDNiM2RhOGI2MGRlOGY4MzE0NzZjY2ZiYjZjYTUxMzg3ZjQxYjQ4ZGI0OGRkODIzOWM2NjIwYWVlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWFhNTQyNzk3MmZmN2ZkMDgyODA0MzI4YTA0YWVlYzdmYTkzZDViM2JiNWQzY2UzYjI5ZmM1MzBjMThiZTQwZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0c7714b8869496fa2c2aea98227fc49",
+      "statement": "Content lives under standard ROOT-module folders: pages in `docs/modules/ROOT/pages/**` organized into section subdirectories (admin, booking, fleet, reporting, technical, release-notes), reusable fragments in `docs/modules/ROOT/partials/**`, images in `docs/modules/ROOT/images`, and code samples in `docs/modules/ROOT/examples` included via `include::example$...[]`.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L11-L11",
+          "version": "repo-lines-v1:sha256:b102070d3486ffb83e2fc3a88ed06a2ad3056b15ac555a2c41bd35f6c18c7237:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjEwMjA3MGQzNDg2ZmZiODNlMmZjM2E4OGVkMDZhMmFkMzA1NmIxNWFjNTU1YTJjNDFiZDM1ZjZjMThjNzIzNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjEwMjA3MGQzNDg2ZmZiODNlMmZjM2E4OGVkMDZhMmFkMzA1NmIxNWFjNTU1YTJjNDFiZDM1ZjZjMThjNzIzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNThmZmZhYTdhOThjZWY4NGE3MmVjMzFiM2U5OTlmMDI2YjNlYWI5ZWMyYzI0NDgxZmVjMDViZTYyYmZjNzNhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2MzMjgxN2E0ZThlZTMyMTBmY2Q1NjdiZTljMDRmZTk5MmZlMWNhMTY4YzY4OTA3MDc5NWU4ZGEwZWMzMjkzMyJ9"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L45-L53",
+          "version": "repo-lines-v1:sha256:8684b86b977c08b0f06af9e93c4f80ef3a47ab745ac0d3d6b1ead8fae42dbfba:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDQyNmVhZjYxYTE5Y2EwMzRiNGEwNTNmYTJlMmEyZmU2ZGJhZWZmYTc0NDJkNDAxN2YxYjE4NDJhZTJmMWYzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODg3NTA2YjhjMmMxNWIzOGRmNmQ1NDAyMGQyOGFkZDViOTU0NjYxNzgyZTY3ZmQzNjg5MDBjYWY5Y2Y0ZTQ3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDQzZTU1MzlhMWM5YmM3NDI0NGFhODg4YzY1NTU3ZjRjNTFhNjFjNjM4YmE4NjY2ZTI3MTUyNzhmYTJjZWU1ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjdjMzdiZGVhYmI5MTg2ZDQ0ZjhjMjNiMTA0NzYyNzA5ZWQzMWU4MDA3MzdiNmUxYzY4Nzk4NTAyOTkyMjgyNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6c76016c6bc146f69aa63902be18c59f",
+      "statement": "The playbook fixes site identity (title `nmecar Documentation`, URL `http://carrental-docs.nmlabs.gr`, start page `nmecar::index.adoc`, `robots: allow`) and uses `urls.html_extension_style: indexify` for generated HTML URLs.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L1-L11",
+          "version": "repo-lines-v1:sha256:59ab15e24fce5d3a23bfc6c5a080ea3a745cbf5ea1b51b6bb5df0f8292c36db0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhZmRhZmU0MDQyMjExMGRkYzMwYWM3NTY3YWZlNjVhNTA5YzA3MGI1ZmVlNjE4NGRkN2NmNTQwMWZlN2RiZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0ZTg0ZTk0NDNhNWYwZjY2MzA0MTM1NzgxYjM4MzAyZWNlOGViODg5NjQzMzAxMDY4NTBmY2FkZDVlZDc0MjgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg1YjA1ZDBkMjRhODZmNWI3NzMxOTVkZDYxMWE4MjJjMDVkNDllNmI1MWM5YTdiODljOWZkODUwMjRhODhmN2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2f1aee211e7b4ebb9bb80935408e42a4",
+      "statement": "The UI bundle is vendored at `./vendor/antora-ui-default.zip` (avoiding remote download per build) and supplemented by `./supplemental-ui`; the Sass theme source at `theme/site.scss` must be compiled to CSS before packaging.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L12-L12",
+          "version": "repo-lines-v1:sha256:372b32890e8e9fe4e5dcea0e81758b359beab2ca8f5c935dc64c86d9044d8426:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcyYjMyODkwZThlOWZlNGU1ZGNlYTBlODE3NThiMzU5YmVhYjJjYThmNWM5MzVkYzY0Yzg2ZDkwNDRkODQyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzcyYjMyODkwZThlOWZlNGU1ZGNlYTBlODE3NThiMzU5YmVhYjJjYThmNWM5MzVkYzY0Yzg2ZDkwNDRkODQyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2U2YzA0Nzg3MjUyNjYxNmU0NmZjZmY0ODExODk5YWNjMmY0NmNiYTE1M2Q0ZWNjNjI2NzE3YTU1ZmJhY2I5MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjliNTIyNTBmZTYwMzE3YmY0NWZmYjVjNjc0MDllNmFhOGViYTczMjQ5MTI1YTAyNjlmMWE0MTlkYzA3NmIxMCJ9"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L50-L52",
+          "version": "repo-lines-v1:sha256:1b73e3ca6fe50228dbc87d48bdeb40c1f981cee90face67b9015b7cb19d1526a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzI4MTk0NmFiYjI4MGIyZDYxYzkwNDdjOTlmYzczMDI0YzdmMmZiMTQ5ZmU3ZmQ1MWRhNGE1NjMxOWE3MzU1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTExZTQ5NmNhNWI1ZWY1NTFmOGEzYTdkMDMyZWRhNWYyYWUyNWJiMDgyOGJiZGYyMjUxYzI3YmQ5OWY5NzlmMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjYxNGIzN2U0NjliNmZhOWM1NTk1MjFkZjQ3ZGYxOTkwMDEwM2E2MzBkZDg3NjJhMGU1NTM1YmQxNDkwYzI1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWYwNjNjMzY4NDU4NTk0ZDUxNDU1NzYxZDliOWUxNzI4MWJlNTVkNTI5NDM5MDk0NTVhYmIyMmRiMmNiZGVlNiJ9"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L21-L24",
+          "version": "repo-lines-v1:sha256:e6c11da243970fd114c1848c9817b5cb53d2b5508daf452132c88124ce509778:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzZlMzlkMTdkMjM5M2VhM2RmNTMxMTJjY2M3NGY2ZWE1MTlhNzhiZWU1NTFkNDRiZjZhMzBhNDM1MjQ1MGJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTcxNzU5MTU2MDRkNzhkM2M3MmExMDY2YjYyNGY4ZTI4NGRmYzAzYjMyMjlhYTc1NDBhNzMwYjBkN2IwOTExOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjEwOWJmNjZjMmU0Y2MxMmYwZTk0ZGY2ZWE5MjA4MmM0MDRkYjZmN2M2MjZkYzdhOTA3MGY0NmMxMjczMDg5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzVhYWFkZjQzNjEzOTc3MmY5YTNjZDdmMjFhM2Q5ZWI2NjFhNzQyNjIwYzY4YmY1Yjk3ZGQwNDE4YzA3ODIxNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6c0cd621558544318921f9b2cda5c9a4",
+      "statement": "The playbook registers the `asciidoctor-kroki` and `@asciidoctor/tabs` AsciiDoc extensions, and the `@antora/lunr-extension` Antora extension configured for bilingual (en, el) search with `index_latest_only: true`.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L26-L47",
+          "version": "repo-lines-v1:sha256:7031c4e3eb917a37118be060a364e78264e4cb8b75db94557a36f8adc7fb88b7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkOGI5NGY0MTM2MWMwZTBiYjljZjU3OTY4ZmY5MDg3ZDM4YWJkMzAxZmQzNDFlZDE2M2NiYTQzMGY5NzE0ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzYjcwZjk5ODMyYzFkMmMxYmNiZTg4NTM1ZmVhZWIzY2E2MTc5NjljZGI3ZWMxYWVkZWFjOGJiOGU5MTJjNWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmMjBiZTQ3OGM0YjgxZDI2N2I3MTllN2NmMzhmY2EzODg0OThkZTRmMmE3MzQ0NDQzMzQ4ODc3ZDM3MTUwZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fdb675b48cd94a369ab5b733a35e9e33",
+      "statement": "Greek UI captions are set once as shared AsciiDoc attributes in the playbook (`page-toctitle: 'Περιεχόμενα'` and the admonition captions note/tip/important/caution/warning in Greek) and inherited by every page; this is the canonical localization mechanism for UI chrome, while technical code/API terms stay English.",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L14-L17",
+          "version": "repo-lines-v1:sha256:eb774702c2b8d0a61d8c2f14d0dd0a2a03cb2bf485f6eacbf1511f7d397dda09:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTQzMjdjYWJjYmQyNmRmZjVkYTQzNDI0OTUyM2E5OGJiZDgyZmEwNjg5OGY4ZTJmZGNmZDJjNmM2NGQzNTg2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODZmYTRlNWUzMGI1YWU3MjljZDliOWY3Yjg4YmQyMjMzNDJmZjFiYTgxNGQyMzE5YjU4ZTYzNWQ4OGJiOTU1OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWFkNTBjODdmYjJkMDZkZmJkMDhjMmExZjBkOThjZGEwMzNjNDg1NjFiN2Y5YmRhMjBjZjI1OTg3ZWZmOTgzNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDdlMTRhNzJlMmU2Njg1YmRhMjMxMzc0MDA1ODQ0NzAzNzA2MWUzNmJiODcxMjBmYTAxZDliMmZkYjc5MzdmNSJ9"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L28-L37",
+          "version": "repo-lines-v1:sha256:41bef33cb0be41c5da496c81bf95fa503873a9c931baa2ff7e460fb731405e3b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmODA1MDRmNjY5NGU3YzIwOGVkMDAzMmY2OWZmODIwZjkwNTY1NWMzZDA0MWZjYWY5MmU4YjZhYjA2ZDJmZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5MjllMGYyODU2NzhmMTM4NDU4M2YxNjE0MTE5NzM0NTc5NmY2MjM2NzEzYzFlNzBjZTFhNDIwYzE4MjUxNjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1YWFhZGY0MzYxMzk3NzJmOWEzY2Q3ZjIxYTNkOWViNjYxYTc0MjYyMGM2OGJmNWI5N2RkMDQxOGMwNzgyMTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlkNzU2ZDY3YjE2YTNlZjE1OGY5ZDI3MjAxYTk2YTUwNjJlNmJhOGI3OGMzODk2NWZiYWNmYTQ5N2Y3YjI5MjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b227490f5b54ba68e2d3f7eff2f1ca9",
+      "statement": "The component descriptor `docs/antora.yml` contributes component-wide AsciiDoc attributes: `app-name: nmecar`, `app-back: BackOffice`, `app-front: Site` for consistent product naming, plus `kroki-fetch-diagram: true` and table styling attributes; combined with `kroki-server-url` from the playbook this fetches Kroki-rendered diagrams at build time so generated HTML does not depend on the Kroki server at view time.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L38-L38",
+          "version": "repo-lines-v1:sha256:131f359f16f8849dc95970b5331331ec08b6866c12da193c272c59a92021abcf:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTMxZjM1OWYxNmY4ODQ5ZGM5NTk3MGI1MzMxMzMxZWMwOGI2ODY2YzEyZGExOTNjMjcyYzU5YTkyMDIxYWJjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTMxZjM1OWYxNmY4ODQ5ZGM5NTk3MGI1MzMxMzMxZWMwOGI2ODY2YzEyZGExOTNjMjcyYzU5YTkyMDIxYWJjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmNiZGIxN2Y1MmU3ZThlZDA0MmE4NjdmYTZlYjMxYjQwNDA4NTQxY2ZiYWVjMzIzMTQ0YzQwMGViNzJlZDAwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjVjNzAxNWU3NDE1NzE5ZTljZTczN2I1NGRlYzAwZGUxY2NlZDA0OTViNzM1M2VjMmNhZmUxYWQzNTQyNGE2YSJ9"
+        },
+        {
+          "resource": "repo://docs/antora.yml#L8-L14",
+          "version": "repo-lines-v1:sha256:865be86b4e382dfee7aaecd296c5b64190b5bc56bc19171c4fdede6a87c9c0e8:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ4Yjk0ZjQxMzYxYzBlMGJiOWNmNTc5NjhmZjkwODdkMzhhYmQzMDFmZDM0MWVkMTYzY2JhNDMwZjk3MTRkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMzE0NjBkZTc4OWNkOTg4ZTMxYTIzN2Y5Yjc3ZmI1NzZjOGU4M2FmYjZkMzEwZjZjMjE4ZTQ1ZmZkZGNmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg1Y2JhMzFjODVkMzgzNmVjNDEwZThmM2RkY2VlYTA2OGJmMGMwNjhhNmRiYjcxYWUwMTdiOGM3NTI3M2Q2ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTBjZDZjZmM4ZTM0MmI0MjQ2YjEwMjFmZDc5ODQ1MmVlMDBjNGQ0YmVjZmJmYmQ4YTNkOTkxOWEwNzAzM2VkMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_567d9f94376b4505bc8ce53f2eff499c",
+      "statement": "Navigation is assembled by delegation through partials: `docs/modules/ROOT/nav.adoc` declares the home page link then `include::partial$nav_main.adoc[]`; `nav_main.adoc` declares each section landing page (`xref:<section>/index.adoc[]`) immediately followed by `include::partial$nav_<section>.adoc[]`, and each section partial holds the `** xref:` leaf entries for its pages (with `***` for third-level nesting under the REST API page).",
+      "evidence": [
+        {
+          "resource": "repo://docs/modules/ROOT/nav.adoc#L1-L3",
+          "version": "repo-lines-v1:sha256:6ea93c0d1585b756badf3914ccbb7b7f8f53359427f14e52d7ace9538a289630:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2UxNmRmZjg4YTUwY2I2ZGEzN2MwMjcwNzNhYzkyOTM1ZTU1ZDU2YzVhY2MwNjRhNDAzMDA2MjBlMTBhODRiMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFlNzFkMTBlYzRiNjU2ODc4NjhhODY0ZDE2NjcyMDhjMGFmZGM2MWI3ODdhNzM4M2VlOTgwYzg4YTU0MDgyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/partials/nav_main.adoc#L1-L17",
+          "version": "repo-lines-v1:sha256:b4facce583fdad2557d57b5eaeaafaa1265f365655c0e220962cb4b56c67ca03:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZGQ3Mjc2MTA5NDI2MjUyMWZiMDliN2U2OTY2ZmQ1MDZkMTljMDQ5MmJlOTRhNDU2MDhiNTRmNjcwZmM2NzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkYzFlZmNhZmY0YTAzOGU4YzdlMDI5NDAyYTBjOGYyN2FmYTVhMzZkZTczODQ1YTJiYTcwZGJkODI3ODliNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/partials/nav_technical.adoc#L3-L4",
+          "version": "repo-lines-v1:sha256:b77d5a1ffd2490a0118d81f527261b333cddce0fcd7e64ce51fc3afdee0ca920:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI4MjZkYTQ0MmE0OWViNjcxNTYwMGJjMGI5OWQ4NTE2ODcwMzY1N2NmNjViZjk0NThiYjJkOWYzY2RmNzAxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjAwMTcxOTBmZjE4NDVlZjZmMTI0MTEzYzExODVmMTMxOTBlMDMxZTU0ZGVhMjZkMmM0MTU1M2EwMTY0MzE4ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWI0NzU0NWIxZjYwYTRhZTM4OTA5ZjQwMTllZGIxMWE0YjYwNmU5YTQyZTc5ODc1YzBhNDkxNDdlY2Q1ZDRkMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDcwYTljNGRiZmI4NWZkZWM3M2Y4NDZkNzA4OTlmNmIxYTU0ODZhNTRlNjY3ZDk4NmEyMTMyMTY2ZTRmN2YzMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5da83806ffb5412db99670d6f161fdba",
+      "statement": "When pages are added, removed, or renamed, contributors must update both `nav.adoc` and the relevant `nav_*.adoc` section partial together so the navigation tree stays synchronized with existing pages; skipping either produces missing/extra entries and `xref` build warnings.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L27-L27",
+          "version": "repo-lines-v1:sha256:084aba741c1217af304c8f12861560afa65cb769de2d97bab6f4b222878769c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg0YWJhNzQxYzEyMTdhZjMwNGM4ZjEyODYxNTYwYWZhNjVjYjc2OWRlMmQ5N2JhYjZmNGIyMjI4Nzg3NjljMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg0YWJhNzQxYzEyMTdhZjMwNGM4ZjEyODYxNTYwYWZhNjVjYjc2OWRlMmQ5N2JhYjZmNGIyMjI4Nzg3NjljMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzczZWQ5MGIxZTA4NTQ1YTYwZjk1NTVhYzc4MWE1NDE1MjM3M2EzNDJmZTNhZTQ0MDc0YmEwMzFkNzQ1NTc4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Q0ZDE3YThjMjBiYTgzODA4OWVhYjJiZTRhZTM1Y2JlODcwMmQyM2NjZTEwYTg0MTk4Yzk3YzJlMzRhYTZmNyJ9"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L57-L57",
+          "version": "repo-lines-v1:sha256:2b0c81a593eb626e5eda2e46512a42a82d67d2d1113bccad7f6919f907a21c38:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmIwYzgxYTU5M2ViNjI2ZTVlZGEyZTQ2NTEyYTQyYTgyZDY3ZDJkMTExM2JjY2FkN2Y2OTE5ZjkwN2EyMWMzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmIwYzgxYTU5M2ViNjI2ZTVlZGEyZTQ2NTEyYTQyYTgyZDY3ZDJkMTExM2JjY2FkN2Y2OTE5ZjkwN2EyMWMzOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjdjMzdiZGVhYmI5MTg2ZDQ0ZjhjMjNiMTA0NzYyNzA5ZWQzMWU4MDA3MzdiNmUxYzY4Nzk4NTAyOTkyMjgyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDBjMjU2ZDA5NGUwNTUxOTM2ZTFlMDgxMGY0OWNhZDVkZGE3OTExZWY0ZjNiYTYwMzM4YzAyNGI1N2EyNDg2ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_acbcaee357f442f4818173ffea3f9b9f",
+      "statement": "Authors must prefer `include::partial$...[]` over duplicating markup; reusable partials include `caution.adoc` (a CAUTION admonition referencing `{app-name}`), `sonarqube.adoc` (a full row of SonarQube badges), and the parametrized `sonarqube_badge.adoc`.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L58-L58",
+          "version": "repo-lines-v1:sha256:9992ab02332ecc2328aeef2d127477ec4fbeb90d7fa80279c6005c7f18c57644:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTk5MmFiMDIzMzJlY2MyMzI4YWVlZjJkMTI3NDc3ZWM0ZmJlYjkwZDdmYTgwMjc5YzYwMDVjN2YxOGM1NzY0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTk5MmFiMDIzMzJlY2MyMzI4YWVlZjJkMTI3NDc3ZWM0ZmJlYjkwZDdmYTgwMjc5YzYwMDVjN2YxOGM1NzY0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzI5ODM5ODEwZGQ0ZmVlNzQwNjI5NWVhYzI4NmQxNWNkNDkwYmIzZDA2M2NjYjk2NjhjMzM2NGVjZThjNjNkMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTVhNWIzZWNiZjVjYmY2ZDk3ZDNkODBjZjExNzNiODg3MTgxNTkzNzc5YWJlMjc1ZGU0NThjMjA3NTNkMGNhYiJ9"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L58-L58",
+          "version": "repo-lines-v1:sha256:62b9a88d760aa99a0d9f66f038e4ca80052a077c713dd4a09d68dda6598d58a1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjJiOWE4OGQ3NjBhYTk5YTBkOWY2NmYwMzhlNGNhODAwNTJhMDc3YzcxM2RkNGEwOWQ2OGRkYTY1OThkNThhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjJiOWE4OGQ3NjBhYTk5YTBkOWY2NmYwMzhlNGNhODAwNTJhMDc3YzcxM2RkNGEwOWQ2OGRkYTY1OThkNThhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzg2NjRlZWNkMzNlNDZhNTIwMTU1NjJjMTNlMjdhYTAyMGI4NmU4NTNmNTMzMGVmOTRlZmFiZjUxZTg2OGUxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWNmMzZlMGJhZWIzZWQ0M2I4ZjVmZTdhODE2NTkxMWVmODVjNmIzMGI2ZTY1MzI5MTMxYWMwZDhhYmVlY2EyMiJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/partials/caution.adoc#L1-L1",
+          "version": "repo-lines-v1:sha256:4491aa065a1c473043b2e520b1996066642213f1e4de556732aac7b24e2f3e2d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDQ5MWFhMDY1YTFjNDczMDQzYjJlNTIwYjE5OTYwNjY2NDIyMTNmMWU0ZGU1NTY3MzJhYWM3YjI0ZTJmM2UyZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDQ5MWFhMDY1YTFjNDczMDQzYjJlNTIwYjE5OTYwNjY2NDIyMTNmMWU0ZGU1NTY3MzJhYWM3YjI0ZTJmM2UyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d78dc65fe8c54741a22c1ffceab60750",
+      "statement": "`sonarqube_badge.adoc` is a single parametrized badge image URL built from `{sonarqube-appId}` (playbook) and the caller-set `:sqb-metric:` / `:sqb-metric-caption:` attributes; `sonarqube.adoc` drives it by redefining `:sqb-metric:` before each `include::partial$sonarqube_badge.adoc[]`, producing distinct metric badges (bugs, ncloc, security_rating, etc.) from one template — the `:sqb-metric:` attribute must remain intact when editing.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L79-L79",
+          "version": "repo-lines-v1:sha256:e07d6dc318730e118aad4ca9c927a65f851d89c6d7ae5de28c3ccefd6c0a588b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA3ZDZkYzMxODczMGUxMThhYWQ0Y2E5YzkyN2E2NWY4NTFkODljNmQ3YWU1ZGUyOGMzY2NlZmQ2YzBhNTg4YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA3ZDZkYzMxODczMGUxMThhYWQ0Y2E5YzkyN2E2NWY4NTFkODljNmQ3YWU1ZGUyOGMzY2NlZmQ2YzBhNTg4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTNjYzU3NTY5MjQxMjA1ZTI0OWI2NmY4MzAxNjIyMDZjMDcwZDYzMTAwYzIzOWRhOGQzNTMyNzFjNzkwNDU3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWUxNWY2MTIwNWQ5M2E5NGM2MWNmNjFhODZhNTA4ZjA3YzBkMTA4NTA2NmRhNDZhMzMzYmUyY2E3NjFiNjYyYiJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/partials/sonarqube.adoc#L1-L43",
+          "version": "repo-lines-v1:sha256:035a6021e978e4e46f3e2f23b301f53167b54cac79c8346c9ec45e760d2692fa:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyMjNhMTZhMzY3YzEzOGJlNjlkOTI1OGQzMDFlMTdjYzQ5NGJlOWRlZTQwMTFkZTliNWNiZjEzNWFiNjQyOTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzODQ1NDg2NzBlYzNjZWI4YzQ1NjM2ODcwMDM0YTVhZDk4NGYzNjJlMGRmNTEyZjNiZGNjYmNmZTUyNDEyNGUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/partials/sonarqube_badge.adoc#L1-L1",
+          "version": "repo-lines-v1:sha256:3f960f6a967d61386a8efd82e92008a35610ddaa3ba30e8dbdd44da71750b2eb:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y5NjBmNmE5NjdkNjEzODZhOGVmZDgyZTkyMDA4YTM1NjEwZGRhYTNiYTMwZThkYmRkNDRkYTcxNzUwYjJlYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y5NjBmNmE5NjdkNjEzODZhOGVmZDgyZTkyMDA4YTM1NjEwZGRhYTNiYTMwZThkYmRkNDRkYTcxNzUwYjJlYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8189da9aaa8c4eb39a54ed726e05c27e",
+      "statement": "Cross-references use `xref:` with stable Antora IDs (`[[anchor]]`) rather than hard-coded URLs; filenames are kebab-case, ASCII-compatible, `.adoc`-extension, and all content files use UTF-8 encoding.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L59-L60",
+          "version": "repo-lines-v1:sha256:e8ee5a60b735865426471a4c3526511d48c64191f46bc77fc1777b93da9c1719:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA0ZjAyMGE5YzZhNGFkZGEwNDgzY2M0OTdjMmJiMWQxZmUzZjkxM2ZjNzJlNjllMzhjNDdkZGJiZThlZWVjYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGRhYTljOGUyNTY1ZGYxYzNlMjNkYmE0MmNiYmEzNTViOTA0YzMxYzM2OTQ5MzNlZjBmZTY5YWJlMGI5OWRjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjcyYzMzZTk2YWIyYjVmZGQwODIzMDU4NTJmZTg0NGRkM2RmYjAwMjg4M2ZhYTViMmMzOWNmZDhhZDYxZjVkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjFjYjY3NWQzYzE1NjE0NDY2NWIxM2Q5YTgyYTBmODRjOTdmN2EzYWI1MTExMzlmZjIyY2YwODA0ZjAzNTU0OCJ9"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L60-L62",
+          "version": "repo-lines-v1:sha256:ba088e8cc483e1fbc8ccc4ef2c579cc40657f7d322363770cca4440196662ae8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzkxNzY4Y2VmYTA3NjljM2MyZDJjYmQwY2RmMDUyOGUwNDQ5N2JjMGM4ZDA1Nzk4MTA5ODBiNzJiYjk3MzJlZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcwMTJlZjE1YzAxZTA4OGVjMDg4MDliYjg2NTNiYjFmYzc0ZTNiZDg5YTZlYWQzMzc1NTFkMzE0MWQ3ZDY4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWUxMzA2NmVmNGJlMTQ1Yjc5NGU5ZDBjNjNmNzQ5N2Y1ZTllNGUyN2E3N2RiOGIzMzQ5YTVhMmJmYTg3MDk3NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGY1MDg3ZmY0OTc3M2MwNzY3YWU4OWM1NzNhZmJmZTE5MjAyMjJkODZjODk4YWZlNDQ0OWI4N2Y4NjRlZTY0YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_970995cd9ecd415ca5375acde9cd8d21",
+      "statement": "Text-based diagrams (PlantUML, Mermaid, Graphviz, BPMN, C4) are committed under `docs/modules/ROOT/pages/**` or `specs/diagrams/` and rendered via Kroki directives (with `kroki-fetch-diagram: true` fetching them at build time); static images go in `docs/modules/ROOT/images/` referenced via image macros with alt text and captions.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L29-L30",
+          "version": "repo-lines-v1:sha256:6e2c8c51375a783ca527da0a0b16926589b26d7adc8f601f9f2e41e3f351ae84:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDcwNGU1YWQxYmE4ZWUyM2U2ZDdmNTg3MTFlZTI1NjgyYTllMjhkM2JjMjZiMDM1YmRlYWRjZmJiMGY3ZTdkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y4YmUyNDczNTM5ZDkxOTJjYWUzZjYwMmQxMDQyNDY4MThkNmMxZDk0YmQyMjEwOWVkYTdlOWYwYTgwODFjMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTk3M2E0MTM0ZDYwYTE4NWJjMWQ1YjZkNmEwMTE1MDUyYTlhY2YxYTk0YTY4NDIwMjEzY2UxNmQwYjQ2Yzg1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmVmZjMyMmM2NmNjZTFmNGRmMGJlNDk1ZWJmNTU4OTQ4MWZlNzhmNzAyM2RiMTAwMjMxZTdmN2QxYTYyODRmYyJ9"
+        },
+        {
+          "resource": "repo://AGENTS.md#L62-L62",
+          "version": "repo-lines-v1:sha256:b66ff1a2cf7e9721d039f46affa48f82911dd5da13dc5c6fba708f8df60a1d47:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY2ZmYxYTJjZjdlOTcyMWQwMzlmNDZhZmZhNDhmODI5MTFkZDVkYTEzZGM1YzZmYmE3MDhmOGRmNjBhMWQ0NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY2ZmYxYTJjZjdlOTcyMWQwMzlmNDZhZmZhNDhmODI5MTFkZDVkYTEzZGM1YzZmYmE3MDhmOGRmNjBhMWQ0NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTVhNWIzZWNiZjVjYmY2ZDk3ZDNkODBjZjExNzNiODg3MTgxNTkzNzc5YWJlMjc1ZGU0NThjMjA3NTNkMGNhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2UwMTY0MmY5MjEzNmJjNDA3MGJmODZjOTllZWFhNTk2MTQ3ODIwYmVlNmI1NmQ4MDExOGUwMWY0ZDhlZjU4ZiJ9"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L59-L59",
+          "version": "repo-lines-v1:sha256:7fe0726204f201c5193a675f48fd993f77b4ad4334ef004649c7ced4e90110ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZlMDcyNjIwNGYyMDFjNTE5M2E2NzVmNDhmZDk5M2Y3N2I0YWQ0MzM0ZWYwMDQ2NDljN2NlZDRlOTAxMTBlZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ZlMDcyNjIwNGYyMDFjNTE5M2E2NzVmNDhmZDk5M2Y3N2I0YWQ0MzM0ZWYwMDQ2NDljN2NlZDRlOTAxMTBlZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTZiNTYwOWE1NjE5MTg1NzI4MWFhNmVlNzU5ODkxOGZkNzFhN2I3OTNjYWVhMjY3YzI0NTk5ZmE5MzQ0NWMxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmEwODhlOGNjNDgzZTFmYmM4Y2NjNGVmMmM1NzljYzQwNjU3ZjdkMzIyMzYzNzcwY2NhNDQ0MDE5NjY2MmFlOCJ9"
+        },
+        {
+          "resource": "repo://docs/antora.yml#L11-L11",
+          "version": "repo-lines-v1:sha256:91e0690cf9f95bbd27b9c7459aeccc666c8722975f4e370e633a5932f79a9a88:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTFlMDY5MGNmOWY5NWJiZDI3YjljNzQ1OWFlY2NjNjY2Yzg3MjI5NzVmNGUzNzBlNjMzYTU5MzJmNzlhOWE4OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTFlMDY5MGNmOWY5NWJiZDI3YjljNzQ1OWFlY2NjNjY2Yzg3MjI5NzVmNGUzNzBlNjMzYTU5MzJmNzlhOWE4OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWFhNTQyNzk3MmZmN2ZkMDgyODA0MzI4YTA0YWVlYzdmYTkzZDViM2JiNWQzY2UzYjI5ZmM1MzBjMThiZTQwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmUwNDg2YjdmYjBjNzk1OTEzZWIzY2ZhY2Q3OGM2ZDAzMjEwNTcxNDg2NjMzMWZkN2I2MDZmMGJlZTlmNTc2ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_18ec884bb93046878f780c489f9075e2",
+      "statement": "Documentation versions are treated as feature-level releases (`1.0`, `1.1`, `2.0`) rather than patch-level releases unless patch-specific docs are explicitly requested; the current component descriptor declares version `2.0` (`docs/antora.yml`), and the release-notes section carries a page per feature release (`2.0.adoc`, `1.1.adoc`) surfaced via `nav_release_notes.adoc`.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L18-L24",
+          "version": "repo-lines-v1:sha256:2f4a6492aa4a1b763d75b96c82cbbe614fe448e00a87eeefd5d4b617471b18cc:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U2ZjIwZWI2NDFmODZhNGI5NjExZTQ4M2Q2OWU3MDdmYjNlMDA3YzE3YTNhYTM2NGY4OTg0YzAzYzYzZTQ0YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmQ5OWU1NTMxYzFjOWNmMDYxMWUwZDYwMzM1ZTZlOTJhNjE0YTU0NGViN2ZkYTA5YTI4N2I3ODhiZmJiNzVhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjk3MjNlNjZjNWE0MmE0Y2RmNWI2MTU4ODQ2MGE4OWQ3NDEwNzRiNjA5ZjYwZjAwNzFiNjBlOTNiMzg5NWNjMSJ9"
+        },
+        {
+          "resource": "repo://docs/antora.yml#L3-L4",
+          "version": "repo-lines-v1:sha256:6c5e7ee2f72e23c40d8706035c5df24624756bccf0a38eca87123194494bb151:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q5ZTc1YmIxMzc1ZmQzNWM2MTczMTJhMjZhMjI2MzI0NDMwMGQ5MGM1ZDc4MzQ4NzQ5N2Y5MzJiYjc4YjhlYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU0OTU1YjA4MGI1Y2Y5MTJhZmY3ZTI1MGY2ZmVmMTFjY2YzOGM0YTQ3ZTc4ZmU0YjE3YzFjYjVkNjlmMzA1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTQ1YzE2YzZiMjIwMmZjODc1MjA0NjA0MzkwNzYzZWZlNjZlNmExNjZmZDM3MDdlNWM1Yjk1ZWJlMWEzYTIxOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTg1Y2JhMzFjODVkMzgzNmVjNDEwZThmM2RkY2VlYTA2OGJmMGMwNjhhNmRiYjcxYWUwMTdiOGM3NTI3M2Q2ZiJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/partials/nav_release_notes.adoc#L1-L2",
+          "version": "repo-lines-v1:sha256:a3a72639bece005c13276dc653e65069e8edf88a63ec0be816d83e959770f70f:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYxMjQ3ODliODczOGRhOWU3ZDIzMWNkZjU1NDQzYjVmOTE5NmEwMjE5ZjE1ODEyNTg5YWIwNTVkNjc3MjNkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQzOWI5ZjVmYjc5YjAxMjVhYzhlYTg5ZGI0MjBhYTQ2ZmMyYWQxNjZjYjQwMmFjMGQyYmQxMWFhOThmYmJhMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3c3f60b43fb245daa58853d29f9415b3",
+      "statement": "Versioning invariants: preserve the previous released documentation state before introducing a new versioned set; keep the active working line explicitly versioned in `docs/antora.yml` (never leave the component version unset once version-oriented documentation starts); and for each feature release add a release-oriented page plus update the affected functional pages, not only the release summary.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L20-L24",
+          "version": "repo-lines-v1:sha256:f1b3fe64a2c6d1788960cb89e431095fe498e00c4ca24f23730554a6f2195705:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTgxNGUzMDc4Y2VhYTc2MDkyODkwMWJhYmM0YWEwN2ZiMDg4NDZhMDdmNmQxZjU0YzgzZjdkOTI1NjEwYWViMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjAwZWI5ZTlkZjg2NzUzMjQ0NDczODhkYWM0NWY0OThlNzQ0NDZkY2Y4N2YxMGRhYmEyZWNlMTNhNGMyYWI3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjk3MjNlNjZjNWE0MmE0Y2RmNWI2MTU4ODQ2MGE4OWQ3NDEwNzRiNjA5ZjYwZjAwNzFiNjBlOTNiMzg5NWNjMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_381cfad81ee8499fa9cca461502d1beb",
+      "statement": "A merge-ready change must build cleanly with `npx antora --fetch antora-playbook.yml` producing no unresolved `include` or `xref` warnings; the review checklist additionally requires nav entries point to existing pages, breadcrumbs/sidebar render correctly, Sonar badges remain parametrized, and code samples live under `modules/ROOT/examples` with language annotations.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L76-L81",
+          "version": "repo-lines-v1:sha256:a0d92123a1881988c560c0b00cb29032d13986fcc93b3d38314d19eacc4d8b4a:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDk0OTc0ZDMyNDM4NGJmMmVmZGRhNmRkZTE0NTZkYjQ0ODkyZjYzMWFmNjY4MzA5NzIyM2Q5NzA0ZDA4OThkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTQxNTQxYjk1MmMwN2FhYWI1MGY0OTgyYjcwOGMwZWJiMzE2MzU1NDNjM2MyMjZjNTVmMjgzNmM2YzVhZjU4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2IzM2UzZjFjYzRjY2ExZDM2M2EwMjE4MjUwM2JiNWNiYjMyNzg4ODhjYzc0OTZlMTAxMTQ0OWYwY2VkYTdjMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTcxNjRmNzI3ZjhjYzE4YmMyZjkwMGYwYzc0MjkyZWVmNzU1MDRhY2Q3MDEyM2NmNzFiNjY2OTYwNDNhMjZiMSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

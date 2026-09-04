@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:a9c65a9ea6872af90b06e5dafba7cb9b863e63f41c5a53a98544cc838d7235f5",
+  "claims": [
+    {
+      "id": "claim_e612bad6a66943978d440605d53b20e2",
+      "statement": "The docs site build is a two-phase npm script chain: a Sass theme compile (`build:theme`) runs first and is chained via `&&` before the Antora run in both `build:site` and `build:site:fetch`, so the theme compile is never skipped in the normal workflow.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L16-L20",
+          "version": "repo-lines-v1:sha256:997367c3c6ebef052d023dac5c4b0009dd22cb887195c0bf16a6d52e6f4434fb:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDRmYzQwYWUyOTgzZjFjMmQ4Y2QyOTRiZjNmZDg0ZTE1NDkzZmQ5MzY3ODA0ZmVlNDI1OGEzYTQyZDQyZDdlZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmNiNTY3YjkxNjA5MzkxYTc1MDNiMzJkN2ZmZjU4ZTlhODQ5MjE1MjdmNmI5NjVkOTY1MDFiY2U5MGJiN2NhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGY3MzlhMDZjMWNiYjEyNDRlMzM2M2QzOGJjZjlmYTUwY2U4NGZlZDM5OWMyMTkzYTNjN2YwOGQ1OTkxOGIyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_90a5719a43bb457e9696eb16f7c6f924",
+      "statement": "`build:theme` compiles `theme/site.scss` (a `@use` aggregator pulling in vars, base, nav, doc, components, and other Sass partials) with `--no-source-map` and writes the result to `supplemental-ui/css/site.css`, so the compiled CSS lands in the supplemental UI overlay that Antora packages rather than in the theme source directory.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L17-L17",
+          "version": "repo-lines-v1:sha256:c38f0377c1c91c898b8fed68aecba9715b1891782b39798295232d405b110111:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM4ZjAzNzdjMWM5MWM4OThiOGZlZDY4YWVjYmE5NzE1YjE4OTE3ODJiMzk3OTgyOTUyMzJkNDA1YjExMDExMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM4ZjAzNzdjMWM5MWM4OThiOGZlZDY4YWVjYmE5NzE1YjE4OTE3ODJiMzk3OTgyOTUyMzJkNDA1YjExMDExMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzJlODg1ODAyMjQ5ZWNjNjdiYWVkNjE4NDczNDc5YjY1M2JiM2E4MjkzMjZhYjNlM2I3YmVjYWY4ZmY1ZWQ0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Q0ZWM1OWFhY2FmMTEwZGJlMGRjZGFhZDczMDFiMTY0YzVjODc4ZjE5MzU0ZjEwYmVmY2I0NGZkMTUzMWJmYyJ9"
+        },
+        {
+          "resource": "repo://theme/site.scss#L1-L18",
+          "version": "repo-lines-v1:sha256:2b4779355adb04c234caac08facd309c758eef63b9df640a5a223cabcdebd706:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0ZDRmZjRlNmZlMGViZWJjNDRlMWU2Y2VhYzExOWY3MmJmMjcxYzUxZTcwOTY1NDE4NTcxODlhYzZlOTgzYjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyOGVlN2U5N2Y4ZjA0NDRmMTUxNTk0ZTA5YmY4Mjk5MWI1Mjc2MGE0MmZjOGI4ZTUzMGU3Nzg3MDdiNTNlZjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df5c51d0a8b545c0afc4bf5fbf06c099",
+      "statement": "`build:site` (`antora antora-playbook.yml`) and `build:site:fetch` (`antora --fetch antora-playbook.yml`) differ only by the `--fetch` flag; both compile the theme first and then run Antora against the same playbook, reading the same local content source, vendored UI bundle, and supplemental UI overlay.",
+      "evidence": [
+        {
+          "resource": "repo://package.json#L18-L19",
+          "version": "repo-lines-v1:sha256:ab42ece6b3eb3e901ce9467406737da1e59a50caed9550cff01117fdd2d0ffb3:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRiODQ3MDk1NWQ1OWE2NDQxZWU2ZmUwNzEzNTA5NGFhNzlhZTU1MTczYTdiNjUzYTgzMDM4NGFlYWYyZmVhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjU3YTllMmFiNDc4ZTEyN2RkNzc4MTI1NzBjMmM3Y2FkNWE3ZGEyNzNiOGMwYmY0ZDE0NzFiZjNiNjkyMmRjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWFlZGE0OTU1NDIxMjIwZjU2ZmE2NDgzY2YwNWRlM2E2ZDhlZmY4OTY3MGExZWQyMWI0ZDFjY2Y3MGQxYWM1MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDEwYzUwNWRjOWI1NDNjODQ4MWJlYmQ4YWU2YWU3NjkwZTczNzVkMDdkNWVmOTIzMmU1YjNmNTU0ZTYzNjg2NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_76d2f593fbc3493a99a196f95f7c0a18",
+      "statement": "The Antora content source is the local working tree at `HEAD` (`url: .`, `branches: HEAD`, `start_path: docs`), so uncommitted edits under `docs/` are included in the generated site without committing to `master`; `content.edit_url: false` means the site exposes no edit links.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L13-L19",
+          "version": "repo-lines-v1:sha256:3740c4248cef1209f6115242b5ffbd83b0215b2bba14e10d5240739a46d9f3d2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTNiNTExYTZkMDc3ZDBjNmQyZmFjMWY3MWY4ZTk0NGRiOWExNWRiODQ4ODcxNzAzYWQ3NTk1MzBmYWJkODM4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY0MTJmMzRjMmYwYTc2NDY3MGU5M2YzY2UxNjI5YmU2YWVkN2FlNTBkNWFjNWVmMGUxYzkwYjM1OTI5NmU0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQwZDIyNGE3ZjZiMjRjZjFjMGFhZWY0MGUwY2UxY2ZhNDRkN2Q3ZTg5YmZmZjUxZWFhNjQ3NGEzZTBlMzQwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQ2ZjUxMzZhZTlhNTgzZTE2ZGE2MTMxMmY5MTkwNWY0MjY0YzdhNzMxZjdhMTFkYjA4ZjcxOGZiOThhYjkzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5ccae296cfc14c1982f451dd76ae26cb",
+      "statement": "The Antora UI bundle is vendored at `vendor/antora-ui-default.zip` and referenced by `ui.bundle.url`, so a standard `build:site` does not download the default Antora UI from GitLab on every run; `ui.supplemental_files: ./supplemental-ui` layers the repository's own CSS, partials, fonts, images, and scripts on top of the vendored bundle.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L21-L24",
+          "version": "repo-lines-v1:sha256:e6c11da243970fd114c1848c9817b5cb53d2b5508daf452132c88124ce509778:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzZlMzlkMTdkMjM5M2VhM2RmNTMxMTJjY2M3NGY2ZWE1MTlhNzhiZWU1NTFkNDRiZjZhMzBhNDM1MjQ1MGJhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTcxNzU5MTU2MDRkNzhkM2M3MmExMDY2YjYyNGY4ZTI4NGRmYzAzYjMyMjlhYTc1NDBhNzMwYjBkN2IwOTExOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjEwOWJmNjZjMmU0Y2MxMmYwZTk0ZGY2ZWE5MjA4MmM0MDRkYjZmN2M2MjZkYzdhOTA3MGY0NmMxMjczMDg5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzVhYWFkZjQzNjEzOTc3MmY5YTNjZDdmMjFhM2Q5ZWI2NjFhNzQyNjIwYzY4YmY1Yjk3ZGQwNDE4YzA3ODIxNCJ9"
+        },
+        {
+          "resource": "repo://vendor/antora-ui-default.zip",
+          "version": "repo-file-v1:sha256:af43ace86d98f4e76ebea77f1e1345d880a5ec3bf88ce002214cfb45726fafc2"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e3a9ed69df14c59aef827fbd3e972c6",
+      "statement": "Kroki is the build's real network dependency: `asciidoctor-kroki` is registered in the playbook with `kroki-server-url: https://kroki.nmlabs.gr`, and `kroki-fetch-diagram: true` in `docs/antora.yml` makes the extension fetch and render diagrams from that Kroki server at build time into local image files; this fetch runs on both `build:site` and `build:site:fetch` because it is driven by the document attribute, not by Antora's `--fetch` flag.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L26-L41",
+          "version": "repo-lines-v1:sha256:ed3d07bb6de976ad8a659c568ef4c552fedfd16c869300f24ad546eecbe47a9d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkOGI5NGY0MTM2MWMwZTBiYjljZjU3OTY4ZmY5MDg3ZDM4YWJkMzAxZmQzNDFlZDE2M2NiYTQzMGY5NzE0ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNGYyZmIxMTAzNDg4MTg4NTg4NGM1OTFjZDcyZjJkZTU1MjE4NmY1ZWI3ZTUyNjQwMDUxMDhkOGJiMDFkMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmMjBiZTQ3OGM0YjgxZDI2N2I3MTllN2NmMzhmY2EzODg0OThkZTRmMmE3MzQ0NDQzMzQ4ODc3ZDM3MTUwZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc5MzYyZDdlZDljYTJmOTQ4Y2Y5NDVhZTNiN2I1Y2RjYzFhNjI5NWViZjJkNTI5MWY2MzJlNzMwN2EwNjJiYzgifQ"
+        },
+        {
+          "resource": "repo://docs/antora.yml#L12-L12",
+          "version": "repo-lines-v1:sha256:986aedaca097a822fbd1fbdc2fe968492bedc7a0964db7fe6b8d570eb2e37ec7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg2YWVkYWNhMDk3YTgyMmZiZDFmYmRjMmZlOTY4NDkyYmVkYzdhMDk2NGRiN2ZlNmI4ZDU3MGViMmUzN2VjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg2YWVkYWNhMDk3YTgyMmZiZDFmYmRjMmZlOTY4NDkyYmVkYzdhMDk2NGRiN2ZlNmI4ZDU3MGViMmUzN2VjNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGRlMmQ2YzliMzIyMWE1ZWFlOWRhMDg4MzIyMmRmNTVlM2ZiNDg1ZmNjZWZlYmNiODM3OWU5NTU2NTc3NGNkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDIxNDgxNzQzYzRmMmZmM2Q0OGQxZTU3MzQxY2RmM2QwYzA2YmY1NzFhNDJiMWQ2OGFmOTM1NTU3NTMwMjUzMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_892df21c6c0145adbd6e7360e6e89b4f",
+      "statement": "The `@antora/lunr-extension` builds a client-side search index at build time configured for bilingual English/Greek (`languages: [en, el]`) with `index_latest_only: true`, backed by `lunr-languages` 1.14.0; the generated site wires the search UI through the `search-scripts` partial, which is gated on `env.SITE_SEARCH_PROVIDER` in `footer-scripts.hbs`.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L43-L47",
+          "version": "repo-lines-v1:sha256:1ee6ee43716c5cecc0edd41ab6722934ecb1c4146bb0dacef3bef0a32e480af1:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZiM2VjOTIwOTliMDc4Njc2MTg1NzA2MzZiOTM2OTE5NzBiMzU4YzQ1N2MxZGY1Y2I4MTQ0ZmE5NjFlODgyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNiNzBmOTk4MzJjMWQyYzFiY2JlODg1MzVmZWFlYjNjYTYxNzk2OWNkYjdlYzFhZWRlYWM4YmI4ZTkxMmM1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjhlY2M1MWQ1NTIwZWU3ZTFjNDRiNzQ2ODIyOTBmYzUyN2VkYTc2MTQzYzFiZDJjNDc2MWIyOGI0MTZjOGE0NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://package.json#L3-L11",
+          "version": "repo-lines-v1:sha256:98d83fc3fa907ae1f13213fb859c89ff6ed84042eecfdfc8b88ccbe1fb1387e1:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRjNGRlN2VkMzVhMjMzNjQ1Mzk4NjRkYWRiOTM4Yjg3MjMzMzc5MTc5ZDYyOTJiOWZmNWY2MTlhNmMxMzE2NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGNmYjUyYjNjODJlYzE2OWU4OGQzODE1YjQ0ZDNkMDk0MTJmZGIxZDUwYmE2OGE5YTA1MjBlZWEwMWJmNGNlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Y0YjFmNGYzOWJhMTNiMWNhMDJiN2U2ZmRlZGNhYTI0OThlNzJhOWVjMTQzNDgzZTc1YzYwNzAxMjNhNzEzNyJ9"
+        },
+        {
+          "resource": "repo://supplemental-ui/partials/footer-scripts.hbs#L4-L6",
+          "version": "repo-lines-v1:sha256:7666ccb8ae658a075069b1c5f67424869e33852241255eaec0e0dad331a429b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY5MTA4YWU3YmQxMWVmNDFiZjZiYmMwNTQyNTM1OTI3YWY5ZjM3ZjBhYjExYmZjNDBlMTMzYTViMjQ1MzIzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTQ2YTkwMDIxMzVlZTliOTY1NzQ3YzVmNGUxYTc1NGQwOTgzMTRhZDM2ZGRmNDQ3M2VmNmI1MmM4MTEyYTYxZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDNjZjU0ZWY0MmRlMTRiNmIzOTc0YTA5ZDRmNWNmMzFmODIxOGZjMWFjMjAzYmFmOTIwZGM2YjJjMDM5YTkzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3748034844514962856e4e5e8cd57378",
+      "statement": "Antora writes the generated static site to `./build/site`; the `preview` script serves that directory with `python3 -m http.server 8081 --directory build/site`, so Python 3 is an optional prerequisite for local preview; the published site URL is configured in the playbook as `http://carrental-docs.nmlabs.gr` and is used for deployment metadata, not by the local preview server.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L37-L40",
+          "version": "repo-lines-v1:sha256:c48498cf7ec2331cd10c4e0f1c788ad4fa27120d5bcec26a8002888381bb3d33:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNkYWEwYzA2NGZjYWQ5NjI4MzgyYjhlOGVjMDY0ZGUxM2NlM2E3OTlhNDkwZDQwNmI5M2E1ZGMwYzUzMTYxYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjgyYWI2MTEwOWNkNzdlZmE1OTZhNDdjYTE3NDgzYzlkOWNiOGVmNGM5NDBkNzI5MTY3ZDc3ODczOWQwNTg5OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWVlYmExZDQ1MjJmZTEyNDE1OTI0MmI2NWFmNzgxNTRjYmNkZjZhMjIyYWFiMzdkMTFkMTZjYThlZGE1NmZjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmI0MjQzNDNlN2Q1ZTc0ZmM3OTJiMDU0OTNlNGM1NTcxYjljMTljYmZiYTk1YWY3ZThhYWNiMDE2ZGYwMWQwMSJ9"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L1-L4",
+          "version": "repo-lines-v1:sha256:91e9155ba4980d7b57eeeb9dc86f057fa27ab0d450f64f0369186d236b2a4248:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGFmZGFmZTQwNDIyMTEwZGRjMzBhYzc1NjdhZmU2NWE1MDljMDcwYjVmZWU2MTg0ZGQ3Y2Y1NDAxZmU3ZGJmYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZThmZWI4MDkzMDUwZmQxOThhZGQzNTAwODcxNzNhMDdhNTZhMmY1ODVkOTZkNzBlMzcxYjkzNzI4OTYyZTMyMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWYxMDk5YzQ0ZmE2ZjNiYjhlYjhkZTlmNjE3ZTk3NjQ4MjJkZjBkNTQ4NTNjMjA2NDQ1YjIxMzhmNTdhM2UxMCJ9"
+        },
+        {
+          "resource": "repo://package.json#L20-L20",
+          "version": "repo-lines-v1:sha256:44fc40ae2983f1c2d8cd294bf3fd84e15493fd9367804fee4258a3a42d42d7ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDRmYzQwYWUyOTgzZjFjMmQ4Y2QyOTRiZjNmZDg0ZTE1NDkzZmQ5MzY3ODA0ZmVlNDI1OGEzYTQyZDQyZDdlZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDRmYzQwYWUyOTgzZjFjMmQ4Y2QyOTRiZjNmZDg0ZTE1NDkzZmQ5MzY3ODA0ZmVlNDI1OGEzYTQyZDQyZDdlZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTFmYTA0ZjYxMWU5N2QxMGY4ZWYyMGFiNGQ4ZmZlNDk2NDEzZWRlNGQzMzU2ODhiZTc3ZGUxNWIzYmNlZjhlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGY3MzlhMDZjMWNiYjEyNDRlMzM2M2QzOGJjZjlmYTUwY2U4NGZlZDM5OWMyMTkzYTNjN2YwOGQ1OTkxOGIyYSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

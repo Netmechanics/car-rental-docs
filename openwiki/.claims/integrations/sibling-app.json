@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:96cba8fa1644d36ca438b552c845bf7fa79730dd287bdc9be00dd6eec6184b37",
+  "claims": [
+    {
+      "id": "claim_f7d5f52ed5fa4083979e7e380544fc7c",
+      "statement": "AGENTS.md designates the sibling application repository at /home/maravelias/repos/car-rental/ as the primary source for implementation truth and release-change discovery, while the sibling docs folder /home/maravelias/repos/car-rental/docs/ holds product, reporting, business, release-process, and branding notes consulted when enriching the documentation site.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L14-L16",
+          "version": "repo-lines-v1:sha256:52c1234ae656a0b2f6baf30ef3047c954e7a9a1d7808c7b62b5d2dbaa25c7ea9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzljZjQxZWE5ZmYxN2E2OTkzMDE5MTQ0YzQ1MjEwYzgwZGFmNTkwNTFjYzNhMmFhYWU0MWY5YjAxMjdjYzU3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkOTRjMDI5YTEzMTZhNDQyNmE4Yzk0YWY2NzA1YmYyZjdmNDhjM2Q4YzM2ZThmOTkyZTU1MWU2NmFhM2NiZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmEwZTM4MGI0MDZkMzFkOTA0OTFlYWQwYTgwNjM1YTkxMDFhMjQ1Mzc2NmUxZTIwYWIxYjZlZDlhMzExYjVhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjAwZWI5ZTlkZjg2NzUzMjQ0NDczODhkYWM0NWY0OThlNzQ0NDZkY2Y4N2YxMGRhYmEyZWNlMTNhNGMyYWI3ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1b98dec252c149bfbbcaea8b86d1d5fc",
+      "statement": "Historical implementation details for the baseline release live under /home/maravelias/repos/car-rental/docs/v0-1/, including brief.md, plan.md, stakeholder-release-note.md, tasks/**, and implementation/**, serving as the baseline consulted for original intent and inter-release change understanding.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L16-L16",
+          "version": "repo-lines-v1:sha256:e3d94c029a1316a4426a8c94af6705bf2f7f48c3d8c36e8f992e551e66aa3cbd:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkOTRjMDI5YTEzMTZhNDQyNmE4Yzk0YWY2NzA1YmYyZjdmNDhjM2Q4YzM2ZThmOTkyZTU1MWU2NmFhM2NiZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkOTRjMDI5YTEzMTZhNDQyNmE4Yzk0YWY2NzA1YmYyZjdmNDhjM2Q4YzM2ZThmOTkyZTU1MWU2NmFhM2NiZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjliNTIyNTBmZTYwMzE3YmY0NWZmYjVjNjc0MDllNmFhOGViYTczMjQ5MTI1YTAyNjlmMWE0MTlkYzA3NmIxMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjAwZWI5ZTlkZjg2NzUzMjQ0NDczODhkYWM0NWY0OThlNzQ0NDZkY2Y4N2YxMGRhYmEyZWNlMTNhNGMyYWI3ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ec8ce6f5ad9f4e3aa14cf662f2c29cb5",
+      "statement": "The documented authoring workflow is to consult specs/ first for requirements and intent, then the sibling car-rental app repo for implementation details; when behavior is ambiguous the application is the implementation source of truth.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L13-L15",
+          "version": "repo-lines-v1:sha256:69b52250fe60317bf45ffb5c67409e6aa8eba73249125a0269f1a419dc076b10:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3ZmU1MmQ1OGQxNzM5MTE5YjY0NGFkMDY2NzJhZjVhOTc4NThhZTcwZWE1ZTkwMDYxZjE5NGEwNmE5MWNkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTRiYWZjZGVhNWY0MTM5ZWI1Y2YxZWZjMDVkYzMyOTk4ZTc3YzM4NmI5OTBjMTEyYzI4YmQxYjg0NTdiNWJkMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmIzZDU0ZjMzMDQxZWI1MTZlZDZmOTk5NjIyMjk0NjQ2M2RkZWE0MzFhMWU2Y2ZkOGEwYjBkOTkxMmVkZGRlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGFjZTI5MjExM2ZlOTZhODdhYWU4MjY2MzhlMGNkMmYwMmRmYmRmMTVjZmUyYzY1OTJjZjYxMmE3NmJjNzIwYyJ9"
+        },
+        {
+          "resource": "repo://SPECS.md#L13-L13",
+          "version": "repo-lines-v1:sha256:32f50baf4f79c1eca00a48b32bc6e7233e2b8384cbeae0bf990c219c731be676:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJmNTBiYWY0Zjc5YzFlY2EwMGE0OGIzMmJjNmU3MjMzZTJiODM4NGNiZWFlMGJmOTkwYzIxOWM3MzFiZTY3NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJmNTBiYWY0Zjc5YzFlY2EwMGE0OGIzMmJjNmU3MjMzZTJiODM4NGNiZWFlMGJmOTkwYzIxOWM3MzFiZTY3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjIxOGMwNjE4YWRlNWRlMTQzMzY5YTQ1NjQzMWRjNDZkMDM3MzJlZWFlYzcwNjA2Yzk5MWZmNDhiOTRlNzllZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGYzMTI5MjM4MGY0YTMyNjhmMTM3ODZkMjZhY2M5YzA3MDMyYjEzMjgzMTA4YzA4ZjdmZjQzOGQzOTU5MGI3MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9856de03c1274aa8a356cd1df867fc1a",
+      "statement": "specs/ is the in-repo reference shelf of supporting domain-knowledge materials — requirements (specs.adoc), locales, payment notes, and diagrams — that authors consult alongside the published docs corpus.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L13-L13",
+          "version": "repo-lines-v1:sha256:3f7fe52d58d1739119b644ad06672af5a97858ae70ea5e90061f194a06a91cd5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3ZmU1MmQ1OGQxNzM5MTE5YjY0NGFkMDY2NzJhZjVhOTc4NThhZTcwZWE1ZTkwMDYxZjE5NGEwNmE5MWNkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3ZmU1MmQ1OGQxNzM5MTE5YjY0NGFkMDY2NzJhZjVhOTc4NThhZTcwZWE1ZTkwMDYxZjE5NGEwNmE5MWNkNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmIzZDU0ZjMzMDQxZWI1MTZlZDZmOTk5NjIyMjk0NjQ2M2RkZWE0MzFhMWU2Y2ZkOGEwYjBkOTkxMmVkZGRlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTJjMTIzNGFlNjU2YTBiMmY2YmFmMzBlZjMwNDdjOTU0ZTdhOWExZDc4MDhjN2I2MmI1ZDJkYmFhMjVjN2VhOSJ9"
+        },
+        {
+          "resource": "repo://SPECS.md#L13-L13",
+          "version": "repo-lines-v1:sha256:32f50baf4f79c1eca00a48b32bc6e7233e2b8384cbeae0bf990c219c731be676:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJmNTBiYWY0Zjc5YzFlY2EwMGE0OGIzMmJjNmU3MjMzZTJiODM4NGNiZWFlMGJmOTkwYzIxOWM3MzFiZTY3NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJmNTBiYWY0Zjc5YzFlY2EwMGE0OGIzMmJjNmU3MjMzZTJiODM4NGNiZWFlMGJmOTkwYzIxOWM3MzFiZTY3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjIxOGMwNjE4YWRlNWRlMTQzMzY5YTQ1NjQzMWRjNDZkMDM3MzJlZWFlYzcwNjA2Yzk5MWZmNDhiOTRlNzllZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGYzMTI5MjM4MGY0YTMyNjhmMTM3ODZkMjZhY2M5YzA3MDMyYjEzMjgzMTA4YzA4ZjdmZjQzOGQzOTU5MGI3MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5b067ff1c3c54e1899386d27869f7c69",
+      "statement": "specs/specs.adoc is the full Greek technical requirements spec (rev 1.0, 2024-10-10) defining vocabulary, general capabilities, and core entities (Locations, Seasons, Vehicle Groups), and it includes the class and activity diagrams via include directives.",
+      "evidence": [
+        {
+          "resource": "repo://specs/specs.adoc#L1-L53",
+          "version": "repo-lines-v1:sha256:c1ab5813834a19b86ae25375d4679d2645c34cb6d38cf56ea2bbb95dbc85f866:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjMDAxYmQyZDA3MGIwYjk3YzA4ZjE2NDkyYWMzNTJiYmRhNTRhYzA5NTJkOGU4MGI4ZTJkYjQ2Zjk5MDc3Y2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE3NDQ4MGJlZWVmNWNjODQxYzFiNzAxNjVmZGIwZTI4ZmY2YzU0NGI5NzBiMjNhMzY3MDI1ZWMzNzUwMDE1MjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhNTM0MDZmNmE5YTI1M2U2ZmZhOTAzMDU1MTYxNzQ0ZWQwMTcwMGMxNzRiMGFmNzgyYzgzMmYzNDQ1MGVlZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_79e7ae95b06545fa8040272ddf8d8f07",
+      "statement": "specs/notes.adoc defines the rental price composition (Rental Basic Price, Coupon Discount, Payment Cost, Rental Total Price) and the payment methods (PayPal, card online, pay-on-pickup offline, bank deposit offline) with deposit/advance rules.",
+      "evidence": [
+        {
+          "resource": "repo://specs/notes.adoc#L7-L59",
+          "version": "repo-lines-v1:sha256:a73d260d8fb30216429f6cf9919bb8826964117e5520d2d8bcba7deea7da1747:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiOGY3YmFhYzI4Mzc0NTgwN2EwOTNmNjY0ZmYyYzA4NjI0NjRmOWZiNDdiYjRmYWU0ODU0MTk0YjU1M2RhYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxYzhiN2VjYTg3MGM4OTI3YzkwOGFhYzg5NmQzODA0NzhlYmI1NzU0OWVhODg3Yjk0ZDAyN2E0MmEzNGU3N2EiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU5ODQzNGQ3NDU5MTQ3YjhhMjY3NmRhMDcxM2ZhY2ZmMzZjOGYyYzhiYTM2MDBmYjhjMTNiODc2Y2NjOGFhMDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8b7404822a8749e49fb705e64e0a3c73",
+      "statement": "specs/payments.adoc records payment provider integration specifics — Cardlink (Alpha Bank/Eurobank endpoint and merchant id), Piraeus Bank epay, NBG keys, and PayPal client id/secret — as the source backing the admin/payments documentation.",
+      "evidence": [
+        {
+          "resource": "repo://specs/payments.adoc#L1-L40",
+          "version": "repo-lines-v1:sha256:e81bfc3e5f36e31e3961d3765c1e74072b521bb9ea7e8fa4e6816a9e2d77ca2c:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlY2ExMGIxOTEzM2QwOTg5MTc0ZThkMzg5YTg2OTQ5ODRmYWRhNzQzMDFkZDA4YWE4ZTRmZmQ3NmU5YThiZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZDhmOGE3NTkwYTVhNDA0MjQwYzBhMjUyYjE0MDQzOWE3NWQxZmY3NzQ3YTYyMTM4ZTEyMDZjZmRmNDY4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5f4a1f6dc5d542b0a4e64c27e1e17582",
+      "statement": "specs/locales.adoc lists the 21 supported UI locales (Albanian through Spanish) and is the coordinate file AGENTS.md tells authors to use when documenting multilingual features and coordinating translations.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L28-L28",
+          "version": "repo-lines-v1:sha256:d427292187dd87a3861b92dea1144b04903db17eebad7acffc1e24b368f6a95f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQyNzI5MjE4N2RkODdhMzg2MWI5MmRlYTExNDRiMDQ5MDNkYjE3ZWViYWQ3YWNmZmMxZTI0YjM2OGY2YTk1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQyNzI5MjE4N2RkODdhMzg2MWI5MmRlYTExNDRiMDQ5MDNkYjE3ZWViYWQ3YWNmZmMxZTI0YjM2OGY2YTk1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjk3MjNlNjZjNWE0MmE0Y2RmNWI2MTU4ODQ2MGE4OWQ3NDEwNzRiNjA5ZjYwZjAwNzFiNjBlOTNiMzg5NWNjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIzNjI3NWJjNDRkY2ViM2UxYjZlNzBjMmZhYWI1MzNkOGFhODI3YTA4Nzg5ZjViMTAzN2YwODE3OTZhMTE2OSJ9"
+        },
+        {
+          "resource": "repo://specs/locales.adoc#L1-L21",
+          "version": "repo-lines-v1:sha256:f901e93d23eb7627e0069f8c4ea08f60c9aa6522383d3d16306f86a3e17f7caf:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxMmI0ODNmNDE4MGZlNzMzMDM0YzRmYmZlNmFlZDJlNTM3YjBkMTMxYzhlYTU2NWYzZmQ0MmI3YWIzZjY4YzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1OGJjOWQ3NDAzZTQ1N2ZhZWNkODNmZGY1ODBiNWQ1MmVlNTE3MTUxMWQ4NGQ2OWRkNzAxYjRiOWUyN2QxODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_15ac8a4a448a464baea4971e19511997",
+      "statement": "specs/diagrams/ contains the PlantUML sources uml_class_diagram.adoc (entity/enum class diagram) and rental_activity_diagram.adoc (rental flow activity diagram) that are included by specs/specs.adoc and underlie the technical rental-process pages, rendered via Kroki.",
+      "evidence": [
+        {
+          "resource": "repo://specs/diagrams/rental_activity_diagram.adoc#L1-L23",
+          "version": "repo-lines-v1:sha256:b8b2fe8a252884b850b5f0fe80f197e15630ae0faad845ebebd6a658cb106cfe:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1YWZmMDNiYmEyN2EzNDk1YTc4ZDZiYjZiMGYyYjk0Y2M5MDgyNTdkYjQ4ZTk5ZDE4ZDVlMDk0OTZiYjBlMTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViZjQ4YTAxNTAyMTk3MDI5NDU0MTJhM2QxMTg2NWE2YWU5MmI1YzEwMzZjMzFkMmIyNTg2NDkzOGZhNDNhZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyNTU4NGIxOWQ5ODZhMzg0Zjk1YzZiMGU2Y2VmYzEyYmRkZTVkOGNkODkxNmJiZjE0ZmI3M2VkYzU4YzljMDgifQ"
+        },
+        {
+          "resource": "repo://specs/diagrams/uml_class_diagram.adoc#L1-L38",
+          "version": "repo-lines-v1:sha256:67d0b566ceb6a21d39fd3adc9c2db8ddb7766e739132d76f609e58322b4fe2a0:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1YWZmMDNiYmEyN2EzNDk1YTc4ZDZiYjZiMGYyYjk0Y2M5MDgyNTdkYjQ4ZTk5ZDE4ZDVlMDk0OTZiYjBlMTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgyNDgxYjU3MTMzYzdmYWU4MmVmZDlmYTY5YjhmODVhODZkZTk0YmZhY2I2MjJkZTg5ZTQwYTBkY2ZjYTBjMDAifQ"
+        },
+        {
+          "resource": "repo://specs/specs.adoc#L52-L53",
+          "version": "repo-lines-v1:sha256:a7f4aee5e4fc348ae2ee95e9ea30119e52d0414b7cadedd05c303ce3ad68fe7c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTZjNDU0ZTNjYjIzMDRlMGYyMWZmM2FjYmNjZmZjNzU1N2UxMjc1NWE2ZTgwYzgxZWIwODZjYjgwZWVjYjQxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTc0NDgwYmVlZWY1Y2M4NDFjMWI3MDE2NWZkYjBlMjhmZjZjNTQ0Yjk3MGIyM2EzNjcwMjVlYzM3NTAwMTUyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2E1MzQwNmY2YTlhMjUzZTZmZmE5MDMwNTUxNjE3NDRlZDAxNzAwYzE3NGIwYWY3ODJjODMyZjM0NDUwZWVkMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2E1MzQwNmY2YTlhMjUzZTZmZmE5MDMwNTUxNjE3NDRlZDAxNzAwYzE3NGIwYWY3ODJjODMyZjM0NDUwZWVkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fad106be52534a8d80c5489ab88a1acb",
+      "statement": "specs/brand-guide/ holds the NMECAR brand guide and assets (NMECAR-BRAND-GUIDE.md, nmecar-brand-guide.html, logo SVGs, favicon set, site.webmanifest) that are the source for the rebrand applied into supplemental-ui/.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L22-L26",
+          "version": "repo-lines-v1:sha256:c104154a6fe58830c97a45a7154fbf657265df2a90ab1d154f186797f48fcd30:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzIxN2MzNGE1Zjg3YzBjNDFhNTI0NWJmZWVkYTFhY2NkMDJlOTBkMDBlODA3MzQ4NjNkMjdlNGNhYjRkNGFjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzA4OWVlOWVlNTA0ZGY5ZTgwMGY0NWJlOWQwZjc2NjUwZmQ2Mzg2MmI2YWY0YmY4ODVmMTdhODQ2ZTE2OWYwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjgxNWY2ZjJjYTJiM2Y1YTc2Njg5YWY3MWY3ODFlMDM5ZDI3YTJkNDMxOGQ0NmQwYmFkMGJjZjg3NDA3MGUxMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGRmZTdjMzY1Yzk0YjgwYzZiODAxNGFiMmZjYmRkYzNhNDZhZjMyZDc0M2M3YTA4ZWZmNmY2NmNiMTA2MmJhZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bf572ab459b644cfad71dabab21bb3c1",
+      "statement": "specs/ also stores PDF renderings and draft versions of the reference documents — cr_specs_draft_1..5.pdf, specs-1.0.pdf, notes_1.pdf, and payments.pdf — as the published-form counterparts to the editable .adoc sources.",
+      "evidence": [
+        {
+          "resource": "repo://specs/specs.adoc#L1-L8",
+          "version": "repo-lines-v1:sha256:3ff9050873a995a71f9726c468bb460c690e868f50f6474c1166c277b6e07913:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGMwMDFiZDJkMDcwYjBiOTdjMDhmMTY0OTJhYzM1MmJiZGE1NGFjMDk1MmQ4ZTgwYjhlMmRiNDZmOTkwNzdjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ5OTY0NDc0M2JkODcwOWVmMDI0YjNlNjNhOTY5NGQ2NDYxMjMxMDViYTQ2NzYyZDdkNzZhMTY1YmZiYjgxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTNiYjQxNGI3MjViMjM3Njk5ZTEzNzQ5ZjRjY2YxMGU1MGY1YWQwMGY5MGU0YWFkNTIxYzNjMjYxYWU0YmZhMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b1eba29aa4c048cdb073e52976eaa56e",
+      "statement": "The docs repo has no code-level or build coupling to the sibling app repo: the Antora playbook's content.sources declares a single source of this repository's docs/ at HEAD with start_path docs and never fetches or aggregates /home/maravelias/repos/car-rental/, so the dependency is a content-author workflow concern only.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L13-L19",
+          "version": "repo-lines-v1:sha256:3740c4248cef1209f6115242b5ffbd83b0215b2bba14e10d5240739a46d9f3d2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTNiNTExYTZkMDc3ZDBjNmQyZmFjMWY3MWY4ZTk0NGRiOWExNWRiODQ4ODcxNzAzYWQ3NTk1MzBmYWJkODM4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY0MTJmMzRjMmYwYTc2NDY3MGU5M2YzY2UxNjI5YmU2YWVkN2FlNTBkNWFjNWVmMGUxYzkwYjM1OTI5NmU0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQwZDIyNGE3ZjZiMjRjZjFjMGFhZWY0MGUwY2UxY2ZhNDRkN2Q3ZTg5YmZmZjUxZWFhNjQ3NGEzZTBlMzQwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQ2ZjUxMzZhZTlhNTgzZTE2ZGE2MTMxMmY5MTkwNWY0MjY0YzdhNzMxZjdhMTFkYjA4ZjcxOGZiOThhYjkzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bb2f19a3bf6b4e12ade484682b0cd440",
+      "statement": "specs/ is not part of the Antora content source: the playbook's start_path docs means only docs/modules/ROOT/** is published, so specs/ files are authoring references rather than pages served on the site.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L9-L19",
+          "version": "repo-lines-v1:sha256:3ecae63cb1d91554c5eafba4e6c3795b271edec207aa8f283e78a326eed75ca9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5MWI3OTk1OTU4MjllMDQ4OGVhMGU5NmYyODNiZGY1MTQ2Y2Q2MGM1NmZhMzVhMmVmNTExOGEyYWZiOGIxM2MiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjODdjY2YyNzhmM2M4YTQ0ZWMyN2MzNTAwN2YzNmI3MGYxMTNiMGUzYWIxOTkwMWI4YmFkMDQ3YmYyMzQ1OTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1OTU4ZWNkMTMzMzA3OTE5MWRmYjdmYjE1NThlMjE2ZWI0MTFkMGI1MWVkN2M2ZTRjZjg0ZjBjNDUzMzc1OWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkYTY0M2ZlMjdkN2MyNjkyMjE0YzZhZGE5NGFkNjJkZDhjM2Y3ZmUyNGFlZjQ1Y2M1NDI4YmFiMjZiYTM2MjgifQ"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L15-L19",
+          "version": "repo-lines-v1:sha256:9a044cbe0aa910230a2e61f0c4c2d240f3bbd1f391b95e945b728afaa63defde:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmIwOWYwZmEwMzcyNTgzNTM1Y2M1MWFlOTQ1N2NmY2NjNjM2ZjU0NWYzZTUzZDk1MzkyMzJlY2FkY2FjOTdiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTY0MTJmMzRjMmYwYTc2NDY3MGU5M2YzY2UxNjI5YmU2YWVkN2FlNTBkNWFjNWVmMGUxYzkwYjM1OTI5NmU0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODViMDVkMGQyNGE4NmY1Yjc3MzE5NWRkNjExYTgyMmMwNWQ0OWU2YjUxYzlhN2I4OWM5ZmQ4NTAyNGE4OGY3YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQ2ZjUxMzZhZTlhNTgzZTE2ZGE2MTMxMmY5MTkwNWY0MjY0YzdhNzMxZjdhMTFkYjA4ZjcxOGZiOThhYjkzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b9064791f004a848865e48cb0a353c5",
+      "statement": "SPECS.md is the curated inventory of the corpus that must be consulted before starting work and updated whenever content structure changes, and AGENTS.md persists durable project rules including sibling repo paths and the specs-first rule.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L32-L34",
+          "version": "repo-lines-v1:sha256:9ebda7f3247ef9d4de05202bd14bc2de6026f274f1dec138aad5b038dc82c542:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdmZmU0MmM3M2E3NzE3Y2JmYmMxNzFlOGU0MTcxZDU1NTE4YjljNWIzMDNlNTljODU5Mjk1YWNhMTJiZjkzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYxNWM5ZmRiNzRmYjM4ODVmYzJiODJjNzI2NjYyNDU3MmI1ZWZmMThiYjJhZDQ0NTgxZTMwOTllYjU1M2MxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjIzNjI3NWJjNDRkY2ViM2UxYjZlNzBjMmZhYWI1MzNkOGFhODI3YTA4Nzg5ZjViMTAzN2YwODE3OTZhMTE2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDhmNmU4YjljYjJjOTc5N2ExMjIxODViNDYzNzk3YThhYTBhMTFmN2E5ZTFkNTFiMDIwNTBiYTU5MDNkMmJlOSJ9"
+        },
+        {
+          "resource": "repo://SPECS.md#L1-L7",
+          "version": "repo-lines-v1:sha256:7253e0236683480455c93127230bd6bfb3634432f7efe309e3aba6dfb5421688:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDcxZDdhYTM2N2RmZTBkMzQ3ZDY1MGU1YWMxMTJmNDQ4ZGEyMTdmM2Y3NWYzY2E5NGRlNmQ2MzhmYWNmYmI2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmVlZjFkNzdkOWIxZGUxNzFlMGZhODNmZmEzODMzYjhhMmQ1MjBiMjI1YWRjMWNiYzhiYWU5MjE1YzAwZTBkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTE1ZWQ4OTUxZDZiYmYyMjM3NTczZjVhM2FiZjE1YWRiMTBmNTY4ZjI1MGY3MmVkODRlZTlkMjU3N2FkYTg5ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_532f45ccecc94f2caa12e08b281b48d0",
+      "statement": "OpenWiki indexes only this docs repo's .adoc pages (including the in-repo specs/ .adoc files); the sibling car-rental app repo lives outside this repository tree and is not crawled, so its content cannot be cited with repo:// evidence.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L95-L106",
+          "version": "repo-lines-v1:sha256:e196ae5aef70399b7f4cd655c0440c5c589dbecac5863d6178aa1c195d5a4325:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMTgwZjljMTI2OTAzYmNjMzMxYWE5NTQ1NmU0OTQ0NGE3ZDRkMDExZThhMmE4M2Y1ZGM4NzAyMzkxODEyZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Zjc4NzE0ODkzYWE3Nzk0MmNlYTFjNGEyZTAyMzFkYmI3ZmEyYTQxYTcwYzgxNDYwYTNjNjc1NjJkYTNhYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlZjAwYzAwZjU5YjU3ZjAxNjk0NzE0NWY3MjgxMmIyM2ZiYzZjYjI1YzhiZDM2MDY4MTc4ZjI3NjhkNjgxMTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

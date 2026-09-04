@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:9f33609ad6f11bd9e13e0154fa0c47c5c2d214ef28eb08f2502cb9bcf1deeb37",
+  "claims": [
+    {
+      "id": "claim_0d2f430508bb47bab0e117eeb6d8160b",
+      "statement": "The nmecar docs MCP server is a custom, retrieval-only service under mcp-server/ that turns the AsciiDoc corpus into a searchable vector index at startup and exposes it through MCP tools over Streamable HTTP; it does not perform LLM generation or answer synthesis (that belongs to a future, separate AI agent).",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L14-L31",
+          "version": "repo-lines-v1:sha256:6a7daaf4f492ac387c3a6e73ca575a3d73a2c8ccc295f7b598195a9db77babfa:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NjQzOTdkOWUwOTc5YjIyM2ZhMDhlNTk1YWVhOGRiZTllN2YxMWM2ZDA4MWEwOWE0NDI5ZDg4ODk5N2I0MjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2YzVkODgwMzAxNWIzNzUwNjgzNTE2NWVlOGEyNjc4MThhZDAzZDMwZTZiMDAyODQxZDg3YzkwNjNhZmRhNzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU4YzliODM3ZjJlNjQ1MTE0NGM5Zjk4ZDIwMmQ1ODM2YzA3YjZiZjZmNDYwNzE2YjBiMTJhOWMyZTg3Yjk0NWIifQ"
+        },
+        {
+          "resource": "repo://mcp-server/README.md",
+          "version": "repo-file-v1:sha256:28107212bae661ab089a256ccd8310bf4cfb21293f4e695237a0eb89e15b0210"
+        },
+        {
+          "resource": "repo://mcp-server/src/index.ts",
+          "version": "repo-file-v1:sha256:164c26a29e719c22896760713fd752cfed7aa376b7e8a9d8b8f80dd273a0c64f"
+        }
+      ]
+    },
+    {
+      "id": "claim_bb0d67fe1ab14123b619692672b0c188",
+      "statement": "At startup, src/index.ts runs a single sequential pipeline: loadAdoc → per-file resolveMacros+renderAdoc+chunkPage → contentHash → VectorStore.loadFromDisk (cache hit) or build+saveToDisk → createHttpApp listen; the HTTP server only starts after the index is ready.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L13-L53",
+          "version": "repo-lines-v1:sha256:8d988c3d12024b8be6e9511d00099a11bd54e4c0f9cff57990e49bb934849f3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlODIwMGViZDE3MDliNmE2NzViZWNiM2JlOWYzOWU1M2JiYWMwMmNjOTI3MjM0NjJjMDU0NjhlYjBkYTZhMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiYmE3MjRhMTQzN2MzYThlN2VmZmEzYmRkZTc1ZmRmYTVkNjRhMTMxMTdjZjk5MDQ0ODM1M2Y4YTQ4YzNkMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzZjI0YmI1N2M2ZjhiMjZhYTI5OWJmOTdiOWFjYTE5MTJjNTBhMzkxZGY0ZmUwODA1MTkzMDA0YTBjODg5NDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ba23d875b59842aeadec46464ac9af20",
+      "statement": "loadAdoc walks DOCS_ROOT for .adoc files and skips stub pages (fewer than 50 non-whitespace characters after the first = Heading line), returning { path, relPath, raw } per surviving file.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/loadAdoc.ts#L10-L30",
+          "version": "repo-lines-v1:sha256:dd7fa1aea672bc53c057e592151c74f58c5bbb77b19d77b6a89bb5f86e4f4362:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkYjU3MmYxZDBiOGMyMjhlNmFlZWU4YTYzOWJlYzU1YTNhYWEyNjYyYWU5ZGViMWRkMDk3ZGYzMzlhMGRkNjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxOThiNzYzYThjYTE2M2I1MDU2OTdiZGIwNTBkNDRhZGQ1YTUzNTFjMmY2NzJlN2VkODU1NmJmZDM3YTYwZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5N2ZkN2UzYjlhYzViZGI4YTQxNzdmOWM1MTdhZGU5ZjUxMDk1N2IyN2M1ODY5ZjAxYThlM2Q5YzJmY2Q5ZGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_81309ed42e7140a2ad5810ca83ec83d0",
+      "statement": "resolveMacros preprocesses Antora macros before rendering: it removes Kroki diagram blocks, recursively inlines partial$ includes (skipping nav_* partials) up to max depth 10, inlines example$ includes wrapped in a source code fence, and replaces xref: and image:: with their link/alt text (or drops them when empty).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L1-L87",
+          "version": "repo-lines-v1:sha256:b8ce5452589b98bfc727c6551e1e3bc4d6fa3e69c950e87c7fe483bbad555914:eyJzZWxlY3RlZExpbmVDb3VudCI6ODcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0OGMyNWQ2M2JmYzBhODA0YjRkOWYwNGRlOWFjMjBmNjYzOWU2YzhiNjZkN2RkZmFkMjFiYmQ2MjU5N2E4NTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3715aa8ae5b04efe9792503e9dc52957",
+      "statement": "renderAdoc converts preprocessed AsciiDoc to HTML via @asciidoctor/core (safe:'safe', standalone:false) then to plain text via html-to-text, and derives the page title from the first = Heading line (falling back to relPath).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/render.ts#L1-L32",
+          "version": "repo-lines-v1:sha256:f24472b1efacfe8051952db1734cda898022bf47fc58b7a511eda63114a392df:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1Y2RlZmQ0OGRiN2JkNWE1Yzg2NGEzNDEzZWY5MzRmMjRjZmY5M2VkMDIzOWExZjMzYTEwZTk2Mjg4ZTA1NzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1d4b36c112bc484799205e895ac97f81",
+      "statement": "chunkPage splits each rendered page into metadata-bearing chunks, prefixes each chunk's text with a «pageTitle › sectionHeading» context prefix, bounds chunk size (target ≤800 tokens, splits oversized chunks by paragraph, merges tiny consecutive chunks under 80 tokens), and assigns each chunk a stable id of the form relPath#slug-index.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/chunk.ts#L42-L158",
+          "version": "repo-lines-v1:sha256:79007e569ad959e71c6f20fd5a52c06bf56b7ce5959b3bb5a745559f5570d672:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE3LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJhYWE3M2IxYjg2Nzg0NTljNjcwNTJjNzAyZTQwYWExZmUzMGUxNDA5Yjk2ZDA1NzY3YWEzMDc4MTIyOTBhYTY2IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlYTIzMzE1ZWYyNDRjOWI0ZjQwZGFjYjA4OWNkNTgzN2YxNjE0OGU3ZWIwY2UzNzBkYzUzMTlhNDc5YjJmZTJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_b4f68e174e5e466dad93faaf3d9439d6",
+      "statement": "contentHash computes a sha256 over the chunk texts sorted by id, concatenated with a hardcoded PIPELINE_VERSION and the embedding model name; it is used both as the cache file name and the cache-validity gate, so changes to chunk text, pipeline version, or embedding model invalidate the cache.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L34-L45",
+          "version": "repo-lines-v1:sha256:a9446ccf161391d13cf928f538ee62b5aa5a671bd576ba93e938bb9ed3b87bb9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyOGQxOTkyZDZmZGNhYzBiNGViYTM2YzdmZmVmY2E4MGEzODc3OWE2ZDU4YzcyYTEyZjIyNDNmZjI5MjI4ODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2YjdlZmI4Y2Y4NWY0OWExYWIzMjE4MGYwNzcyZDM0OTJlMWJkMzliZTBiOWVlNThjYTNmMjU0NzY2NDQ0NjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmZTM3MzI1NDg5MDk3ZDgxMGM2YWMxM2JhYmU3MDMxMDNlYjkyNTAzZGM4NjEwMWRjNDljOGRkMDZjOTk5MDUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/hash.ts#L1-L10",
+          "version": "repo-lines-v1:sha256:fb2f6d511bb59f6a1da7496bd6a13b8b94405ac01942a24ede3281199ee97859:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxYzQ1Yzc5YTgzNWNhMjRiYzYzNmMzMmRmNDllZWUxZTI3YTQxZTExNmMxZDZmMGU5MDIyNTg0ODBjMjA5NDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9bcc30b7841647a6bc76027edb397fba",
+      "statement": "The corpus is small (~40 Greek pages, ~15,400 words), which justifies an in-memory vector store with cosine similarity over an external vector database.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L260-L271",
+          "version": "repo-lines-v1:sha256:61d43c39bf5a60f2680b819f80b8691f5aa24c1b749e8c4a8b06e3e71845776a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhNzQ4YmEwNjYxNjk3NGE3MjU1MTU1YWUzZTNjNzMyNjYyMTA1Y2NkNmMzNzM2MWMzYmFiN2JjNTA2ZTU4ZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM0MzFlODJiMDYzMGU1NjYzZDdlNjA2YzRjMjdlMzkzNTQwMTZlNWZiMjU2MjJlMTQ5Y2Y0ZjFlZTE5MWIxYzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQxY2MzOTg0YTc4NzA2MjkxMGIzZmYzNDM0ZjEzNzk1NThiMTQyY2VhZTU2ZWQzZDYxZDkyMTEzMTRkNGNjMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcwOWI0ZGUxMWVhNTNjNThiNjlmNmY0ZjIxZTY4ZDhmNzFjOGIzMGRkMmZkZjIwMGM3NDFhYzQ3NTYwM2NhYzkifQ"
+        },
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L32-L34",
+          "version": "repo-lines-v1:sha256:e8c9b837f2e6451144c9f98d202d5836c07b6bf6f460716b0b12a9c2e87b945b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGMwM2U0MDBkNmJkOTA4YzgyZThiNTQ4ZDY5OWJhOWViYzQzN2RmMGVmOTkwYWU1OTA3Njc2ZDVkZGZmMDYzNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDExNmYzNDE0ZWI1MDFiYThhNDM1NWYyMmQzNWM1MzExYzI5NWNjY2RkNTdmNDI1MmNmODZkMWI5YWFlNmMwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDYyNGYxOTk3ZDUxMDRjNjI5OTZkNmY3NzE4OTNhNmUwMDQyODMxNmRjZjY2ODgyMTg4ZTA3ZTA4YmMyYTE3ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7a8a2834a2214c2ab5a87990a163a494",
+      "statement": "VectorStore holds an in-memory StoredVector[]; vectors are L2-normalized to unit length at build time so search reduces to a dot product, computed linearly over all vectors, sorted descending, and truncated to k.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L18-L53",
+          "version": "repo-lines-v1:sha256:8d7162dc1c83488c794c8235e955fafe92e48dab170549ca55d0e0e3e4cf6a2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2YTNlNWNiM2E4NGZkMTY2YWMxNmRkMWExY2I1NzZmYWQ4ZDZiMmJlZWFiOGU4MjMzYTA0YmM4MzM3YzYzZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiMzk1YjI3YjhjZTc4YjA4MTk3ZjgwYzliNWVjYmIxOTliOTIwYTFmYzEyMTE5YTU1MjE5MTdmZjNiZGExNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0OGI5YmQyM2MyYTgzODVlN2Y1NmRkZWExZTY4YmQ4N2FlYWQ2ZjQ5NzUyOWIxODk2Yzg4NTIwOTliMzcwMzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e53de84f2cdd45be810f932aeeb32317",
+      "statement": "VectorStore persistence is a single JSON file per content hash at ${DATA_DIR}/index-${hash}.json containing { hash, vectors }; loadFromDisk returns null on read/parse error or hash mismatch, which the startup path treats as a cache miss and triggers a rebuild. Old cache files for stale hashes are left on disk and ignored, not garbage-collected.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L37-L45",
+          "version": "repo-lines-v1:sha256:6b53fde1c60b951dd6f7834f5143d28bb34f81f1d5e589ef613f276ed5774a3c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3MjBkZDYyOThkNDQ5NjI4YjBkNTdlOGI4NWY3YzM4ZDhlZDE3ZWZlOTY3OGE3OGI4YjE0YzAyOTQ1M2Y1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTg0MzE5OTU5NmIyN2ZiYzJmNDAwM2VhNWEyMzZjNjFhMTRhMTU3Yzk0ZWU2NDY5ZDkwOGYzMGQ3MjQwNzI3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWZlMzczMjU0ODkwOTdkODEwYzZhYzEzYmFiZTcwMzEwM2ViOTI1MDNkYzg2MTAxZGM0OWM4ZGQwNmM5OTkwNSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L55-L76",
+          "version": "repo-lines-v1:sha256:47353bacc88fc23ed24d8bb94fdced28c5d26bef3aabbdb0c3e94867e79c776e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MzllNTQzMGNhMjVlNmUxN2UwMDEzNjQyNWFlMWFkM2QxMmVlNzNiYzNlMjgyYjNmMDgyMzI1NjU3YmEzMzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA4OWM0ZTM5OTkzODZiNzUyZWNiMjg3NGYxMjlmYWM2Nzc4YzMxNjE3MzVmMDhlN2ZhODM5NWFjOGQxZmVjMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYjQ0NGUwNDQyMzdjZTBhYjZiNzM2YzI1OWRmZWY2MDk0YWM3OGY2MzAyNGFjZGY3NDdhMmIwNTVjZGJmMjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5a08c9b2c0bd47909de6865b53b1286f",
+      "statement": "The Embedder interface is provider-agnostic ({ model, dims, embed(texts) }); the default and only implemented provider is OpenAI text-embedding-3-small (1536 dims, batched ≤100 per request with retry/backoff on 429/5xx), selected via EMBEDDING_PROVIDER. Gemini is a documented alternative but createEmbedder throws for it (not yet implemented).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L1-L66",
+          "version": "repo-lines-v1:sha256:9c61626f637e72035ef2bda15f6efc6f92ba3fdd3e8899bf61ec5b72d915fecf:eyJzZWxlY3RlZExpbmVDb3VudCI6NjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZDI3YTk3ZTE1NTViYzkyNjE1NTBlMzYxZjg3YjQ1MzdlMTc1ODFiZmUxNzBiYTAxNjdiYWVkNDBhM2EzNzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eee48cdcc6504dafad0c3289afcc29b6",
+      "statement": "buildMcpServer constructs an McpServer named nmecar-docs (version 0.1.0) and registers exactly three retrieval tools: search_nmecar_docs, get_doc_page, and list_doc_sections, each with a zod input schema and a JSON-serialized payload in a single text content part.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/server.ts#L9-L68",
+          "version": "repo-lines-v1:sha256:2d24ec927d8cc700720ea4aeecca66dc647abb28ca60dc8d9d2844c5e5436046:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NGE1YTdmMzI1NDcxNjMxYWY1ZDY2NWQ1YmExYTdlMWY3M2E5NDliOWY3M2RkNTI2ZjRlYWU5YjZmY2ZiZWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwMTU4OWRiNWYxMDI3YjYzMmU5NDE4NTAyNGYwZjQwNWViNmFkZGNjOTZmYjY1MDdiMmNlMDM0ZDcxMzIxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3MDc5MzQyODQzYzZkNjIxMmFjN2ViMzgwMmE0MTBmNDAwOTBkMGQ0NDBmZTExMzQ3NTAzZTgzYmExMDk4OGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5ffdf7bd67b84f73a00bae69683b39bf",
+      "statement": "search_nmecar_docs takes query (string, min length 1) and optional k (int 1–20, default 5), embeds the query with the same embedder used to build the index, runs store.search, and returns { results: [{ page, title, section, score, text }] } with score rounded to 3 decimals; it returns an empty results array rather than isError for a valid query with no hits.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/server.ts#L12-L27",
+          "version": "repo-lines-v1:sha256:e6fa3c298068d2d0d3102133637bcde6f74469da285b34aca1ee90e2fb5e9e6e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4OTRmOTIyMTEyMzNlMjExOGQ5OGJmMmNlMWFiY2IzMTI1YmQ1MTAwM2UzOGIxMjRjOGQ2YTcxZDZiZWI1MzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZWYwMWJjMDhkYmMzYjYzZTRlNzVlYTNkMjZhNWI5NDE4OTE4NzdlMjdhZDg5MTMyOWM4NDExZDdkOGRjNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwYjQ4NDU2OThmNTU2YTkxNWRiMDVlN2I1MWMwM2JjN2JlNjNmNTdhZjAyNTUyZDYzMjA2NGYyODAwNGMzMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkMzZlOTUwZmE3NGZhYjVlYjBmYzdmYmI0ZWYyYTAxNGRmYjhjZDRlMzVlNDNiYzM5YzIxYjZkODA0ODY2MDkifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/tools/searchDocs.ts#L4-L21",
+          "version": "repo-lines-v1:sha256:a97aeebf3dbd03077186f1445536751711f5f2e2d1308c23e098c0965381d9ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExYjZmZjFiOGVhN2U4NzExNDM4YWNhY2NmNjQ0YzUzOThmMTk3NWQzMGI2ODNlMzEzZTAxMmIzYmZhNTQyMTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc1Yzc1OGQ5NGYyYzg0NDA5MjBmZmJhZDc4MjUxMmFjYWEzMDRmNTM5YmFhY2E0MjRjNjFkYzQwOGY2ZWYyOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4ab2c8601047481691e1c933995325fa",
+      "statement": "get_doc_page takes path (string, min length 1) and returns { path, title, text } where text is the page's chunks joined with \\n\\n---\\n\\n; for a path with no matching chunk it returns isError:true with { error: 'Page not found: …' } rather than crashing, and the page is reconstructed from indexed chunks (not re-rendered from source).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/server.ts#L29-L53",
+          "version": "repo-lines-v1:sha256:041dac177356728e288a191c9b569b38c5c473db04afac91ba5e5563b7d87c70:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4OTRmOTIyMTEyMzNlMjExOGQ5OGJmMmNlMWFiY2IzMTI1YmQ1MTAwM2UzOGIxMjRjOGQ2YTcxZDZiZWI1MzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZWYwMWJjMDhkYmMzYjYzZTRlNzVlYTNkMjZhNWI5NDE4OTE4NzdlMjdhZDg5MTMyOWM4NDExZDdkOGRjNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYzYzEyMGUyZDUxY2RmN2JhZjdkYjE1NDAyN2E0MGIwYzYyZGIyZmQyNzg1M2U5MTM5YjI2NjliYWY1NDE4Y2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyYTVlYzE3OTZkZDA0MWYyM2JhYTkxYmY3OTg5MjkwNmU2ZGE4OTE0YzJiODg3MWFiYzNlNTZkNjhiZjA4OTgifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/tools/getPage.ts#L3-L12",
+          "version": "repo-lines-v1:sha256:638abc007aeacb2afebe4693f6977c074dca89d4d5886a3521aea24d79a83685:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzNDAxZjk3Mjc0NjA5Mjc3MGUzZmZjOTI0YWU1ZGFhNDMwYWZmZjk1ZDU2NjE0ZGMzOWY5MTJlMjJlMzM5ZDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlZTVhYTAyZGMwYjE5YmEzNjNkN2MxMGYyNjk3ZTk0MWRiZGE4NmY2OGUwNzdiMTI4MTk2YzZmOWE5NWRlYzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ee8d96f8d4ef47a4b9389f0c121b0f3f",
+      "statement": "list_doc_sections takes no input and returns { pages: [{ path, title, sections }] } grouped and deduplicated by relPath from chunk metadata, with non-empty section headings collected per page in chunk order.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/server.ts#L55-L66",
+          "version": "repo-lines-v1:sha256:5dc730055202f7185fcda3badf6ec64f75288cf16441d486c6237089bc1ede53:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4OTRmOTIyMTEyMzNlMjExOGQ5OGJmMmNlMWFiY2IzMTI1YmQ1MTAwM2UzOGIxMjRjOGQ2YTcxZDZiZWI1MzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZWYwMWJjMDhkYmMzYjYzZTRlNzVlYTNkMjZhNWI5NDE4OTE4NzdlMjdhZDg5MTMyOWM4NDExZDdkOGRjNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYzYzEyMGUyZDUxY2RmN2JhZjdkYjE1NDAyN2E0MGIwYzYyZGIyZmQyNzg1M2U5MTM5YjI2NjliYWY1NDE4Y2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYTRmNTI1Zjc3YTY0NTIyNTU2ZGJmMDU4OGM2ODkwMzM5MTc1OTlkNmViYWVjMDExZmRkZDI5YjBiNTIwMjQifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/tools/listSections.ts#L3-L23",
+          "version": "repo-lines-v1:sha256:4d611532517c0c76594d0ae82cf15711aa0311aa339ad8d6951a88fc5b8112b4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkZDZiNjU3NTg1MDE4MmQ3MjE3Mzk3NWJiY2Q4Y2NiYTVkZThiMDNkZmM4NmEzNDc4NDJiYzUwZGQ2ZThlMjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFlZTVhYTAyZGMwYjE5YmEzNjNkN2MxMGYyNjk3ZTk0MWRiZGE4NmY2OGUwNzdiMTI4MTk2YzZmOWE5NWRlYzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3bb1c76ad86c45b7ad7a858240bc78b3",
+      "statement": "The server uses MCP's Streamable HTTP transport in stateless mode: for every /mcp request, httpTransport.ts creates a fresh McpServer (via the factory passed from index.ts) and a fresh StreamableHTTPServerTransport with sessionIdGenerator: undefined, then connects and handles the request. This keeps the read-only server stateless because each tool call is a self-contained lookup against the shared immutable in-memory store; the expensive store/embedder are created once at startup and captured in the factory closure.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L48-L52",
+          "version": "repo-lines-v1:sha256:deb799cc379e096a49322148c5c693acfeb7f7252737f2cf0aa635dd1d2ab11c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzUwNTJhNmM4M2M0ZTM1NzkxYzc1ZmQ2ZjU0OTBmOTdjOGU0NTc2MjFlN2RlNGMzNjZhOWMxZDU3MDNjOGE1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzY2YWRlMjI1OTYyMzAzNDFmN2NhMmM2ZTI0ZGJhMjgwOTlhMmRjZmZkNGRkNTJlNzgyMzFkNWE0M2I2ZjczZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmJhYWI4M2RhMjgzMDVlMzRjNjcwMWRmODI4ZjYzMTMyYjhlYjczZTE5NmNiYTQyMTkwOGRhYjZjOTFkNDVjNSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L39-L68",
+          "version": "repo-lines-v1:sha256:df72e314f44190d547a9ea0c5df605e08d8d2042cd03f12b2a6144441521adfc:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxZWIxMjdmNzA5NTU0MjllYjkzOWY3NzZjZTUzNmQxNDM2OWExOWE4ODQ2OGQ3MzViNjRhZmQyMGQzMTVmOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2N2JhMTJmNDcyODY4YjhhNzRlNGE0ZmMwOWFhODcxZTEwZTEyNDc1NDk1YWJmNjdmZWJlZDQxMDE4NDZkNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3NmU1ZWM5NTMwZDhjYzE0Nzc2YmM3M2U5OGFhZjcyZWI1NGY2ODE5YjE4YzYwNWQ0YjczYzM5MzdjYThkMWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a37f6f236ffe4bbe9ca2a9ff08ae126b",
+      "statement": "The HTTP surface is GET /health returning { status:'ok' } (no auth, used by the Docker HEALTHCHECK) and POST/GET/DELETE /mcp behind authMiddleware; responses are delivered as text/event-stream (SSE) with the JSON-RPC envelope in the data: line, which clients must parse.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L42-L68",
+          "version": "repo-lines-v1:sha256:f8ccc919dde897241f8fab9d7ecf384f75d91530fc4e286c919e669d367efe86:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxYmYxMWU2MDdkZmY1MTcwNDQ2YWNkOWUyNzM1M2M2MjMzNmVlYTZlZmIzZjYyNzY2MDNjMDM4ODYzYWU5ZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkYzE4NjBmMDkyYWRlNWM3MDM1MTM0YjQxNDc4YTUyMTAwODA4MjAwMDEwZGE4NjVlM2M3NzlkNWM1NGYzMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3NmU1ZWM5NTMwZDhjYzE0Nzc2YmM3M2U5OGFhZjcyZWI1NGY2ODE5YjE4YzYwNWQ0YjczYzM5MzdjYThkMWEifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/smoke.ts#L30-L64",
+          "version": "repo-lines-v1:sha256:dd94072c24885a0e13fb07d08b6610918beefe4bb44216d4d716b4fa7bdd17d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3YzE0OTZjOGUzZWI0YmE4NmFhYWRkNWM4MGQzZWIzODZmOTRlMDg0ZmViNWE5ZjIwYjNhOTdkMjA0YjI0MmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjNTg2YjBkYjNlOWU0ZWZjMWVmYWM2NGQ0ZjEwZjM3N2YzNWIxZmZkN2Y3NWFjZjE1OWE1MDRhMjJmN2FiMzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkNTNlNDVlNjRlNDgxNjNhMTM1ZDBhYmFiMjhhZTY2YWQ3NjM3NmFjODE1NTFkMzIxYzQwOWQ3MjdiNThmOTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f60f07fb339e490e86f3ce9a1cacfc85",
+      "statement": "Auth middleware: if MCP_AUTH_TOKEN is unset the middleware passes through (local dev); if set it requires Authorization: Bearer <token> and returns 401 on mismatch. /health is registered before the auth-protected route and is exempt.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L25-L52",
+          "version": "repo-lines-v1:sha256:9ef82eb7b1a48c0e7864b8776d30f04e7e5b8aaf6251f59b7cccde283e2d8157:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3Y2RkMjQ3YmJkNzM4Y2RkNTRmMjJjNGY1NjkwMTY2ZmQ3YjdlM2E2MDlmNmEyZjM1ODg4NzM0YzJlOTc1ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0ZmVlM2MwNjIxNWRiMmUyMzQ5Zjc5Y2NkMGRiZjA1MzFjNzU1YzM4ZTQwMTZkMmVlMjYwMzJkYzJjOTM5MGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2N2JhMTJmNDcyODY4YjhhNzRlNGE0ZmMwOWFhODcxZTEwZTEyNDc1NDk1YWJmNjdmZWJlZDQxMDE4NDZkNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhM2RhYTJjMmNiNmI1YzNhYTY2NjNlZjY3ZTI0NGE0Mjk5NjcwMzJjZTNmNmU3Nzc0ZGE5MzMwYTJiYTEyY2YifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f32f2061a0b249db936a9418030152f6",
+      "statement": "CORS is controlled by ALLOWED_ORIGINS (default * meaning allow all; otherwise a comma-separated allowlist of origins) and handles OPTIONS preflight with 204.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L7-L23",
+          "version": "repo-lines-v1:sha256:25e436e3e646524348e9af5f9820dec0bb90a01ddf349640feab298bd2a0e40e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0MjBhZGI5MjA4ZDQyODhhNjU1MzI5MmQ5OTcxZGY1YWNiODFjYjE2ZWU5ZjM1ZGZkMzFiMTcxMWI5ZGY5YWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRjYjEzNDMzYWI4MzQyZTAzYWMwMzRlOTkzMTAyZDA4OTRhMWUzNjc0YzBiZWY1OTY4ZjBhZDU4ODUzYTg2YTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmMzk5ZjgzNmIyZDYwNTUzMWUyODgwMjhkYjQ2MzhjNTJmYTBlYWVkZWEyYWM0ODVjZGMzY2Q3NjQ1YzI2MGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_53a11ab3e6b045f98046719d96272392",
+      "statement": "All configuration comes from environment variables parsed and validated with zod in src/config.ts at import time; validation fails fast (process.exit(1)) on invalid PORT, missing DOCS_ROOT/PARTIALS_ROOT/EXAMPLES_ROOT, or a missing API key for the selected provider.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L1-L35",
+          "version": "repo-lines-v1:sha256:482c1a65ea2cebeff67f232e536e90bcbdb6532a5105fdacd345cc1547fa8def:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNDUyODY0YjBkOTZlZmU4NjkxNmZmNzQ1YTBmNzdhYzcwYjMyNjU4NWMwZWFmNWMzNGY5ZTRhNGY2ZmJmNjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiZjkzZmZhNDg4NmE5N2YyZmI1MDkzMTkyNGNhZDY1NTI2ZGRjM2FjMDA4NmM5ODRkN2E0MWZkMGUwZDI1M2EifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bb833e14a12e42a19685fa5ba16201e3",
+      "statement": "Because OPENAI_EMBED_MODEL feeds the content hash, changing the embedding model name invalidates the cache and forces a full re-embed on next startup.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L9-L11",
+          "version": "repo-lines-v1:sha256:8af767db04f7714a798677aa53e9af8c47636e77cc7ce496a9f465438d76d3c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODkyOGNkMTk2OTJiY2VjZjg1NDNmMDk2NzI4NjkyMTY2ZjdmZjI2OTI3YTcwYjQxMTNmNjJlM2JiN2ZlNTIzMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQzNGM2YTg1ODA2OGMwZWZiYmU2MjQ2NzgzYmUxNDU5MzBjNzA0ZmViZDNiY2IyYWI2N2Q4N2NiY2Y0ODBmMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg1ZTkxYWU1NmE5MDQzZWVkODE3M2FmMzIzN2I2NDI5MGRmNDg2MDVkMzY5MGU2YTg4YjRmM2Y4YTcwNjk5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjg1NTYxM2IxM2M5NTNjNjc3NDE2NjY4NmFhZmVkOWM1MGEzNjVjZmJlNTRiOTRlNGZhMjQ1OWM2NjYzYTQ5OCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/hash.ts#L6-L9",
+          "version": "repo-lines-v1:sha256:c7cde6b7876b93044e59de70054c7254972829471e820b8301fc5a41efaacc66:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDcyMWMxYTM5NTdmZWFiNzM3MTQ1MDljOGNlYTU3YTAxYWQ4ZGEyNTA0OTM5Y2IyOTg2ZDE3YmQ4NmYwYzc3NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFiNjMxZTU4ZTk0ZjRiZWJmYjhjNDE4N2NmMzFmN2VjOWM5ZDVkYWU5ZGZmMGQ3MWI1NmMxN2JkZDE3YmViNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzIzZWQ5MWFhYjZjYmY3ZDQxZmJiMzBjM2E5NzUzMWQ2NTY1NTk1NjdmMGI1ZGFlOWQ3ZmVkNjczNzhkYmIyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3ad8252aad7547fb8af8022a441e9874",
+      "statement": "Content is baked into the Docker image as flat docs/pages, docs/partials, docs/examples folders pointed at by DOCS_ROOT/PARTIALS_ROOT/EXAMPLES_ROOT, and indexing happens at container startup; therefore serving updated docs requires rebuilding and redeploying the image (an accepted trade-off), and a cache hit lets a warm restart skip the embeddings API entirely.",
+      "evidence": [
+        {
+          "resource": "repo://MCP_SERVER_PLAN.md#L486-L488",
+          "version": "repo-lines-v1:sha256:14b6f6b750c190ddc4d0e9dd13b8c465d8e2a236604bfba556fefb02f830c6ea:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2RlODk1N2VkMTYxOThkMWMzYTRlM2ZhMmM0Y2U4MDdjNTRmM2I3ZGZjN2MzMjM1NjcwOWZmMDcxOTM5ODY0ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTdiNmE3OWI4ZWExNThkZTNmMzcwOGIyOWUyODQ0M2U1ZGIzNGZmMzk0OTc1MzAxODI4YjI2MmQ2MTBlMzc0ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjM4ZjhjMDc2NWRlMjhiM2YzYjVmOThlMmViYWYzMWQ5MDVlODg5NTAzNzU2YmJlMWFjZDI0NjY3ZTcyMDRiMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmM3ODcwZTE0YjJmNzJkMzRmZGQ5YjMyNTk2NjIyNjE4NmU2ZDI4Y2QxMmJhNTE1NGJjMjA1YzkxYjJjZWQ1MyJ9"
+        },
+        {
+          "resource": "repo://mcp-server/Dockerfile#L20-L38",
+          "version": "repo-lines-v1:sha256:467101d31a7b324d1f5057b23d7295584328454d426d8d6b0e0fd90b8555a43f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2N2FiODAxOTY0ZTZmNDdkMzk1NThlMzVjYmRmNjJmNTg3Mzc1MjE2ZmM5YTdlNjIxOTA1ZTYwMzQ2MmJiODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyZmQ0NzAyNzA5ZjIwZWM5Y2VjNzlkMDM4MDA0NTgyMGUzMDZjZGYxZjdhZTkyOTJmYjkwNzhiN2IzYzcyZjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d89d42ee66e14c89a57745fff07c99f5",
+      "statement": "Embedding API failures during store.build retry up to 3 times with exponential backoff on HTTP 429/5xx and throw immediately on other statuses; a failure propagates to main() and process.exit(1), so a cold start that cannot reach the embeddings API fails loudly rather than serving an empty index.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L55-L58",
+          "version": "repo-lines-v1:sha256:c086d5d64b2bc144838071cb582050e93f535074ba21b52f7620f6386540f239:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTBiYWEyMTJlNjMwMTgwNjgzNTYyNzMwYzc1OGRkYzlkMGRlMTEyMGYyZDBlYTE0OGY0ZTU4MTY1Njk4YzNiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZmNWI0MGIxNTg0NTdkMTc4NjRmMjE3OTA3ODZkZDVhMmVjZGI2NGI2NmE2NTFmNzg4ZDRlMjVjZDMzMDNkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmQwZjJkM2EzYWFkYTI3NTg2NDU3OGQwYTQzOTE1NjM4ZDU0M2ZlY2EyYzk0ODU4ZGI5NDEyMTFlODZjZWYyYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L13-L31",
+          "version": "repo-lines-v1:sha256:10d28af49c70609838901aab4ddfc7ad1bb2c605ae76b9df0a5e0a881868c847:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0OGI3NDJmYjZlOWI0MzEyNWIwOTU2NGRiZDc1NGNiMjkwMDVhNjJhNzczMTVlZjRkMTRiOWZiZjg5ODQ4NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiOWViOTAzODYzM2ZmYjViZDAxNWQzMmIxY2FmMmJhMzA2ZDRkOTM4MGM0YzEyNDgwYTE2MDk0ZWY3ZmQxMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc2NjkyZGFjZDdjOWU3NTQ1NTRhM2JmYjY5NDMzMjllOTU0YmI3ZTVkMWQ5ODMwYmIxN2NkYWQ3OGI0OWZjOGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4361f6c4a0074b6ba0dbecc915303dc2",
+      "statement": "Per-request server failures are isolated: if mcpServer.connect or transport.handleRequest throws, httpTransport.ts logs the error and responds 500 if no headers were sent yet; the per-request server model means one failed request cannot poison the next because each starts from a fresh McpServer.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L52-L68",
+          "version": "repo-lines-v1:sha256:bc635b4053cd2025b1670dab675f6c5aa6146be9b9c73f8c5ffc1c66c2da0da5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0ZmVlM2MwNjIxNWRiMmUyMzQ5Zjc5Y2NkMGRiZjA1MzFjNzU1YzM4ZTQwMTZkMmVlMjYwMzJkYzJjOTM5MGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZDM3MjQ3MmZkYTdhNjA5ZWQxNmMwMTgyM2RlZWI1MWU4NmQ2OGIyNGQ4YTQ4MWQ5YmE0NTc4NDBkZjhiNDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3NmU1ZWM5NTMwZDhjYzE0Nzc2YmM3M2U5OGFhZjcyZWI1NGY2ODE5YjE4YzYwNWQ0YjczYzM5MzdjYThkMWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f877add6f56498bbbbc541258bcc714",
+      "statement": "store.test.ts uses a fake embedder returning deterministic orthogonal vectors to verify VectorStore builds, returns the correct top result, orders results by score, and round-trips through saveToDisk/loadFromDisk including returning null on a wrong hash — pinning the in-memory cosine store and cache contract.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/test/store.test.ts#L45-L101",
+          "version": "repo-lines-v1:sha256:1452a7ad7f5909c0683d0ea645bf9cef290e48f38a4345d55fec2997344b11d6:eyJzZWxlY3RlZExpbmVDb3VudCI6NTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhMDQ2MjE2ZTYyY2I2OWVhMjZjODQxY2RhZDc1ZjhlYTU5MTBmOWZhYjA5ZDJkNjM0NmY4NDc1MTc5YjIwNzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5OWIzYWUyNTlhOGQyYmIwZjRlN2E1MGFmYzRmOWZkNGIyODM3YWI1Y2Y3ZDg2MjQ3MjhlNzQ1NjdmMmM2YjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQyMDIzNzQyZDY1NGYwNDFhYjVmYjhkZjUzYTQzZTdmNDEyZThiMmQ1MmVjZjE0NTg4NmZlOTE0YjUyNGJiN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2YTgwMGE1NjYwYmJhZTBmNzRkZDFkYWFjNzAzODk3YTE0MWM4ZjFkODQ2MzQzOTEyNTg5YjAwZTY1MmMyNzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc98a5ded49e4b5a910604cc0ba29d41",
+      "statement": "resolveMacros.test.ts covers every macro transformation (Kroki removal for both .... and ---- delimiters, partial$ inlining, nav_* skipping, example$ inlining as a code fence, xref replacement and drop-when-empty, image:: alt replacement and drop-when-empty, recursive partial includes) — the most heavily tested part because Antora macro resolution is the most fragile part of the pipeline.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/test/resolveMacros.test.ts#L23-L100",
+          "version": "repo-lines-v1:sha256:44eea49a9d2db5b4b9601b040bedc3f617634ae3f93cca2efe513d5b0428acf8:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE4YTRlY2EzYTM0YjI3ZDdlODE0ZTU4ZjhjYTNhODY3NzcyNWQ0M2JlNWU4ZTk0ODQ1MTEzNjhjMTg5NTJmMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQyMDIzNzQyZDY1NGYwNDFhYjVmYjhkZjUzYTQzZTdmNDEyZThiMmQ1MmVjZjE0NTg4NmZlOTE0YjUyNGJiN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f851e606691c4b81a30d5eeae805caf9",
+      "statement": "chunk.test.ts verifies chunkPage always yields at least one chunk, that ids are unique, that the context prefix contains the page title, that no chunk exceeds ~1100 tokens, and that tokensApprox equals ceil(text.length/4).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/test/chunk.test.ts#L9-L59",
+          "version": "repo-lines-v1:sha256:bbd8e927ba386903c1196b97a94be769eebb190464f58c783d17c33607043c80:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYwNTdiZTQwODUwODFiN2YzNGVjOWY5ZTIxNGU4NTZmYjk5NzRiZTQ2MGVhMzEwYjIzMTk4ZjVhYjFhYjM1ZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0ODU0ZGMyMGUxYWUzMDg5ZDczZDk3ZTMwMmNiYTg1YWU2NDFkOTcxNmY5YzNkZjZlYjYxZWNhNzczNjFiNTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bcf9b4b2353f4adbacc973e45cf5cd29",
+      "statement": "test/smoke.ts is the Phase 8 retrieval-quality harness: 10 real Greek queries posted to a running server, asserting the expected page appears in top-3 (target ≥8/10) and top-1 (target ≥6/10) — the end-to-end check that the ingest→index→serve pipeline yields useful Greek semantic search.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/test/smoke.ts#L66-L200",
+          "version": "repo-lines-v1:sha256:3e46bb2d0466def7cd2ac1e56ff931e56efc264b23d15041773f29c38218ca74:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM1LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJhNDJkMmI3ZThiMzM5YjkyYWUzZThhOTNmNjVjZTdmYWMzYmVlNzhkOTNiZGY0YmRhYWRhOWVkODVhMTVhYWQ2IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJiZjgzYTM5YWNjM2VkYWVmMTY0ZjFhNWE4NzQyOTY5YTlhM2ExMTU2YzBlZmZmYmZjMDNkYWY1OGVkYjBiOTcwIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJiZmIzZDdiYTNjN2UxZTIzODkxNjcxYjcyMDBkMDBkMzU2YzlmMzE1ZmE5MTk3NWUxNTQ0NzgxMjgzZDVjYTg2IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJmMDRjZjRjYTVjMTAxZGVkZDExZjkwNjlmYWQwY2JlNmJiNTAxY2NkZDI4ZGI5ZjhhYjVkMWViYjhlMWE5NTJkIn0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

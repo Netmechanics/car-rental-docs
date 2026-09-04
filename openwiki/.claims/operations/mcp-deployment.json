@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:16e353dbf9e3abdb0d14306ce12096116cf1344735f6caace25207bbb4e313d4",
+  "claims": [
+    {
+      "id": "claim_8831d4650e9c476bb665d2e478dbf9b8",
+      "statement": "The MCP server Dockerfile is a two-stage build whose build context is the repository root (not mcp-server/), invoked as `docker build -f mcp-server/Dockerfile .`, so the runtime stage can copy the Antora docs corpus from docs/modules/ROOT/.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/Dockerfile#L1-L9",
+          "version": "repo-lines-v1:sha256:6ce5c40c310638df33f03120bd7c6d0a78666e30c36b3f165fe298049b7cb271:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQwM2Q1OWViNWFjNzZhMjNhZTU2ZjFlNjVkM2FiNWQzYTY4ZDBjZTdhNzlkNTBhNzM4ZWUzMGQwZGViNjZjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTNlYWExYWYwMDc0NDBmZDUyZjBiOTUyZTY3ZTIyM2M3ZmM5ZTU2NDQ4YzI3YmU5MzAwMzBiNmUxMzQyYWI2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjI4YThhZjcyOGFhNTg3YTkyMTllNTliYWI0MjZkNDBmZjg3YjAxMWQ0ZDhlZmVmMGEzZjVlMWQ3ZGQxZjU3ZiJ9"
+        },
+        {
+          "resource": "repo://mcp-server/README.md#L33-L45",
+          "version": "repo-lines-v1:sha256:aa2930dbf5247fdec24f78bfc37601b2969ebbe58686bdba5244235298139db8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZhMmIxYTExMTgxNjBjZTUwMzQ5MjFhOTg4OGY1NzdlMDQ3ODg2YjRiMjcwOTdiZGYyYzdiMDI0OTU4ZjdlNWYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcyNjA4MTc5MDQ4YzZjZTFjNWVjMzU5ZWFkMWU3YjQxZmFhNDJmNDc3N2JmNDc1NjAzMjU4OWZmZDgzOTdiN2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0YjEzNjcxMTVhY2IwODczZjZhNmIwNjFkMDBhZDlkYzZmZjY0NmE2MzAwY2YyYjQ1ZWFhOTk0NGMyNWNhMGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d8994f2ab811482da63fe9791d909d52",
+      "statement": "The builder stage runs `npm ci` then `npm run build` (tsc) to emit dist/, and the runtime stage runs `npm ci --omit=dev` for production deps and copies only dist/ plus the baked read-only docs pages/examples/partials into /app/docs.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/Dockerfile#L2-L24",
+          "version": "repo-lines-v1:sha256:ca832bbffcd789ac7b5d25e608b68688aa70ec54bc6fc41014a3c9c25e982818:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhZjgwMDkzZWM1MWU2ZWRlOWNlNjFhMzIyMGU1NTUzNzg0ZDY3ZDMyNjVhMGQyODRkYTA1NzA1NTk4ZjRjZDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwOThjYTc1MjM5NTYzY2VhZjM3ZWViZWEyMWE3NGI0OGYzZDhlMDNmMjkyNGJkZjJhN2Y5YWEzMWY5ZGNkMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoxLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJkMDNkNTllYjVhYzc2YTIzYWU1NmYxZTY1ZDNhYjVkM2E2OGQwY2U3YTc5ZDUwYTczOGVlMzBkMGRlYjY2YzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA4OWUxMjcyNTk5MTQyMzFkMjJjMjYwNjIxODY5ZjA0YzYxNmU1MWY3NDc5MDY5MjVlYzk3MGMwZGI0MzRjNWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_98fae7b515fa4cf0a22f316de61c92a7",
+      "statement": "The Dockerfile bakes image-internal config via ENV: DOCS_ROOT=/app/docs/pages, PARTIALS_ROOT=/app/docs/partials, EXAMPLES_ROOT=/app/docs/examples, DATA_DIR=/data, PORT=8765; these match the zod defaults in src/config.ts (DATA_DIR defaults to /data, PORT to 8765).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/Dockerfile#L26-L30",
+          "version": "repo-lines-v1:sha256:3428e6cbcbfdd161b3621075c0859f2a84d478d5c3064e3b11c3dabaf5218681:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDZiNDMyOGFkN2YzZDFlYjZhYmY0MzMxMDhhMGU2Y2JjMDhiZmFiMTMyZmNmNzM1NmU3YjBjNWQyNzZmOGU5YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmE3MjEyZWJlMzNhYzIwZDRhZGEwY2VhNTNkNzQwZTY3N2RkZGRmOGFlODk2ZTBhODY1YTIyYzZmMWIxMzkwNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzgyZGI3MTgxMmMyODU3YTMxNzk2MDAxYzMzZWZmZGU0MmQxMGJkNmU0MDJhMmJiZDhlZWQ2MWNmNzE2ZjIzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDkyMjM3Njg0NjE4OGQxNmYxYmQ2ZDE3OWY3OTc5MTMyY2IwNzllYjE4ZTQ5ZDY4ZDFmMzM0NGI4MGM0MjcyNiJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/config.ts#L4-L8",
+          "version": "repo-lines-v1:sha256:586577f227f46f4ba88cb73e57665399682b86a18b109869d1e61b1661422e66:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTAzNzI1YTAxMjkyOWMxYTdlZDNlYmE0N2JmZDc4NDQ2MzFkNTNmMzczMDc0ZmNiNTc1OTRmNjY4Mjc5ZmQwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM3MmEyMzU2MWMxMTZmMGY0M2UwMDEyMmI0YmQ2MjAzOTUyYjRjMTFkZjcyOGRhMjFjY2Q3NWU3M2QyNTI0YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmNkNDBhMDVkNzlmM2Q5MTUzZDBkNGYxZWIyODcyMDY0MzliMDViMzRhZjE4YzU4NTdkNTNlMWRiMWE5N2QyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGFmNzY3ZGIwNGY3NzE0YTc5ODY3N2FhNTNlOWFmOGM0NzYzNmU3N2NjN2NlNDk2YTlmNDY1NDM4ZDc2ZDNjOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_920adb59915743f496e2d97abcf16b25",
+      "statement": "The image declares VOLUME [\"/data\"], EXPOSE 8765, an in-image HEALTHCHECK that fetches http://localhost:8765/health every 30s, and runs `node dist/index.js`.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/Dockerfile#L32-L38",
+          "version": "repo-lines-v1:sha256:29507f95ab8d5eab272d69df8765bb436835399e8933b4cd61cf2baee6ce08b3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTIwZGNhMGJlMTRmMWJhY2RmNmZlMWFmOWVhMjk4MWJjYTU1NjVmNDRlMDQxNTVhZjk1N2JmNDc5OTkyNDlmNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjY3YWI4MDE5NjRlNmY0N2QzOTU1OGUzNWNiZGY2MmY1ODczNzUyMTZmYzlhN2U2MjE5MDVlNjAzNDYyYmI4MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg4NmEyZDA2ZGI2MjFiZGE2ZDE3NzliZTY4ZTZmZGQwOWY5Nzk0NGM0ZTA2MjIyMDExMDc1OGI4NGE0YzI2ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e4ef84cb4564f7aa1e330003dd59ca6",
+      "statement": "At startup src/index.ts loads docs, chunks them, computes a content hash over sorted chunk texts plus PIPELINE_VERSION and the embedder model, and attempts to load /data/index-<hash>.json; on a cache hit it hydrates the VectorStore without calling the embeddings API, on a miss it builds and saves the index.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L16-L45",
+          "version": "repo-lines-v1:sha256:f02568169c67a0b718d24c221f0f50540b0bf4ca4a634cab9e05af404bf83247:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxMzc5ZGRjODAzZTM0NTQ4ZDFjYTAyMDg0MmY5MWQ0ZWViZDVkYzU0Y2IwZmJiMThlZTU5NmE1ZTg2ODgyZWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1MWQxNTQ3MWU3MDBmOWM3NmQ1ZTYwODQzZDliMmIxNTRhYmI1ZmVmODY4MGQ3NDhlM2M5ZjIwZjkwMDk1YmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmZTM3MzI1NDg5MDk3ZDgxMGM2YWMxM2JhYmU3MDMxMDNlYjkyNTAzZGM4NjEwMWRjNDljOGRkMDZjOTk5MDUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/hash.ts#L4-L9",
+          "version": "repo-lines-v1:sha256:b9e597c9fccdf8877bb586ba00b57a6c8e89993cbeaacca48d7ffcee773f8814:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI5MjQzYjE5ZjdlMzBkMTZkMTZlMTUwYWE1NGEyM2JiM2RhNWRlMzMxYzg1ZjFlNWU1MTMwYjQxMjA1Yjk4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFiNjMxZTU4ZTk0ZjRiZWJmYjhjNDE4N2NmMzFmN2VjOWM5ZDVkYWU5ZGZmMGQ3MWI1NmMxN2JkZDE3YmViNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzY4OTA4MmI3ZTczMWVmMjkyNDI5ZjJiMWVhNTc4NmYxZDBhODBhYTQzNGY2YzU0OWQ3NzM3OGYxM2FmMmVjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L55-L76",
+          "version": "repo-lines-v1:sha256:47353bacc88fc23ed24d8bb94fdced28c5d26bef3aabbdb0c3e94867e79c776e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MzllNTQzMGNhMjVlNmUxN2UwMDEzNjQyNWFlMWFkM2QxMmVlNzNiYzNlMjgyYjNmMDgyMzI1NjU3YmEzMzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA4OWM0ZTM5OTkzODZiNzUyZWNiMjg3NGYxMjlmYWM2Nzc4YzMxNjE3MzVmMDhlN2ZhODM5NWFjOGQxZmVjMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYjQ0NGUwNDQyMzdjZTBhYjZiNzM2YzI1OWRmZWY2MDk0YWM3OGY2MzAyNGFjZGY3NDdhMmIwNTVjZGJmMjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_793a76ee80ee4f0fb5d4f7d84c34d057",
+      "statement": "The vector cache file is named index-<hash>.json and loadFromDisk verifies the stored hash field equals the expected hash before using it, so stale indexes for changed content/model are ignored rather than reused.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L55-L76",
+          "version": "repo-lines-v1:sha256:47353bacc88fc23ed24d8bb94fdced28c5d26bef3aabbdb0c3e94867e79c776e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MzllNTQzMGNhMjVlNmUxN2UwMDEzNjQyNWFlMWFkM2QxMmVlNzNiYzNlMjgyYjNmMDgyMzI1NjU3YmEzMzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA4OWM0ZTM5OTkzODZiNzUyZWNiMjg3NGYxMjlmYWM2Nzc4YzMxNjE3MzVmMDhlN2ZhODM5NWFjOGQxZmVjMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYjQ0NGUwNDQyMzdjZTBhYjZiNzM2YzI1OWRmZWY2MDk0YWM3OGY2MzAyNGFjZGY3NDdhMmIwNTVjZGJmMjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_738b930cba664d80935be2377fffec95",
+      "statement": "Per-environment config is injected at runtime, not baked: OPENAI_API_KEY and MCP_AUTH_TOKEN (plus OPENAI_EMBED_MODEL, EMBEDDING_PROVIDER, ALLOWED_ORIGINS, LOG_LEVEL) are provided via the nmecar-mcp-config ConfigMap mounted with envFrom.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/k8s/02_secret.yaml.example#L22-L33",
+          "version": "repo-lines-v1:sha256:f1378ba857093f3f3f6cdc04b1baf7cd2e5d19dd393a38364b703f47107aef5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3NmFlMTQyNDI4ZTc1NGI2N2Q3ZDZlM2RmZGJlMWI0NDhmMGJhYzM1NWQ4ZmEyNGVjOTQ3MWUyMWQ5MGI0MzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyOWEyZGQxYjg4MjczMjA4OGEyMGMxZDY2OThhZjZjMDZlMmYwZmUyOTM2MzE4M2UwNWNmMmEyMTBjNGVlMjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE1OWNmYjMyYzMyMGExOTljNzU5NzhjYjc3MGI5MDcyYWExZDM5NmZlYTU5Y2I0N2RkYmU1MzQ0NThmY2QzNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAyZjZlNmViYWViN2ZhYmUwOWM3ODllNzM2YjJiZDU3NjRlNTc3ZDk0ZjRkMDhlM2Q4OTU5MTlhNDcyMWFiZmIifQ"
+        },
+        {
+          "resource": "repo://mcp-server/k8s/03_deployment.yaml#L23-L25",
+          "version": "repo-lines-v1:sha256:965eb8aa5652391d8da3fe037bf43ec1e41e2fe41086f1ccefca30a0d6e2c730:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAyNzg3NmVmNzVhNmJiZDg5YzE3NjI0YmE2ODBlOTQ0Mjk2ZDYyM2IyOTc3ZTc3ZWM4M2U1ODBkMWFhZTgwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGRjOTE1MDg3ZGMxZDhmYjc3ODcxOTgwOGJiZWJmNThhMTc2NjI4MWQzNmQxYjg4OGMzYjBjZDZkZjIyNmVmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTBhN2Q5MTc4NGQ5NDY5YjBlZjQwN2MwMjliYWI1OGRmZWMzYmE2MDcxOGUwODVhYTY5ZjAzZDMxNmQ2N2ExYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWI2NDE4NDYwMjZlYmY4NmZmMzQ3MTkwNDMxN2FmYTQ4ODRlMzE0MDk0OTY2M2EwOTEzYmE2YWMwMTMyOTY4OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1df2391dac174bee9119b08d18bc4114",
+      "statement": "src/config.ts requires OPENAI_API_KEY when EMBEDDING_PROVIDER=openai (and GEMINI_API_KEY when gemini), exiting non-zero on startup if the required key is missing.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L27-L34",
+          "version": "repo-lines-v1:sha256:66a98b13afae6d5d263c5a11dede71518a8307082102114a54d0ec77ce68fe73:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM0Yjk3NjliOWFlNmRkZWVmNDU3ZDI3OWJmNGQ0MDZkZTYyNDZmYTcwNDJhZjRmNzA3NTVkOGFiZTg1NWJmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI4N2JkMWRmZjFiMzUwNTgxOGJlOTk5NjYxNjhiZjY5YTIzM2FkNTEzYTI0NDJjNGJiNDEwOGVhMjg2NTI1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGE5OWI3NDMyMGRhNGVhNGM4NTQyMTExMmE3ZGU2ZmUzYmIxYjM1NGY3YWIxY2Q4N2JlNjg4ZTE3NDlhYTM2ZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a25e5cec998042ecb3175d8f64b70ad1",
+      "statement": "When MCP_AUTH_TOKEN is set, the /mcp endpoint's authMiddleware requires an Authorization: Bearer <token> header matching it; when unset the endpoint is open. /health is always unauthenticated.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L25-L37",
+          "version": "repo-lines-v1:sha256:0d7771108893a4f3cc5724ab669b79c204419a5f955d4d4a2a095a605b8204cd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3Y2RkMjQ3YmJkNzM4Y2RkNTRmMjJjNGY1NjkwMTY2ZmQ3YjdlM2E2MDlmNmEyZjM1ODg4NzM0YzJlOTc1ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2N2JhMTJmNDcyODY4YjhhNzRlNGE0ZmMwOWFhODcxZTEwZTEyNDc1NDk1YWJmNjdmZWJlZDQxMDE4NDZkNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgzNTFlMWUxYzBkNWI4NGRlNDgyMWRlOTY5MWRjNjhkNmZjNmI2MWI0MTU5ZDIzZDQzNmRiNWYzM2NhY2JkOTUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L48-L50",
+          "version": "repo-lines-v1:sha256:062a29025c243144b354a16d913b1dc6d3e33d21aeca3f2410def023c88b137f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRmZTc0ZGM1YzQ1NzJjNTM3NWJiYmM0MDFiODgyMTFkNzhjNzUzYTMwZGVlMDBjMGNhZWIwMmFiNzNlMDhjMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2EzZTQ2Zjk0Mjc2YjZmNmY0ZWQxZjAyYWY3OGJlZjZhMmVlMWM0MzlkZDU1ODRiOTczOTQ4MzEzMjE0ZDJiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWVhZGUyZjQ3OGM5ODk4OGM4MGRmMjZmNDQ4ODk0OTg3NjcxNDlkN2Y0YTcyOWY3NmRlZDI2NWVlOGEyY2M5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDM1ZDk3MGNmODNmNWUwZTNjNjI0ZTFhMjQ1MDkwZjNhYWFmYTY3NmM2MmFiODRjN2M3MWY3MzMzYzRlZTUwYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6354524a7d934948bdca87db4e2ab9dd",
+      "statement": "The HTTP transport creates a fresh McpServer and StreamableHTTPServerTransport with sessionIdGenerator undefined per /mcp request, the stateless mode required by the streamable transport.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/mcp/httpTransport.ts#L39-L57",
+          "version": "repo-lines-v1:sha256:2de563749f428e8255cd2b449d1c413924766f57f2e781b6974c9e311a9c452d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxZWIxMjdmNzA5NTU0MjllYjkzOWY3NzZjZTUzNmQxNDM2OWExOWE4ODQ2OGQ3MzViNjRhZmQyMGQzMTVmOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIyZDExY2FmNDNlOTdlZjM2OWU2YmVlZDFhMjY4YmQwNTgzOGYyOWI5ZGQyNTRiZjY5YmE2NDg4NDE0NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2N2JhMTJmNDcyODY4YjhhNzRlNGE0ZmMwOWFhODcxZTEwZTEyNDc1NDk1YWJmNjdmZWJlZDQxMDE4NDZkNzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxNGU0Y2Q4NjQ2OWQ1NzQzNDhiM2FhZTM5ZDJhZDUxYmM4YTJjZDFhYTllNzcxMjIxNDA3MjY2MGYzZDYxMzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_badd02e8f40247a9a941f1cd9a70c47c",
+      "statement": "The k8s Deployment runs 1 replica, pulls a SHA-pinned image (ghcr.io/netmechanics/nmecar-docs-mcp:8a04778) using ghcr-pull-secret, and defines readiness and liveness probes that httpGet /health on port 8765 (readiness initialDelay 15s/period 10s, liveness initialDelay 30s/period 30s).",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/k8s/03_deployment.yaml#L1-L43",
+          "version": "repo-lines-v1:sha256:40df8f77713d9880bb9d30e18c82e7832de2499c733f2159f3af6c1f784455b9:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3ZGQ4MGQzMjFmNTQwN2NmNTYxNWYzOGY4ZjU4MjJhMDVmOWY3MDI3M2JlYjQ4NGUxYmUyMDg0NWZlMTAzMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkZjQ2ZGRlMjY5YzE3NTA2NmJiMzJlMDJkZTllMjJlOWQ3OWFkYTY4ODExYTcyYmI5NTdkZDllNDlkZTNjZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmZjI1ODJlODY0ZjE5ZDE4ZDIzYjY0MDNlYWEzODczMmYxM2VkMThlY2U1NjMwOGQ1MDJlY2VjZGI4MGQzZGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e8359b4fe9514473bb46e949ecf9ea6d",
+      "statement": "The Deployment requests 256Mi memory / 100m CPU and limits to 512Mi memory / 500m CPU.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/k8s/03_deployment.yaml#L44-L50",
+          "version": "repo-lines-v1:sha256:9d3069cda3a435b6d752557c9a7ad198cc2b5aa163258f1dfe858fb8cdeaa68d:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg4Mzk3NDhkNzk2YTFhMjE4ZTA2OTc5NTFlZmFkNTM5YWJiMjcyY2U1MGM0MjY1MTg2NTg2NzllNjllMzI2ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTY1YjEwNjQ2NDE1NmMyZjBlMDE3OTdiODExZTA0ODBhY2M0ZWY3MTkzZDUyMzc4OWI4MjAyMjIzMGVmOWJiNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2U1ODc1N2JlODQyZTA1NDFhNDU1ZjYzMDlkNjExNWVkZWU0MTQ1MjQ3ZWI5NmI5ZDdkNGQ1OTFlNzBlYWY4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0a10e749fc2e484dba7ed3bc1bf0c102",
+      "statement": "A ClusterIP Service (nmecar-mcp-service) in the nmecar-mcp namespace forwards named port web8765 (port 8765) to the container, and an nginx Ingress routes host nmecar-mcp.nmlabs.gr prefix / to that service with 120s connect/read/send timeouts.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/k8s/04_services.yaml#L1-L16",
+          "version": "repo-lines-v1:sha256:64f4e111d30f5e28125c37b90e50c89bb4e037f63086a6a1fcc21ad4ed84f008:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1MmQ3MTExMDNkNTBhNDM3ODMwYzZmYmNkMDRmYjRiYWI0OWEwZjgyZjZkMjZkMWM3OTFjNmU4NDg4ZGQwOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4NmIyZTE2ODljYzk4YWVmMzE5MTQ1ZWY3NjFmZjUzYmZiMzMwYjYzYTVkZDZlZTYwYjQ0NTI5NzZjYjhjMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEifQ"
+        },
+        {
+          "resource": "repo://mcp-server/k8s/05_ingress.yaml#L1-L22",
+          "version": "repo-lines-v1:sha256:a53140cb8d990efb9009c2f891577f871d26fec08841ca3c6190eb79185fcb6a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3Mzg0NDQ0OGIwNWY0NGIwYzY3MmM3MWY3MzljYjNmMGU2OGZmZjYwZjZkYTdhZTQwMmRiNzU5MDMwMjBjNTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkOWM5OTQyZmI0ZDhiYzlhYjRmYzhiY2M2YWFkOGY2NWViZGQ3ZGRhMzViNDkwMjk4ZTBmYzBlNjczMjc4NzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3d4cd4f8a1694d1981d3d346112f4cee",
+      "statement": "All k8s resources live in the nmecar-mcp namespace declared by 01_namespace.yaml, and the GHCR image-pull secret plus the runtime ConfigMap are declared together in 02_secret.yaml.example as templates with placeholder secret values.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/k8s/01_namespace.yaml#L1-L9",
+          "version": "repo-lines-v1:sha256:cdf17741051cc326b54973065d5c8dc0d410e114d05b31bec6ca749bfd1912eb:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTI1MjA5YjZlNmMxZjc4MmI3ODEzMmIwMDhiNDc1ZGUxNjliOTE1MzU0MGYyZDU5YTUyZDRjMGU0NGQxNTU3MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2IzZjkxZDU0ZWVlMzBlNTNlMzViMmI5OTkwNWY3MGYxNjllZDU0OWZkNzg5MDlkM2RhYzJkZWZjOWVkOGQzYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/k8s/02_secret.yaml.example#L1-L33",
+          "version": "repo-lines-v1:sha256:44cfa7e3b544de5e8a944de5a917843f75184578ced02b4bb5506f2bed36c17b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3NmFlMTQyNDI4ZTc1NGI2N2Q3ZDZlM2RmZGJlMWI0NDhmMGJhYzM1NWQ4ZmEyNGVjOTQ3MWUyMWQ5MGI0MzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyOWEyZGQxYjg4MjczMjA4OGEyMGMxZDY2OThhZjZjMDZlMmYwZmUyOTM2MzE4M2UwNWNmMmEyMTBjNGVlMjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAyZjZlNmViYWViN2ZhYmUwOWM3ODllNzM2YjJiZDU3NjRlNTc3ZDk0ZjRkMDhlM2Q4OTU5MTlhNDcyMWFiZmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_043d753c61b94e6bb58312d906094e2e",
+      "statement": "CI builds and pushes the image on pushes to mcp-integration or master touching docs/** or mcp-server/**, running typecheck and tests first, and tags it with the commit SHA (prefix empty) plus latest on the default branch to ghcr.io/netmechanics/nmecar-docs-mcp.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L1-L69",
+          "version": "repo-lines-v1:sha256:e0afc711a697b932eb6c13ec7293e45f522c7449bc7992f3173e9b239da23599:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZWIxZWVjYTE0M2FiMDkzMTU2ZmQ2ZDQ1NzAwYWFlNzM0OWViMTQ2ZTRmMjc0YWUxYTJjNzg5ZmI2OTYxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MDBkZTFiODIwMWUzYjYxYmI5NGM0YWQ3MWVkM2ZjOTE4NGFhMjBjYjY0NjNlZWVlYzQyZmU5YTQ4NTk4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

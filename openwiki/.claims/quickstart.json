@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:0c7c2029750edb53a9c4a15d997dbba3c8def35a44e6e07db6d77c36290978be",
+  "claims": [
+    {
+      "id": "claim_fe987971ac034c4e90add6689dd2b11f",
+      "statement": "The nmecar docs repository owns two independent consumers of one AsciiDoc corpus: an Antora documentation site that builds the .adoc sources into a static site published to GitHub Pages, and an MCP server under mcp-server/ that reads the same .adoc files at startup and exposes semantic search and page retrieval over Streamable HTTP.",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L23-L37",
+          "version": "repo-lines-v1:sha256:abde9bc1515060a307f890cbd99174a7d963e4461d96730c08ad5064b2cde442:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3YWRhMjdmMTFjMWMwY2M4YzE5ODViYmVlMjllODBmZTMxYTE5YzFlZmJkZTMzNzE2MDZkOGRjZWZiNjg0YzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMTUwZjU3NmRkOGFmNjBjNjhlY2VmMDUwY2I5MjY3MTEyNGEzMzRjNzEzMzE5OWNlN2U2MTMwNTU3OTc5MDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJiNzhiOWQ4YTA5MzQ2YjZlNTYxOGJjNWIzNDA5OGM4YWI4NmY5N2M2ZDM4OTlmMDFiMTRkODA4NWRiNTQzMzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3YTc1Nzk5NzNmYjA2ZGRhM2Y3MGMyMjM4YzQyMWExZTAwZGYxNjIxMGRlMzI2N2RiYWE4MmQ0YWU2ZjYyZGEifQ"
+        },
+        {
+          "resource": "repo://mcp-server/README.md#L1-L24",
+          "version": "repo-lines-v1:sha256:7edcb4437c68feecff253cc92afb2ac1d81486977acdb8ae11cdb0f97732d6d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MjZmZDAyZjMyZjNjMjUzOGY2ZGI3NWVlNDA5MzQ3MWMyYzQ1YWE0ODFkYjIwY2ZhMzk3MDdjYjMyZjgwZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlM2MzNTY5MjQ0MWM3OTY0OGE4ZjlmYmM4YmRkODU5MTQwYzQyNDM5MmJlMzY5Y2I3MmU4YTE5NGI3MzdmNDQifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/index.ts#L13-L53",
+          "version": "repo-lines-v1:sha256:8d988c3d12024b8be6e9511d00099a11bd54e4c0f9cff57990e49bb934849f3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlODIwMGViZDE3MDliNmE2NzViZWNiM2JlOWYzOWU1M2JiYWMwMmNjOTI3MjM0NjJjMDU0NjhlYjBkYTZhMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiYmE3MjRhMTQzN2MzYThlN2VmZmEzYmRkZTc1ZmRmYTVkNjRhMTMxMTdjZjk5MDQ0ODM1M2Y4YTQ4YzNkMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzZjI0YmI1N2M2ZjhiMjZhYTI5OWJmOTdiOWFjYTE5MTJjNTBhMzkxZGY0ZmUwODA1MTkzMDA0YTBjODg5NDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1bae503059994a009a71da6bbd20e88d",
+      "statement": "The two systems share content but nothing else — no configuration, build pipeline, or runtime; the MCP server is retrieval-only and does not generate text with an LLM.",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L23-L53",
+          "version": "repo-lines-v1:sha256:11f9a76b65dba092548f53fa6517589646278b19202f6d560d5905c66a7a4e19:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3YWRhMjdmMTFjMWMwY2M4YzE5ODViYmVlMjllODBmZTMxYTE5YzFlZmJkZTMzNzE2MDZkOGRjZWZiNjg0YzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4NzUwNmI4YzJjMTViMzhkZjZkNTQwMjBkMjhhZGQ1Yjk1NDY2MTc4MmU2N2ZkMzY4OTAwY2FmOWNmNGU0N2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJiNzhiOWQ4YTA5MzQ2YjZlNTYxOGJjNWIzNDA5OGM4YWI4NmY5N2M2ZDM4OTlmMDFiMTRkODA4NWRiNTQzMzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3YzM3YmRlYWJiOTE4NmQ0NGY4YzIzYjEwNDc2MjcwOWVkMzFlODAwNzM3YjZlMWM2ODc5ODUwMjk5MjI4MjYifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/index.ts#L13-L53",
+          "version": "repo-lines-v1:sha256:8d988c3d12024b8be6e9511d00099a11bd54e4c0f9cff57990e49bb934849f3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlODIwMGViZDE3MDliNmE2NzViZWNiM2JlOWYzOWU1M2JiYWMwMmNjOTI3MjM0NjJjMDU0NjhlYjBkYTZhMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFiYmE3MjRhMTQzN2MzYThlN2VmZmEzYmRkZTc1ZmRmYTVkNjRhMTMxMTdjZjk5MDQ0ODM1M2Y4YTQ4YzNkMjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzZjI0YmI1N2M2ZjhiMjZhYTI5OWJmOTdiOWFjYTE5MTJjNTBhMzkxZGY0ZmUwODA1MTkzMDA0YTBjODg5NDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b332302beff24f1f821a2e6dca641009",
+      "statement": "The docs site (repo root package.json) requires Node.js 18+ and is tested with Node 20.18.1; its scripts are build:theme (Sass compile), build:site (theme + antora), build:site:fetch (theme + antora --fetch), and preview (python3 -m http.server on build/site at :8081).",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L27-L37",
+          "version": "repo-lines-v1:sha256:115293e1584d6844ddf01e72143d207c3c52a6ce0d323f44d0f6a255385c49bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxMWI5MmQwZDk2YzhiMGEzZDc4NmIzNDI5ZGU4NzRlMzA4OTU0ZmU5MmZhYWVmNTNmYjIxOWY2NTA5OWYwODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMTUwZjU3NmRkOGFmNjBjNjhlY2VmMDUwY2I5MjY3MTEyNGEzMzRjNzEzMzE5OWNlN2U2MTMwNTU3OTc5MDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwZTIxZDdjN2JiZDJmZGYyZjg3MzM4N2IxZWE3NzM3YzZmMDRkOTdiYzg0ZTJhZWRmNTAwMWVlYWYwNjdlOTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3YTc1Nzk5NzNmYjA2ZGRhM2Y3MGMyMjM4YzQyMWExZTAwZGYxNjIxMGRlMzI2N2RiYWE4MmQ0YWU2ZjYyZGEifQ"
+        },
+        {
+          "resource": "repo://README.md#L1-L12",
+          "version": "repo-lines-v1:sha256:7f21e2602835a6b6126f0d768f889937df1498d6bb473fd2fcdec480de4b0d3f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjMWVmNTA4NWQ4OTY1ZDI4NDIxMWIyNzEwNmY2NzlhNmEwZjAwOWQ2NTRkOTdiYmU4ZmRkYjNjYWJkODczNzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFiN2E5MmUxZTM0NzA0MGY2MjU2ZjkwMDllMDJmYjZkMDRlYjYxZjU5NGE0YjhhYWZhMjNlN2E5ZTIwMTNjN2EifQ"
+        },
+        {
+          "resource": "repo://package.json#L1-L22",
+          "version": "repo-lines-v1:sha256:581b9b0e69636450b5f911d54c619492cc8c8e8b7866531d7e422e8e90566217:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_15e6675a255a45008a6c27e623ea89f7",
+      "statement": "The MCP server (mcp-server/package.json) requires Node.js >=22 via its engines field and defines dev (tsx watch), build (tsc), start (dist/index.js), test (vitest), typecheck, ingest:dump, and smoke scripts.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/package.json#L1-L14",
+          "version": "repo-lines-v1:sha256:65f9b0e567dd545cabcef4a830fb5e98d855521cc055d4ab8474b8585e743f03:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MTg1NGNmNThlYzYwYzA4MjVjNTJkNmFmMDI5OWEwMDlmMjU1YWI3Y2RlZjJhMGM0OGExMGIwMjI5YWQ4ODQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_017ad6699b024485a93e7105aacf1ee9",
+      "statement": "Local preview of the built docs site uses Python 3 via the preview script `python3 -m http.server 8081 --directory build/site`, making Python 3 an optional prerequisite for the docs workflow.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L8-L10",
+          "version": "repo-lines-v1:sha256:6b24968b7897f33871cadf4b8eafc682190dc38b4d3350fab0f65ad537281c35:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDIwZjg2MzQwYjlhYjRmZDY3ZjVkNDllNWZmZjUyOGE2ZTY4MjA5YjQzOTAyMTFlY2Y5OTg0OTc1OTllMDcwNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODdhMjJiYjI4NWVmYWZjMmI1MmUyM2EwNTAyZTE5NTljMTQ1NDk1ZjVlZTdiOGI5NDZkNWM2MzdkZWUwNTk1MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzgyODU1ZTBhNWNiNTFmMGE5NDA5ZTNmOTkwYjVmYjM1ZmI3MTc5MDkwN2RkZTE0NGE0MTkyNTllNzE3MDIzMSJ9"
+        },
+        {
+          "resource": "repo://package.json#L17-L21",
+          "version": "repo-lines-v1:sha256:73e2760a2e695960866b1fdb9c012bdbaf41e80b2c4a302c5692ebabd69bc35c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzM4ZjAzNzdjMWM5MWM4OThiOGZlZDY4YWVjYmE5NzE1YjE4OTE3ODJiMzk3OTgyOTUyMzJkNDA1YjExMDExMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzJlODg1ODAyMjQ5ZWNjNjdiYWVkNjE4NDczNDc5YjY1M2JiM2E4MjkzMjZhYjNlM2I3YmVjYWY4ZmY1ZWQ0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8cfae26bcafb483b8b5e60e796cad550",
+      "statement": "The OpenWiki wiki is generated and refreshed by the scheduled openwiki-update.yml GitHub Actions workflow (cron 0 8 daily or manual dispatch), which runs `openwiki code --update` on Node 22 and opens a pull request; generated pages should not be hand-edited unless explicitly asked.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L62",
+          "version": "repo-lines-v1:sha256:556dbf3489cb1f737f51b56b2c6304f5a867399d4987d3440b71517d99c454a6:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://CLAUDE.md#L73-L79",
+          "version": "repo-lines-v1:sha256:31060379798cd019458c941e0c10846d7b7ad856616f025414ea67f326bfe1d6:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYxODBmOWMxMjY5MDNiY2MzMzFhYTk1NDU2ZTQ5NDQ0YTdkNGQwMTFlOGEyYTgzZjVkYzg3MDIzOTE4MTJkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDlmNzg3MTQ4OTNhYTc3OTQyY2VhMWM0YTJlMDIzMWRiYjdmYTJhNDFhNzBjODE0NjBhM2M2NzU2MmRhM2FhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWJmYWZjZGE4YzY3MjE5ZGY4NmE3MTg1MTJiZmE0ZDg5NGUwMjViNzRkN2YxMzAxZTI3OWEyMzM1NzMxYzdhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_50b9361d1e7044cdac48b8bc5d17d205",
+      "statement": "Both the docs build and the MCP server's first boot require network access: the docs build fetches Kroki diagrams from https://kroki.nmlabs.gr, and the MCP server calls the OpenAI embeddings API on a cache miss.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L50-L54",
+          "version": "repo-lines-v1:sha256:adf2d80c100c3109a34a61baa29d856ee7d483a27e463669a099838809fa2366:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVjMzMwMWZlNDgyNjBjM2QwMjRkMjVhZTMwODQzYmE0YjA1NWQ3ZTAzYjA3ODNmMjEzOWJkZTUzYmRjOThkYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmIyNWVlYWM3MTkwMzQzZWFjNTBkMmZiNTMzMjBhZWFkMWU4MWQ4OThmOTNiN2Q5YzgwMDE2ZjA4NWY1MTY0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzYwMjNjMDI4M2ZkOTRkNjUwNTMxMzU3NTA3ZjVlNmI2ZmM0YzBlZjM1YTdlZmY3ZGI2YTliZDhiZTdlMWYzYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://antora-playbook.yml#L26-L41",
+          "version": "repo-lines-v1:sha256:ed3d07bb6de976ad8a659c568ef4c552fedfd16c869300f24ad546eecbe47a9d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkOGI5NGY0MTM2MWMwZTBiYjljZjU3OTY4ZmY5MDg3ZDM4YWJkMzAxZmQzNDFlZDE2M2NiYTQzMGY5NzE0ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNGYyZmIxMTAzNDg4MTg4NTg4NGM1OTFjZDcyZjJkZTU1MjE4NmY1ZWI3ZTUyNjQwMDUxMDhkOGJiMDFkMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmMjBiZTQ3OGM0YjgxZDI2N2I3MTllN2NmMzhmY2EzODg0OThkZTRmMmE3MzQ0NDQzMzQ4ODc3ZDM3MTUwZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc5MzYyZDdlZDljYTJmOTQ4Y2Y5NDVhZTNiN2I1Y2RjYzFhNjI5NWViZjJkNTI5MWY2MzJlNzMwN2EwNjJiYzgifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/index.ts#L37-L45",
+          "version": "repo-lines-v1:sha256:6b53fde1c60b951dd6f7834f5143d28bb34f81f1d5e589ef613f276ed5774a3c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3MjBkZDYyOThkNDQ5NjI4YjBkNTdlOGI4NWY3YzM4ZDhlZDE3ZWZlOTY3OGE3OGI4YjE0YzAyOTQ1M2Y1YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTg0MzE5OTU5NmIyN2ZiYzJmNDAwM2VhNWEyMzZjNjFhMTRhMTU3Yzk0ZWU2NDY5ZDkwOGYzMGQ3MjQwNzI3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWZlMzczMjU0ODkwOTdkODEwYzZhYzEzYmFiZTcwMzEwM2ViOTI1MDNkYzg2MTAxZGM0OWM4ZGQwNmM5OTkwNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_12755cf197fc4ee09debf705c1a6fe80",
+      "statement": "The docs build and the MCP server are installed independently with npm install in their respective directories (repo root and mcp-server/); a partial or failed install is recovered by deleting node_modules and retrying.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L13-L22",
+          "version": "repo-lines-v1:sha256:9edd62205604ce69a69533150bac88e78add62d5518eea1281b071df84a6efdc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5ODM1YmQwZmQyYzNmMTM0NGYyZDc1ZGRjM2MwY2FhZTc0YTUwODdmMjMyOTk1OWEzMTA4NGIzMjgzYTVkOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU3ZWY1ZTNkZGI1MDhiYmVjZTA5ZWE5YTdhOWJiZjMxODY0OTk0MTZjZGFkMDliZGIwMjRiYjk2MTM2MTU5MWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5NjIxODlkYWM2NjYzZWYyOTYxZTA2M2MwYTczNDIzNzdhZDE1MWNjNGUxZTAzYjkyNzRmZmI3ZjE3MGZmZjcifQ"
+        },
+        {
+          "resource": "repo://mcp-server/package.json#L1-L14",
+          "version": "repo-lines-v1:sha256:65f9b0e567dd545cabcef4a830fb5e98d855521cc055d4ab8474b8585e743f03:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI5MTg1NGNmNThlYzYwYzA4MjVjNTJkNmFmMDI5OWEwMDlmMjU1YWI3Y2RlZjJhMGM0OGExMGIwMjI5YWQ4ODQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b28e4034ae864384aab6ee9b977308f2",
+      "statement": "The wiki's task-routing map connects each common task to its owning page: docs authoring to the docs corpus and docs build flow pages; nav/partials/AsciiDoc conventions to the Antora site page; MCP ingest/index changes to the ingest-index-pipeline and mcp-request-flow pages; deployment/CI to the operations pages; and embeddings provider changes to the embeddings-providers integration page.",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L39-L61",
+          "version": "repo-lines-v1:sha256:35edb568df37c0f6ed7378250b54298fd5bf6a1ba8a336f65f76046e48483402:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExMDUxYmRlMmNjMjNjMDdiZDQ5NTFiMGZhM2I3Y2UzOGEyOWRhMTI5NDM3NjA2YzJkNWUwNTYzNTQ2MTVmNTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmZGM1ODUyZTU4YWQxOGJjNWRmYTdiY2FjYTViYjc0NzE1NTNhYWU1ZjM0MDQ2NmUwNjNhODhmNTkxOWUxNWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE4ODkxOWNjOWEwNjBmYTEyZTQ5ZGE1NTE1MWE3NTI0NWU4MGQ0MTk3MmE4M2U0OWQzY2FjNzI0YjZlYjA5MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2OWE1ZmNlZmI3OTMwZTQwZDE1YzkxMWI4MjRiMjAyMjYwNzU3ZjA2YzFlM2ZlYjNkMmFhZDI4MDMyMzVjYjUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/README.md#L1-L80",
+          "version": "repo-lines-v1:sha256:28107212bae661ab089a256ccd8310bf4cfb21293f4e695237a0eb89e15b0210:eyJzZWxlY3RlZExpbmVDb3VudCI6ODAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MjZmZDAyZjMyZjNjMjUzOGY2ZGI3NWVlNDA5MzQ3MWMyYzQ1YWE0ODFkYjIwY2ZhMzk3MDdjYjMyZjgwZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwODdlYmIwZjQ0NmE1Njk0MGNmYjQ2YzgxZjk1NWYyOWMyM2IyMGY3NjEzZDJlNzdiMjU4YTQxZmIzMWRkZTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

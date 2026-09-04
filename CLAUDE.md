@@ -69,3 +69,11 @@ Output goes to `./build/site`. Kroki diagrams require network access to `https:/
 ## CI/CD
 
 Push to `master` triggers `.github/workflows/publish.yml` on a self-hosted runner: installs Node 20, runs `npm run build:site`, and deploys to GitHub Pages with CNAME `carrental-docs.nmlabs.gr`.
+
+<!-- OPENWIKI:START -->
+
+## OpenWiki
+
+See [AGENTS.md](AGENTS.md) for OpenWiki agent instructions.
+
+<!-- OPENWIKI:END -->
