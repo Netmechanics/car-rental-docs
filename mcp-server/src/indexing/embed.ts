@@ -58,7 +58,51 @@ function createOpenAIEmbedder(): Embedder {
   };
 }
 
+function dimsFromModel(model: string): number {
+  if (model.endsWith("text-embedding-3-large")) return 3072;
+  if (model.endsWith("text-embedding-3-small")) return 1536;
+  return 1536;
+}
+
+function createOpenRouterEmbedder(): Embedder {
+  const {
+    OPENROUTER_API_KEY,
+    OPENROUTER_BASE_URL,
+    OPENROUTER_EMBED_MODEL,
+  } = config;
+  const model = OPENROUTER_EMBED_MODEL;
+
+  return {
+    model,
+    dims: dimsFromModel(model),
+    async embed(texts: string[]): Promise<number[][]> {
+      const { default: OpenAI } = await import("openai");
+      const client = new OpenAI({
+        baseURL: OPENROUTER_BASE_URL,
+        apiKey: OPENROUTER_API_KEY,
+      });
+      const results: number[][] = [];
+
+      for (let i = 0; i < texts.length; i += BATCH_SIZE) {
+        const batch = texts.slice(i, i + BATCH_SIZE);
+        logger.debug("Embedding batch", { from: i, count: batch.length });
+
+        const response = await retry(
+          () => client.embeddings.create({ model, input: batch }),
+          MAX_RETRIES
+        );
+        results.push(...response.data.map((d) => d.embedding));
+      }
+
+      return results;
+    },
+  };
+}
+
 export function createEmbedder(): Embedder {
+  if (config.EMBEDDING_PROVIDER === "openrouter") {
+    return createOpenRouterEmbedder();
+  }
   if (config.EMBEDDING_PROVIDER === "openai") {
     return createOpenAIEmbedder();
   }

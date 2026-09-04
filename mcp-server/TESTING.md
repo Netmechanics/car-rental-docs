@@ -8,8 +8,8 @@
 
 Πριν ξεκινήσεις, χρειάζεσαι:
 
-1. **Node.js ≥20** εγκατεστημένο
-2. **OpenAI API Key** με πρόσβαση στο `text-embedding-3-small`
+1. **Node.js ≥22** εγκατεστημένο
+2. **OpenRouter API Key** με πρόσβαση στο `openai/text-embedding-3-small`
 3. Το repo κλωνοποιημένο τοπικά, branch `mcp-integration`
 
 ---
@@ -24,7 +24,7 @@ cp .env.example .env
 Άνοιξε το `.env` και συμπλήρωσε:
 
 ```
-OPENAI_API_KEY=sk-proj-...        # το πραγματικό σου key
+OPENROUTER_API_KEY=sk-or-...      # το πραγματικό σου key
 MCP_AUTH_TOKEN=mysecrettoken      # ό,τι θέλεις — το ίδιο θα χρησιμοποιείς στα requests
 ```
 
@@ -51,7 +51,7 @@ npm run dev
 {"ts":"...","level":"info","message":"MCP server ready","port":8765,"vectors":...}
 ```
 
-> Η πρώτη εκκίνηση καλεί το OpenAI API (~40 requests για τα chunks). Κοστίζει μερικά cents. Κάθε επόμενη εκκίνηση φορτώνει από cache.
+> Η πρώτη εκκίνηση καλεί το OpenRouter Embeddings API (~40 requests για τα chunks). Κοστίζει μερικά cents. Κάθε επόμενη εκκίνηση φορτώνει από cache.
 
 Επιβεβαίωσε ότι τρέχει:
 
@@ -248,11 +248,11 @@ curl -s -o /dev/null -w "%{http_code}" -X POST http://localhost:8765/mcp \
 2. Αν τα chunks είναι πολύ μεγάλα (>600 tokens), μείωσε `MAX_TOKENS` στο `chunk.ts`.
 3. Αν το context prefix δεν περιέχει αρκετά keywords, εμπλούτισε τα headings στο `.adoc`.
 
-**`text-embedding-3-small` με χαμηλά scores (<0.5):**
-- Άλλαξε `OPENAI_EMBED_MODEL=text-embedding-3-large` στο `.env` και ξανά-εκκίνησε (το cache ακυρώνεται αυτόματα).
+**`openai/text-embedding-3-small` με χαμηλά scores (<0.5):**
+- Άλλαξε `OPENROUTER_EMBED_MODEL=openai/text-embedding-3-large` στο `.env` και ξανά-εκκίνησε (το cache ακυρώνεται αυτόματα).
 
 **Server crash στο startup:**
-- Έλεγξε ότι το `OPENAI_API_KEY` είναι έγκυρο.
+- Έλεγξε ότι το `OPENROUTER_API_KEY` είναι έγκυρο.
 - Έλεγξε ότι τα paths `DOCS_ROOT`/`PARTIALS_ROOT`/`EXAMPLES_ROOT` υπάρχουν.
 
 **401 Unauthorized:**
