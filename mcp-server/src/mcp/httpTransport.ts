@@ -50,6 +50,16 @@ export function createHttpApp(serverFactory: McpServerFactory): express.Applicat
   });
 
   app.all("/mcp", authMiddleware, async (req: Request, res: Response) => {
+    // This server is stateless and exposes only request/response tools — there is no
+    // server-initiated notification/resource-subscription use case. Reject the
+    // standalone GET SSE stream explicitly so MCP clients take their documented
+    // "server does not support SSE streams" fallback path instead of holding an idle
+    // connection open that later gets reset by an intermediary (RST_STREAM).
+    if (req.method === "GET") {
+      res.status(405).set("Allow", "POST").json({ error: "Method not allowed" });
+      return;
+    }
+
     // New server+transport per request — required for stateless Streamable HTTP
     const mcpServer = serverFactory();
     const transport = new StreamableHTTPServerTransport({
