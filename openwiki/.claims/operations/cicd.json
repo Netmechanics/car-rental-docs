@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8b55b2ecbec4e104af4b45f5860e51a94e9b8493ca04ce6b4f55ee10c410fa45",
+  "claims": [
+    {
+      "id": "claim_bba687744c944d65951744c4e180602f",
+      "statement": "publish.yml runs on push to master and via workflow_dispatch, with a concurrency group named github-pages and cancel-in-progress false so an in-flight deployment is not interrupted.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/publish.yml#L1-L9",
+          "version": "repo-lines-v1:sha256:a36e897b4b613298ba210e9b5b10fbaf99079676d52867ab80af6ed254914656:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBmMDMyNDJlNzkwZWVhOWI4YzQ1NmZlNWIxNmQ3ZmY3MTBlOGQwZWQxMjM4MmI3YjQ1ODlkNmE3YjQ2ZTdjMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjRhMDFmMjhiNmIwNGQ0NWNhZDBmZTZiODYyZDFhODAyZDdjMWJjNWU3N2ViODg1ODAwYjhkOTFjZjdmNDQ4MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzE5NjFkY2M0OThlMGUzNzg0OGE4MDI0YzE5N2E5NTdkOGRmNGZkNmU0MDhlNzY0Mjc5ZTJhODA5NTFlNmZkOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ca88d9739fad429f9a171f8820544a30",
+      "statement": "publish.yml requests contents:read, pages:write, and id-token:write on GITHUB_TOKEN to enable GitHub Pages deployment, and targets the github-pages environment.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/publish.yml#L10-L20",
+          "version": "repo-lines-v1:sha256:74c1eb5ddf40a34ecdae855d0032f3b0eb7671213ab3c0185b89f968fcae4cf7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1NWQwNWJjNTcxOTc1MjMyZDE0MDVjYTIzMzJkMDE5YzljMWU2YTY1NDJiMWY1YTAzNTIyNWFiOTI3Nzg1YTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Y2Q0M2ExZjlmMGMzZTdhYTVjNDk4OWFiMDY2OWVhYzIyZmEyNDQ2M2FiOTlkZGFhNzUxZGJhY2E2MGVmMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUwNzZmOTEwMjJkMDU3NmNjOWMwN2Y5ZjMzZmFjYjUzNjE3ZDliMTE0YmZjOGNjOGE1MjM4ZTllYmY3MDgyZjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk5ZTVlOTY4NTMwYmM4MWE4ZmEyMWMwODNiZGVkODNkNmQ5NDlhZGZkN2RkYmM5YTBjYmYwODEwNGUyZmFhMzcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eae641fd692a44f8a0466cb9b5aece7b",
+      "statement": "publish.yml runs on a self-hosted runner with Node 20, runs npm ci and npm run build:site, writes CNAME carrental-docs.nmlabs.gr into build/site, uploads build/site as a Pages artifact, and deploys it to GitHub Pages.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/publish.yml#L16-L43",
+          "version": "repo-lines-v1:sha256:ff58a5e4fb7b58ca2714900a4d972aeba57758f4aac4386c4381fa1462ec89ec:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlZTNjNjBkYjI1M2NiY2VhNzI0YWFkZDkxOGViOTQ2NjRmN2M2N2U3ODRmNzk2Zjc4NGNmMTAyMjA3ZDI2YmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2MzQxMzJhMWI5YWUwNmQ4YjQ5YjY1ZTY0YmVhNTExZGQ2MGI5N2NkYjJhNDM1ZTQ2ZDAwYjIwYjUwODJjZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRiNzE0OWM3NWQ5YjhjNzM4NTE0N2FhOWYyYjY2MTNiNTYzNzU5MTQ2MWNmODYyYmQzNDA1MTM0NjYxM2FkNjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7d3a0c3ef63a48a6a26a2e7d1552a517",
+      "statement": "mcp-image.yml triggers only on pushes to the mcp-integration or master branches when the push touches docs/** or mcp-server/** paths.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L3-L10",
+          "version": "repo-lines-v1:sha256:a27933280951dce9d1684c06677381f3f104d388450199c2ff88d86174c85af6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk2ZGM0ODE0OWY1YTgzZDFlZDZkYmIzOWJiYzdlMmI5MDJhYTNkMzRkNmJkNWFlNGIyOTFiNjhkZjBjYTc5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2RjOTZjYWZhMzRlNjM0ZjdmY2QzYTMzOWUyYjI0ZTc4ZDMyNzczYTgzMWY5YjVlZTE2OWNmYjJkNzUzYjlhZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRiZDc1MmEzM2MzMzkzMzUxODBkMjYxNWJmNTVjN2ZiYmMyZTJhMWI0NjYzMzRiNDI2NjhmMDg5ZDQzOTg2YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODc2Y2E5ZGZiZDIzYmUwNjZjOGZlNzhlNTk1ZTI2MGNkY2I2ZDg2ODM5MmFmYjA0NzExMGVhYTM2N2VkNDY3NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6c4ce24012d24649a5d28b00bb557efe",
+      "statement": "mcp-image.yml targets the registry ghcr.io and the image ghcr.io/netmechanics/nmecar-docs-mcp, running on ubuntu-latest with contents:read and packages:write permissions.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L12-L21",
+          "version": "repo-lines-v1:sha256:ba0e021a8993b146cbfdb036436a82d09b894ee3ccbc0e442137946cb1db7f12:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwYTU5NGYzNGI3ZjBlYTU3M2RhNzg3MDNlMjc0OTMwZGI3MThjOTQyY2FmM2MwNDI1MTc1NWY2MjNjNjBkNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlNjg5YWE5ZjgzYzU0ZTkxYjA0YjQ1YTlmNTVkMThiMTNmNGZmZWFkMzA3NGJiZWUzMzFjMzZkNGQxNTE2MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU1NTY1OTYyMDhiNzkzYzBlZWViYzhmNmJiZTM0MzZiMTYyYjA3NzQzZTM4ODM2NDVjYTlhZmMzNjQxZjkxNjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAzNTJlZDQ3YTBhNTMwMjBkMjEyMTM4ZmRhN2IxODkxOWJmNDlmNTZlYjFmYWQ3NzIwMmQyNGY2MzVjM2E5MWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_301eee4b8d8248a784f6260b4ca7310c",
+      "statement": "mcp-image.yml uses Node 22 and runs npm ci, npm run typecheck, and npm test in the mcp-server working directory before any Docker step, so a failing typecheck or test prevents the image from being built.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L27-L44",
+          "version": "repo-lines-v1:sha256:13be5e5000f80e91f66ea006fc9cb746c812838e4edc018f5904a1864c2ce1a4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MmRiYWUyMWE0MzIxMjExNzM4YmE4ZjQ5NzE1ZjZkNDE0ZGJiZGViMGQwNDgwODNlMDVkY2U2MTNhYjU3YWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2MjFiOTgzMmU5Mzc1YzljYmE5MzcwMDk3MDk3NGI0MTk0ZjRiMDQ1ZmQ4NzQ1MzIyYzg5MjQ3YWU2N2M3OTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBkMzg5MjQyOGMzNjZmZTBjMDQyMTAzYmYyYmM3ZjM3MThlZWExNmVhOWY3OThhZjIwMDA3NzEwMmM1OGVmNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxZWQxYjg1MDUyOTU5NDJmMmNmYWNmYzgyN2Y4OTE2ZjllNmZlYWU4OGYxNmI0NjQ2ZTFhMzUxZGJmN2ZkMzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_807f88660f1843a58c34a4d8ba4df744",
+      "statement": "mcp-image.yml generates tags via docker/metadata-action using a commit-SHA tag and a latest tag enabled only on the default branch, then builds with context at the repo root and file mcp-server/Dockerfile and pushes immediately.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L53-L69",
+          "version": "repo-lines-v1:sha256:30f0ef4ac6b5ca464b427f478a35e2cba4b9ca42ac97c86e7b480610e5b1e07d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkZTBlY2YwNzAwMWVhMzhhMWFlODM3YjEwZmEzNjEzM2ZlMTBlZDJkYWRhNDczNjc2MGNhNDI1Yjk3MDNjZDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MDBkZTFiODIwMWUzYjYxYmI5NGM0YWQ3MWVkM2ZjOTE4NGFhMjBjYjY0NjNlZWVlYzQyZmU5YTQ4NTk4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzMzEyNzI1OGYxYTFmMzE4NzJhMTZmNjk5NDIwZGNiYWRiYThlYmEyMTIwNmE0MWEwOWY3ODVlMWVmMTRiZGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4baeb85920944e0fb1e961bb621a5f13",
+      "statement": "openwiki-update.yml runs on a daily cron schedule of 0 8 * * * and via workflow_dispatch, with top-level contents:write and pull-requests:write permissions.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L10",
+          "version": "repo-lines-v1:sha256:c3d5eea0b554e2a6bc3e48f1f8fa058a38e6b5e21e256de6bb5d3a73b2a1fce7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3NDNhMmEyZmI4MmVhZWQyNDg4ZTI4NjRkNDIzYmViNTAwNjFkZDQyM2Q4MGI4NzIxZDNiYWU1YTY0N2E3ZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiYTVhZmZkODIzMWMwZTgxYmJjZDQyMTU0YTFjYzkwZTg2ZWZmNjYzNTVjMDQ4Y2U1NWIzMjM3YmRhYzNhMWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9afdfd3bc3714b91bbfbeb2c6bc8be46",
+      "statement": "openwiki-update.yml checks out with fetch-depth 0 because openwiki code --update diffs HEAD against the commit it last documented; a shallow clone would hide that commit and produce an empty change summary.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L16-L22",
+          "version": "repo-lines-v1:sha256:5f513af748b362994b00e41cc2ab8ac7880f4f9a4ac3fb63f49be6f3f2680e8b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDVkNmNmN2Q0MjhjYTgxMTVmYzRiYWJiNjgwNzM5MDIzMzI3YTdhOWQ5MTYzZjcwNmEyNzY4N2RkNTE2ZjM5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMwOTc1YzdlMjBlYmE4ODU3ZWZkMzFlNjJiNjY1Zjc4N2U1MTY0MTk1MWE2NjA3ODlmYmE5MzNhNjM0NzIxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWM1YTg5Mjc3MGFlNGY1MzMzZmQ3YzllMTJlMGE2YmM0NWIyNmI1YmI3NzUzZTAzOWRmOGVkNDljOTdiOTYwNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2VmMTZlM2M4YjU0ZTJiMjA0ODE5NmFiYjRjZDgwZDIyYTUwOGVjZDYwNzQ2MTI0YTJlYTJkY2MzNDE3OTlkMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c06463d0804b41edaf5e5c80b98c8d32",
+      "statement": "openwiki-update.yml installs openwiki@0.4.3 globally along with mermaid@11.16.0 and jsdom@29.1.1 for Mermaid validation, then runs openwiki code --update --print on Node 22.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L24-L34",
+          "version": "repo-lines-v1:sha256:0c5ddcf4e664d7378d74264e86a78c8af236e2ec0f31f79b250fc002c32aa4dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2ZDcxMGExNzYyODk1Y2Q0YzkzYzZhMmEyOWU2MjkyNGQ2ZjczMGQ5NWUyYWQxNzdjYTUwNDhlYjU2OWM5YWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0MWM2MGQ4MzU5N2M3NmNjYTY5NmFhYzc0ZGZiN2FjNWRjMzM2MmZlNjUxZjhjYWI1YTMwNDk5NjMwMTdkNDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhZDVlY2I5NDI1MGZlNjFjYWJhYTJiZTQzMGYyMjc2YTgxOWM1OWUwMDFmNzNmMGI3NTFlZmM1ZTkyMGZjYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmMmIxZjEwN2VhNDE1ZjE4MDZkYTUxNTU0N2YxYzllZWJiY2EwMzlkNjJlODQ3M2ExMjVkZDc3ZDZmOGM4NzcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6a73a46d1ea04db8a92ac88eebea02f6",
+      "statement": "openwiki-update.yml configures the OpenRouter provider with OPENROUTER_API_KEY and model z-ai/glm-5.2, supplies OPENWIKI_LANGSMITH_API_KEY for the LangSmith code-mode pull, and enables LangSmith tracing of the run under the openwiki project via LANGSMITH_API_KEY, LANGCHAIN_PROJECT, and LANGCHAIN_TRACING_V2.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L35-L46",
+          "version": "repo-lines-v1:sha256:2fa5bb60f5e7fdb6339f32767a045e34ea0c8814318c2279cb7176e85586d8be:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMDc4NDhhNDM2NjY1NmIyYmE2MTk3YmUwMmI5MjA4MTQ1NDZmOWQ5YWQwYjUzMzllNGMyNmEyYzk0NjUxMTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyMzI1NzRmYmIzMjY1MzdmYjUxMDdjMDgzNWQ4ZWRhODZiNmE3NTY1ZDdlZjVmYTlmY2JlODg4NDJiZThiNGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_351efa9d26924a35ab0e3836de26626a",
+      "statement": "openwiki-update.yml uses peter-evans/create-pull-request to commit only changes under openwiki, AGENTS.md, CLAUDE.md, and .github/workflows/openwiki-update.yml, opening a PR on branch openwiki/update titled docs: update OpenWiki.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L48-L61",
+          "version": "repo-lines-v1:sha256:a7c7ff4341e13a769bd585d2588f1b968c23b3d141adc1d8aaf199189d50696e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxY2ZmNGFkMzNiYTkxYjE0OGUxYjFiODI5MGI4ZmZmMjdiMjAzZmFiZmVlNTg3MDI4MmRlMzY3MzgzYjFiZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQxOTEzNzMyNTgyYzNlNjAzNTkwNzg2Yzg2ODM2OTUxZmYzNWU5YjJkMGY4ZDMxMDY3ZDRmNGM4NzQzZGIyYWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_abadd057cedc4de8924507a5c70d2be6",
+      "statement": "The repository's three GitHub Actions workflows are independent: publish.yml deploys the docs site to GitHub Pages on master, mcp-image.yml pushes a Docker image to GHCR on docs/mcp-server changes, and openwiki-update.yml refreshes the OpenWiki documentation on a schedule and opens a PR.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L1-L69",
+          "version": "repo-lines-v1:sha256:e0afc711a697b932eb6c13ec7293e45f522c7449bc7992f3173e9b239da23599:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZWIxZWVjYTE0M2FiMDkzMTU2ZmQ2ZDQ1NzAwYWFlNzM0OWViMTQ2ZTRmMjc0YWUxYTJjNzg5ZmI2OTYxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MDBkZTFiODIwMWUzYjYxYmI5NGM0YWQ3MWVkM2ZjOTE4NGFhMjBjYjY0NjNlZWVlYzQyZmU5YTQ4NTk4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L62",
+          "version": "repo-lines-v1:sha256:556dbf3489cb1f737f51b56b2c6304f5a867399d4987d3440b71517d99c454a6:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/publish.yml#L1-L43",
+          "version": "repo-lines-v1:sha256:0ab4969fbbbe31963d6c96d6edf7c24239a142bdba48e2306069b951a5074acf:eyJzZWxlY3RlZExpbmVDb3VudCI6NDMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYwZjAzMjQyZTc5MGVlYTliOGM0NTZmZTViMTZkN2ZmNzEwZThkMGVkMTIzODJiN2I0NTg5ZDZhN2I0NmU3YzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2MzQxMzJhMWI5YWUwNmQ4YjQ5YjY1ZTY0YmVhNTExZGQ2MGI5N2NkYjJhNDM1ZTQ2ZDAwYjIwYjUwODJjZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_35c910422707445c875756073199456d",
+      "statement": "CLAUDE.md documents that push to master triggers publish.yml on a self-hosted runner that installs Node 20, runs npm run build:site, and deploys to GitHub Pages with CNAME carrental-docs.nmlabs.gr.",
+      "evidence": [
+        {
+          "resource": "repo://CLAUDE.md#L69-L71",
+          "version": "repo-lines-v1:sha256:5451f5b49a69ff4960b9343c02cad54eb190277149fe84867f73ed18691d0a58:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2I0NjQ0MDU3Y2VmMDBlY2ZhMTg1YzA4YmQ1M2M1OTVmMzJiODIxZTMxNDk3NjE4NjU1YjBiOWZhZDc3ZTkyNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmZmMzYxNDQ5NjFlMWVjZjZlNTk0YjE5ZjVhN2YyYWM4M2JiMjZjMzA5YmYxMTlhOGU1MDRhNGJiYjUxOTJjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjRmMWQ4MmUyN2Y1NTBhNjE3YTFjMjQ0MjkxMjJiMzc3MmEzZjlmZmQyYWJlMGIwNmJkNGJhNmM3MWZmNWYwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWIxYmM1YmM0YTIzN2Y1NzhlNmFmNGE0MTVkMDY0N2Y5OTEwYjAzYjM2NGUxZTI3YzFmMWRiYWE3NDNkMDNiYSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

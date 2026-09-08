@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:521b1faaa01acc7e5ab3e282c379ed4fe2568660684298ce9a828f46a827df61",
+  "claims": [
+    {
+      "id": "claim_20702ff10dca48b9a9377a0e4b27d16e",
+      "statement": "The mcp-server package has three verification layers: vitest unit tests (`npm test`), a live smoke script (`npm run smoke`), and a manual flow documented in `mcp-server/TESTING.md`; plus a non-test inspection tool `npm run ingest:dump` that writes extracted text and chunk summaries to disk for manual review.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/TESTING.md",
+          "version": "repo-file-v1:sha256:0102a2916ca8ff79c33a8dee7a56ec9ff33e2682aa60439e86d49620ec8b394c"
+        },
+        {
+          "resource": "repo://mcp-server/package.json#L6-L13",
+          "version": "repo-lines-v1:sha256:cc8d0b136d2fb844d5642d37a1e09cae173e3dd90ff09a352b27425dd8c13fff:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGI3MDcwNzkzMmNiZjc1NzkyNjM0MzJiMmUxMTUxMGYzMDQ2YmNjNmEwNGI3NTE4YWJlM2ZmYTZiYmY1MzVkNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDhkNmE2NTFiOTVhZjMzZGM3ZTZhNzJmZDlhNzJmNWYwMjEwNmE2Y2ExNjc4NTE0NmU3MzQ1OTZjNDRiYmQ1MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDNiYTBmZjNjMjgyOGRkMmJjZTQyNmIxZWM2YjRkZjY3MDE4NjBlZTg4ZGVmYzM3OWY4YmFjYmI0YWY1YTA0ZCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/ingest/dump.ts",
+          "version": "repo-file-v1:sha256:504ac834f3521db0d0d0090368160af2252be5365bfa3852f66ceaff7d1621d4"
+        }
+      ]
+    },
+    {
+      "id": "claim_522f742461434e61aa381725a38571a8",
+      "statement": "`mcp-server/vitest.config.ts` injects placeholder env values (`DOCS_ROOT`, `PARTIALS_ROOT`, `EXAMPLES_ROOT`, `DATA_DIR`, `OPENAI_API_KEY=sk-test`, `MCP_AUTH_TOKEN=test`) so importing `src/config.ts` (whose Zod schema hard-requires these) does not crash the test process; the fake OpenAI key is never used because the store test supplies its own embedder and `createEmbedder()` is never called.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L3-L16",
+          "version": "repo-lines-v1:sha256:00f40c5656012015030a9b744d15b3b4b5d406014339f3c54f6aef80cbf4d3d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyNGIzMThmODE2ZmNkY2FhMDI2NmZlMTZlMTg3YTBjZmI0NmU2YmQ5MzZlOWFmMTZkZDVhYzM1MzYxZjIxYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyOGIwY2MwNDVkNzUyNmQxY2RiMjI1OGRhMGExNmE0NWEwZDVhYTliNjRlOGQyMmFhMWU0YTQ5ZDc4NWVkZjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2MDg2NzYxNDhkNTAwYTUzZDM4MWVkNDEwMDM2NTc3Njg0MDdkMWQ4MTNmN2RiYzM0YzlhYThhMTZjMGRiNGQifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/store.test.ts#L9-L22",
+          "version": "repo-lines-v1:sha256:a1fe20bea2e18d59239d2237decf793091955fde3fa350da32e3f79ca07d8fd2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2YzE5NTIyNjcwZGNkZWM3MjNkMWFkOTNkMWJjZDg3YzA0NmIxMmY0OTk4MzIyMzgxZGFiNTY2NTlmYjhlOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiYWQ1YTg1MzAwNWJjMjc5NjBjNTY5YTc3YmQ4NGFhZGUxNjczYjRjYjY0YmY3YjM3N2U1YzU3ZjEyMTY3ZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUwZWU3ZTVhN2I0YWZjZTM3YzhiYTFhZTk4MzJkNzVmMjI2YTZiZTE0YWQxOTMxNDMzZjgwMmQ3NWVjOGUwYzUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/vitest.config.ts",
+          "version": "repo-file-v1:sha256:a7d74fb7634d5136e58f64658df3c726a51857d4312119769bbc9491df22fec2"
+        }
+      ]
+    },
+    {
+      "id": "claim_b89dcd129f03490fa9a4c4e250ab2f40",
+      "statement": "`resolveMacros.test.ts` asserts Kroki/diagram block removal for both delimiters: a `[plantuml]....` block (the `....` delimiter) and a `[mermaid]----` block (the `----` delimiter) are stripped entirely while surrounding prose survives, guarding the alternating-delimiter `KROKI_BLOCK_RE` regex.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L6-L8",
+          "version": "repo-lines-v1:sha256:bb318564f409d05165f18f948e7b307d8d01239d031621c0d60c2d8297a04924:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRmNjQ5NmExYjkxNzA0NTM3ZmRkOWRlNjYwMWNlZGVmNzFiZmZjM2QyMDAxMjJiNjZhNjVkOGI3MGY4NjE3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NlM2FkMmUwZmU2YTBlMDEwZTdjMjY4ZGEwZTBiZjJiNzQ4NTRkMTk2MmEyOWQzY2FjNmZmMWNmODg3NDQyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDExMzk2ZWFmNjljZGExYjM1NDIxMmIwZDA4MWQwOTRlM2ExZjFlZTE5NTQyM2JlOWNlZjRlOWFjNmU3OGQwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzE0MTFjOGE0MDBkOGFhMjc0YWQ4Mjk2MWY2YzM4NDNiZjEyZDRiMDMyZmY4YzFmZDFkZmI2ZTViZGI0ODEzMiJ9"
+        },
+        {
+          "resource": "repo://mcp-server/test/resolveMacros.test.ts#L24-L38",
+          "version": "repo-lines-v1:sha256:15571195474d1a230a8c97dcbcbba142b418b3cf486450cb99658f9f98654ceb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNGVlNTRhZGRiMjRmMjUxNzU1ZGE3YzhmZjgzZmJlNjFiOTUwYzI1YjRmYTAyOGY0OThmMzZlYTk1NWYwNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhZWM3YjkxYzY1OGNjYjdlMGIxNmM3MGI0YjVjYzAyZmI4YjI1MTY0ZmY5YzI3NzAwNzgxMDllMmYyOTZjOTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlkOGZmNGIxZTA0NTMyNGQwN2Y5MmZjMzdmNzU4ZTM0N2UxOTc3YmZhOTliMWNiNmUwNWE5ZDRjMmMzMDFjNjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b0a59a2d84124ab6816fccdbc420fdd9",
+      "statement": "`resolveMacros.test.ts` asserts that `include::partial$caution.adoc[]` is inlined with the partial's contents, that `include::partial$nav_admin.adoc[]` is dropped because `nav_`-prefixed partials are treated as navigation noise, and that `include::example$Rental.java[]` is inlined as the example file body with the macro line removed.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L31-L62",
+          "version": "repo-lines-v1:sha256:b4d0007dd07b11ded5875e6caf752d20807af2228ca1f127bb81588737108ba9:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyZjQ4YzY2ZjEyYWNjYWQzYzI2ZjYyNzk3MmRhMTM2YmMwNjYwZDk0MzJmYTg0MjY2YTA2NjJjOGI2YmJlMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdmMDAyNGJhODJjZGVkNjVhZjU0NTdhNzI1MGE3ZTJhYjUwNzkxMDk1NGU4MTVkY2MyMTg1MjgxZDFhMTJmNDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ5ZThlM2Q2MjU5ZjYyZmNiMjlkN2E3Yjc4M2UxM2M4M2MxODJhYjZlOGVlNGRlZDE5OTIyMDhlOWI3ZWNmYzEifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/resolveMacros.test.ts#L40-L64",
+          "version": "repo-lines-v1:sha256:87b1eb0c5fdb0fa07317486e426a95e3045c51fc3a1e5b6fd6a730b181107349:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhZTE3OTdjOGQ5YzkxY2UyOGFhNGFmZmFlM2U0YzQ0MWE2NGJmNGY2M2QxNGI2ZWE4ODJiM2M3NjVhYWU1MGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5NmUyY2ZhOWU0MjU0N2UwYzBmZTVhOTc4YWY4ODBjYzY3NWI4NDQxN2NhMjk2YzgzZjA4MzkxNzk1MzNmM2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyMGVmN2Y2ZDU1YWRmNmM5ZDY5OWZkM2Q2MzUwOTJkMmU0YTVjMDIwNTVhOTAwZjI5ZGIxZGZmMmI4NGI2NzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_11af83819d8f47e296a7fd83586c5cf6",
+      "statement": "`resolveMacros.test.ts` asserts xref and image macro replacement: `xref:…[link text]` is replaced with its link text (and dropped when empty), and `image::…[alt]` is replaced with its alt text (and dropped when empty); it also verifies recursive partial includes resolve transitively up to the MAX_DEPTH=10 limit.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L4-L4",
+          "version": "repo-lines-v1:sha256:af592b1e5cfcebad91769ff294f9609129cdfad022f6f9c67483d4e60eb9951b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY1OTJiMWU1Y2ZjZWJhZDkxNzY5ZmYyOTRmOTYwOTEyOWNkZmFkMDIyZjZmOWM2NzQ4M2Q0ZTYwZWI5OTUxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY1OTJiMWU1Y2ZjZWJhZDkxNzY5ZmYyOTRmOTYwOTEyOWNkZmFkMDIyZjZmOWM2NzQ4M2Q0ZTYwZWI5OTUxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjU3ZDgzMjE4YzFkNTY5NjcwZTEyZjk1ZjQyNGY2MDIwOTNlNjI2MjgzYjA5YTdlODlhNjI5MTE2MDY5ODAxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2YyNjJhODk2YTk3MmE0Y2U0ZmM0MTlkMDhkYjdjZmNhNTM4MGFjM2U2ZDI3ZjU4ZGYxZDViNWRmOGQwYTdhNiJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L80-L84",
+          "version": "repo-lines-v1:sha256:32fe3a065451188a434d500c203a1265b6599274f2e8ad57e10c94be27e6da5b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjczNjBhNGJhNDY4Nzc3Y2NiNTg5M2JlNTRjNDUzYWU5ZmE3OWM0MzY0ZTk1ZjIyYWRiZDdhYTc1YjA3ZmUyMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTNmMDljYjc5YzEzODBhNmFjNzhkZDJjNDU4ZWY3ZTA2MmU5YmM4MjVlZWNhN2IyMjA4YjBiNDRkMmFmMDY3OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDI3MWUwNDFjYWIyMDlmZDQzZmI5ZDA1YmYwZDI1NzA5ZWFhYTY3YmIxNDk3NDY0MmQ0NjA0MzExNzM5NjAxYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDllOGUzZDYyNTlmNjJmY2IyOWQ3YTdiNzgzZTEzYzgzYzE4MmFiNmU4ZWU0ZGVkMTk5MjIwOGU5YjdlY2ZjMSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/test/resolveMacros.test.ts#L66-L100",
+          "version": "repo-lines-v1:sha256:3d2cb85338968731e9d9a76b080ecd035ce84b59ea444e181d09af293013507a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRlNmU4ZmY5MWMwY2E4NGRmNWFhZjdlZTBiNjE4YjJjZTcwZjBmNmYyMWYwNmRkNWZlNGMwYjc0YTRiNzM4ZGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5NmUyY2ZhOWU0MjU0N2UwYzBmZTVhOTc4YWY4ODBjYzY3NWI4NDQxN2NhMjk2YzgzZjA4MzkxNzk1MzNmM2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ad19ec5dbe1043d580126f73f5a1de8d",
+      "statement": "`chunk.test.ts` asserts that `chunkPage` produces at least one chunk for any non-empty page, that chunks have unique ids, that the first chunk's text contains the page title (because a `«title»` or `«title › heading»` context prefix is prepended), that no chunk's `tokensApprox` exceeds ~1100 (guarding the MAX_TOKENS=800 paragraph split), that `tokensApprox` equals `Math.ceil(text.length/4)`, and that each chunk's `relPath` matches the input page.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/chunk.ts#L42-L157",
+          "version": "repo-lines-v1:sha256:ab48cf345a6118dbe88446b2396bf660155cc8a5a818e42e2979d68185aadf2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTE2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJhYWE3M2IxYjg2Nzg0NTljNjcwNTJjNzAyZTQwYWExZmUzMGUxNDA5Yjk2ZDA1NzY3YWEzMDc4MTIyOTBhYTY2IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJjZmNmY2RlNjViMTgxMjZhZjA4ZWI0NGJhMTQ2NTk0NWU1NGE3YmU0ZDEzOWFlZTA5YjZlM2VhOGUzNTQzODMyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlYTIzMzE1ZWYyNDRjOWI0ZjQwZGFjYjA4OWNkNTgzN2YxNjE0OGU3ZWIwY2UzNzBkYzUzMTlhNDc5YjJmZTJmIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MSwiZm9sbG93aW5nQ29udGV4dEhhc2giOiI0MTJjYTM0NWNjZjc1YmY5YzA4MDZiY2U2OTViZThkZTgwOGI3OTk4NDI1MWE3YTU0ZDIwMmNmNjEwMWRkNDUxIn0"
+        },
+        {
+          "resource": "repo://mcp-server/test/chunk.test.ts#L9-L58",
+          "version": "repo-lines-v1:sha256:c37c95bfbd3bc69974450cc540fa3df0064d55a89cc5b20cce80cf2b35519a68:eyJzZWxlY3RlZExpbmVDb3VudCI6NTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYwNTdiZTQwODUwODFiN2YzNGVjOWY5ZTIxNGU4NTZmYjk5NzRiZTQ2MGVhMzEwYjIzMTk4ZjVhYjFhYjM1ZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0ODU0ZGMyMGUxYWUzMDg5ZDczZDk3ZTMwMmNiYTg1YWU2NDFkOTcxNmY5YzNkZjZlYjYxZWNhNzczNjFiNTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_797b409d0cb9460eb3906d41dfaa830c",
+      "statement": "`store.test.ts` uses a fake embedder returning deterministic orthogonal unit vectors (text i maps to the basis vector with a 1 at position i % dim), which makes top-k ordering predictable without an OpenAI API key because the vectors are mutually orthogonal and already unit-length.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L18-L28",
+          "version": "repo-lines-v1:sha256:105a5d8fd5e482e1da60e52e532e7389705c2e37728a93ce348d430735ff8394:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2YTNlNWNiM2E4NGZkMTY2YWMxNmRkMWExY2I1NzZmYWQ4ZDZiMmJlZWFiOGU4MjMzYTA0YmM4MzM3YzYzZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiMzk1YjI3YjhjZTc4YjA4MTk3ZjgwYzliNWVjYmIxOTliOTIwYTFmYzEyMTE5YTU1MjE5MTdmZjNiZGExNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIzYzcxOTU3NmVmYTQ5MTZlMWUzOWI3ZGNlNWYzYzEyNTZlNzY0NmU1MmJjZGQ3MzZjMDQ3Mzc1YTgyZGQ2ZTkifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/store.test.ts#L9-L22",
+          "version": "repo-lines-v1:sha256:a1fe20bea2e18d59239d2237decf793091955fde3fa350da32e3f79ca07d8fd2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2YzE5NTIyNjcwZGNkZWM3MjNkMWFkOTNkMWJjZDg3YzA0NmIxMmY0OTk4MzIyMzgxZGFiNTY2NTlmYjhlOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiYWQ1YTg1MzAwNWJjMjc5NjBjNTY5YTc3YmQ4NGFhZGUxNjczYjRjYjY0YmY3YjM3N2U1YzU3ZjEyMTY3ZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUwZWU3ZTVhN2I0YWZjZTM3YzhiYTFhZTk4MzJkNzVmMjI2YTZiZTE0YWQxOTMxNDMzZjgwMmQ3NWVjOGUwYzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_95f8640df94e42cab6fe30acdc381917",
+      "statement": "`store.test.ts` asserts that `VectorStore.build` plus `search` returns the top-1 chunk with score ≈ 1 for a matching basis-vector query, and that `search` returns exactly k results in descending score order.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L33-L53",
+          "version": "repo-lines-v1:sha256:ecbfc6baec065b6c3710497e231e383f34f8286262cccdea242f8e3cc5b75660:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNmI2MmM0N2Q1NjExZmYxYWRjNmU0YzFkYzljMmM5MmVmMzhkMWM4YTI5MDkyMjM5ZjRiZWY5OWExZWE5YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyMzJkMzU2YTliNmVlMzNlYTdkN2JhZDJiOWU0NTBiMmZiNzcyMzY4YTMwZmJmOTAxODY0YmQwZWU5NjI1NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA0OGI5YmQyM2MyYTgzODVlN2Y1NmRkZWExZTY4YmQ4N2FlYWQ2ZjQ5NzUyOWIxODk2Yzg4NTIwOTliMzcwMzUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/store.test.ts#L46-L75",
+          "version": "repo-lines-v1:sha256:0c417be1a7527880ac6acc75357f1a3ecbc1cc22c35fbbb7d38e48b13d7b81fa:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxOGM4ODhiMGVjZmU2ZWY5NDFkN2Q3ZGFhNGU3YWNhNTFjYTJmM2I5N2ViMzQ3OTA5MWI2NjBiMmJkNGZmNTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlYzM4ODk4ZmM1MDkwYzJkMTg1OTI2ZjBmOWY0MzlmMmU2YjNlOTc1NjBkNTg4NjVmMDJkZTM4MTM3ZjhmZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkOTI3MTM2NDc1OGVlMzhhMjZmMmJmZDkxYTE0ZWY5YjE5Yzk2OGY1ZGI3YjkwMGNhY2MwOTc0MzA0NzJlMzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7131d46f6ef941688e984fb4495aa665",
+      "statement": "`store.test.ts` asserts the save/load round-trip: `saveToDisk(dataDir, hash)` writes `index-${hash}.json`, `VectorStore.loadFromDisk(dataDir, hash)` reloads it with the same size and serves the same top-1 result.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L55-L76",
+          "version": "repo-lines-v1:sha256:47353bacc88fc23ed24d8bb94fdced28c5d26bef3aabbdb0c3e94867e79c776e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MzllNTQzMGNhMjVlNmUxN2UwMDEzNjQyNWFlMWFkM2QxMmVlNzNiYzNlMjgyYjNmMDgyMzI1NjU3YmEzMzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA4OWM0ZTM5OTkzODZiNzUyZWNiMjg3NGYxMjlmYWM2Nzc4YzMxNjE3MzVmMDhlN2ZhODM5NWFjOGQxZmVjMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYjQ0NGUwNDQyMzdjZTBhYjZiNzM2YzI1OWRmZWY2MDk0YWM3OGY2MzAyNGFjZGY3NDdhMmIwNTVjZGJmMjQifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/store.test.ts#L77-L92",
+          "version": "repo-lines-v1:sha256:3d96166656db2a96c7fdacecd7ec06474fb10a223f9bfe6f6e627381964bf221:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4NzA4ZTBmMWFlOTU4YzQwYjI0Nzc0N2UwMTViZmM4MmE3NDQyMTlkNjlhNzlmYTU4ZjViNTliY2NiN2UwY2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjcyMGZjOWU2N2RiMDdlZDIzOWJiM2FkMjMxMmVhYWI5YTcwZTFmNmZiYTAxMjg4YjBiYTZlNjFkN2Y4ZWU3ODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlkZWZiZDI0MDRhOTM3ZjYxZmEyMWRiMmJlMTkzZTcwZmFiZWQ2NTE5YTllYWYwMmQ3ODkyMzJkMTE1ZTc2MDQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_74ecb06dfae54bfe81c65eca52f7e533",
+      "statement": "`store.test.ts` asserts that `loadFromDisk` returns null on a hash mismatch (the cached `hash` field does not equal the expected hash) and null when the cache file does not exist (the read error is swallowed); this is the cache-invalidation mechanism the production `src/index.ts` startup path relies on to decide between loading and rebuilding the index.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L34-L45",
+          "version": "repo-lines-v1:sha256:a9446ccf161391d13cf928f538ee62b5aa5a671bd576ba93e938bb9ed3b87bb9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyOGQxOTkyZDZmZGNhYzBiNGViYTM2YzdmZmVmY2E4MGEzODc3OWE2ZDU4YzcyYTEyZjIyNDNmZjI5MjI4ODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2YjdlZmI4Y2Y4NWY0OWExYWIzMjE4MGYwNzcyZDM0OTJlMWJkMzliZTBiOWVlNThjYTNmMjU0NzY2NDQ0NjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmZTM3MzI1NDg5MDk3ZDgxMGM2YWMxM2JhYmU3MDMxMDNlYjkyNTAzZGM4NjEwMWRjNDljOGRkMDZjOTk5MDUifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L63-L76",
+          "version": "repo-lines-v1:sha256:d83c85036f307a6c97f07be2d5c86ae6efa3f9ba7785fda116231b695335d2b1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRjZWRlYzg3MGUyYzU1M2Q2Njc4MjMwZWFmNWUzYWNlNDMxNWJmNGQxZmRkZTAxNDBmYTdmNGVkOWMzZjY3MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4ZmIwYmIxMDc2M2I2M2EwMjNlNTBmMzZhOWZlZGQ0Y2I2Yzc5MTBmMmZjNmMyZmNiMzBkOGRiZTQ5NjkyMWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhkYjQ0NGUwNDQyMzdjZTBhYjZiNzM2YzI1OWRmZWY2MDk0YWM3OGY2MzAyNGFjZGY3NDdhMmIwNTVjZGJmMjQifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/store.test.ts#L94-L108",
+          "version": "repo-lines-v1:sha256:bd580dd05a125943d0fca7383808f7d250de4c5a4abe8a2a2fbeff2e0bdddac2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5YzZlOWVhNGMwMzE0ZjkxMDgwZGIwZjIxMjdkYTIzZWI5MzAzMzc3OTlhMjBmMGU3MzJlZWIwN2QxMWIxNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVlYTkzMTc2OWMwODExZGM5ZDc4ZDI2YjMwZGQwODdmNTc3M2I4MDFkMzVjMDMwMzJkYTY2YzZjNTY3NzJjOTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_81eb0333552a4cc58dafbd5a819b163f",
+      "statement": "The live smoke script (`npm run smoke`, `test/smoke.ts`) requires a server already running on PORT (default 8765) with `MCP_AUTH_TOKEN` set; it pings `/health`, then for each of ten Greek queries posts a `tools/call` request for `search_nmecar_docs` with k=5, parses the SSE `data:` line, and checks the expected page at top-1 and within top-3, passing only when top-1 ≥ 6/10 and top-3 ≥ 8/10.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/package.json#L13-L13",
+          "version": "repo-lines-v1:sha256:4b70707932cbf7579263432b2e11510f3046bcc6a04b7518abe3ffa6bbf535d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGI3MDcwNzkzMmNiZjc1NzkyNjM0MzJiMmUxMTUxMGYzMDQ2YmNjNmEwNGI3NTE4YWJlM2ZmYTZiYmY1MzVkNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGI3MDcwNzkzMmNiZjc1NzkyNjM0MzJiMmUxMTUxMGYzMDQ2YmNjNmEwNGI3NTE4YWJlM2ZmYTZiYmY1MzVkNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTc4YjEwZTg1NzllYmJlYjMwMWU3ZjAzNjRlMThkNmEwOWU3M2RjYjM1Yjc3MTU5NzRmODhhMWMyMzA4ZGViOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDNiYTBmZjNjMjgyOGRkMmJjZTQyNmIxZWM2YjRkZjY3MDE4NjBlZTg4ZGVmYzM3OWY4YmFjYmI0YWY1YTA0ZCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/test/smoke.ts#L1-L64",
+          "version": "repo-lines-v1:sha256:d784f8707baffdc29c926692f97cc7a543609e1d7d032a8762f498e935207f46:eyJzZWxlY3RlZExpbmVDb3VudCI6NjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhZjIyY2YwNzMyNTkyYzI0NzE0MWNiZTYxZWZhMTEwMTI2MTJmNWEzMTIyYjlhZjliYmFmNTJmNTcyNGQxOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkNTNlNDVlNjRlNDgxNjNhMTM1ZDBhYmFiMjhhZTY2YWQ3NjM3NmFjODE1NTFkMzIxYzQwOWQ3MjdiNThmOTYifQ"
+        },
+        {
+          "resource": "repo://mcp-server/test/smoke.ts#L121-L203",
+          "version": "repo-lines-v1:sha256:20dedaa4c98e2a44fe39f1bcd5bc4fe1506772c605faa0f92f11c300c37384b0:eyJzZWxlY3RlZExpbmVDb3VudCI6ODMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjMDhmYjI3YjkxODI4YTUwOTc0Y2NlMDYyODA4MDM3MTM4MGIwMTk0OThhNWYzYWM1NGQ5ODA5MDMxMTNjOTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0ZWEwZjRmOWEwNDJhZmE0ZmYyYjkyMGUzZDY3NTVlZTFmYzRmYjA0NzAwNmZmNDNiMGU0OGJjMTI4MGM3NTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE4YTkxNzU5NzJmZTE1ZTJhOTY0MWFiMTMxZjU3MWU2YzdjYWJjYTA2ODM3NjJlYmE1ZjIzNTNlNDgzYzNkNTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b5e3ea19f2f1431a87b76f3a3c41e1b7",
+      "statement": "`npm run ingest:dump` (`src/ingest/dump.ts`) runs the full ingest pipeline (loadAdoc, resolveMacros, renderAdoc, chunkPage) for every source file and writes, under `data/_dump/`, a `.txt` of rendered text and a `.chunks.json` summary (id, section, tokensApprox, 200-char textPreview) per page; `TESTING.md` points operators here when smoke queries fail to inspect chunk sizes and context prefixes.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/TESTING.md#L244-L258",
+          "version": "repo-lines-v1:sha256:4d1116aae5b930e9030f6d8f83e7155977c50f08d5221b16ad4219ef3aec79bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczZjk1OGRlMzQ0ZjBhOTg3MmJkM2EzNjY0NDkyZjYyZTM0Njg3NjA1ODIwZDA0ZGI1YTIxMGRhMTBiY2ZiZDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYyMzdmZDQ0Y2Y2MDBjNGYyMzE3ZjRlZTllZTZmYTM1ZjRhMGRlYjIwN2RiM2ZlYmYwYTYxODJmZmE2MjU5MjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk3YjA2NjgxY2M5NjFmYmUzNzI0ZDdkYjk4NTkzYjgyZWFhOWY1Zjk3ZTFmY2VkMzJkZDg2MzY2OWZiYjA0MzEifQ"
+        },
+        {
+          "resource": "repo://mcp-server/package.json#L12-L12",
+          "version": "repo-lines-v1:sha256:7b5a819934aac0369081cc2d32a520dabbf06169fa922dcf1cded4a93ededf8a:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I1YTgxOTkzNGFhYzAzNjkwODFjYzJkMzJhNTIwZGFiYmYwNjE2OWZhOTIyZGNmMWNkZWQ0YTkzZWRlZGY4YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2I1YTgxOTkzNGFhYzAzNjkwODFjYzJkMzJhNTIwZGFiYmYwNjE2OWZhOTIyZGNmMWNkZWQ0YTkzZWRlZGY4YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2NiODJiYjUzM2FkY2IzMDVhMDkyMjJlNTk1MGZiY2ZkZmQ2OGY3MTczYWRhMjU3MjJhN2M3ZGEwZmVlNmU1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2FmYmUyODBlNGRkNjE3Yjc0ZTBhZDhlNDI3MWM1NTJjZjk3MDQzMTQ5YzRmZWVlYTYwNDk4NTU1ZTZlMTdjMyJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/ingest/dump.ts",
+          "version": "repo-file-v1:sha256:504ac834f3521db0d0d0090368160af2252be5365bfa3852f66ceaff7d1621d4"
+        }
+      ]
+    },
+    {
+      "id": "claim_6d4a2ae8aa714f4aa5679cb9ec4f80e3",
+      "statement": "The Docker image build in `.github/workflows/mcp-image.yml` runs on pushes to `mcp-integration` and `master` when `docs/**` or `mcp-server/**` change; after `npm ci` it runs `npm run typecheck` (`tsc --noEmit`) and `npm test` (`vitest run`) as gates before building and pushing the image to GHCR, so the vitest suite and type checker are the hard CI gate while the live smoke script is a developer quality bar not run in CI.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/mcp-image.yml#L1-L69",
+          "version": "repo-lines-v1:sha256:e0afc711a697b932eb6c13ec7293e45f522c7449bc7992f3173e9b239da23599:eyJzZWxlY3RlZExpbmVDb3VudCI6NjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ1ZWIxZWVjYTE0M2FiMDkzMTU2ZmQ2ZDQ1NzAwYWFlNzM0OWViMTQ2ZTRmMjc0YWUxYTJjNzg5ZmI2OTYxMDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MDBkZTFiODIwMWUzYjYxYmI5NGM0YWQ3MWVkM2ZjOTE4NGFhMjBjYjY0NjNlZWVlYzQyZmU5YTQ4NTk4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

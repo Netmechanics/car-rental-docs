@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:fa9ded3df1aa78ace1ac58a2e7ea4d86dd90c8bc71cf2e70ca3e0c4a238de179",
+  "claims": [
+    {
+      "id": "claim_e8803f4994da46ef82dab4245aea6133",
+      "statement": "SPECS.md is the curated content inventory of the nmecar corpus (Antora structure, navigation tree, per-section content summaries, partials, examples, build notes); AGENTS.md requires contributors to consult it before work and update it whenever any content structure (pages, navigation partials, examples, images, structure-affecting assets) changes.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L32-L34",
+          "version": "repo-lines-v1:sha256:9ebda7f3247ef9d4de05202bd14bc2de6026f274f1dec138aad5b038dc82c542:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTdmZmU0MmM3M2E3NzE3Y2JmYmMxNzFlOGU0MTcxZDU1NTE4YjljNWIzMDNlNTljODU5Mjk1YWNhMTJiZjkzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYxNWM5ZmRiNzRmYjM4ODVmYzJiODJjNzI2NjYyNDU3MmI1ZWZmMThiYjJhZDQ0NTgxZTMwOTllYjU1M2MxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjIzNjI3NWJjNDRkY2ViM2UxYjZlNzBjMmZhYWI1MzNkOGFhODI3YTA4Nzg5ZjViMTAzN2YwODE3OTZhMTE2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDhmNmU4YjljYjJjOTc5N2ExMjIxODViNDYzNzk3YThhYTBhMTFmN2E5ZTFkNTFiMDIwNTBiYTU5MDNkMmJlOSJ9"
+        },
+        {
+          "resource": "repo://SPECS.md",
+          "version": "repo-file-v1:sha256:728b768af1ca81806323b7fe0c54a59e547292634017cf709dd65a4cf0b8aa64"
+        }
+      ]
+    },
+    {
+      "id": "claim_11bd8c2ac8d9463fb1c4d22efa87242b",
+      "statement": "The live component descriptor docs/antora.yml declares the documentation version as 2.0 (component nmecar, ROOT module, nav at modules/ROOT/nav.adoc), making it the authoritative version marker even though SPECS.md's narrative still records the documented line as 1.1.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L9-L13",
+          "version": "repo-lines-v1:sha256:ead5a56080c76c96b5dea7a60d213ce259ebd3abc52fe5a8fb9fc691b452ca5b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjkxYjc5OTU5NTgyOWUwNDg4ZWEwZTk2ZjI4M2JkZjUxNDZjZDYwYzU2ZmEzNWEyZWY1MTE4YTJhZmI4YjEzYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJmNTBiYWY0Zjc5YzFlY2EwMGE0OGIzMmJjNmU3MjMzZTJiODM4NGNiZWFlMGJmOTkwYzIxOWM3MzFiZTY3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU5NThlY2QxMzMzMDc5MTkxZGZiN2ZiMTU1OGUyMTZlYjQxMWQwYjUxZWQ3YzZlNGNmODRmMGM0NTMzNzU5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGYzMTI5MjM4MGY0YTMyNjhmMTM3ODZkMjZhY2M5YzA3MDMyYjEzMjgzMTA4YzA4ZjdmZjQzOGQzOTU5MGI3MyJ9"
+        },
+        {
+          "resource": "repo://docs/antora.yml#L1-L15",
+          "version": "repo-lines-v1:sha256:87c5bc8f6a3ad2d01781776f155a95adc890ed7264b7c89ebb62d6f6096e6c15:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE4ODVmYjVmYjc0OWZjMTM1NDZlNGVkMjk3MWUwZTkyNmQ0MDUwOGNjNzI4ZThhYjVjOTc4MDMxYjBkYzRmNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwY2Q2Y2ZjOGUzNDJiNDI0NmIxMDIxZmQ3OTg0NTJlZTAwYzRkNGJlY2ZiZmJkOGEzZDk5MTlhMDcwMzNlZDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_decc6a69d0064c3491c39041057d5a51",
+      "statement": "All published documentation pages live under docs/modules/ROOT/pages/ organized into six section subdirectories — fleet/, booking/, admin/, reporting/, technical/, release-notes/ — each with a section landing index.adoc, mirroring the Antora navigation tree.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L28-L78",
+          "version": "repo-lines-v1:sha256:48585f0c0f9314fd8e9d83686ed96e8c33a61fe5c6ca17ff9472de4ab8bef265:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2NGE0NWUxMjZlZDMwY2JkNGEwNzQ4ZTNkNjc4YjdjMDFjYWMzZDE4NjEwMjIwZTQ5ZjI2YWVhN2JlYTg2YWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjNGQ0ZWE1MzYwNjgyYTFmZjJlYTEzNGQxNTJiZDFkY2RhYzJjNjJjNzY2YTUzNTY1YTBiMGZmZjE1OTA0NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFkMWJlMWJlYTVhMjY0NWQwYmVhNTVhZjE0ZTVkYTM4OGFlODI0ZjQ4MDg5MzczMDU4YzA3Zjg4NTdhNzE1ZjIifQ"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/admin/index.adoc",
+          "version": "repo-file-v1:sha256:c8d61bcd4f6d81db0d6b9b7ccbb3b4fe50ceb0573f92d2df43eb1adffc285c0f"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/booking/index.adoc",
+          "version": "repo-file-v1:sha256:da019e9ec22f1b2c931b8362b42745771116600d1013bc90398af35c64df53cf"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/fleet/index.adoc",
+          "version": "repo-file-v1:sha256:54f7aaf690ffebaef8f0f285191e9d14d847f7dc3f94c1e4c9a4df23713d3656"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/release-notes/index.adoc",
+          "version": "repo-file-v1:sha256:7e98d3147896da680ae89a1f91be06dcec68866073923c4f1b2886a4195b4135"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/reporting/index.adoc",
+          "version": "repo-file-v1:sha256:a1d432e64726ed212239fc5601cff4883b5f9d41a2c63f640b4870fbde0fc442"
+        }
+      ]
+    },
+    {
+      "id": "claim_1a3b552cb3ec4f79bd3fe09df199f408",
+      "statement": "The Fleet section documents vehicle groups as the search/selection unit (each group owns seasonal pricing, extras, insurances, discounts) while final assignment happens at the license-plate level; it contains fleet/vehicle_groups.adoc and fleet/vehicles.adoc.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L31-L35",
+          "version": "repo-lines-v1:sha256:71e3ebfd4d5efe150136792fb140bb25d51f426d29881df0042165cfa378a00f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTJmNDRiMzU5ZDQwYjYyZWYzYWQ0YTc2YzAyYjI0ZDYzYjM0NDYyZjE5OWFkMTVjZGVjMmYzZTczYWRhMmQwNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODVlZDY5ZDYyM2FkYTFmYjI4NGEzMWU0YjhhYzViYjM5OTI3MWUxZTQwOTZmMjg0YTdlMjRjNzE0MDI2NWRlNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGQ5YmNlMWY0YjQ4YjZmYzg2OTc2MWZkODQyYzljNmEyMDU0NzczMGJjODRmZGRjYWM4ZDk5MWJhN2Y4MmNlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTBhNThkMDk1MWYwYWI5MDNlNDAxOGFlMzRlMmQ0NDI2NTM2YTU5NWY3ZGY3ZTRmYWI3ODk0MDM1ZjZiNDVlMyJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/fleet/index.adoc",
+          "version": "repo-file-v1:sha256:54f7aaf690ffebaef8f0f285191e9d14d847f7dc3f94c1e4c9a4df23713d3656"
+        }
+      ]
+    },
+    {
+      "id": "claim_3af3b1a746174906b0af312cf8ca9073",
+      "statement": "The Booking section holds the rental-flow configuration: locations, routes, a business-facing rental-search-logic page, seasons, coupons, insurances, discounts, extras, rentals, and the 2.0 offline-inventory page; correct configuration here is a prerequisite for the front-end search and reservation flow.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L35-L45",
+          "version": "repo-lines-v1:sha256:bab7277ec866f87905a0e31ce1dc8d74cdb9eccb10e04ba2a39b0f630ee3b9bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZWQ2OWQ2MjNhZGExZmIyODRhMzFlNGI4YWM1YmIzOTkyNzFlMWU0MDk2ZjI4NGE3ZTI0YzcxNDAyNjVkZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhN2IyZjdlNTlkMWQ2YmZmZTM3OWYwZTIyNmI2YTI4YTU4ODQ0ZDI4YWJmNjlhNzk4YjM4YzFmZWVlNTJlMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0OGVlNTg4ODM5NTYxMjcwMzU3OWE1NmVhOTgzZWQ0NWQ1MzE4NzEyNmI4ZWViNjUwZjQxNzI4NGExYmNmYTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM3NWI3M2M3NWJkNTAxNTI5NTAzMTNjZDk0YzU2NWYwZTVlMDZkYWU0NDIxNThlNjA0MTNlZWNkNjQ2ZjkzOWUifQ"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/booking/index.adoc",
+          "version": "repo-file-v1:sha256:da019e9ec22f1b2c931b8362b42745771116600d1013bc90398af35c64df53cf"
+        }
+      ]
+    },
+    {
+      "id": "claim_53b4a216faf54568948130ffab9e8566",
+      "statement": "The Admin section covers system-wide configuration (vehicle models/types/features, tags, roles, payments, driver-age charges, price rounding, system/email/ai settings, CMS SEO) plus 2.0 additions (ai-assistant, chat-widget, audit-logs); its landing page warns that changes affect the whole application.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L46-L58",
+          "version": "repo-lines-v1:sha256:6060ef8ec3bbf23ff7c8940017894f94ad8cf576f3f0f0fbd86357989164b758:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZlNzM3ZDQ4MmQwY2ZmNjFlNjIxODczZjk5NDZlN2VjZGM2OTcxOWVkNWQ0Mjg3MzJhMTAxMzNhYmQyMWU0NzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjMDhjMjk4ZjYyOTc4OGI5NzFkZDExNjg0MDJiYjAwNWEwNDk5OTE3ODA1M2QxYTRjYTExNjU2YmI3OWFiMTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYwNWY1YmU2M2ZiYWU1OTExODA0ZGIwY2I0ODk2ZDRkMWEyNzVlNWQ4OTlkYWRkMGQ3MTIwNjllMGQxZGNmNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2NDAyYjhjOWY4ZmY1ZmRlYjljZGNlNmVlYTJlNTk1OWJiODk1NTQ5ZTM1MDg2NzVmNjgzZjJiNjUwOGZhMzUifQ"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/admin/index.adoc",
+          "version": "repo-file-v1:sha256:c8d61bcd4f6d81db0d6b9b7ccbb3b4fe50ceb0573f92d2df43eb1adffc285c0f"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2a8dba592c14f04ac92999c476c665d",
+      "statement": "The Reporting section is scoped around the 1.1 LITE dashboard deliverable; only the LITE dashboard is currently exposed while fuller dashboard suites and report categories are documented as future/roadmap scope rather than production functionality.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L59-L65",
+          "version": "repo-lines-v1:sha256:6a0bf74d6d029922f43cfca0a77c09139355da7a952acd8ebb006724167f8dff:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ1YzE0ZTg5NGViN2ZhYTQ5NjE5MTM2MzIzMGNjODAxYjc3OGNmZGUyNzEyNzk0NGZiODg1NzkzYzcyMjlkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTAxYmJkMDI2OWU4ZDEwZWJkYWJiNmMyYzgxZTFkNDNhMTU4Njg0NGJiNTBkNGMyMTJhYzI4MTg0ZjQ5NDgwNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWI1NzJlOWE1OGM5OTViMGYyZmVjNDlkY2RjZGE1MzEzZjRiNDNiMTk2ODNkNDNjZTQzMTg5Nzg3NWE2ODk0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmYxMGY5ZjE2ZWI3YTRjNWVkNGJjN2EwOTBkOGNlN2NlYWVlOTA5YzBjZWI2NTM4ZDc3NjJjYjA3MzY1YjE2NSJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/reporting/index.adoc",
+          "version": "repo-file-v1:sha256:a1d432e64726ed212239fc5601cff4883b5f9d41a2c63f640b4870fbde0fc442"
+        }
+      ]
+    },
+    {
+      "id": "claim_d556e6e8c99f45d0ad51ca03fc409a7e",
+      "statement": "The Technical section provides implementation-facing detail: rental process, the detailed /api/v1/booking/search logic, REST API, email reports, scheduled jobs, dashboard (Superset), logging (Grafana Loki), and config/installation, with a stub pricing-analysis page.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L64-L73",
+          "version": "repo-lines-v1:sha256:d513e49a49ff0e2a49b1580fa208a74175dbf2161b8dadbc4c1798d0aeec6d99:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlMWQwMzVkYjE3Yzg2YTgzYzk4NDI0MDE3MTA5NmE2YmQyYzJmMGM0OTUyY2ExNzVkMzVkY2YzODlmMTUyYTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViNTc3MTZiMTU2N2IxMjYzN2E2ZmMyN2I5NWZmZjFmYTAyMWNiMzM5NDFmNWVjZWEyNTk2MmM2OGFlYjI1OTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5MjZlMGU4NTMyMzVjNDg4YzVmYTBkNDU3MDhmZjA5Y2YyYWZhYjM2NGQzYzQ3M2JiOTNlMmU3ZDU4MGUzNGYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhNjMwZTYxZTNhNTM0NDc5NDYyYjJkOWU2MmQ2ODVjMGNhZDQyYWU1MmNmY2Q1NjRmZjllNWY1N2RiZGFkMzIifQ"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/technical/index.adoc",
+          "version": "repo-file-v1:sha256:a4a99ca605203a24b359b5bded21785f3f21fab0503e335af61927a9940d85e8"
+        }
+      ]
+    },
+    {
+      "id": "claim_5fb9ccee4c8b48658dcda29ad094cd49",
+      "statement": "The detailed rental search logic page documents the /api/v1/booking/search call chain SearchService.search() -> VehiclesSearchService.findVehicles() -> VehiclesCostCalculatorService.calculateCosts() / GroupSeasonPricing.getDayPrice(), including duration rules, pricing bands, the availability contract, select/reserve guards, and PlantUML workflows; it is the reference page for future search changes.",
+      "evidence": [
+        {
+          "resource": "repo://docs/modules/ROOT/pages/technical/rental-search-logic.adoc#L1-L19",
+          "version": "repo-lines-v1:sha256:91ba4d4666f5537dea24eed0785b7f0742a9d1019b3d202b2d28d68964d5acf2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFjNzhmYWM3Mzg0ZDdkYjVmN2ViYzU5ZjYxZWE0OWE0ZjdkNTZmMTE4MTg3NGM2ODU5MDIxZTRhYTRlMWI2ZWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzZTEzYTExMzI0ZGU5MzgwMDdhNTI4OWQ0N2VmMjZlZDg3YmM5ZjUyMGIyN2M3MjdhY2VkMTMwZjNjMGYxYWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMwMWQxZTBhYmUwMmZiNmU3ZTMxZDI3YzliOTU5ZjFlODk2MGJlYmMyMTcwMWIzNWU5MmRhNTEyMGViNWMyNzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_24bc704da52a42539159cf9bfefb7a68",
+      "statement": "The REST API is version 2.0, secured with OAuth2 Client Credentials for all /api/v1/** endpoints, with a Swagger/changelog UI at /api/docs of the back office; 2.0 added availabilityStatus/bookable fields, extras maxQuantity, and chat-widget endpoints.",
+      "evidence": [
+        {
+          "resource": "repo://docs/modules/ROOT/pages/technical/rest-api.adoc#L1-L17",
+          "version": "repo-lines-v1:sha256:5e1343aff2cc904a3c3a389cb9fc389e5a1a518df1260beebb5bde29d068962e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyN2RjOWVjYzJkMDdlZGQ4ZWNlZDYyYmUwMTU5NzQzNGJhZDE2NzI3NGI3NDc4MzgyZGNhM2M4YTc2ZjVmYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJlYmEyZjhiOWY1ZmE1OTNjMjcyOTg2MDZlN2I0ZGRhMWI0MDgwOGQ3YzdhYTRmOWNmNjY2Njk4NGEzM2M4ODEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ab26c5ffb5cf43958e344e47286a6735",
+      "statement": "Release notes are versioned pages, one per feature release (2.0, 1.1), surfaced via nav_release_notes.adoc, and the release-notes landing page is intended as the base for future Antora multi-version browsing once matching refs/tags are connected for previous documentation lines.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L74-L77",
+          "version": "repo-lines-v1:sha256:45ee885ed4d9801a534d938ad1b9e850c6b767717962b83bddffe30afa7baaae:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTFiZDY3NDQxNWY0MDVjYTBjY2NiZDBhNjRkMjI1OTcwZDg5NmQ3YjdjOWE4MDc0NTkzZTMwMDAyZDNlMTZkYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTU1M2EwMDAzYjQ1NmY0ZjIzMjQ5OGE2MDRmOGFhNWRjMTdlZGFjMTI5YzY0NzQ2ODViMWM0ZmMxNDZhNGI5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWU2MDhjY2Y3NWY3NGQ2NzVlYTc5MDBlNDNmYjVlYmU3MDU4MTk3NTg5NGFjYjVlNjhlOGNkYWRhMDY2Y2VlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTU3MzVhNGRhYzdhOGZiY2ExZGY2ZTBjNWU4YjU4MTIyY2FlYjc4ZTU4M2QxYzcxNDFlYTE2MjYzYmExNzJmZSJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/pages/release-notes/index.adoc",
+          "version": "repo-file-v1:sha256:7e98d3147896da680ae89a1f91be06dcec68866073923c4f1b2886a4195b4135"
+        }
+      ]
+    },
+    {
+      "id": "claim_215c0d85cf29479aad73dc8e4ddac4f3",
+      "statement": "The specs/ directory holds supporting reference material outside the published page tree: the full technical specification (specs.adoc), pricing/payment notes (notes.adoc), payment-provider integration notes (payments.adoc), the supported locale list (locales.adoc), textual diagram sources under specs/diagrams/, historical PDF drafts, and brand-guide assets.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L13-L13",
+          "version": "repo-lines-v1:sha256:3f7fe52d58d1739119b644ad06672af5a97858ae70ea5e90061f194a06a91cd5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3ZmU1MmQ1OGQxNzM5MTE5YjY0NGFkMDY2NzJhZjVhOTc4NThhZTcwZWE1ZTkwMDYxZjE5NGEwNmE5MWNkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y3ZmU1MmQ1OGQxNzM5MTE5YjY0NGFkMDY2NzJhZjVhOTc4NThhZTcwZWE1ZTkwMDYxZjE5NGEwNmE5MWNkNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmIzZDU0ZjMzMDQxZWI1MTZlZDZmOTk5NjIyMjk0NjQ2M2RkZWE0MzFhMWU2Y2ZkOGEwYjBkOTkxMmVkZGRlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTJjMTIzNGFlNjU2YTBiMmY2YmFmMzBlZjMwNDdjOTU0ZTdhOWExZDc4MDhjN2I2MmI1ZDJkYmFhMjVjN2VhOSJ9"
+        },
+        {
+          "resource": "repo://specs/locales.adoc",
+          "version": "repo-file-v1:sha256:f901e93d23eb7627e0069f8c4ea08f60c9aa6522383d3d16306f86a3e17f7caf"
+        },
+        {
+          "resource": "repo://specs/notes.adoc",
+          "version": "repo-file-v1:sha256:02435294e79318d0eeba128dec5f0a25745b9de5cdc73da36dc936a84f6937fd"
+        },
+        {
+          "resource": "repo://specs/payments.adoc",
+          "version": "repo-file-v1:sha256:e81bfc3e5f36e31e3961d3765c1e74072b521bb9ea7e8fa4e6816a9e2d77ca2c"
+        },
+        {
+          "resource": "repo://specs/specs.adoc#L1-L40",
+          "version": "repo-lines-v1:sha256:d75bd22af9454ac23ae152473810cd224025203967a62a079d2bdfa1e67d0f93:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjMDAxYmQyZDA3MGIwYjk3YzA4ZjE2NDkyYWMzNTJiYmRhNTRhYzA5NTJkOGU4MGI4ZTJkYjQ2Zjk5MDc3Y2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYwNmFiYmZiY2I5ZmY0OTBmZGVmNWI4ZWVhMjIwMzQ0OGYzMGY3ZmIzNjczMTViNTQyNzI0ZGE2YjA5YWNhMzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxZjBlZDAzNTEyY2YyM2JhMTgzMmVkNWE2MGYyYTkwMTM0NzNlZTUzZTNmNGZmYzlmMTdjMzgwMWRiMjlmNTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f308a5581a9a47179713aae441ddcda9",
+      "statement": "specs/notes.adoc defines the price composition used by the rental engine: Rental Basic Price (vehicle total + pickup/dropoff + night-hours + insurance + extras), Coupon Discount (basic price * coupon percent), Payment Cost (fixed fee or percentage of basic-minus-coupon), and Rental Total Price; it also lists supported payment methods and deposit/partial-payment rules.",
+      "evidence": [
+        {
+          "resource": "repo://specs/notes.adoc#L7-L57",
+          "version": "repo-lines-v1:sha256:aaf120b5501b53e709576cf4ef4a54697e4420b1604f75229301bb4f7eed4e73:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiOGY3YmFhYzI4Mzc0NTgwN2EwOTNmNjY0ZmYyYzA4NjI0NjRmOWZiNDdiYjRmYWU0ODU0MTk0YjU1M2RhYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYzNTM3MzkyODcyZGZlZTdhNTM1NjdlMmY2ZTY5ODRkMzg2ZDVhNDc1NjE5NjU4MjU0ODhlZDM1MWZjNmE4MjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU5ODQzNGQ3NDU5MTQ3YjhhMjY3NmRhMDcxM2ZhY2ZmMzZjOGYyYzhiYTM2MDBmYjhjMTNiODc2Y2NjOGFhMDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0NmJlOWRhZGNhZTlhOGY0MGQ4ZDgzZjI5NTk1N2JmYjU2ZjY3ZGQ4NTE1OGIzM2E2ODJhZGRlNDNkZTgyMzgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b69a494f54df4829a0396463a95a4c96",
+      "statement": "specs/payments.adoc documents payment-provider integrations (Cardlink for Alpha Bank/Eurobank, Piraeus Bank epay, NBG, PayPal) with test endpoints, merchant IDs, and test/sandbox credentials committed for documentation purposes.",
+      "evidence": [
+        {
+          "resource": "repo://specs/payments.adoc#L1-L40",
+          "version": "repo-lines-v1:sha256:e81bfc3e5f36e31e3961d3765c1e74072b521bb9ea7e8fa4e6816a9e2d77ca2c:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlY2ExMGIxOTEzM2QwOTg5MTc0ZThkMzg5YTg2OTQ5ODRmYWRhNzQzMDFkZDA4YWE4ZTRmZmQ3NmU5YThiZjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZDhmOGE3NTkwYTVhNDA0MjQwYzBhMjUyYjE0MDQzOWE3NWQxZmY3NzQ3YTYyMTM4ZTEyMDZjZmRmNDY4MGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e8ff76e84b744ef87d9118e0b8cf253",
+      "statement": "specs/locales.adoc enumerates the supported UI locales (sq, bg, hr, cs, da, nl, en, et, fr, de, el, hu, it, ja, mt, pl, pt, ro, ru, sr, es) used to coordinate multilingual feature documentation.",
+      "evidence": [
+        {
+          "resource": "repo://specs/locales.adoc",
+          "version": "repo-file-v1:sha256:f901e93d23eb7627e0069f8c4ea08f60c9aa6522383d3d16306f86a3e17f7caf"
+        }
+      ]
+    },
+    {
+      "id": "claim_82327776638f48c5ab5499aed9dde392",
+      "statement": "docs/modules/ROOT/examples/ holds Java DTO/entity snippets (Rental.java, Customer.java, PickDropDetail.java, RentalExtra.java, ContactFormDto.java, QuoteFormDto.java) included into technical pages via include::example$...[] so documented class shapes stay in sync; the Rental entity carries the gr.netmechanics.carrental package path from the sibling application.",
+      "evidence": [
+        {
+          "resource": "repo://SPECS.md#L135-L136",
+          "version": "repo-lines-v1:sha256:82878a911d8a0aef0c892adcca63c869ee30ba27e7188ab96e7cbf3259bb39ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBjMGQ3NTM5ZmIwNGRiZTg3MjkwMWU1OTJlOTk2NjYyMTE5OTk2OGQzNjcwZTE3MGZlZmJkMDA1ZjRjYjhkMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDM3NTIwZDUyNzJmYmRjOTk2M2NkMDFiZTYxODQ1ZThlMWI4YmJlNmQ1N2I1NzVhZjhlZTJjZjk0MGEyM2U0NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTRhYzBkMDZkYmUxOTNlMmMxZTZiZDY0NjhkOWQ3YzcwY2E5ODIzNjk2MWM2OTMyYjQ4NzFmOTFjNzExNDcwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzY1ZjBjZDczN2QzM2RkNDA0ZjM3NWI3YzZlZjcwYWE4M2JhZDc1ODVkYjAwYmJhYjVjYTA2NTNlNmUwZjQwOCJ9"
+        },
+        {
+          "resource": "repo://docs/modules/ROOT/examples/Rental.java#L1-L40",
+          "version": "repo-lines-v1:sha256:6a299867188a9701e51e9ea3e02a3bc12e26ada8a01187383de44969803e02f6:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmMDQxMGYwM2U2OWE2OWYyM2QyNTIwMWZlNGI4Njk3NGIwNWQ2ZGEwNjAwYmFkODJkNTI2YWMwNDJmNTgzZDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlYTA5OTI3MmQwNzdjMzg0Nzk0YWQzOGY0ZGIyMDU3MmY0NDFhYmI0YjU5NmIxMmMwNGU0N2Q2OGI5ZWUzY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkMjQzMDA0YTIxZTljNmJhNzM1MWQ1MDY0NDQ0MmY2NTg2YzFjOTUyOTlmY2NiNzQ1ZDJkYzdjNDUzZDliMzcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0ec5292dc954af1855de37453ec4b3a",
+      "statement": "The sibling car-rental application repository is the implementation source of truth for the documented system, and its docs folder contains product/reporting/business/release-process/branding notes that should be consulted when enriching the documentation site.",
+      "evidence": [
+        {
+          "resource": "repo://AGENTS.md#L14-L16",
+          "version": "repo-lines-v1:sha256:52c1234ae656a0b2f6baf30ef3047c954e7a9a1d7808c7b62b5d2dbaa25c7ea9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzljZjQxZWE5ZmYxN2E2OTkzMDE5MTQ0YzQ1MjEwYzgwZGFmNTkwNTFjYzNhMmFhYWU0MWY5YjAxMjdjYzU3MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkOTRjMDI5YTEzMTZhNDQyNmE4Yzk0YWY2NzA1YmYyZjdmNDhjM2Q4YzM2ZThmOTkyZTU1MWU2NmFhM2NiZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmEwZTM4MGI0MDZkMzFkOTA0OTFlYWQwYTgwNjM1YTkxMDFhMjQ1Mzc2NmUxZTIwYWIxYjZlZDlhMzExYjVhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjAwZWI5ZTlkZjg2NzUzMjQ0NDczODhkYWM0NWY0OThlNzQ0NDZkY2Y4N2YxMGRhYmEyZWNlMTNhNGMyYWI3ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c14283ca37fa421588f8a2f91f3dc4a6",
+      "statement": "The 2.0 documentation line introduces AI features (backoffice AI assistant with deterministic analytics templates, floating support chat widget, AI settings), unified online/offline inventory (offline-inventory.adoc), rental audit logging, rental reactivation of cancelled bookings, and extras max-quantity limits, as surfaced from the home page.",
+      "evidence": [
+        {
+          "resource": "repo://docs/modules/ROOT/pages/index.adoc#L4-L17",
+          "version": "repo-lines-v1:sha256:9943016969f02eb4805d63f0166033bd633b10bc25c9212f7cd330dbee7057ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1ZTY5MjlhMzBkZDViMGI3M2U2ZGE1MGViMDVjZDBhMzAxMzA2OTdhNWRkOGU0ZjRlMmQwYjBlNTRmMjM2YmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5NDliOTM3M2VkMjY3Y2NhZWM4ZTZiOWIzNGExMDdhYzY1ZGNhZDdhZDExOWY4MWMzNzk4YjY1YjhlODY2YmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmOWZiMWJmZmYwNTEzMDlmZWE2ZmNjOTY4MzJhMDE4ODIxMjQyNzU5MzgxNGE5MDZkNGU4MGI5ODBmMDAxMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5MGZhODFiN2JjYjMzZjRhZDI4NjUzMDAyYzhlY2VjYzFiYWRjNjEzNDJhYjM0NjM4Yzc1MDhiNDI0ZDFkZmMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

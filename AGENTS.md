@@ -91,3 +91,16 @@
 - Escalate blockers (missing product info, ambiguous workflows, tooling issues) to the product owner or engineering lead before committing partial information.
 - Coordinate with UI/UX for screenshots and styling consistency; use `supplemental-ui` to stage UI tweaks when documentation needs visual cues.
 - Share drafts early when capturing complex workflows (e.g., rental process diagrams) to reduce rewrite cycles.
+
+<!-- OPENWIKI:START -->
+
+## OpenWiki
+
+This repository has a generated `openwiki/` evidence index. It is optional just-in-time context, not required startup reading.
+
+- Treat source code and tests as authoritative. A brief's unknowns and review items are verification gaps, not automatic requirements.
+- Prefer the narrowest quiet validation that proves the changed behavior. Preserve complete failure output.
+
+The scheduled OpenWiki GitHub Actions workflow refreshes the repository wiki. Do not hand-edit generated OpenWiki pages unless explicitly asked; prefer updating source code/docs and letting OpenWiki regenerate.
+
+<!-- OPENWIKI:END -->

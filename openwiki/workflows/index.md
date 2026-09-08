@@ -1,0 +1,5 @@
+# Files
+
+- [Antora Build Flow](docs-build-flow.md) - Traces the docs site build from Sass theme compile through the Antora run (local HEAD content, vendored UI bundle, Kroki build-time fetch, bilingual Lunr index) to the build/site output and local preview, covering the two build variants and their network requirements.
+- [Ingestion & Indexing Pipeline](ingest-index-pipeline.md) - End-to-end data flow that turns .adoc files into a searchable vector index — file walking with stub skipping, macro resolution, AsciiDoc render and html-to-text, heading-based chunking with context prefixes, content-hash keyed embedding cache, L2-normalized cosine store, and the disk cache lifecycle.
+- [MCP Request Handling Flow](mcp-request-flow.md) - Traces a single MCP client request from the Express /mcp endpoint through CORS, bearer auth, the per-request McpServer factory, StreamableHTTPServerTransport, tool dispatch, and the VectorStore-backed response, plus the /health probe used by Docker and Kubernetes.

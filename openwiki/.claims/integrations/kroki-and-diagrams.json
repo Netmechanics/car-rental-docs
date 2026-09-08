@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:c9b26eecfcbce5159e7178a8972198b467cf5046af2e39da8663b23cc79c4ab0",
+  "claims": [
+    {
+      "id": "claim_fbfae76207804f3fa39634b29a1e7d40",
+      "statement": "The asciidoctor-kroki extension (^0.18.1) is registered in antora-playbook.yml under asciidoc extensions and renders Kroki diagram blocks at build time; the playbook sets kroki-server-url to https://kroki.nmlabs.gr.",
+      "evidence": [
+        {
+          "resource": "repo://antora-playbook.yml#L26-L41",
+          "version": "repo-lines-v1:sha256:ed3d07bb6de976ad8a659c568ef4c552fedfd16c869300f24ad546eecbe47a9d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZkOGI5NGY0MTM2MWMwZTBiYjljZjU3OTY4ZmY5MDg3ZDM4YWJkMzAxZmQzNDFlZDE2M2NiYTQzMGY5NzE0ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNGYyZmIxMTAzNDg4MTg4NTg4NGM1OTFjZDcyZjJkZTU1MjE4NmY1ZWI3ZTUyNjQwMDUxMDhkOGJiMDFkMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmMjBiZTQ3OGM0YjgxZDI2N2I3MTllN2NmMzhmY2EzODg0OThkZTRmMmE3MzQ0NDQzMzQ4ODc3ZDM3MTUwZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc5MzYyZDdlZDljYTJmOTQ4Y2Y5NDVhZTNiN2I1Y2RjYzFhNjI5NWViZjJkNTI5MWY2MzJlNzMwN2EwNjJiYzgifQ"
+        },
+        {
+          "resource": "repo://package.json#L1-L10",
+          "version": "repo-lines-v1:sha256:a3e73429b63abb321a1d88727c3efa626976de2d9a72360e46f16fc85bdeb2b4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1NjdkNjIyOTY0YjI2Mzc4OTdhZDhhNWVjNTEyMWFiZmUwNDlkMGY0NGZhOTEzZmRlNWZiM2MxNjI5NDMxMTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZhYzc3MTk5NmJhYmJiMDhhNGI5ZWRlOGRmNWMwNTYzNGY5ZGYxNzA2MDY3ODI5Y2ExNDJhYmY3NTA1YjE0MWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_99d1a8a73090471fa8464ca142395039",
+      "statement": "kroki-fetch-diagram: true in docs/antora.yml, combined with kroki-server-url, makes the extension fetch rendered images at build time via fetch.js save() and embed local image files in the generated HTML, so page view time does not depend on the Kroki server.",
+      "evidence": [
+        {
+          "resource": "repo://docs/antora.yml#L8-L14",
+          "version": "repo-lines-v1:sha256:865be86b4e382dfee7aaecd296c5b64190b5bc56bc19171c4fdede6a87c9c0e8:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ4Yjk0ZjQxMzYxYzBlMGJiOWNmNTc5NjhmZjkwODdkMzhhYmQzMDFmZDM0MWVkMTYzY2JhNDMwZjk3MTRkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMzE0NjBkZTc4OWNkOTg4ZTMxYTIzN2Y5Yjc3ZmI1NzZjOGU4M2FmYjZkMzEwZjZjMjE4ZTQ1ZmZkZGNmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg1Y2JhMzFjODVkMzgzNmVjNDEwZThmM2RkY2VlYTA2OGJmMGMwNjhhNmRiYjcxYWUwMTdiOGM3NTI3M2Q2ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTBjZDZjZmM4ZTM0MmI0MjQ2YjEwMjFmZDc5ODQ1MmVlMDBjNGQ0YmVjZmJmYmQ4YTNkOTkxOWEwNzAzM2VkMyJ9"
+        },
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/asciidoctor-kroki.js#L63-L72",
+          "version": "repo-lines-v1:sha256:18cad5213f4a68d9337d21d1acadd5b37428189404a6f885663ef412d8f77339:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwNjAxYWZlMTUxOGI3M2ZiYjNkYzJjMmYxODcyMDUwMGEyYjRhODYzOTIwM2M3Y2NlNTU5M2E4ZTk4MWEwMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2YTY3Y2NmOGYwYjZhODZlMDdmMGUyMjVkMzY3NjlmYjNiOWM2OGFmMjEyMTAwYzgzODdkOGI5M2EwODYwMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhNzU5N2E4OGY3MmFkMzkwMTkwZmVkMDlhZThjZjc4M2FhNDkyNzE3NDRjNDNmMzA4ODNhNDg1ZjM3ZGRjNzcifQ"
+        },
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/fetch.js#L24-L54",
+          "version": "repo-lines-v1:sha256:335cf817c95e045edaffe67af2ca3f956e1dec2c061e550957d8309753092b95:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzNzM5ZjhjOTAyNjk1MWI0NzhiNjA3NTUyODQ2YzYwNjAzNGIwODdjNzU1ZjgzNzhkMDc2OWJiNmYyYmM5MzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhOTJiN2JkMTVmZjZmYzYyNDE5NmUzYzhhMWE3OTZjMDVmZjgzMDNjMjFiN2I5MDJmOGU3NDM1ZjRkMTVlOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMTJlNmJiNGZmOGVlYmY0OWFlZDdiY2U3NjJmMGYzZDhlZTFhNmE0ZjRhNjBjYjNlZTE3MTFhYWM5ZTc2ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7e85df483cdf48c5a611a1a4f07b97b2",
+      "statement": "Fetching diagrams at build time creates a build-time network dependency on kroki.nmlabs.gr for new or changed diagrams; already-fetched diagrams are cached on disk (filename derived from a SHA-1 hash of the diagram URL) and reused, and if the server is unreachable the extension warns 'Skipping <type> block.' and emits the raw source in a kroki-error block instead of failing the build.",
+      "evidence": [
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/asciidoctor-kroki.js#L182-L192",
+          "version": "repo-lines-v1:sha256:7f86685be6d5075c88311da2abe182361c9d85a329ddb22d3a024f0064c57769:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzYThiNGNmODZhMzU2Y2U0ZjUxZDg1M2Q5ZWVkMDRkZjU5YzkzNzkzOTNkN2E1NmVjOWQ3NjU3NGE0MGE4ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmMjMwYmFmZjM1Y2JmYTY5MWQzZjFiOTlhZGU2Y2QxNGVjOWE5MGM5MjlhZGQwOGE3NmQzMTA4NDk2Zjg5NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVjOGI2M2U2MTc0MmRhYThiM2U3ZGU0NTExYjlmYTI0ODE1ZDg1ZTAzODIzODBjNjYzZjlhNTIxOTFjYTk1YTQifQ"
+        },
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/fetch.js#L24-L54",
+          "version": "repo-lines-v1:sha256:335cf817c95e045edaffe67af2ca3f956e1dec2c061e550957d8309753092b95:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzNzM5ZjhjOTAyNjk1MWI0NzhiNjA3NTUyODQ2YzYwNjAzNGIwODdjNzU1ZjgzNzhkMDc2OWJiNmYyYmM5MzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhOTJiN2JkMTVmZjZmYzYyNDE5NmUzYzhhMWE3OTZjMDVmZjgzMDNjMjFiN2I5MDJmOGU3NDM1ZjRkMTVlOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMTJlNmJiNGZmOGVlYmY0OWFlZDdiY2U3NjJmMGYzZDhlZTFhNmE0ZjRhNjBjYjNlZTE3MTFhYWM5ZTc2ZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ef1cf73b30cd4c37bf1205783ad20ef9",
+      "statement": "The Kroki client transport is adaptive by default: short diagrams are encoded into a compressed GET URI (base64 of deflate level 9), and URIs exceeding kroki-max-uri-length (default 4000) fall back to a POST to {server}/{type}/{format}; the server URL falls back to https://kroki.io when kroki-server-url is unset.",
+      "evidence": [
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/kroki-client.js#L15-L77",
+          "version": "repo-lines-v1:sha256:f62142581697c783ca77f53dfa2c7dfb954fcb33cf160e4dd6ecb78bdefe800c:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjZWE0YmI4OGEyZWJhNjU5ZTE3MTJmYjJiNjU4MjNhMGNjMDg1OWYzYzNjYjEzZjJmZWQ3NTkyYjBmYjg0ZDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYxYTA3MmQyYzFhNmE5Nzc4ZDdlMzFkMDhjYjBhNmU2ZDljODExMDczYjI4Nzk5Y2YwOWI5Mjk2M2QyMzgxNmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0f53509095514d6295eebf3b0423957a",
+      "statement": "Diagram sources are textual and committed to version control, authored either inline in pages under docs/modules/ROOT/pages/** or as standalone .adoc fragments under specs/diagrams/; the repository ships rental_activity_diagram.adoc (rental flow activity diagram) and uml_class_diagram.adoc (domain model class diagram) as PlantUML diagrams.",
+      "evidence": [
+        {
+          "resource": "repo://specs/diagrams/rental_activity_diagram.adoc#L1-L3",
+          "version": "repo-lines-v1:sha256:9c164d4b1f198c25dd60e6640cb8f31fa383865e3a70b8133a477fa4a94c8572:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVhZmYwM2JiYTI3YTM0OTVhNzhkNmJiNmIwZjJiOTRjYzkwODI1N2RiNDhlOTlkMThkNWUwOTQ5NmJiMGUxNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2YzYjY2NGZiMzUyODFjY2I0YmZkMWQ4MTBhNTk1MWJkMjM0YjY5ZWMzNTE1ZWMyY2QwMDRkZGFiMTU2ZDNmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjc2NGQyMzFhNWViNWM5NGZlMGJiNmQyN2MzNDQyYWI5Zjg3ZWE2ZGE4ZDMyOTZlNzQwMTE0NGM1MjBkYjZhZSJ9"
+        },
+        {
+          "resource": "repo://specs/diagrams/uml_class_diagram.adoc#L1-L4",
+          "version": "repo-lines-v1:sha256:76d2511a0886e1533bb4cb82f6c5d035329d9c66a1183d13d8867318f78552ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVhZmYwM2JiYTI3YTM0OTVhNzhkNmJiNmIwZjJiOTRjYzkwODI1N2RiNDhlOTlkMThkNWUwOTQ5NmJiMGUxNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTgyNTg4NGEyYmE1NTgwYzY1MGZlNThlNjFmZWNiMmQzZTAwZDBmMGU5MThiMDhiMDdmNTE2NTcyNjI1YmY3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQ0NjVlZWEwYTVjM2MxYTExMDFjMmE3Nzk0MTFhMjgwYTRlMWM3OTFlMDM1ZWZjZTE3MjAzOWM5OGExODYwNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_af1b902c3c874f3c9d24d87c4307e8d6",
+      "statement": "The extension registers both a block and a block macro for a broad set of diagram types (plantuml, mermaid, graphviz, ditaa, blockdiag, seqdiag, actdiag, nwdiag, c4plantuml, erd, excalidraw, vega, vegalite, wavedrom, etc.), accepting both .... (literal) and ---- (listing) delimiters for the block form; the default output format is svg, overridable per-block or via kroki-default-format, and txt/atxt/utxt formats produce a literal text block instead of an image.",
+      "evidence": [
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/asciidoctor-kroki.js#L118-L153",
+          "version": "repo-lines-v1:sha256:9560c236f43c8bd16f5dad2891c26a09e31e62337d1d45246a1764ce03de0826:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhODEyNDFmMmI5YTNhOWJlYjZlYTAzMjYxMTljMDg1MzFlMjYwZDU4MTllYWJlNjQ5ZmE3YzE3Y2U5OWU5MTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZTZmYjJjYmU5OGRjMTZmMjU3NGQ4NTQ0MjU1OGM0NDY1YThkZTZjYTM0OWI4ZTMwODRhZDU4MjI3NjAyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA4ZTZkMGFmYjBmMmVhYmRkODIwODdmYTFmNDNkMDUzZjc3M2IzZmI2NjUxZjJlMzMzMmI0ODYyOWI0YjhjZDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiNzY3ZmRjNDk1ZmM3YTM1ZTM5NDNlMzFmMzU5MTI1OTIyZmRlNmM3MTc1MWQyZDBhMTUzYzAxN2UyZTc0NDAifQ"
+        },
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/asciidoctor-kroki.js#L233-L283",
+          "version": "repo-lines-v1:sha256:da843d69423369a9c802de1d12123559b3893bd61873feb58579d065ddf4f892:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhmZjFmNjcxM2RjNTk2YWFmODNhZTY1MjlkNzJjNzg0MjAwOWFlOGQ5YWFjMzg0OTNkODEzNmE5M2MzNmNhYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiNTgwZTk2NGY4M2E0NzNmNDNkNDQzODQ2Mjk0OWQ2OGI1NjAwZmRhNzg3ZjE2Mzc0NWQwMGRlODljYmYzNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_029d6f5e548f4087bcfb81a7471f73f4",
+      "statement": "The MCP ingest pipeline strips all Kroki diagram blocks as the first preprocessing step of resolveMacros, before include/xref/image normalization and rendering, because diagram source code is noise for semantic-search embeddings; this is invoked per file in mcp-server/src/index.ts before renderAdoc and chunking.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L20-L27",
+          "version": "repo-lines-v1:sha256:b70d30354646b9b1b2ea1210f175d5893e9ed31e8bad751c0fedc8a4a7cc5e37:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjY2YzhjNjEzZjJhMzNkNGNhMjM4OWRlYzA2NGNmMzc0MjY0ZGQxMTY1MDRkNjU5NGRkYTdiODFmYWEwYzMwOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDQ5ZmI5YzQ2ZTU2Yjg1OTQxMzFhZjc4ZTBhNjkzNzk0NmU3MDZhOTEzMjk3ZGY5MTg1NTg3ZTliOGQwOTdhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2NhODkxZWQ1ZTk0ZTRhODlhNzQwMDFlZjg4OTZhZjE4MDRhZWQ1Y2ZiYmIxMjBjNzJmYWZlNmU0ZTQzYmU4OSJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L6-L8",
+          "version": "repo-lines-v1:sha256:bb318564f409d05165f18f948e7b307d8d01239d031621c0d60c2d8297a04924:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRmNjQ5NmExYjkxNzA0NTM3ZmRkOWRlNjYwMWNlZGVmNzFiZmZjM2QyMDAxMjJiNjZhNjVkOGI3MGY4NjE3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NlM2FkMmUwZmU2YTBlMDEwZTdjMjY4ZGEwZTBiZjJiNzQ4NTRkMTk2MmEyOWQzY2FjNmZmMWNmODg3NDQyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDExMzk2ZWFmNjljZGExYjM1NDIxMmIwZDA4MWQwOTRlM2ExZjFlZTE5NTQyM2JlOWNlZjRlOWFjNmU3OGQwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzE0MTFjOGE0MDBkOGFhMjc0YWQ4Mjk2MWY2YzM4NDNiZjEyZDRiMDMyZmY4YzFmZDFkZmI2ZTViZGI0ODEzMiJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L67-L86",
+          "version": "repo-lines-v1:sha256:d5aa0d7915d446d127e37749c8856758b24f63dc04705ab03602fe4dc8371449:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3YWRjMDJhYTVmMThlNWRjZTg2YTE0ZmU2NWY4ZGVmMDY0MzM3Zjc2NmUxM2RjODc1NGMxNmU5Y2U5NThmYmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzMDY2ZWQ5NzIyOTQzZWY3Y2VlM2I0Nzg1MGQ2Mjg2YWE4OTczNDg5YTA5NWE5ZTE4MGRiNDUyOTZhOTY0ODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdjMTZlYzNmMzBlMTgyOTllMTNmZGI4YmI5MTQ4ZTlhNGRmNjk0OTE3MTVlNGUxNjljNzAwM2MxMWUwMjVlMDQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dbfca879b91b41fa8fa6a3b7cbeb1436",
+      "statement": "KROKI_BLOCK_RE matches the attribute line [plantuml|mermaid|graphviz|ditaa|blockdiag|seqdiag|actdiag|nwdiag|packetdiag|rackdiag|c4plantuml|erd|excalidraw|nomnoml|pikchr|structurizr|svgbob|umlet|vega|vegalite|wavedrom] (with optional trailing attributes) followed by either .... or ---- delimiters and removes the whole block; the type list is intentionally broader than the types currently used so future diagram types are also stripped.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/resolveMacros.ts#L6-L8",
+          "version": "repo-lines-v1:sha256:bb318564f409d05165f18f948e7b307d8d01239d031621c0d60c2d8297a04924:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRmNjQ5NmExYjkxNzA0NTM3ZmRkOWRlNjYwMWNlZGVmNzFiZmZjM2QyMDAxMjJiNjZhNjVkOGI3MGY4NjE3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NlM2FkMmUwZmU2YTBlMDEwZTdjMjY4ZGEwZTBiZjJiNzQ4NTRkMTk2MmEyOWQzY2FjNmZmMWNmODg3NDQyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDExMzk2ZWFmNjljZGExYjM1NDIxMmIwZDA4MWQwOTRlM2ExZjFlZTE5NTQyM2JlOWNlZjRlOWFjNmU3OGQwYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzE0MTFjOGE0MDBkOGFhMjc0YWQ4Mjk2MWY2YzM4NDNiZjEyZDRiMDMyZmY4YzFmZDFkZmI2ZTViZGI0ODEzMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3a0fd340f7e74547bc102f076040b1f6",
+      "statement": "The MCP renderAdoc runs plain @asciidoctor/core (safe:'safe', standalone:false) without registering asciidoctor-kroki, so ingest has no Kroki network dependency and any diagram block that the regex missed would simply pass through as literal text rather than triggering a render.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/render.ts#L1-L25",
+          "version": "repo-lines-v1:sha256:48bceab3f0578258bca9949db9dc5616145aa7b222ec334f413e65194858e8e7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1Y2RlZmQ0OGRiN2JkNWE1Yzg2NGEzNDEzZWY5MzRmMjRjZmY5M2VkMDIzOWExZjMzYTEwZTk2Mjg4ZTA1NzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZlZTc2MzAyMWJkMDE1OGMyZGZlNDllYjZlYzE4OTIzYjc0OTk5MzY0MmE4MTVmOTFlMTZlMjY3NzQ3MjMwNGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_16a9c496038b4af89d6dbc2dcd2e1daa",
+      "statement": "resolveMacros.test.ts asserts that both ....-delimited plantuml blocks and -----delimited mermaid blocks are fully removed (including the diagram source) while surrounding prose survives, pinning the stripping behavior both delimiter styles rely on.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/test/resolveMacros.test.ts#L24-L38",
+          "version": "repo-lines-v1:sha256:15571195474d1a230a8c97dcbcbba142b418b3cf486450cb99658f9f98654ceb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNGVlNTRhZGRiMjRmMjUxNzU1ZGE3YzhmZjgzZmJlNjFiOTUwYzI1YjRmYTAyOGY0OThmMzZlYTk1NWYwNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhZWM3YjkxYzY1OGNjYjdlMGIxNmM3MGI0YjVjYzAyZmI4YjI1MTY0ZmY5YzI3NzAwNzgxMDllMmYyOTZjOTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlkOGZmNGIxZTA0NTMyNGQwN2Y5MmZjMzdmNzU4ZTM0N2UxOTc3YmZhOTliMWNiNmUwNWE5ZDRjMmMzMDFjNjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_411276ae6be7497aab91f166480766d2",
+      "statement": "asciidoctor-kroki only fetches rendered images (and only preprocesses PlantUML/Vega-Lite includes) when the document safe mode is below SAFE_MODE_SECURE (20); the MCP render uses safe:'safe' but does not run the extension, so this gate only affects the Antora build path, not ingest.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/ingest/render.ts#L12-L17",
+          "version": "repo-lines-v1:sha256:5c89ad9af0afbe98953d15e1e53e99eb84cc27ec9a2ede133057cd8b78e66623:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzFhYzhjZGQ0N2YxN2FjYjM0NjlhOTNmZGJhYTJjZGNmOGU3ZjdjNGFmMDA0MTQ1ODU4MDhkMmE0N2EyMDVmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM4MDJjMTYzY2E0MTg0MGNjMjJlZjg0Y2RkYzYwODI1Y2Y2MTk1ZDVkMzFkMjNkZTFjYWZjZDg0MTJiZDkxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQwM2JjNTVhODljNTQ4M2IxNTkxMTM4NzMwNDNkYjAxYWVjOTY4NzRhMDVmZTcxOTY4NTg1NTJmOWMxMWNmMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzgzYjY0Yjc5YjdhNWM3YzQxMmYzNjc4ZGU2ZTA0NmI4NTk2NmYwN2U3MmM4YzE4NDFjNzNmNWQ4ZmYxMjgzZiJ9"
+        },
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/asciidoctor-kroki.js#L106-L117",
+          "version": "repo-lines-v1:sha256:8e9492ce5b0022caf53b8f12d7cbd95febcf280b89a8f56048c9407820da3a53:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3NWMwOTg4ODJkNjAwM2E0M2FiZTkzZTAxNDJjYWUzZTFhNjNjZGU4MGM3Zjc4ZGVkZDYwOWNlOThhNjAxMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzMzRkNTU2M2ZmYzljYmQ1ZTJhODg4MWMyM2JhZTQyMmYzYmMxNDNlMTk2NjJmZTk2N2JhYTIzYzZjYmMwMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyNzhjNTU4ODk4NjI1Mzk4N2E3MzZmZjVjZGRmNTA5ZjI2ZmQ2ODEzODBmNTc2YzQ5NzQ4NDRiNDY2ZGY4NzAifQ"
+        },
+        {
+          "resource": "repo://node_modules/asciidoctor-kroki/src/asciidoctor-kroki.js#L63-L72",
+          "version": "repo-lines-v1:sha256:18cad5213f4a68d9337d21d1acadd5b37428189404a6f885663ef412d8f77339:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwNjAxYWZlMTUxOGI3M2ZiYjNkYzJjMmYxODcyMDUwMGEyYjRhODYzOTIwM2M3Y2NlNTU5M2E4ZTk4MWEwMzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2YTY3Y2NmOGYwYjZhODZlMDdmMGUyMjVkMzY3NjlmYjNiOWM2OGFmMjEyMTAwYzgzODdkOGI5M2EwODYwMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhNzU5N2E4OGY3MmFkMzkwMTkwZmVkMDlhZThjZjc4M2FhNDkyNzE3NDRjNDNmMzA4ODNhNDg1ZjM3ZGRjNzcifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}

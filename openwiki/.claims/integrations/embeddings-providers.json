@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:007564eacf07559764cd7006478f66b558dd071a9d64a03332bd1027a4b18d54",
+  "claims": [
+    {
+      "id": "claim_e5236de21aeb431dbc1239a8afab7991",
+      "statement": "The Embedder interface in mcp-server/src/indexing/embed.ts defines the embedding abstraction as three readonly/instance members: `model` (string), `dims` (number), and `embed(texts: string[]): Promise<number[][]>`. The rest of the server depends only on this interface, not on any vendor SDK.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L4-L8",
+          "version": "repo-lines-v1:sha256:5880466483ef11ef7b8634f5ed1a3e2fb1d8eaeb26919ae77809fd09543618ee:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTY1NWM5NjI3NmQyY2UzYTRjNWIxNDg0ZDhjMjc5OGQ0NDBlYmNmNjVlZGUwYzIzNmVlM2E3Nzk1NjZhOTZhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGNiMTM0MzNhYjgzNDJlMDNhYzAzNGU5OTMxMDJkMDg5NGExZTM2NzRjMGJlZjU5NjhmMGFkNTg4NTNhODZhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTI1OGZjZDJiNGI3NGYyYjc5ODVkYjkzM2E3OWMzYjAyMGM3YjQzNWNjNzBmNThkYzRlYjIzYmVkNzhiYWVmZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1bc686d9be81400b8c07dd5848592b82",
+      "statement": "Provider selection is config-driven via EMBEDDING_PROVIDER, a zod enum restricted to \"openai\" or \"gemini\" defaulting to \"openai\". config.ts validates that the matching API key is present (OPENAI_API_KEY for openai, GEMINI_API_KEY for gemini) and exits with a non-zero status if the required key is missing.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L27-L34",
+          "version": "repo-lines-v1:sha256:66a98b13afae6d5d263c5a11dede71518a8307082102114a54d0ec77ce68fe73:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM0Yjk3NjliOWFlNmRkZWVmNDU3ZDI3OWJmNGQ0MDZkZTYyNDZmYTcwNDJhZjRmNzA3NTVkOGFiZTg1NWJmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjI4N2JkMWRmZjFiMzUwNTgxOGJlOTk5NjYxNjhiZjY5YTIzM2FkNTEzYTI0NDJjNGJiNDEwOGVhMjg2NTI1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGE5OWI3NDMyMGRhNGVhNGM4NTQyMTExMmE3ZGU2ZmUzYmIxYjM1NGY3YWIxY2Q4N2JlNjg4ZTE3NDlhYTM2ZCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/config.ts#L9-L12",
+          "version": "repo-lines-v1:sha256:b0d0ae25095aa35aee6236f1d6f549c570faa7b129a098ae73e4e04749bdbcb3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODkyOGNkMTk2OTJiY2VjZjg1NDNmMDk2NzI4NjkyMTY2ZjdmZjI2OTI3YTcwYjQxMTNmNjJlM2JiN2ZlNTIzMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjdmMjVhNWNlOTRkNmM4MTk5MTk4ZWFhMjM5YjEwNjRiMzQ3ZWFmMWExY2ZkNThiYTcyMTRhOTE5MzIzZGJmZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTg1ZTkxYWU1NmE5MDQzZWVkODE3M2FmMzIzN2I2NDI5MGRmNDg2MDVkMzY5MGU2YTg4YjRmM2Y4YTcwNjk5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWU1Y2Y0NzlhNmE4MjI1NmM3MDgyOWNjMzBkYWIwNzFkZGFiOWQ3N2M0MDU2ZGRjMjQwYzc5OTZkMmE0OGViYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1d67be4730524a46b643240b725ce1bf",
+      "statement": "createEmbedder() is the factory that maps config to a live Embedder. It returns createOpenAIEmbedder() only when EMBEDDING_PROVIDER is \"openai\"; for any other value (including \"gemini\") it throws \"not yet implemented\". Thus Gemini is accepted by config validation but has no implementation in embed.ts.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L61-L65",
+          "version": "repo-lines-v1:sha256:c3d945e4ff74b8a9436a2490bff2c04c8b9e4b7f5e30ae5e6865b58113017a8f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTk4MzgzY2Q1NjMzMGQ1OTEyMjI5MzRiZWY3YTAwN2E2NWM5ZDM3MjMzYTI0OGJiMmMyYzcxOTkzOTg2MTNkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU5OTAxNmZkYWRmOTVhMDdhMWZlMDlhMWY5YTUwNjZjNTNlMjQ1OTgyMzY3MTRjMjU5YjI4MDRjNjI1YWI0OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTIwNDBlMDk1YTk0ZTJhZGE3NGU0MjFmMzcxODc1MWE5MWE4MTBiZmQ2NmY0OGY0ZTkzOWM3Yjc0ODBlYjY3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_edae5a44aa0b49e789dc17cef8be6eca",
+      "statement": "The OpenAI embedder lazily imports the openai SDK inside its embed method (`await import(\"openai\")`) and constructs a fresh OpenAI client on each embed call, so the SDK is never loaded when a cache hit avoids embedding entirely.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L40-L42",
+          "version": "repo-lines-v1:sha256:eda2e09327ad56546145493aa70b4d7f5b8f728c91c8c67eccddefbd1706cfdd:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTYzNzhhMjg1ZmQ4NWNkNmJmOGU1MzIzMGRiMzI4ODRhNjRjOWMxZWFmZmUxZTU0N2QwZmY5NWE5YjhiYzNiMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmYyNTk1MDc0MDY4ZTExMGMyMjg4YjczYmMzOWJhZmEzMWQ5ZWQyMTUzOWQ0MzU0MDgwYjA0ZWNlYzVmOWFjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmQ3MmQyOGQ2YTg0NDdjYWUzYmIyOTVkNjM3NWZmYjA1ZGE3MjVmYWUwNjZlZjI1YmE2NmQyNmU0YjNlODk2MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2MwMDgxMWY5OTU5OWNhOTdhODYyOGY0MjIzMzIyNjcxZDYwNzg2Nzc1NmYxYjE3MmNkMzA2NTNlNjVjZGVhZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e3972dd6b0994459a02a437685846520",
+      "statement": "The OpenAI embedder hard-codes dims to 1536 (matching text-embedding-3-small) and configures its model from OPENAI_EMBED_MODEL, which defaults to text-embedding-3-small.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/config.ts#L11-L11",
+          "version": "repo-lines-v1:sha256:ed34c6a858068c0efbbe6246783be145930c704febd3bcb2ab67d87cbcf480f3:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQzNGM2YTg1ODA2OGMwZWZiYmU2MjQ2NzgzYmUxNDU5MzBjNzA0ZmViZDNiY2IyYWI2N2Q4N2NiY2Y0ODBmMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQzNGM2YTg1ODA2OGMwZWZiYmU2MjQ2NzgzYmUxNDU5MzBjNzA0ZmViZDNiY2IyYWI2N2Q4N2NiY2Y0ODBmMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDZjMGJlMDdlMGQ5ODk0OWM1NTNiMmQwNjFlNGI2M2IyYjI3ZDdiYjE0Njg3MzJiZTE0MTA0M2U1N2EzOWYxYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjg1NTYxM2IxM2M5NTNjNjc3NDE2NjY4NmFhZmVkOWM1MGEzNjVjZmJlNTRiOTRlNGZhMjQ1OWM2NjYzYTQ5OCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L33-L39",
+          "version": "repo-lines-v1:sha256:2be070d0e02a8dc2f7b9b80c8258463d551ac32acfa682d6ca5300900fa28879:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGJmYWYxNjhlY2NlNzQwZjQzZGE5MjJhNjZjYzQ5N2YzZjZlOTZmMmU0NmM3MjI2MDUwM2Y1MzY4NzQ1ZTc3YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDA1YTQwMmMzY2JmOTAxY2RiZjJhZWYzMTgxNmIxYjA2YzE0OTU0MTAzYzgxOWVhYWUxNGZhZDM5MmI0NGZhNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTM2MmEwMTExMGVlNTBmNDdkNDExNjliMjc2ZTEzMGJkNTJhN2I5Zjg3ZWQ3ZDA4ZTYxYTIwYzVhMTY0NmMwZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWRhMmUwOTMyN2FkNTY1NDYxNDU0OTNhYTcwYjRkN2Y1YjhmNzI4YzkxYzhjNjdlY2NkZGVmYmQxNzA2Y2ZkZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b482bf875d14c578aa5c20eb571478d",
+      "statement": "The OpenAI embedder batches inputs in fixed groups of 100 (BATCH_SIZE), issuing one client.embeddings.create({ model, input: batch }) call per batch and flattening the returned vectors into a single ordered number[][].",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L10-L11",
+          "version": "repo-lines-v1:sha256:6ebf544146bbcc9dd648e498f2636862205768036fe46e09ae9a9fc5f86f9d95:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2NkNGYzZjZjNjU1ZWE1MzAzY2Q4YTY1MDNhYWIyNjk3NTdjM2EzMjEzNjMwNWVmMzFlNGRhNDlmNjhkMDNiMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWNmYjcxNjc0N2MzZDIyNWFkZGVmMGE3YzgwZTg4OThiZGYzZmI3NThlNWVmOTM2YzdlMjc4NDhmMjIyYzg5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjM5ZDRmNTMwNDU3YjMxYmFiNjAzMmY3MjQ2ZmU3YTE1MGQ5YWYxOTE0MGE2ZTEzYjdmYTc2ZjFiMjIwOTRlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjlmMzAxMjY0OGIxOWZlZDFiOTBkMzVkM2FmN2YxMzQxMjE2YjI2MjhjZjUzMmRjMWRmYzUyZDlhYzhiMTY4NCJ9"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L45-L53",
+          "version": "repo-lines-v1:sha256:b5ee233ed6d98fd5412bc343158aac356fa1db1a9653656b44c82b44f9d3eb99:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlZjE5ZjE0OTA1NmE5NjExYzkxMWQ1MWJhMTg0OWE0YTZjNmE3ZmJiYmQ1YzAyY2ZiZDNlZjU0ZmJhZDNmNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQ1NmM3MWVmNWQ1Yjg1NjMyZDgyYmEwZWM3MTc2ZTk2ODY3NzNiYWZhMTAwZWE4NDQxMmE1YWU1Y2EyZWU0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTE5NTQ2NTVkMzU3MmE0ODk2OTdjNzlhZWFmZDkxOTI3ZTIzZTA4OGQ4N2JhOGE0NTFhY2UxODljODEwZWIyMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTE1ZjZmOTc4YjJiMTM5OGQ3MDlkMjRmNDkyN2U0ZDczYzAyY2Q2ZmJjMjk3MjM4MmNkMjlhMTg0Y2RiNzc5YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_13ae4339157142c0a2c269db73789327",
+      "statement": "Each batched OpenAI call is wrapped in a retry helper with MAX_RETRIES=3 total attempts. Retries occur only for HTTP status 429 or status >= 500, using exponential backoff (delay = 2^i * 1000 ms: 1s, 2s, 4s) and a warning log per attempt. All other errors (non-429, status < 500, or missing status) are rethrown immediately; exhausting attempts throws the last error.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L13-L31",
+          "version": "repo-lines-v1:sha256:10d28af49c70609838901aab4ddfc7ad1bb2c605ae76b9df0a5e0a881868c847:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0OGI3NDJmYjZlOWI0MzEyNWIwOTU2NGRiZDc1NGNiMjkwMDVhNjJhNzczMTVlZjRkMTRiOWZiZjg5ODQ4NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRiOWViOTAzODYzM2ZmYjViZDAxNWQzMmIxY2FmMmJhMzA2ZDRkOTM4MGM0YzEyNDgwYTE2MDk0ZWY3ZmQxMGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc2NjkyZGFjZDdjOWU3NTQ1NTRhM2JmYjY5NDMzMjllOTU0YmI3ZTVkMWQ5ODMwYmIxN2NkYWQ3OGI0OWZjOGIifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/embed.ts#L49-L52",
+          "version": "repo-lines-v1:sha256:752d062653f8ef05c87d502b7662e36beaeefc280f921e39474a09b69919d089:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU2NWY1OTA0ZmJiOTRlNDA1MDA5MThjYmZkYTQwYTNhNTQ1N2FiODk3ODdkMDdjOTk1MGNiMjQ4OTgxMDNhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWU3NWM3MGQ5NDYzNjI1ZTEwNzlmZDhmYzhlZTYyYWQyZTkyYzQyYmVhYWJmZDg1Yjc4ZDhlMGE0OTc5Yjk0YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I3NTdkMmM3ZTliOTA2NDU2NzEzNGJjNTVhOGIyNWY4OTI2Nzg0Mjg4NDJmZTMwZGRhODQzZWVkMzcxYmFhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjQxODAwZDNkYjFjZTg1ZmMwNTgyNGZiZTI1NTIyMzM4NTkxN2QwYmU4MWU0NTFhNjAzMGI4MGNmYTNmOTM4NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0064ceb7bed34953b8a0ab7ba1db3c74",
+      "statement": "The embedding model name participates in the content-hash/cache-key computation: hash.ts joins sorted chunk texts, PIPELINE_VERSION (\"1\"), and the model string into a SHA-256 payload. Because index.ts computes contentHash(allChunks, embedder.model), changing the embedding model changes the hash, causing a cache miss and forcing a full re-embed.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L31-L42",
+          "version": "repo-lines-v1:sha256:bf93a2b7b7826e771d163abad986c5d2f3e4c3c0dda49c9b829a20e9cf5a3693:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5ZGQzMzI1ZmNmODg0OGNkNWIzY2VmOTRkMDgxYzMzNWU0M2MwYjk4OWNhNzk0ZDdiYzQ0YTdhYTVlMGQ4MGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4NDRmOTZhMDJjZjU0YzJiZTEwOWZiNGQ4NzUzMDRjNTdiNjdmZjJkOGFmN2M0Yjk5NTVlYWRlODNkNzcxYWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjYTg5MWVkNWU5NGU0YTg5YTc0MDAxZWY4ODk2YWYxODA0YWVkNWNmYmJiMTIwYzcyZmFmZTZlNGU0M2JlODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2NjNjMDMyNWZmZWQxM2IwYWViYmQxNmY5Zjk3ZjJhNDFmODY3ZDNlYThmMTRhNGExNDk5ZDA0NmM0OWZkY2QifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/hash.ts#L4-L9",
+          "version": "repo-lines-v1:sha256:b9e597c9fccdf8877bb586ba00b57a6c8e89993cbeaacca48d7ffcee773f8814:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI5MjQzYjE5ZjdlMzBkMTZkMTZlMTUwYWE1NGEyM2JiM2RhNWRlMzMxYzg1ZjFlNWU1MTMwYjQxMjA1Yjk4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWFiNjMxZTU4ZTk0ZjRiZWJmYjhjNDE4N2NmMzFmN2VjOWM5ZDVkYWU5ZGZmMGQ3MWI1NmMxN2JkZDE3YmViNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzY4OTA4MmI3ZTczMWVmMjkyNDI5ZjJiMWVhNTc4NmYxZDBhODBhYTQzNGY2YzU0OWQ3NzM3OGYxM2FmMmVjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_99ff448ced694208ba245d8a910ae857",
+      "statement": "At startup index.ts creates the embedder, computes the content hash from its model, attempts to load a cached VectorStore from DATA_DIR keyed by that hash, and only on a miss calls store.build(allChunks, embedder) (which normalizes vectors to unit length) and persists the result. The same embedder is then passed to buildMcpServer so queries are embedded against the same model used to build the index.",
+      "evidence": [
+        {
+          "resource": "repo://mcp-server/src/index.ts#L30-L48",
+          "version": "repo-lines-v1:sha256:9e51f689260fa955af7a55cc2379b36ee6c12ff8776fc36a45bd67c0603481ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5YzZiNDVhZWZhZDJhZjYzMTJmZDcxNjRiZWY4MTk1M2MxN2Y4NDBlOGIwMWFjZjJmZTI4MzAwNjQ1YmRmN2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1MDUyYTZjODNjNGUzNTc5MWM3NWZkNmY1NDkwZjk3YzhlNDU3NjIxZTdkZTRjMzY2YTljMWQ1NzAzYzhhNTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNlOTQ0ZjUwOTdlNGVlZGI5ZTBiYzU0ZTk0ZGFhYTBhY2IzY2FkZjY4YzhlMDA0YjNjMzYyYjUxNjI5MTc2YTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE3MDQ2MWQ2MjUyYTk0ZGU1MTc4MDYzMGVjYzUwOWMwY2I5MTdmYTQxYTRiYzk5YmIyMzRkN2QzMzA5YWNkNTYifQ"
+        },
+        {
+          "resource": "repo://mcp-server/src/indexing/store.ts#L33-L43",
+          "version": "repo-lines-v1:sha256:d85df1c5846dfb0e15228e06f7bc3010767abd567d376a744d78f5f73a7942b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNmI2MmM0N2Q1NjExZmYxYWRjNmU0YzFkYzljMmM5MmVmMzhkMWM4YTI5MDkyMjM5ZjRiZWY5OWExZWE5YmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyMzJkMzU2YTliNmVlMzNlYTdkN2JhZDJiOWU0NTBiMmZiNzcyMzY4YTMwZmJmOTAxODY0YmQwZWU5NjI1NWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBkOGJmNWY3NmZhNDgzZGQ5YjMzNTIyYWVmNjViMjA1MjM2NGZiOWQ4NjRhZjJlZjhjMjhjOTIwM2Y5ODg1ODkifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-09-04T12:40:12.458Z"
+  }
+}
