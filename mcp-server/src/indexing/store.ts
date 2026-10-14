@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import type { Chunk } from "../ingest/chunk.js";
 import type { Embedder } from "./embed.js";
+import { calculateKeywordScore } from "./keyword.js";
 import { logger } from "../logger.js";
 
 interface StoredVector {
@@ -42,12 +43,26 @@ export class VectorStore {
     logger.info("Vector index built", { vectors: this.vectors.length });
   }
 
-  search(queryVec: number[], k: number): { chunk: Chunk; score: number }[] {
+  search(
+    queryVec: number[],
+    k: number,
+    queryText?: string
+  ): { chunk: Chunk; score: number }[] {
     const qNorm = normalize(queryVec);
-    const scored = this.vectors.map((sv) => ({
-      chunk: sv.chunk,
-      score: dotProduct(sv.vector, qNorm),
-    }));
+    const scored = this.vectors.map((sv) => {
+      const vectorScore = dotProduct(sv.vector, qNorm);
+      const keywordScore = queryText ? calculateKeywordScore(queryText, sv.chunk) : 0;
+      // Hybrid scoring: blends vector similarity with exact keyword matching
+      const hybridScore = queryText
+        ? vectorScore * 0.7 + keywordScore * 0.3
+        : vectorScore;
+
+      return {
+        chunk: sv.chunk,
+        score: hybridScore,
+      };
+    });
+
     scored.sort((a, b) => b.score - a.score);
     return scored.slice(0, k);
   }
