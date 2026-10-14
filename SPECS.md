@@ -32,6 +32,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `fleet/index.adoc`
   - `fleet/vehicle_groups.adoc`
   - `fleet/vehicles.adoc`
+  - `fleet/free-sale-plan.adoc`
 - Booking
   - `booking/index.adoc`
   - `booking/locations.adoc`
@@ -73,6 +74,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `technical/pricing_analysis.adoc`
 - Release Notes
   - `release-notes/index.adoc`
+  - `release-notes/3.0.adoc`
   - `release-notes/2.0.adoc`
   - `release-notes/1.1.adoc`
 
@@ -81,8 +83,9 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Welcome page with caution banner and main navigation.
 
 ### Fleet
-- Vehicle Groups: pricing by season, availability, tags, per-group pricing tools, and non-availability periods.
-- Vehicles: vehicle details, filters, locations, tags, images, and plate-level status.
+- Vehicle Groups: pricing by season, availability modes (FLEET, ALLOTMENT, FREE_SALE), allotment quantity, tags, per-group pricing tools, and non-availability periods.
+- Vehicles: vehicle details, filters, pickup location restriction, tags, images, plate-level status, and review of plates without status.
+- Free Sale Daily Plan: real-time monitoring of reservations vs physical fleet capacity, overbooking alerts/badges, interactive 1-click Stop Sale and reopen toggle.
 
 ### Booking
 - Locations: pickup/dropoff locations, costs, grouping, Google place link, defaults, and activation.
@@ -125,7 +128,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Pricing Analysis: stub page.
 
 ### Release Notes
-- Release notes landing page, `1.1` baseline, and `2.0` mixed-availability/on-request release page.
+- Release notes landing page, `1.1` baseline, `2.0` mixed-availability/on-request release, and `3.0` hybrid availability, free sale daily plan, and Q1-Q3 release page.
 
 ## Reusable Partials
 - Caution notice in `docs/modules/ROOT/partials/caution.adoc`.

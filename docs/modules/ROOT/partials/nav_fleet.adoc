@@ -1,2 +1,3 @@
 ** xref:fleet/vehicle_groups.adoc[]
 ** xref:fleet/vehicles.adoc[]
+** xref:fleet/free-sale-plan.adoc[]

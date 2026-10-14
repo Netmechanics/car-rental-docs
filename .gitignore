@@ -44,3 +44,4 @@ antora/build/
 mcp-server/data/
 mcp-server/dist/
 mcp-server/.env
+.opencode/

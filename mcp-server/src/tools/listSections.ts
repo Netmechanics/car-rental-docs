@@ -1,4 +1,5 @@
 import type { VectorStore } from "../indexing/store.js";
+import { getDocUrl } from "./url.js";
 
 export function listSections(store: VectorStore): object {
   const byPage = new Map<string, { title: string; sections: string[] }>();
@@ -16,6 +17,7 @@ export function listSections(store: VectorStore): object {
   const pages = [...byPage.entries()].map(([path, { title, sections }]) => ({
     path,
     title,
+    url: getDocUrl(path),
     sections,
   }));
 
