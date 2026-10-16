@@ -14,7 +14,7 @@ export function buildMcpServer(store: VectorStore, embedder: Embedder): McpServe
     {
       title: "Search nmecar documentation",
       description:
-        "Semantic search στην τεκμηρίωση του nmecar. Επέστρεψε τα πιο σχετικά αποσπάσματα για την ερώτηση.",
+        "Semantic search στην τεκμηρίωση του nmecar. Επιστρέφει τα πιο σχετικά αποσπάσματα μαζί με το URL (παραπομπή) κάθε άρθρου.",
       inputSchema: {
         query: z.string().min(1).describe("Η ερώτηση ή το θέμα προς αναζήτηση"),
         k: z.number().int().min(1).max(20).optional().describe("Αριθμός αποτελεσμάτων (default 5)"),
@@ -30,7 +30,7 @@ export function buildMcpServer(store: VectorStore, embedder: Embedder): McpServe
     "get_doc_page",
     {
       title: "Get documentation page",
-      description: "Επέστρεψε το πλήρες κείμενο μιας σελίδας τεκμηρίωσης.",
+      description: "Επιστρέφει το πλήρες κείμενο και το URL μιας σελίδας τεκμηρίωσης.",
       inputSchema: {
         path: z
           .string()

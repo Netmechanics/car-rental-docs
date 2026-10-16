@@ -10,6 +10,7 @@
 
 * xref:booking/locations.adoc[Τοποθεσίες] — σημεία παραλαβής και παράδοσης, κόστη, ομαδοποίηση.
 * xref:booking/routes.adoc[Διαδρομές] — ζεύγη τοποθεσιών με χρέωση one-way διαδρομής.
+* xref:booking/availability-explained.adoc[Διαθεσιμότητα με απλά λόγια] — πώς ήταν, πώς είναι τώρα και πώς αποφασίζει το σύστημα αν ένα αυτοκίνητο πουλιέται, με παραδείγματα και screenshots.
 * xref:booking/rental-search-logic.adoc[Λογική αναζήτησης] — κανόνες διάρκειας, extra hours, αποτελέσματα αναζήτησης.
 * xref:booking/seasons.adoc[Σεζόν] — ορισμός χρονικών περιόδων τιμολόγησης.
 * xref:booking/coupons.adoc[Κουπόνια] — κωδικοί έκπτωσης, διάρκεια ισχύος, regex validation.
