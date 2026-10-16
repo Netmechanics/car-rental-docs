@@ -37,6 +37,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `booking/index.adoc`
   - `booking/locations.adoc`
   - `booking/routes.adoc`
+  - `booking/availability-explained.adoc`
   - `booking/rental-search-logic.adoc`
   - `booking/seasons.adoc`
   - `booking/coupons.adoc`
@@ -90,6 +91,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 ### Booking
 - Locations: pickup/dropoff locations, costs, grouping, Google place link, defaults, and activation.
 - Routes: location pairs with route pricing and charge policy integration.
+- Availability Explained (v3.0): plain-language guide for non-technical users. Old (v2) vs new (v3) behavior, the 3 availability modes with analogies and numeric examples, decision flow diagram, preparation time, stop sale vs availability blocks (per-mode effect table), Free Sale Daily Plan reading guide (incl. caution that "reopen sales" deletes whole overlapping stop sales), plates without status, "why is the car not showing" checklist, glossary. Screenshots in `images/availability/` captured with Playwright from a local backoffice (no customer PII screens).
 - Rental Search Logic (Business): business-focused summary of search, duration, extra-hours rules, pricing bands, mixed availability, and on-request outcomes.
 - Seasons: calendar coverage requirement and minimum duration rules.
 - Coupons: discount codes, validity windows, and regex validation.
