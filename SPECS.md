@@ -8,7 +8,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 
 ## Antora Structure
 - Playbook: `antora-playbook.yml` (site title `nmecar Documentation`)
-- Component descriptor: `docs/antora.yml` (display title `nmecar`, component id `nmecar`, current documentation version `1.1`, ROOT module, nav at `modules/ROOT/nav.adoc`)
+- Component descriptor: `docs/antora.yml` (display title `nmecar`, component id `nmecar`, current documentation version `3.1`, ROOT module, nav at `modules/ROOT/nav.adoc`)
 - Content pages: `docs/modules/ROOT/pages/**`
 - Version 2 booking documentation includes `booking/offline-inventory.adoc` for offline reservations, availability blocks, locking, rollout and deferred scope.
 - Partials: `docs/modules/ROOT/partials/**`
@@ -75,6 +75,7 @@ This repository contains the Antora documentation site for nmecar (car rental pl
   - `technical/pricing_analysis.adoc`
 - Release Notes
   - `release-notes/index.adoc`
+  - `release-notes/3.1.adoc`
   - `release-notes/3.0.adoc`
   - `release-notes/2.0.adoc`
   - `release-notes/1.1.adoc`
@@ -130,7 +131,8 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - Pricing Analysis: stub page.
 
 ### Release Notes
-- Release notes landing page, `1.1` baseline, `2.0` mixed-availability/on-request release, and `3.0` hybrid availability, free sale daily plan, and Q1-Q3 release page.
+- Release notes landing page, `1.1` baseline, `2.0` mixed-availability/on-request release, `3.0` hybrid availability, free sale daily plan, and Q1-Q3 release page, and `3.1` bulk change of the availability mode from the vehicle group list.
+- Vehicle groups (v3.1): list columns for availability mode and declared quantity, multi-select, and the bulk change dialog. Screenshots `images/vehicle_groups_list.png` and `images/vehicle_groups_bulk_dialog.png` captured with Playwright from a local backoffice; `images/vehicle_groups.png` is the group detail form.
 
 ## Reusable Partials
 - Caution notice in `docs/modules/ROOT/partials/caution.adoc`.
@@ -145,4 +147,4 @@ This repository contains the Antora documentation site for nmecar (car rental pl
 - The content source now builds from the checked-out `HEAD`, so local documentation edits are reflected without switching to `master`.
 - The documented build flow uses npm scripts: `npm run build:theme`, `npm run build:site`, `npm run build:site:fetch`, and `npm run preview`.
 - The playbook is configured with the deployment URL `http://carrental-docs.nmlabs.gr`.
-- The component descriptor now marks the current documentation line as `1.1`; full Antora multi-version activation still requires a dedicated `1.0` docs ref/tag with its own matching component version metadata.
+- The component descriptor now marks the current documentation line as `3.1`. The released `3.0` documentation is preserved in the `v3.0.0` branch/tag, and the `3.1` line lives on the `v3.1.0` branch.
